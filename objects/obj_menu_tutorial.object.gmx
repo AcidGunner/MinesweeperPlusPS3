@@ -31,8 +31,11 @@ player="Player";
 
 /* please uncomment this if building for ps3 systems ^_^ */
 
-//player=psn_default_user();
-//if !is_string(player) player=psn_default_user_name();
+//*
+    player=psn_default_user();
+    if !is_string(player) player=psn_default_user_name();
+    if string_length(player)&lt;2 player="Player";
+//*/
 </string>
           </argument>
         </arguments>

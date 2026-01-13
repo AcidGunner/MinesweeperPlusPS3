@@ -113,7 +113,7 @@ if obj_game.win!=1
     }
     else alarm[1]=60-shifting;
     
-    if time_left&lt;1 game_restart();
+    if time_left&lt;1 &amp;&amp; global.stage==9 game_restart();
 }
 </string>
           </argument>

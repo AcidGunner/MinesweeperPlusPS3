@@ -82,7 +82,7 @@ draw_set_halign(fa_left);
 draw_sprite_stretched(spr_title,frame,0,0,320,240);
 draw_text_outline(24,24,"Minesweeper Plus",c_red,c_black,1);
 draw_set_font(fnt_smol);
-draw_text_outline(24,60,"PS3 Port (v0.1)",c_red,c_black,1);
+draw_text_outline(24,60,"PS3 Port (v0.1.1)",c_red,c_black,1);
 draw_set_font(fnt_main);
 </string>
           </argument>
