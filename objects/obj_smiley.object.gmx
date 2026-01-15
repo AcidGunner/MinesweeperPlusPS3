@@ -41,12 +41,21 @@ cutscene = false;
 mine_detected = 0;
 temp3 = 0;
 
+cutscene_10 = false;
+cutscene_10s = 0;
+
 _y=y;
 
 if global.stage==9
 {
     cutscene = true;
     cutscene_9 = true;
+}
+
+if global.stage==10
+{
+    cutscene = true;
+    cutscene_10 = true;
 }
 
 // Spritesheet
@@ -64,6 +73,29 @@ cutscene_9_1[2]=5;
 cutscene_9_1[3]=24;
 cutscene_9_1[4]=6;
 cutscene_9_1[5]=8;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>show_debug_message("??");
 </string>
           </argument>
         </arguments>
@@ -288,6 +320,7 @@ else
 
 var temp1 = (room_width/2);
 var mousex=obj_input.mx;
+var mousey=obj_input.my;
 
 if obj_game.win == false
 {
@@ -316,7 +349,7 @@ if obj_game.win == false
         if global.stage==86 sprite_index = spr_smiley86;
         if global.stage==9 sprite_index = spr_smiley5;
         
-        if mousex&lt;48
+        if mousey&lt;48
             if sprite_index == spr_smiley5
                 image_index=0+image_anim+(temp2*12)
             else if sprite_index == spr_smiley3
@@ -400,6 +433,15 @@ if obj_game.win == false
                     sprite_index = spr_smiley5_cutscene;
                     image_index = 4;
                 }
+            }
+        }
+        else if global.stage==10
+        {
+            if cutscene_10s = 0
+            {
+                obj_smiley_hat.image_index = 0;
+                sprite_index = spr_smiley6_cutscene;
+                image_index = 0;
             }
         }
     }

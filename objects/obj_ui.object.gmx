@@ -32,6 +32,7 @@ shifting=0;
 red_ui=c_white;
 rand_time=0;
 time_left=0;
+test_rect=0;
 </string>
           </argument>
         </arguments>
@@ -56,6 +57,12 @@ time_left=0;
             <kind>1</kind>
             <string>time_left=179;
 red_ui=merge_colour(c_red,c_white,0.5);
+if obj_game.cirno9=true
+{
+    time_left=floor(time_left/1.2);
+    red_ui=merge_colour(c_blue,c_white,0.5);
+    test_rect=1;
+}
 </string>
           </argument>
         </arguments>

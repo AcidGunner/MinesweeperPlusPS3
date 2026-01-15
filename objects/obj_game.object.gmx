@@ -33,6 +33,7 @@ grid_h = global.gridh[global.stage];
 cell_size = 16;
 mine_count = global.minec[global.stage];
 boss9_started = false;
+boss10_started = false;
 mines_left = mine_count;
 temp_mines=mine_count;
 
@@ -71,9 +72,10 @@ else if global.stage==6 temp_111 = 3
 else if global.stage==7 temp_111 = 4
 else if global.stage==8 temp_111 = 4
 
-if global.stage!=9 and global.stage!=86 audio_loop_sound(global._music[temp_111],global._st[temp_111],global._en[temp_111],44100,0);
+if global.stage!=9 and global.stage!=86 and global.stage!=10
+    audio_loop_sound(global._music[temp_111],global._st[temp_111],global._en[temp_111],44100,0);
 
-if global.stage==9 audio_play_sound(mus_ocean,0,true);
+if global.stage==9 or global.stage==10 audio_play_sound(mus_ocean,0,true);
 
 spr_bg=-1;
 spr_bgb=-1;
@@ -97,6 +99,12 @@ if global.stage==86
 }
 
 if global.stage==9
+{
+    spr_bg=spr_bg1;
+    spr_bgb=spr_bg1b;
+}
+
+if global.stage==10
 {
     spr_bg=spr_bg1;
     spr_bgb=spr_bg1b;
@@ -156,10 +164,12 @@ t9_grid=spr_bg5;
 t9_gridb=spr_bg5b;
 cirno9=false;
 
-if obj_input.c_held
+if obj_input.c_held &amp;&amp; global.stage==9
 {
     secret_script_p1();
     cirno9=true;
+    iceland = ds_grid_create(grid_w, grid_h);
+    ds_grid_clear(iceland, 0);
 }
 </string>
           </argument>
@@ -233,6 +243,52 @@ while (ds_list_size(spiral) &lt; grid_w * grid_h)
     step += 1;
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///ICELAND
+if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
+
+var ix = irandom_range(1, grid_w - 2);
+var iy = irandom_range(1, grid_h - 2);
+
+while reveal[# ix, iy] = true
+{
+    var ix = irandom_range(1, grid_w - 2);
+    var iy = irandom_range(1, grid_h - 2);
+}
+
+audio_play_sound(sfx_ice,9,false);
+ds_grid_clear(iceland, 0);
+iceland[# ix-1, iy-1] = 1;
+iceland[# ix, iy-1] = 1;
+iceland[# ix+1, iy-1] = 1;
+iceland[# ix-1, iy] = 1;
+iceland[# ix, iy] = 2;
+iceland[# ix+1, iy] = 1;
+iceland[# ix-1, iy+1] = 1;
+iceland[# ix, iy+1] = 1;
+iceland[# ix+1, iy+1] = 1;
+alarm[9]=10*global.FSP;
 </string>
           </argument>
         </arguments>
@@ -385,10 +441,13 @@ if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h)
 
 if obj_smiley.mine_detected != 0 exit;
 if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
+if obj_smiley.cutscene == true &amp;&amp; boss10_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
 
 if instance_exists(obj_9) &amp;&amp; !first_click
 {
+    if iceland[# xx, yy] != 0 exit;
+    
     if obj_9.boss_x == xx &amp;&amp; obj_9.boss_y == yy
     {
         obj_9.stop=1;
@@ -439,6 +498,29 @@ if temp_x==xx &amp;&amp; temp_y==yy
             exit; // first click handled
         }
         
+        if (!boss10_started) &amp;&amp; global.stage==10
+        {
+            if (xx == center_x &amp;&amp; yy == center_y)
+            {
+                // Good! Start the game
+                boss10_started = true;
+                audio_stop_sound(mus_ocean);
+                audio_loop_sound(global._music[11],global._st[11],global._en[11],44100,0);
+                obj_smiley.alarm[5]=1;
+                
+                reveal[# xx, yy ] = true;
+                grid[# xx, yy] = 10;
+            }
+            else
+            {
+                // Wrong square — clicking does nothing
+                show_debug_message("!! Must click boss center tile first");
+                exit;
+            }
+            
+            exit; // first click handled
+        }
+        
         // === Safe First Click ===
         if (first_click)
         {
@@ -459,6 +541,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 audio_loop_sound(global._music[6],global._st[6],global._en[6],44100,0);
                 obj_9.active=true;
                 reveal[# obj_9.boss_x, obj_9.boss_y ] = false;
+                alarm[9]=1;
                 alarm[4]=1;
             }
             obj_ui.alarm[0]=1;
@@ -532,10 +615,13 @@ if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h) exit;
 
 if obj_smiley.mine_detected != 0 exit;
 if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
+if obj_smiley.cutscene == true &amp;&amp; boss10_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
 
 if win == false
 {
+    if iceland[# xx, yy] != 0 exit;
+    
     if (xx &gt;= 0 &amp;&amp; yy &gt;= 0 &amp;&amp; xx &lt; grid_w &amp;&amp; yy &lt; grid_h)
     {
         // Toggle flag only if not revealed
@@ -660,6 +746,7 @@ if obj_input.mk1 &amp;&amp; win == false &amp;&amp; global.stage!=86
 {
     if obj_smiley.mine_detected != 0 exit;
     if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
+    if obj_smiley.cutscene == true &amp;&amp; boss10_started exit;
     if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
     
     // Cell must be inside the grid
@@ -807,6 +894,9 @@ if bad_apple==1
         if !boss9_started &amp;&amp; global.stage==9
             draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
 
+        if !boss10_started &amp;&amp; global.stage==10
+            draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
+
         // === Flagged ===
         if (flagged[# xx, yy])
             draw_sprite_stretched(spr_flag, image_index, x1, y1, draw_size, draw_size);
@@ -842,6 +932,19 @@ if bad_apple==1
                 draw_sprite_stretched(spr_light_grid, 0, x1, y1, draw_size, draw_size);
             }
         }
+    }
+}
+
+for (var xx = 0; xx &lt; grid_w; xx++)
+{
+    for (var yy = 0; yy &lt; grid_h; yy++)
+    {
+        var draw_size = cell_size * zoom;
+        var x1 = grid_offset_x + xx * draw_size;
+        var y1 = grid_offset_y + yy * draw_size;
+        
+        if cirno9=true &amp;&amp; iceland[# xx, yy]=2
+        draw_sprite_stretched(spr_ice, image_index, x1-draw_size, y1-draw_size, draw_size*3, draw_size*3);
     }
 }
 </string>

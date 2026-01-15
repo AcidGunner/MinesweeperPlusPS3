@@ -71,6 +71,12 @@
             <sound>sound\mus_stage99_win</sound>
           </sounds>
         </sounds>
+        <sounds name="boss10">
+          <sounds name="mus_stage10">
+            <sound>sound\mus_stage10_prepare</sound>
+            <sound>sound\mus_stage10</sound>
+          </sounds>
+        </sounds>
       </sounds>
       <sound>sound\mus_title</sound>
       <sound>sound\mus_end</sound>
@@ -91,6 +97,7 @@
       <sound>sound\sfx_defeat</sound>
       <sound>sound\boot1</sound>
       <sound>sound\boot2</sound>
+      <sound>sound\sfx_ice</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -121,6 +128,7 @@
       <sprites name="secret">
         <sprite>sprites\spr_99</sprite>
         <sprite>sprites\spr_99spike</sprite>
+        <sprite>sprites\spr_ice</sprite>
       </sprites>
       <sprite>sprites\spr_num</sprite>
       <sprite>sprites\spr_flag</sprite>
@@ -138,6 +146,7 @@
         <sprite>sprites\spr_smiley4</sprite>
         <sprite>sprites\spr_smiley5</sprite>
         <sprite>sprites\spr_smiley5_cutscene</sprite>
+        <sprite>sprites\spr_smiley6_cutscene</sprite>
         <sprite>sprites\spr_smiley_bonus</sprite>
         <sprite>sprites\spr_smiley86</sprite>
       </sprites>
@@ -219,6 +228,7 @@
     <script>scripts\gamepad_button_check_pressed_any.gml</script>
     <script>scripts\bad_apple_initialize.gml</script>
     <script>scripts\initial_setup.gml</script>
+    <script>scripts\ver_show.gml</script>
     <script>scripts\secret_script_p2.gml</script>
     <script>scripts\secret_script_p1.gml</script>
   </scripts>

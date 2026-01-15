@@ -1,18 +1,19 @@
 ///initial_setup();
 audio_channel_num(20);
+window_set_caption("Minesweeper Plus PS3 Port ("+ver_show()+")");
 bad_apple_initialize();
 randomize();
 global.CONTROL=1;
 global.type_input=1;
 if os_type!=os_ps3 && !gamepad_is_connected(0) global.CONTROL=0;
 
-global.stage=1;
+global.stage=10;
 global.hat_type=1;
 global._music_type=0;
 init_globals_mus();
 global.pitch=1;
 
-// First 4 stages setup
+// First Chapter setup
 global.gridw[1]=6;
 global.gridh[1]=6;
 global.minec[1]=3;
@@ -25,8 +26,6 @@ global.minec[3]=10;
 global.gridw[4]=9;
 global.gridh[4]=12;
 global.minec[4]=12;
-
-// Second 4 stages setup
 global.gridw[5]=18;
 global.gridh[5]=9;
 global.minec[5]=20;
@@ -42,6 +41,13 @@ global.minec[8]=42;
 global.gridw[9]=13;
 global.gridh[9]=13;
 global.minec[9]=21;
+
+// Second Chapter Setup (boss 10 only)
+global.gridw[10]=13;
+global.gridh[10]=13;
+global.minec[10]=21;
+
+// Miscellanious
 global.gridw[86]=16;
 global.gridh[86]=12;
 global.minec[86]=0;

@@ -602,7 +602,8 @@ angle = -angle;
 obj_game.alarm[4]=1;
 
 // --- RANDOM DELAY UNTIL NEXT MOVE ---
-move_timer = irandom_range(20, 60); // adjust for speed
+if obj_game.cirno9==true move_timer = irandom_range(15, 50)
+else move_timer = irandom_range(20, 60);
 </string>
           </argument>
         </arguments>

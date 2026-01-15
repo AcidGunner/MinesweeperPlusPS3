@@ -10,6 +10,10 @@ if global._music_type=0
     global._music[4]=mus_stage4;
     global._music[5]=mus_stage9_prepare;
     global._music[6]=mus_stage9;
+    
+    global._music[11]=mus_stage10_prepare;
+    global._music[12]=mus_stage10;
+    
     global.stage1_win=mus_stage1_win;
     global.stage2_win=mus_stage2_win;
     global.stage3_win=mus_stage3_win;
@@ -24,6 +28,10 @@ else if global._music_type=1
     //global._music[4]=mus_stage4b;
     global._music[5]=mus_stage9b_prepare;
     global._music[6]=mus_stage9b;
+    
+    //global._music[11]=mus_stage10b_prepare;
+    //global._music[12]=mus_stage10b;
+    
     //global.stage1_win=mus_stage1b_win;
     //global.stage2_win=mus_stage2b_win;
     global.stage3_win=mus_stage3b_win;
@@ -38,6 +46,10 @@ else if global._music_type=2
     //global._music[4]=mus_stage4s;
     global._music[5]=mus_stage9s_prepare;
     global._music[6]=mus_stage9s;
+    
+    //global._music[11]=mus_stage10s_prepare;
+    //global._music[12]=mus_stage10s;
+    
     //global.stage1_win=mus_stage1s_win;
     //global.stage2_win=mus_stage2s_win;
     global.stage3_win=mus_stage3s_win;
@@ -52,6 +64,10 @@ else if global._music_type=3
     //global._music[4]=mus_stage4t;
     global._music[5]=mus_stage9t_prepare;
     global._music[6]=mus_stage9t;
+    
+    //global._music[11]=mus_stage10t_prepare;
+    //global._music[12]=mus_stage10t;
+    
     //global.stage1_win=mus_stage1t_win;
     //global.stage2_win=mus_stage2t_win;
     global.stage3_win=mus_stage3t_win;
@@ -66,6 +82,10 @@ else if global._music_type=4
     //global._music[4]=mus_stage4m;
     global._music[5]=mus_stage9m_prepare;
     global._music[6]=mus_stage9m;
+    
+    //global._music[11]=mus_stage10m_prepare;
+    //global._music[12]=mus_stage10m;
+    
     //global.stage1_win=mus_stage1m_win;
     //global.stage2_win=mus_stage2m_win;
     global.stage3_win=mus_stage3m_win;
@@ -80,6 +100,10 @@ else if global._music_type=5
     //global._music[4]=mus_stage48;
     global._music[5]=mus_stage98_prepare;
     global._music[6]=mus_stage98;
+    
+    //global._music[11]=mus_stage108_prepare;
+    //global._music[12]=mus_stage108;
+    
     //global.stage1_win=mus_stage18_win;
     //global.stage2_win=mus_stage28_win;
     global.stage3_win=mus_stage38_win;
@@ -101,3 +125,6 @@ global._st[5] = 1350913;
 global._en[5] = 1533067;
 global._st[6] = 484908;
 global._en[6] = 4433275;
+
+global._st[11]= 1046315;
+global._en[11]= 1186017;

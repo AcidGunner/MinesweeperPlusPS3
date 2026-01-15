@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>600</depth>
+  <depth>-600</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -51,6 +51,14 @@ room_speed=global.FSP;
           <argument>
             <kind>1</kind>
             <string>display_set_gui_size(320,240);
+if instance_exists(obj_ui) &amp;&amp; obj_ui.test_rect=1
+{
+    draw_set_alpha(0.2);
+    draw_set_colour(c_aqua);
+    draw_rectangle(0,0,640,360,false);
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+}
 </string>
           </argument>
         </arguments>
