@@ -4,7 +4,7 @@ The Minesweeper Plus PS3 port is Finally open-sourced!
 # Project Status
 IN DEVELOP: v0.2
 
-LATEST: v0.1.1
+LATEST: v0.1.1F
 
 
 # About the Port

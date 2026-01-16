@@ -29,6 +29,7 @@
 temp2 = 0;
 image_anim = 0;
 image_anim2 = 0;
+image_anim3 = 0;
 image_anim_speed = 0.1;
 temp23=0;
 
@@ -66,6 +67,11 @@ cutscene_9_0[3]=spr_smiley5;
 cutscene_9_0[4]=spr_smiley5_cutscene;
 cutscene_9_0[5]=spr_smiley5_cutscene;
 
+cutscene_10_0[0]=spr_smiley6_cutscene;
+cutscene_10_0[1]=spr_smiley5_cutscene;
+cutscene_10_0[2]=spr_smiley6_cutscene;
+cutscene_10_0[3]=spr_smiley6_cutscene;
+
 // Sprite index
 cutscene_9_1[0]=0;
 cutscene_9_1[1]=0;
@@ -73,6 +79,44 @@ cutscene_9_1[2]=5;
 cutscene_9_1[3]=24;
 cutscene_9_1[4]=6;
 cutscene_9_1[5]=8;
+
+cutscene_10_1[0]=0;
+cutscene_10_1[1]=4;
+cutscene_10_1[2]=1;
+cutscene_10_1[3]=4;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if cutscene_10s == 1
+{
+    cutscene_10s = 2;
+    alarm[6]=140;
+}
+else if cutscene_10s == 2
+{
+    cutscene_10s = 3;
+    obj_10.rand=1;
+    obj_10.alarm[0]=1;
+}
 </string>
           </argument>
         </arguments>
@@ -95,7 +139,15 @@ cutscene_9_1[5]=8;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message("??");
+            <string>if cutscene_10s == 0
+{
+    cutscene_10s = 1;
+    alarm[5]=120;
+}
+else if cutscene_10s == 1
+{
+    instance_create(160,145,obj_10);
+}
 </string>
           </argument>
         </arguments>
@@ -309,9 +361,11 @@ else if cutscene_9s == 1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_anim+=image_anim_speed
-image_anim2+=image_anim_speed/2
+            <string>image_anim+=image_anim_speed;
+image_anim3+=image_anim_speed;
+image_anim2+=image_anim_speed/2;
 image_anim2 = image_anim2 mod 2;
+image_anim3 = image_anim3 mod 3;
 
 if global.stage == 9 &amp;&amp; cutscene == false &amp;&amp; obj_game.win == false
     image_anim = image_anim mod 3;
@@ -437,11 +491,16 @@ if obj_game.win == false
         }
         else if global.stage==10
         {
-            if cutscene_10s = 0
+            sprite_index = cutscene_10_0[cutscene_10s]
+            if cutscene_10s = 2
             {
                 obj_smiley_hat.image_index = 0;
-                sprite_index = spr_smiley6_cutscene;
-                image_index = 0;
+                image_index = cutscene_10_1[cutscene_10s]+image_anim3;
+            }
+            else
+            {
+                obj_smiley_hat.image_index = 0;
+                image_index = cutscene_10_1[cutscene_10s];
             }
         }
     }

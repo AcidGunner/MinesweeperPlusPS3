@@ -163,6 +163,7 @@ highlight_y2 = -1;
 t9_grid=spr_bg5;
 t9_gridb=spr_bg5b;
 cirno9=false;
+utsuho10=false;
 
 if obj_input.c_held &amp;&amp; global.stage==9
 {
@@ -170,6 +171,12 @@ if obj_input.c_held &amp;&amp; global.stage==9
     cirno9=true;
     iceland = ds_grid_create(grid_w, grid_h);
     ds_grid_clear(iceland, 0);
+}
+
+if obj_input.c_held &amp;&amp; global.stage==10
+{
+    secret_script_2_p1();
+    utsuho10=true;
 }
 </string>
           </argument>
