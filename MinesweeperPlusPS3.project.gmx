@@ -75,9 +75,12 @@
           <sounds name="mus_stage10">
             <sound>sound\mus_stage10_prepare</sound>
             <sound>sound\mus_stage10</sound>
+            <sound>sound\mus_stage10_win</sound>
           </sounds>
           <sounds name="mus_stage100">
             <sound>sound\mus_stage100_prepare</sound>
+            <sound>sound\mus_stage100</sound>
+            <sound>sound\mus_stage100_win</sound>
           </sounds>
         </sounds>
       </sounds>
@@ -102,9 +105,31 @@
       <sound>sound\boot2</sound>
       <sound>sound\sfx_ice</sound>
       <sound>sound\sfx_beep</sound>
+      <sound>sound\sfx_10reset</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
+    <sprites name="hats">
+      <sprite>sprites\spr_hat1</sprite>
+      <sprite>sprites\spr_hat2</sprite>
+      <sprite>sprites\spr_hat3</sprite>
+      <sprite>sprites\spr_hat4</sprite>
+      <sprite>sprites\spr_hat5</sprite>
+      <sprite>sprites\spr_hat6</sprite>
+      <sprite>sprites\spr_hat7</sprite>
+    </sprites>
+    <sprites name="smiley">
+      <sprite>sprites\spr_smiley1</sprite>
+      <sprite>sprites\spr_smiley2</sprite>
+      <sprite>sprites\spr_smiley3</sprite>
+      <sprite>sprites\spr_smiley4</sprite>
+      <sprite>sprites\spr_smiley5</sprite>
+      <sprite>sprites\spr_smiley5_cutscene</sprite>
+      <sprite>sprites\spr_smiley6</sprite>
+      <sprite>sprites\spr_smiley6_cutscene</sprite>
+      <sprite>sprites\spr_smiley_bonus</sprite>
+      <sprite>sprites\spr_smiley86</sprite>
+    </sprites>
     <sprites name="background">
       <sprite>sprites\spr_bg1</sprite>
       <sprite>sprites\spr_bg1b</sprite>
@@ -120,6 +145,10 @@
       <sprite>sprites\spr_bg86b</sprite>
       <sprite>sprites\spr_bg99</sprite>
       <sprite>sprites\spr_bg99b</sprite>
+      <sprite>sprites\spr_bg6</sprite>
+      <sprite>sprites\spr_bg6b</sprite>
+      <sprite>sprites\spr_bg10</sprite>
+      <sprite>sprites\spr_bg10b</sprite>
     </sprites>
     <sprites name="grid">
       <sprite>sprites\spr_grid</sprite>
@@ -156,26 +185,6 @@
       <sprite>sprites\spr_explosion</sprite>
     </sprites>
     <sprites name="ui">
-      <sprites name="smiley">
-        <sprite>sprites\spr_smiley1</sprite>
-        <sprite>sprites\spr_smiley2</sprite>
-        <sprite>sprites\spr_smiley3</sprite>
-        <sprite>sprites\spr_smiley4</sprite>
-        <sprite>sprites\spr_smiley5</sprite>
-        <sprite>sprites\spr_smiley5_cutscene</sprite>
-        <sprite>sprites\spr_smiley6_cutscene</sprite>
-        <sprite>sprites\spr_smiley_bonus</sprite>
-        <sprite>sprites\spr_smiley86</sprite>
-      </sprites>
-      <sprites name="hat">
-        <sprite>sprites\spr_hat1</sprite>
-        <sprite>sprites\spr_hat2</sprite>
-        <sprite>sprites\spr_hat3</sprite>
-        <sprite>sprites\spr_hat4</sprite>
-        <sprite>sprites\spr_hat5</sprite>
-        <sprite>sprites\spr_hat6</sprite>
-        <sprite>sprites\spr_hat7</sprite>
-      </sprites>
       <sprites name="menu">
         <sprite>sprites\spr_menu</sprite>
         <sprite>sprites\spr_menu_bonus</sprite>
@@ -239,6 +248,12 @@
     <scripts name="logo">
       <script>scripts\showLogo.gml</script>
     </scripts>
+    <scripts name="easteregz">
+      <script>scripts\secret_script_p1.gml</script>
+      <script>scripts\secret_script_p2.gml</script>
+      <script>scripts\secret_script_2_p1.gml</script>
+      <script>scripts\secret_script_2_p2.gml</script>
+    </scripts>
     <script>scripts\audio_loop_sound.gml</script>
     <script>scripts\init_globals_mus.gml</script>
     <script>scripts\draw_text_outline.gml</script>
@@ -246,10 +261,6 @@
     <script>scripts\bad_apple_initialize.gml</script>
     <script>scripts\initial_setup.gml</script>
     <script>scripts\ver_show.gml</script>
-    <script>scripts\secret_script_p1.gml</script>
-    <script>scripts\secret_script_p2.gml</script>
-    <script>scripts\secret_script_2_p1.gml</script>
-    <script>scripts\secret_script_2_p2.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main</font>
@@ -258,17 +269,23 @@
   </fonts>
   <objects name="objects">
     <objects name="Main">
-      <object>objects\obj_game</object>
-      <object>objects\obj_ui</object>
-      <object>objects\obj_smiley</object>
-      <object>objects\obj_smiley_hat</object>
-      <object>objects\obj_9</object>
-      <object>objects\obj_cursor</object>
-      <object>objects\obj_bg</object>
-      <object>objects\obj_explosion</object>
-      <object>objects\obj_bomb</object>
-      <object>objects\obj_end_demo</object>
-      <object>objects\obj_10</object>
+      <objects name="game">
+        <object>objects\obj_game</object>
+        <object>objects\obj_ui</object>
+        <object>objects\obj_smiley</object>
+        <object>objects\obj_smiley_hat</object>
+        <object>objects\obj_bg</object>
+      </objects>
+      <objects name="bosses">
+        <object>objects\obj_9</object>
+        <object>objects\obj_10</object>
+      </objects>
+      <objects name="other">
+        <object>objects\obj_explosion</object>
+        <object>objects\obj_bomb</object>
+        <object>objects\obj_cursor</object>
+        <object>objects\obj_end_demo</object>
+      </objects>
     </objects>
     <objects name="Menu">
       <object>objects\obj_first</object>

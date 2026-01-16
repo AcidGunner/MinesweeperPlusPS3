@@ -26,9 +26,27 @@
           <argument>
             <kind>1</kind>
             <string>///The Ten.
+temp_000=0;
+temp_001=-1.5;
+temp_002=-3;
+temp_003=-4.5;
+temp_004=-6;
 scale=1;
 alpha=0;
 rand=0;
+temp_01=0;
+the_x=160;
+the_y=145;
+move=0;
+expl=0;
+time=10;
+shifting=0;
+active=false;
+moove=0;
+spd=0.004;
+
+point_x=0;
+point_y=0;
 
 spr_part=spr_10_part;
 spr_main=spr_10;
@@ -36,6 +54,106 @@ spr_main=spr_10;
 spawned=0;
 
 if obj_game.utsuho10=true secret_script_2_p2();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>time--;
+alarm[3]=60-shifting;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if expl&lt;15
+{
+    obj_smiley.cutscene_10s = 4;
+    instance_create(x,y,obj_explosion);
+    expl++;
+    alarm[2]=15;
+}
+else
+{
+    var g=obj_game;
+    obj_bg.sprite_index=g.t10_grid;
+    for (var xx = 0; xx &lt; g.grid_w; xx++)
+    for (var yy = 0; yy &lt; g.grid_h; yy++)
+    {
+        g.grid_sprite[# xx, yy] = g.t10_grid; // default sprite
+    }
+    g.spr_bgb=g.t10_gridb;
+    obj_smiley.cutscene_10s = 5;
+    obj_smiley.alarm[7]=240;
+    rand=2;
+    move=0;
+    point_x=the_x;
+    point_y=the_y;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>move=1;
+var _x=irandom_range(0,1);
+//var _y=irandom_range(0,1);
+
+if _x=0 point_x=20 else point_x=300;
+//if _y=0 point_y=20 else point_y=220;
+
+point_y=irandom_range(20,220);
 </string>
           </argument>
         </arguments>
@@ -58,7 +176,31 @@ if obj_game.utsuho10=true secret_script_2_p2();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if rand=1
+            <string>if temp_01=0
+{
+    ds_grid_clear(obj_game.reveal, 0);
+    obj_game.alarm[4]=1;
+    alarm[1]=60;
+    alarm[2]=60;
+    temp_01=1;
+}
+
+if move=1
+{
+    var g=obj_game;
+    var xx = irandom_range(0,g.grid_w-1);
+    var yy = irandom_range(0,g.grid_h-1);
+    
+    while g.grid_sprite[# xx, yy] == g.t10_grid
+    {
+        var xx = irandom_range(0,g.grid_w-1);
+        var yy = irandom_range(0,g.grid_h-1);
+    }
+    
+    g.grid_sprite[# xx, yy] = g.t10_grid;
+}
+
+if rand=1
 {
     audio_play_sound(sfx_beep,8,false);
     alarm[0]=4;
@@ -86,19 +228,62 @@ if obj_game.utsuho10=true secret_script_2_p2();
           <argument>
             <kind>1</kind>
             <string>scale=lerp(scale,0.15,0.05);
-alpha=lerp(alpha,1,0.05);
+alpha=lerp(alpha,1,0.025);
 
 if spawned=0 &amp;&amp; scale&lt;0.17
 {
     obj_smiley.alarm[6]=1;
     spawned=1;
 }
+
+if move=0 &amp;&amp; !active
+{
+    x=lerp(x,the_x,0.05);
+    y=lerp(y,the_y,0.05);
+}
+else if move=1
+{
+    x=lerp(x,point_x,0.1);
+    y=lerp(y,point_y,0.1);
+    if distance_to_point(point_x,point_y)&lt;5 alarm[1]=1;
+}
+
+if active
+{
+    var test_dir = distance_to_point(obj_input.mx,obj_input.my);
+    window_set_caption(string(test_dir));
+    
+    if test_dir&lt;7 &amp;&amp; obj_input.mp1
+    {
+        audio_play_sound(sfx_10reset,6,false);
+        the_x=irandom_range(20,300);
+        the_y=irandom_range(20,220);
+        moove=1;
+        time=10;
+        spd+=0.001;
+    }
+    
+    x=lerp(x,the_x,spd);
+    y=lerp(y,the_y,spd);
+    
+    if moove=1
+    {
+        if distance_to_point(the_x,the_y)&lt;5
+        {
+            the_x=irandom_range(20,300);
+            the_y=irandom_range(20,220);
+        }
+    }
+    if time=0 game_restart();
+}
+
+//window_set_caption(string(x)+"-"+string(y));
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -124,11 +309,29 @@ image_alpha=alpha;
 var r1=1;var r2=1;var r3=1;var r4=1;var r5=1;
 if rand=1
 {
-    r1=irandom_range(9,10)/10;
-    r2=irandom_range(9,10)/10;
-    r3=irandom_range(9,10)/10;
-    r4=irandom_range(9,10)/10;
-    r5=irandom_range(9,10)/10;
+    r1=irandom_range(8,10)/10;
+    r2=irandom_range(8,10)/10;
+    r3=irandom_range(8,10)/10;
+    r4=irandom_range(8,10)/10;
+    r5=irandom_range(8,10)/10;
+}
+else if rand=2
+{
+    temp_000+=0.1;
+    temp_001+=0.1;
+    temp_002+=0.1;
+    temp_003+=0.1;
+    temp_004+=0.1;
+    var t0=sin(temp_000)/10;
+    var t1=sin(temp_001)/10;
+    var t2=sin(temp_002)/10;
+    var t3=sin(temp_003)/10;
+    var t4=sin(temp_004)/10;
+    r1=0.9+t0;
+    r2=0.9+t1;
+    r3=0.9+t2;
+    r4=0.9+t3;
+    r5=0.9+t4;
 }
 
 draw_sprite_ext(spr_part,0,x,y,scale*r1,scale*r1,0,c_white,alpha);
@@ -137,7 +340,7 @@ draw_sprite_ext(spr_part,0,x,y,scale*r3,scale*r3,72,c_white,alpha);
 draw_sprite_ext(spr_part,0,x,y,scale*r4,scale*r4,108,c_white,alpha);
 draw_sprite_ext(spr_part,0,x,y,scale*r5,scale*r5,144,c_white,alpha);
 draw_self();
-draw_sprite_ext(spr_10_num,10,x,y,scale,scale,0,c_white,alpha);
+draw_sprite_ext(spr_10_num,time,x,y,scale,scale,0,c_white,alpha);
 </string>
           </argument>
         </arguments>

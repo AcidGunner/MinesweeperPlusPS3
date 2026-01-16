@@ -12,6 +12,7 @@ global.hat_type=1;
 global._music_type=0;
 init_globals_mus();
 global.pitch=1;
+global.debug=1;
 
 // First Chapter setup
 global.gridw[1]=6;
@@ -43,9 +44,9 @@ global.gridh[9]=13;
 global.minec[9]=21;
 
 // Second Chapter Setup (boss 10 only)
-global.gridw[10]=13;
-global.gridh[10]=13;
-global.minec[10]=21;
+global.gridw[10]=21;
+global.gridh[10]=21;
+global.minec[10]=60;
 
 // Miscellanious
 global.gridw[86]=16;

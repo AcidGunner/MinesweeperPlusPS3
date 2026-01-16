@@ -36,12 +36,13 @@ boss9_started = false;
 boss10_started = false;
 mines_left = mine_count;
 temp_mines=mine_count;
+global.pitch=1;
 
 if global.type_input=1 instance_create(0,0,obj_cursor);
 
 zoom = 1;
-zoom_min = 0.7;
-zoom_max = 1;
+zoom_min = 0.4;
+zoom_max = 1.2;
 zoom_speed = 0.1;
 draw_size = 0;
 
@@ -106,8 +107,8 @@ if global.stage==9
 
 if global.stage==10
 {
-    spr_bg=spr_bg1;
-    spr_bgb=spr_bg1b;
+    spr_bg=spr_bg6;
+    spr_bgb=spr_bg6b;
 }
 
 // --- Create grid array ---
@@ -164,6 +165,11 @@ t9_grid=spr_bg5;
 t9_gridb=spr_bg5b;
 cirno9=false;
 utsuho10=false;
+
+t10_grid=spr_bg10;
+t10_gridb=spr_bg10b;
+
+obj_bg.sprite_index=spr_bg;
 
 if obj_input.c_held &amp;&amp; global.stage==9
 {
@@ -468,6 +474,15 @@ if instance_exists(obj_9) &amp;&amp; !first_click
     }
 }
 
+if instance_exists(obj_10) &amp;&amp; !first_click
+{
+    with obj_10
+    {
+        var test_dir = distance_to_point(obj_input.mx,obj_input.my);
+        if test_dir&lt;7 exit;
+    }
+}
+
 if temp_x==xx &amp;&amp; temp_y==yy
 {
     if win == false
@@ -551,6 +566,14 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 alarm[9]=1;
                 alarm[4]=1;
             }
+            if global.stage==10
+            {
+                audio_stop_all();
+                audio_loop_sound(global._music[12],global._st[12],global._en[12],44100,0);
+                obj_10.active=true;
+                obj_10.time=11;
+                obj_10.alarm[3]=1;
+            }
             obj_ui.alarm[0]=1;
         }
         
@@ -627,7 +650,7 @@ if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
 
 if win == false
 {
-    if iceland[# xx, yy] != 0 exit;
+    if cirno9=true &amp;&amp; iceland[# xx, yy] != 0 exit;
     
     if (xx &gt;= 0 &amp;&amp; yy &gt;= 0 &amp;&amp; xx &lt; grid_w &amp;&amp; yy &lt; grid_h)
     {

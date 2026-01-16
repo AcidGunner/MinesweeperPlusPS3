@@ -37,6 +37,20 @@ show_part3=false;
 show_part4=false;
 show_part5=false;
 
+if os_type==os_ps3 text="WARNING!
+
+THIS PROJECT IS NOT AFFILIATED WITH
+SONY COMPUTER ENTERTAINMENT!!
+
+THANKS FOR UNDERSTANDING!!!"
+else text="WARNING!
+
+YOU ARE RUNNING THE PC-TESTING
+BUILD. THIS GAME IS DESIGNED
+FOR PLAYING ON PS3 SYSTEMS ONLY.
+
+THANKS FOR UNDERSTANDING!!!"
+
 // Step control
 phase = 0;        // 0 = Sony logo, 1 = PlayStation logo, 2 = done
 timer = 0;
@@ -85,8 +99,7 @@ alarm[1]=global.FSP
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message("show_part5");
-show_part5=true;
+            <string>show_part5=true;
 </string>
           </argument>
         </arguments>
@@ -109,8 +122,7 @@ show_part5=true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message("show_part4")
-show_part4=true;
+            <string>show_part4=true;
 alarm[5]=global.FSP/5;
 </string>
           </argument>
@@ -134,8 +146,7 @@ alarm[5]=global.FSP/5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message("show_part2");
-show_part2=true;
+            <string>show_part2=true;
 </string>
           </argument>
         </arguments>
@@ -158,8 +169,7 @@ show_part2=true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message("show_part1")
-show_part1=true;
+            <string>show_part1=true;
 alarm[3]=global.FSP/3;
 </string>
           </argument>
@@ -331,12 +341,7 @@ if (phase == 0) {
     draw_set_alpha(1);
     if didwestart = 0
     {
-        draw_text(cx, cy, "WARNING!
-
-THIS PROJECT IS NOT AFFILIATED WITH
-SONY COMPUTER ENTERTAINMENT!!
-
-THANKS FOR UNDERSTANDING!!!");
+        draw_text(cx, cy, text);
     }
     
     draw_set_alpha(alpha_val);
@@ -408,6 +413,13 @@ THANKS FOR UNDERSTANDING!!!");
         draw_set_color(c_black);
         draw_set_alpha(alpha_val);
         draw_text(cx, cy, "AcidNT3.1# # # # #Productions");
+        
+        if global.debug=1
+        {
+            draw_set_color(c_red);
+            draw_text(cx, cy, "DEBUG BUILD.#PROCEED WITH#CAUTION!!");
+            draw_set_color(c_black);
+        }
     }
 }
 else if (phase == 1) {

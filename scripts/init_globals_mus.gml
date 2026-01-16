@@ -19,6 +19,7 @@ if global._music_type=0
     global.stage3_win=mus_stage3_win;
     global.stage4_win=mus_stage4_win;
     global.stage9_win=mus_stage9_win;
+    global.stage10_win=mus_stage10_win;
 }
 else if global._music_type=1
 {
@@ -37,6 +38,7 @@ else if global._music_type=1
     global.stage3_win=mus_stage3b_win;
     //global.stage4_win=mus_stage4b_win;
     global.stage9_win=mus_stage9b_win;
+    //global.stage10_win=mus_stage10b_win;
 }
 else if global._music_type=2
 {
@@ -55,6 +57,7 @@ else if global._music_type=2
     global.stage3_win=mus_stage3s_win;
     //global.stage4_win=mus_stage4s_win;
     global.stage9_win=mus_stage9s_win;
+    //global.stage10_win=mus_stage10s_win;
 }
 else if global._music_type=3
 {
@@ -73,6 +76,7 @@ else if global._music_type=3
     global.stage3_win=mus_stage3t_win;
     //global.stage4_win=mus_stage4t_win;
     global.stage9_win=mus_stage9t_win;
+    //global.stage10_win=mus_stage10t_win;
 }
 else if global._music_type=4
 {
@@ -91,6 +95,7 @@ else if global._music_type=4
     global.stage3_win=mus_stage3m_win;
     //global.stage4_win=mus_stage4m_win;
     global.stage9_win=mus_stage9m_win;
+    //global.stage10_win=mus_stage10m_win;
 }
 else if global._music_type=5
 {
@@ -109,6 +114,7 @@ else if global._music_type=5
     global.stage3_win=mus_stage38_win;
     //global.stage4_win=mus_stage48_win;
     global.stage9_win=mus_stage98_win;
+    //global.stage10_win=mus_stage108_win;
 }
 
 global._st[0] = 0;
@@ -128,3 +134,5 @@ global._en[6] = 4433275;
 
 global._st[11]= 1046315;
 global._en[11]= 1186017;
+global._st[12]= 0;
+global._en[12]= 6074808;

@@ -71,6 +71,11 @@ cutscene_10_0[0]=spr_smiley6_cutscene;
 cutscene_10_0[1]=spr_smiley5_cutscene;
 cutscene_10_0[2]=spr_smiley6_cutscene;
 cutscene_10_0[3]=spr_smiley6_cutscene;
+cutscene_10_0[4]=spr_smiley6_cutscene;
+cutscene_10_0[5]=spr_smiley6_cutscene;
+cutscene_10_0[6]=spr_smiley6_cutscene;
+cutscene_10_0[7]=spr_smiley6_cutscene;
+cutscene_10_0[8]=spr_smiley6_cutscene;
 
 // Sprite index
 cutscene_9_1[0]=0;
@@ -84,6 +89,56 @@ cutscene_10_1[0]=0;
 cutscene_10_1[1]=4;
 cutscene_10_1[2]=1;
 cutscene_10_1[3]=4;
+cutscene_10_1[4]=5;
+cutscene_10_1[5]=7;
+cutscene_10_1[6]=9;
+cutscene_10_1[7]=11;
+cutscene_10_1[8]=12;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if cutscene_10s == 5
+{
+    cutscene_10s = 6;
+    alarm[7]=180;
+}
+else if cutscene_10s == 6
+{
+    cutscene_10s = 7;
+    alarm[7]=15;
+}
+else if cutscene_10s == 7
+{
+    cutscene_10s = 8;
+    alarm[7]=120;
+}
+else if cutscene_10s == 8
+{
+    cutscene = false;
+    cutscene_10 = false;
+    obj_game.temp_x=0;
+    obj_game.temp_y=0;
+    sprite_index = spr_smiley6;
+}
 </string>
           </argument>
         </arguments>
@@ -402,6 +457,7 @@ if obj_game.win == false
         
         if global.stage==86 sprite_index = spr_smiley86;
         if global.stage==9 sprite_index = spr_smiley5;
+        if global.stage==10 sprite_index = spr_smiley6;
         
         if mousey&lt;48
             if sprite_index == spr_smiley5
@@ -497,6 +553,31 @@ if obj_game.win == false
                 obj_smiley_hat.image_index = 0;
                 image_index = cutscene_10_1[cutscene_10s]+image_anim3;
             }
+            else if cutscene_10s = 4
+            {
+                obj_smiley_hat.image_index = 10+image_anim2;
+                image_index = cutscene_10_1[cutscene_10s]+image_anim2;
+            }
+            else if cutscene_10s = 5
+            {
+                obj_smiley_hat.image_index = 12+image_anim2;
+                image_index = cutscene_10_1[cutscene_10s]+image_anim2;
+            }
+            else if cutscene_10s = 6
+            {
+                obj_smiley_hat.image_index = 12;
+                image_index = cutscene_10_1[cutscene_10s]+image_anim;
+            }
+            else if cutscene_10s = 7
+            {
+                obj_smiley_hat.image_index = 14;
+                image_index = cutscene_10_1[cutscene_10s];
+            }
+            else if cutscene_10s = 8
+            {
+                obj_smiley_hat.image_index = 15+image_anim;
+                image_index = cutscene_10_1[cutscene_10s]+image_anim;
+            }
             else
             {
                 obj_smiley_hat.image_index = 0;
@@ -511,6 +592,11 @@ else
     {
         sprite_index = spr_smiley5
         image_index=27+image_anim;
+    }
+    else if global.stage==10
+    {
+        sprite_index = spr_smiley6
+        image_index=17+image_anim;
     }
     else
     {

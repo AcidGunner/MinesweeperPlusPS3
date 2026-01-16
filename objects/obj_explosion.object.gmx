@@ -40,6 +40,14 @@ if audio_is_playing(global._music[6])
     obj_ui.shifting+=8;
     if obj_ui.shifting&gt;=60 obj_ui.shifting=59;
 }
+
+if audio_is_playing(global._music[12])
+{
+    global.pitch+=0.05;
+    audio_sound_pitch(global._music[12], global.pitch);
+    obj_10.shifting+=8;
+    if obj_10.shifting&gt;=60 obj_10.shifting=59;
+}
 </string>
           </argument>
         </arguments>
