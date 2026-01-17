@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>2</bbox_left>
+  <bbox_left>0</bbox_left>
   <bbox_right>39</bbox_right>
   <bbox_top>0</bbox_top>
-  <bbox_bottom>16</bbox_bottom>
+  <bbox_bottom>26</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -30,5 +30,16 @@
     <frame index="7">images\spr_hat5_7.png</frame>
     <frame index="8">images\spr_hat5_8.png</frame>
     <frame index="9">images\spr_hat5_9.png</frame>
+    <frame index="10">images\spr_hat5_10.png</frame>
+    <frame index="11">images\spr_hat5_11.png</frame>
+    <frame index="12">images\spr_hat5_12.png</frame>
+    <frame index="13">images\spr_hat5_13.png</frame>
+    <frame index="14">images\spr_hat5_14.png</frame>
+    <frame index="15">images\spr_hat5_15.png</frame>
+    <frame index="16">images\spr_hat5_16.png</frame>
+    <frame index="17">images\spr_hat5_17.png</frame>
+    <frame index="18">images\spr_hat5_18.png</frame>
+    <frame index="19">images\spr_hat5_19.png</frame>
+    <frame index="20">images\spr_hat5_20.png</frame>
   </frames>
 </sprite>

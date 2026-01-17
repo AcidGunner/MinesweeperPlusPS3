@@ -106,6 +106,7 @@
       <sound>sound\sfx_ice</sound>
       <sound>sound\sfx_beep</sound>
       <sound>sound\sfx_10reset</sound>
+      <sound>sound\sfx_gameover</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -261,6 +262,8 @@
     <script>scripts\bad_apple_initialize.gml</script>
     <script>scripts\initial_setup.gml</script>
     <script>scripts\ver_show.gml</script>
+    <script>scripts\save_game.gml</script>
+    <script>scripts\load_game.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main</font>
@@ -295,6 +298,7 @@
       <object>objects\obj_menu_hats</object>
       <object>objects\obj_menu_statistics</object>
       <object>objects\obj_menu_tutorial</object>
+      <object>objects\obj_menu_credits</object>
       <object>objects\obj_menu_options</object>
       <object>objects\obj_menu_resetting</object>
       <object>objects\obj_menu_bomb</object>

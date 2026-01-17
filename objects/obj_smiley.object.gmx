@@ -137,6 +137,16 @@ else if cutscene_10s == 8
     cutscene_10 = false;
     obj_game.temp_x=0;
     obj_game.temp_y=0;
+    show_message_async(
+"There is another boss battle in this game.
+As soon as the game starts, this boss will start counting down from 10.
+If it counts all the way down to 0, it's game over.
+Click on the boss to reset the countdown back to 10, but be careful.
+The boss will move faster and faster every time you click on it.
+Clicking on a mine will cause the boss to count down more quickly.
+To win, reveal the entire grid before the boss is able to finish its countdown.
+
+You should know this playing this port btw");
     sprite_index = spr_smiley6;
 }
 </string>
@@ -244,6 +254,17 @@ else if cutscene_9s == 5
         cutscene = false;
         obj_game.temp_x=0;
         obj_game.temp_y=0;
+        show_message_async(
+"There is a boss battle in this game.
+The battle works the same as normal Minesweeper, but with some key distinctions:
+you won't know the number of mines hidden on the grid,
+you have limited time to complete the level, and
+you won't be able to use the sonar or pause the game.
+Clicking on a mine will make the time run out faster.
+To win, you must click on the boss ONLY AFTER revealing all the tiles that don't contain mines.
+If the timer hits 0, or you click on the boss before revealing the entire grid, it's game over.
+
+You should know this playing this port btw");
         sprite_index = spr_smiley5;
     }
 }
@@ -547,41 +568,59 @@ if obj_game.win == false
         }
         else if global.stage==10
         {
-            sprite_index = cutscene_10_0[cutscene_10s]
-            if cutscene_10s = 2
+            if instance_exists(obj_10) &amp;&amp; obj_10.stopped=1
             {
-                obj_smiley_hat.image_index = 0;
-                image_index = cutscene_10_1[cutscene_10s]+image_anim3;
-            }
-            else if cutscene_10s = 4
-            {
-                obj_smiley_hat.image_index = 10+image_anim2;
-                image_index = cutscene_10_1[cutscene_10s]+image_anim2;
-            }
-            else if cutscene_10s = 5
-            {
-                obj_smiley_hat.image_index = 12+image_anim2;
-                image_index = cutscene_10_1[cutscene_10s]+image_anim2;
-            }
-            else if cutscene_10s = 6
-            {
-                obj_smiley_hat.image_index = 12;
-                image_index = cutscene_10_1[cutscene_10s]+image_anim;
-            }
-            else if cutscene_10s = 7
-            {
-                obj_smiley_hat.image_index = 14;
-                image_index = cutscene_10_1[cutscene_10s];
-            }
-            else if cutscene_10s = 8
-            {
-                obj_smiley_hat.image_index = 15+image_anim;
-                image_index = cutscene_10_1[cutscene_10s]+image_anim;
+                if obj_10.temp2=1
+                {
+                    sprite_index = spr_smiley6_cutscene;
+                    image_index = 16+(image_anim2*2);
+                    obj_smiley_hat.image_index = 17+(image_anim2*2);
+                }
+                else
+                {
+                    sprite_index = spr_smiley6_cutscene;
+                    image_index = 14+image_anim2;
+                    obj_smiley_hat.image_index = 4+image_anim2;
+                }
             }
             else
             {
-                obj_smiley_hat.image_index = 0;
-                image_index = cutscene_10_1[cutscene_10s];
+                sprite_index = cutscene_10_0[cutscene_10s]
+                if cutscene_10s = 2
+                {
+                    obj_smiley_hat.image_index = 0;
+                    image_index = cutscene_10_1[cutscene_10s]+image_anim3;
+                }
+                else if cutscene_10s = 4
+                {
+                    obj_smiley_hat.image_index = 10+image_anim2;
+                    image_index = cutscene_10_1[cutscene_10s]+image_anim2;
+                }
+                else if cutscene_10s = 5
+                {
+                    obj_smiley_hat.image_index = 12+image_anim2;
+                    image_index = cutscene_10_1[cutscene_10s]+image_anim2;
+                }
+                else if cutscene_10s = 6
+                {
+                    obj_smiley_hat.image_index = 12;
+                    image_index = cutscene_10_1[cutscene_10s]+image_anim;
+                }
+                else if cutscene_10s = 7
+                {
+                    obj_smiley_hat.image_index = 14;
+                    image_index = cutscene_10_1[cutscene_10s];
+                }
+                else if cutscene_10s = 8
+                {
+                    obj_smiley_hat.image_index = 15+image_anim;
+                    image_index = cutscene_10_1[cutscene_10s]+image_anim;
+                }
+                else
+                {
+                    obj_smiley_hat.image_index = 0;
+                    image_index = cutscene_10_1[cutscene_10s];
+                }
             }
         }
     }

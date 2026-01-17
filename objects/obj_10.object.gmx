@@ -44,6 +44,11 @@ shifting=0;
 active=false;
 moove=0;
 spd=0.004;
+stopped=0;
+test=0;
+fall=0;
+yspd=0;
+temp2=0;
 
 point_x=0;
 point_y=0;
@@ -54,6 +59,134 @@ spr_main=spr_10;
 spawned=0;
 
 if obj_game.utsuho10=true secret_script_2_p2();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if temp2=1
+{
+    // Auto-flag remaining mines
+    for (var fx = 0; fx &lt; obj_game.grid_w; fx++)
+    for (var fy = 0; fy &lt; obj_game.grid_h; fy++)
+    {
+        if (obj_game.grid[# fx, fy] == -1)
+            obj_game.flagged[# fx, fy] = true;
+    }
+    obj_game.win=true;
+    audio_play_sound(global.stage10_win,0,false);
+    exit;
+}
+
+if temp2=0 temp2=1;
+alarm[7]=60;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fall=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if !active exit;
+if time&gt;5 exit;
+audio_play_sound(sfx_beep,8,false);
+var _b=0;
+var _t=60-shifting;
+switch(time)
+{
+    case 6: _b=_t; break;
+    case 5: _b=_t/1.5; break;
+    case 4: _b=_t/2; break;
+    case 3: _b=_t/4; break;
+    case 2: _b=_t/10;  break;
+    case 1: _b=_t/15;  break;
+}
+alarm[5]=_b;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>active=false;
+stopped=1;
+rand=0;
+obj_smiley.cutscene=true;
+audio_stop_all();
+audio_play_sound(sfx_done,0,false);
+alarm[6]=180;
+alarm[7]=270;
 </string>
           </argument>
         </arguments>
@@ -76,8 +209,16 @@ if obj_game.utsuho10=true secret_script_2_p2();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>time--;
-alarm[3]=60-shifting;
+            <string>if active
+{
+    time--;
+    alarm[3]=60-shifting;
+    if time==5 &amp;&amp; test=0
+    {
+        alarm[5]=1;
+        test=1;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -203,7 +344,7 @@ if move=1
 if rand=1
 {
     audio_play_sound(sfx_beep,8,false);
-    alarm[0]=4;
+    alarm[0]=5;
 }
 </string>
           </argument>
@@ -236,7 +377,7 @@ if spawned=0 &amp;&amp; scale&lt;0.17
     spawned=1;
 }
 
-if move=0 &amp;&amp; !active
+if move=0 &amp;&amp; !active &amp;&amp; stopped=0
 {
     x=lerp(x,the_x,0.05);
     y=lerp(y,the_y,0.05);
@@ -247,20 +388,26 @@ else if move=1
     y=lerp(y,point_y,0.1);
     if distance_to_point(point_x,point_y)&lt;5 alarm[1]=1;
 }
+else if fall=1
+{
+    yspd+=0.1;
+    y+=yspd;
+}
 
 if active
 {
     var test_dir = distance_to_point(obj_input.mx,obj_input.my);
-    window_set_caption(string(test_dir));
     
     if test_dir&lt;7 &amp;&amp; obj_input.mp1
     {
+        audio_stop_sound(sfx_beep);
         audio_play_sound(sfx_10reset,6,false);
         the_x=irandom_range(20,300);
         the_y=irandom_range(20,220);
         moove=1;
         time=10;
         spd+=0.001;
+        test=0;
     }
     
     x=lerp(x,the_x,spd);
@@ -334,11 +481,11 @@ else if rand=2
     r5=0.9+t4;
 }
 
-draw_sprite_ext(spr_part,0,x,y,scale*r1,scale*r1,0,c_white,alpha);
-draw_sprite_ext(spr_part,0,x,y,scale*r2,scale*r2,36,c_white,alpha);
-draw_sprite_ext(spr_part,0,x,y,scale*r3,scale*r3,72,c_white,alpha);
-draw_sprite_ext(spr_part,0,x,y,scale*r4,scale*r4,108,c_white,alpha);
-draw_sprite_ext(spr_part,0,x,y,scale*r5,scale*r5,144,c_white,alpha);
+draw_sprite_ext(spr_part,0,x,y+yspd*2,scale*r1,scale*r1,0,c_white,alpha);
+draw_sprite_ext(spr_part,0,x,y+yspd*4,scale*r2,scale*r2,36,c_white,alpha);
+draw_sprite_ext(spr_part,0,x,y+yspd*5,scale*r3,scale*r3,72,c_white,alpha);
+draw_sprite_ext(spr_part,0,x,y+yspd*8,scale*r4,scale*r4,108,c_white,alpha);
+draw_sprite_ext(spr_part,0,x,y+yspd*7,scale*r5,scale*r5,144,c_white,alpha);
 draw_self();
 draw_sprite_ext(spr_10_num,time,x,y,scale,scale,0,c_white,alpha);
 </string>

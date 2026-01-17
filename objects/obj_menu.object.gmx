@@ -36,7 +36,8 @@ list[1]="Bonus Content";
 list[2]="Statistics";
 list[3]="How to Play";
 list[4]="Options";
-list[5]="Reset Data";
+list[5]="Credits";
+list[6]="Reset Data";
 
 menu_x = 160;
 menu_y = 120;
@@ -64,8 +65,7 @@ menu_height = 100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//audio_sound_gain(mus_menu1,0,0.5);
-select = 1;
+            <string>select = 1;
 </string>
           </argument>
         </arguments>
@@ -106,7 +106,8 @@ if obj_input.a &amp;&amp; select=0
     else if item=2 instance_create(0,360,obj_menu_statistics)
     else if item=3 instance_create(0,360,obj_menu_tutorial)
     else if item=4 instance_create(0,360,obj_menu_options)
-    else if item=5 instance_create(0,360,obj_menu_resetting);
+    else if item=5 instance_create(0,360,obj_menu_credits);
+    else if item=6 instance_create(0,360,obj_menu_resetting);
 }
 
 if select == 0 y=lerp(y,40,0.25)

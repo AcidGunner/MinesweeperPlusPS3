@@ -7,8 +7,8 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>1</bbox_left>
-  <bbox_right>38</bbox_right>
+  <bbox_left>0</bbox_left>
+  <bbox_right>39</bbox_right>
   <bbox_top>0</bbox_top>
   <bbox_bottom>30</bbox_bottom>
   <HTile>0</HTile>
@@ -37,5 +37,9 @@
     <frame index="14">images\spr_hat1_14.png</frame>
     <frame index="15">images\spr_hat1_15.png</frame>
     <frame index="16">images\spr_hat1_16.png</frame>
+    <frame index="17">images\spr_hat1_17.png</frame>
+    <frame index="18">images\spr_hat1_18.png</frame>
+    <frame index="19">images\spr_hat1_19.png</frame>
+    <frame index="20">images\spr_hat1_20.png</frame>
   </frames>
 </sprite>

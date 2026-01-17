@@ -109,6 +109,7 @@ if obj_game.cirno9=true
           <argument>
             <kind>1</kind>
             <string>if global.stage==9 &amp;&amp; obj_9.stop==1 exit;
+if global.stage==10 &amp;&amp; obj_10.active==false exit;
 
 if obj_game.win!=1
 {
@@ -244,10 +245,18 @@ if obj_game.win
     draw_text_outline(160,60,"Press Start to Continue.",c_red,c_white,1);
     if obj_input.start
     {
-        global.stage++;
         audio_stop_all();
-        if global.stage&lt;10 room_restart()
-        else room_goto(rm_end);
+        if global.stage==10
+        {
+            global.stage=910;
+            room_restart();
+        }
+        else
+        {
+            global.stage++;
+            if global.stage&lt;10 room_restart()
+            else room_goto(rm_end);
+        }
     }
 }
 </string>

@@ -37,6 +37,7 @@ boss10_started = false;
 mines_left = mine_count;
 temp_mines=mine_count;
 global.pitch=1;
+sheesh=0;
 
 if global.type_input=1 instance_create(0,0,obj_cursor);
 
@@ -279,6 +280,7 @@ while (ds_list_size(spiral) &lt; grid_w * grid_h)
           <argument>
             <kind>1</kind>
             <string>///ICELAND
+if cirno9==false exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
 
 var ix = irandom_range(1, grid_w - 2);
@@ -459,7 +461,7 @@ if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
 
 if instance_exists(obj_9) &amp;&amp; !first_click
 {
-    if iceland[# xx, yy] != 0 exit;
+    if cirno9==true &amp;&amp; iceland[# xx, yy] != 0 exit;
     
     if obj_9.boss_x == xx &amp;&amp; obj_9.boss_y == yy
     {
@@ -491,6 +493,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
         {
             if (xx == center_x &amp;&amp; yy == center_y)
             {
+                if (flagged[# xx, yy]) exit;
                 // Good! Start the game
                 boss9_started = true;
                 audio_stop_sound(mus_ocean);
@@ -524,6 +527,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
         {
             if (xx == center_x &amp;&amp; yy == center_y)
             {
+                if (flagged[# xx, yy]) exit;
                 // Good! Start the game
                 boss10_started = true;
                 audio_stop_sound(mus_ocean);
@@ -888,6 +892,42 @@ if bad_apple==1
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///???
+if (!boss9_started) &amp;&amp; global.stage==9 &amp;&amp; (flagged[# center_x, center_y])
+{
+    sheesh++;
+    var _sh = sheesh mod 750;
+    if _sh=500 audio_play_sound(sfx_gameover,9,false);
+}
+else if (!boss10_started) &amp;&amp; global.stage==10 &amp;&amp; (flagged[# center_x, center_y])
+{
+    sheesh++;
+    var _sh = sheesh mod 750;
+    if _sh=500 audio_play_sound(sfx_gameover,9,false);
+}
+else sheesh=0;
+
+window_set_caption(string(sheesh));
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -917,6 +957,7 @@ if bad_apple==1
         var c_x = grid_offset_x + center_x * draw_size;
         var c_y = grid_offset_y + center_y * draw_size;
         draw_set_alpha(1);
+        depth=0;
         
         // === Base cell sprite ===
         draw_sprite_stretched(grid_sprite[# xx, yy], image_index, x1, y1, draw_size, draw_size);
@@ -926,12 +967,16 @@ if bad_apple==1
 
         if !boss10_started &amp;&amp; global.stage==10
             draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
-
+        
         // === Flagged ===
         if (flagged[# xx, yy])
+        {
+            depth=1;
             draw_sprite_stretched(spr_flag, image_index, x1, y1, draw_size, draw_size);
+        }
         else if (reveal[# xx, yy])
         {
+            depth=0;
             // Dark revealed grid
             draw_sprite_stretched(spr_bgb, image_index, x1, y1, draw_size, draw_size);
 
@@ -943,8 +988,8 @@ if bad_apple==1
             else
                 draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size);
         }
+        depth=0;
         
-        draw_set_alpha(1);
         draw_sprite_stretched(spr_grid, 0, x1, y1, draw_size, draw_size);
         if (highlight_x1 &gt;= 0 &amp;&amp; highlight_y1 &gt;= 0)
         {
@@ -977,6 +1022,18 @@ for (var xx = 0; xx &lt; grid_w; xx++)
         draw_sprite_stretched(spr_ice, image_index, x1-draw_size, y1-draw_size, draw_size*3, draw_size*3);
     }
 }
+
+draw_set_valign(fa_center);
+draw_set_halign(fa_middle);
+draw_set_font(fnt_smol);
+draw_set_colour(c_red);
+var _sh = sheesh mod 750;
+
+var text = "You have to let me out eventually, Captain...";
+if cirno9 text = "You have to let me out eventually, Baka...";
+if utsuho10 text = "You have to let me out eventually, Unyu...";
+
+if _sh&gt;=500 draw_text(160,120+sin(sheesh/25),text);
 </string>
           </argument>
         </arguments>

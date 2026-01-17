@@ -4,12 +4,11 @@ window_set_caption("Minesweeper Plus PS3 Port ("+ver_show()+")");
 bad_apple_initialize();
 randomize();
 global.CONTROL=1;
-global.type_input=1;
 if os_type!=os_ps3 && !gamepad_is_connected(0) global.CONTROL=0;
 
+load_game();
+
 global.stage=10;
-global.hat_type=1;
-global._music_type=0;
 init_globals_mus();
 global.pitch=1;
 global.debug=1;
@@ -47,6 +46,9 @@ global.minec[9]=21;
 global.gridw[10]=21;
 global.gridh[10]=21;
 global.minec[10]=60;
+global.gridw[910]=9;
+global.gridh[910]=9;
+global.minec[910]=10;
 
 // Miscellanious
 global.gridw[86]=16;

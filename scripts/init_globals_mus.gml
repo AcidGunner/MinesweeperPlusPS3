@@ -1,6 +1,26 @@
 ///init_globals_mus();
 
 global._music[0] = -1;
+global._st[0] = 0;
+global._en[0] = 0;
+
+global._st[1] = 22048;
+global._en[1] = 1996913;
+global._st[2] = 344037;
+global._en[2] = 2408612;
+global._st[3] = 0;
+global._en[3] = 3174028;
+global._st[4] = 78597;
+global._en[4] = 6062931;
+global._st[5] = 1350913;
+global._en[5] = 1533067;
+global._st[6] = 484908;
+global._en[6] = 4433275;
+
+global._st[11]= 1046315;
+global._en[11]= 1186017;
+global._st[12]= 0;
+global._en[12]= 6074808;
 
 if global._music_type=0
 {
@@ -116,23 +136,3 @@ else if global._music_type=5
     global.stage9_win=mus_stage98_win;
     //global.stage10_win=mus_stage108_win;
 }
-
-global._st[0] = 0;
-global._en[0] = 0;
-global._st[1] = 22048;
-global._en[1] = 1996913;
-global._st[2] = 344037;
-global._en[2] = 2408612;
-global._st[3] = 0;
-global._en[3] = 3174028;
-global._st[4] = 78597;
-global._en[4] = 6062931;
-global._st[5] = 1350913;
-global._en[5] = 1533067;
-global._st[6] = 484908;
-global._en[6] = 4433275;
-
-global._st[11]= 1046315;
-global._en[11]= 1186017;
-global._st[12]= 0;
-global._en[12]= 6074808;
