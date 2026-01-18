@@ -8,10 +8,12 @@ if os_type!=os_ps3 && !gamepad_is_connected(0) global.CONTROL=0;
 
 load_game();
 
-global.stage=10;
+global.stage=9;
 init_globals_mus();
 global.pitch=1;
 global.debug=1;
+global.foughtcirno=0;
+global.foughtutsuho=0;
 
 // First Chapter setup
 global.gridw[1]=6;
