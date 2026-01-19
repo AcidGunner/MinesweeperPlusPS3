@@ -83,6 +83,12 @@
             <sound>sound\mus_stage100_win</sound>
           </sounds>
         </sounds>
+        <sounds name="boss10-0">
+          <sound>sound\mus_stage910_00</sound>
+          <sound>sound\mus_stage910_01</sound>
+          <sound>sound\mus_stage910_10</sound>
+          <sound>sound\mus_stage910_11</sound>
+        </sounds>
       </sounds>
       <sound>sound\mus_title</sound>
       <sound>sound\mus_end</sound>
@@ -107,6 +113,7 @@
       <sound>sound\sfx_beep</sound>
       <sound>sound\sfx_10reset</sound>
       <sound>sound\sfx_gameover</sound>
+      <sound>sound\sound67</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -281,6 +288,7 @@
       </objects>
       <objects name="bosses">
         <object>objects\obj_9</object>
+        <object>objects\obj_9boo</object>
         <object>objects\obj_10</object>
       </objects>
       <objects name="other">
@@ -315,6 +323,7 @@
     <room>rooms\rm_logo</room>
     <room>rooms\rm_title</room>
     <room>rooms\rm_game</room>
+    <room>rooms\rm_boo</room>
     <room>rooms\rm_end</room>
   </rooms>
   <help>

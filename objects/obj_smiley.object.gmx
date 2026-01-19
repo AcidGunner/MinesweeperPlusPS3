@@ -474,7 +474,8 @@ if obj_game.win == false
         if obj_game.temp_111 = 1 sprite_index = spr_smiley1
         else if obj_game.temp_111 = 2 sprite_index = spr_smiley2
         else if obj_game.temp_111 = 3 sprite_index = spr_smiley3
-        else if obj_game.temp_111 = 4 sprite_index = spr_smiley4;
+        else if obj_game.temp_111 = 4 sprite_index = spr_smiley4
+        else if obj_game.temp_111 = 5 sprite_index = spr_smiley5;
         
         if global.stage==86 sprite_index = spr_smiley86;
         if global.stage==9 sprite_index = spr_smiley5;
@@ -525,7 +526,7 @@ if obj_game.win == false
     }
     else
     {
-        if global.stage = 9
+        if global.stage = 9 or global.stage = 910
         {
             if cutscene_9 == true
             {
@@ -637,12 +638,17 @@ else
         sprite_index = spr_smiley6
         image_index=17+image_anim;
     }
+    else if global.stage==910
+    {
+        sprite_index = spr_smiley5
+        image_index=27+image_anim;
+    }
     else
     {
         if obj_game.temp_111 = 1 sprite_index = spr_smiley1
         else if obj_game.temp_111 = 2 sprite_index = spr_smiley2
         else if obj_game.temp_111 = 3 sprite_index = spr_smiley3
-        else if obj_game.temp_111 = 4 sprite_index = spr_smiley4;
+        else if obj_game.temp_111 = 4 sprite_index = spr_smiley4
         
         if sprite_index==spr_smiley3 image_index=26+image_anim
         else image_index=14+image_anim;

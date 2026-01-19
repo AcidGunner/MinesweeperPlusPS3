@@ -21,6 +21,12 @@ if (revealed_total >= grid_w * grid_h - mine_count)
         obj_10.alarm[4]=1;
         exit;
     }
+    else if global.stage==910
+    {
+        obj_9.alarm[6]=1;
+        obj_10.alarm[6]=1;
+        exit;
+    }
     
     // Auto-flag remaining mines
     for (var fx = 0; fx < grid_w; fx++)

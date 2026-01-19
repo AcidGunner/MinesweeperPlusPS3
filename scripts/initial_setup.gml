@@ -45,8 +45,8 @@ global.gridh[9]=13;
 global.minec[9]=21;
 
 // Second Chapter Setup (boss 10 only)
-global.gridw[10]=21;
-global.gridh[10]=21;
+global.gridw[10]=17;
+global.gridh[10]=17;
 global.minec[10]=60;
 global.gridw[910]=9;
 global.gridh[910]=9;

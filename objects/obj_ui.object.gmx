@@ -33,6 +33,18 @@ red_ui=c_white;
 rand_time=0;
 time_left=0;
 test_rect=0;
+
+if global.stage==910
+{
+    time_left=99;
+    red_ui=merge_colour(c_red,c_white,0.5);
+    if obj_game.cirno9=true
+    {
+        time_left=floor(time_left/1.2);
+        red_ui=merge_colour(c_blue,c_white,0.5);
+        test_rect=1;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -110,18 +122,19 @@ if obj_game.cirno9=true
             <kind>1</kind>
             <string>if global.stage==9 &amp;&amp; obj_9.stop==1 exit;
 if global.stage==10 &amp;&amp; obj_10.active==false exit;
+if global.stage==910 &amp;&amp; obj_9.stop==1 exit;
 
 if obj_game.win!=1
 {
     time_left--;
     time++;
-    if global.stage==9
+    if global.stage==9 or global.stage==910
     {
         if obj_9.stop=0 alarm[1]=60-shifting;
     }
     else alarm[1]=60-shifting;
     
-    if time_left&lt;1 &amp;&amp; global.stage==9 game_restart();
+    if time_left&lt;1 &amp;&amp; (global.stage==9 or global.stage==910) game_restart();
 }
 </string>
           </argument>
@@ -213,14 +226,14 @@ while (string_length(s) &lt; 3)
 }
 
 var s2 = string(time);
-if global.stage==9 s2 = string(time_left);
+if global.stage==9 or global.stage==910 s2 = string(time_left);
 
 while (string_length(s2) &lt; 3)
 {
     s2 = "0" + s2;
 }
 
-if global.stage!=9
+if global.stage!=9 or global.stage!=910
 {
     draw_sprite_stretched(spr_mine_ui,temp1,7,7,35,35);
     draw_text_outline(45,5.2,s,c_red,c_white,1);
@@ -249,7 +262,7 @@ if obj_game.win
         if global.stage==10
         {
             global.stage=910;
-            room_restart();
+            room_goto(rm_boo);
         }
         else
         {

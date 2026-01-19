@@ -58,7 +58,9 @@ spr_main=spr_10;
 
 spawned=0;
 
-if obj_game.utsuho10=true secret_script_2_p2();
+if obj_game.utsuho10=true &amp;&amp; global.stage==10 secret_script_2_p2();
+
+if global.foughtutsuho==true &amp;&amp; global.stage==910 secret_script_p2();
 </string>
           </argument>
         </arguments>
@@ -92,7 +94,7 @@ if obj_game.utsuho10=true secret_script_2_p2();
     }
     obj_game.win=true;
     audio_play_sound(global.stage10_win,0,false);
-    exit;
+    instance_destroy();
 }
 
 if temp2=0 temp2=1;
@@ -120,6 +122,7 @@ alarm[7]=60;
           <argument>
             <kind>1</kind>
             <string>fall=1;
+time=10;
 </string>
           </argument>
         </arguments>
@@ -368,7 +371,8 @@ if rand=1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scale=lerp(scale,0.15,0.05);
+            <string>///Handle stuff
+scale=lerp(scale,0.15,0.05);
 alpha=lerp(alpha,1,0.025);
 
 if spawned=0 &amp;&amp; scale&lt;0.17
@@ -396,6 +400,7 @@ else if fall=1
 
 if active
 {
+    //The mechanics i guess?
     var test_dir = distance_to_point(obj_input.mx,obj_input.my);
     
     if test_dir&lt;7 &amp;&amp; obj_input.mp1

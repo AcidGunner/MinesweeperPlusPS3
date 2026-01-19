@@ -45,7 +45,7 @@ SONY COMPUTER ENTERTAINMENT!!
 THANKS FOR UNDERSTANDING!!!"
 else text="WARNING!
 
-YOU ARE RUNNING THE PC-TESTING
+YOU ARE RUNNING THE NON-PS3
 BUILD. THIS GAME IS DESIGNED
 FOR PLAYING ON PS3 SYSTEMS ONLY.
 
@@ -76,7 +76,8 @@ ty1 = cy;
 ty2 = cy;
 test_s=0;
 
-alarm[1]=global.FSP
+if global.debug==1 alarm[0]=global.FSP
+else alarm[1]=global.FSP;
 </string>
           </argument>
         </arguments>

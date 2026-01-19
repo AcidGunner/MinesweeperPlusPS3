@@ -65,7 +65,9 @@ cutscene_explosions = 4;
 the_spr_9spike=spr_9spike;
 the_spr_9=spr_9;
 
-if obj_game.cirno9=true secret_script_p2();
+if obj_game.cirno9=true &amp;&amp; global.stage==9 secret_script_p2();
+
+if global.foughtcirno==true &amp;&amp; global.stage==910 secret_script_p2();
 </string>
           </argument>
         </arguments>
@@ -121,7 +123,8 @@ for (var fy = 0; fy &lt; obj_game.grid_h; fy++)
         obj_game.flagged[# fx, fy] = true;
 }
 obj_game.win=true;
-audio_play_sound(global.stage9_win,0,false);
+if global.stage==9 audio_play_sound(global.stage9_win,0,false);
+else audio_play_sound(global.stage10_win,0,false);
 </string>
           </argument>
         </arguments>
