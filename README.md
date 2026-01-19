@@ -8,7 +8,7 @@ LATEST: v0.1.1F
 
 
 # About the Port
-This is the fun to make. The game indeed has an AI-generated code. :P
+This is the fun to make. The game indeed has an AI-generated code. (only on the main minesweeper mechanics, the bosses and other stuff are proudly AI-free.)
 
 I have a little hyper fixation on that game cuz the game itself is cool, and the smiley is cool :)
 
