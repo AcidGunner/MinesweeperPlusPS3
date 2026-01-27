@@ -123,6 +123,7 @@ for (var fy = 0; fy &lt; obj_game.grid_h; fy++)
         obj_game.flagged[# fx, fy] = true;
 }
 obj_game.win=true;
+mines_left = 0;
 if global.stage==9 audio_play_sound(global.stage9_win,0,false);
 else audio_play_sound(global.stage10_win,0,false);
 </string>

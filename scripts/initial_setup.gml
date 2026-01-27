@@ -8,7 +8,6 @@ if os_type!=os_ps3 && !gamepad_is_connected(0) global.CONTROL=0;
 
 load_game();
 
-global.stage=9;
 init_globals_mus();
 global.pitch=1;
 global.debug=1;
@@ -45,8 +44,8 @@ global.gridh[9]=13;
 global.minec[9]=21;
 
 // Second Chapter Setup (boss 10 only)
-global.gridw[10]=17;
-global.gridh[10]=17;
+global.gridw[10]=21;
+global.gridh[10]=21;
 global.minec[10]=60;
 global.gridw[910]=9;
 global.gridh[910]=9;

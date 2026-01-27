@@ -29,27 +29,58 @@
 global.FSP=25;
 initial_setup();
 
-//window_set_fullscreen(true);
+cmd_prompt=ds_list_create();
+
+text_warning="[PLEASE READ BEFORE DOING ANYTHING!] ᗜˬᗜ
+
+ACIDPS3 PROJECT IS NOT AFFILIATED OR APPROVED BY SONY COMPUTER ENTERTAINMENT!!
+WE ARE NOT GETTING ANY PROFIT OUT OF THIS. THOSE SERVICES ARE PURELY FREE NO MATTER WHAT.
+(NOT LICENSED BY SONY)";
+
+show_warning=true; // set to true before release!!!!!
+first_setup=false;
+
+title_id="MSWP00000"
+start_directory="/dev_hdd0/game/"+title_id+"/USRDIR/";
+text_cmd=0;
+text_command[0]="cd boot";
+text_command[1]="load.elf";
+text_msg=0;
+text_message[0]=start_directory+"boot/";
+text_message[1]="Loading boot sequence...";
+load_seq=0;
+load_sequence[0] ="__________";
+load_sequence[1] ="=_________";
+load_sequence[2] ="==________";
+load_sequence[3] ="===_______";
+load_sequence[4] ="====______";
+load_sequence[5] ="=====_____";
+load_sequence[6] ="======____";
+load_sequence[7] ="=======___";
+load_sequence[8] ="========__";
+load_sequence[9] ="=========_";
+load_sequence[10]="==========";
+cur_prompt_ind=0;
+current_prompt="";
+loading=0;
+blink="";
+
+ds_list_add(cmd_prompt,"GMS4PS3 Loader v1.0");
+ds_list_add(cmd_prompt,"");
+ds_list_add(cmd_prompt,start_directory);
+
 didwestart=0;
 show_part1=false;
 show_part2=false;
 show_part3=false;
 show_part4=false;
 show_part5=false;
+test=0;
+c=0;
+c1=0;
 
-if os_type==os_ps3 text="WARNING!
-
-THIS PROJECT IS NOT AFFILIATED WITH
-SONY COMPUTER ENTERTAINMENT!!
-
-THANKS FOR UNDERSTANDING!!!"
-else text="WARNING!
-
-YOU ARE RUNNING THE NON-PS3
-BUILD. THIS GAME IS DESIGNED
-FOR PLAYING ON PS3 SYSTEMS ONLY.
-
-THANKS FOR UNDERSTANDING!!!"
+fearful_harmony=false;
+if irandom_range(1,100)==5 fearful_harmony=true;
 
 // Step control
 phase = 0;        // 0 = Sony logo, 1 = PlayStation logo, 2 = done
@@ -76,8 +107,199 @@ ty1 = cy;
 ty2 = cy;
 test_s=0;
 
-if global.debug==1 alarm[0]=global.FSP
-else alarm[1]=global.FSP;
+alarm[8]=global.FSP;
+alarm[7]=global.FSP*2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var _s=ds_list_size(cmd_prompt)-1;
+ds_list_replace(cmd_prompt,_s,load_sequence[load_seq+0.2]+" ["+string(floor(load_seq*10+1.2))+"%]");
+load_seq+=0.1;
+var _a = audio_play_sound(sound4,5,false);
+audio_sound_pitch(_a,1+(load_seq/20));
+
+if load_seq&lt;10 alarm[11]=5/6;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ds_list_add(cmd_prompt,load_sequence[load_seq]+" ["+string(load_seq*10)+"%]");
+loading=1;
+alarm[11]=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if text_msg!=2
+{
+    var _s=ds_list_size(cmd_prompt)-1;
+    ds_list_replace(cmd_prompt,_s,ds_list_find_value(cmd_prompt,_s)+current_prompt)
+}
+
+if text_msg=1 &amp;&amp; !file_exists(working_directory+"/boot/load.elf")
+{
+    var _s=ds_list_size(cmd_prompt)-1;
+    ds_list_add(cmd_prompt,'File "load.elf" does not exist.');
+    ds_list_add(cmd_prompt,text_message[0]);
+    cur_prompt_ind=0;
+    current_prompt="";
+    audio_play_sound(sound4,5,false);
+    exit;
+}
+
+ds_list_add(cmd_prompt,text_message[text_msg]);
+text_cmd++;
+text_msg++;
+cur_prompt_ind=0;
+current_prompt="";
+audio_play_sound(sound4,5,false);
+
+if text_msg=2
+{
+    if show_warning show_message(text_warning);
+    alarm[10]=global.FSP;
+}
+if text_msg=1 alarm[7]=global.FSP;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if loading=1
+{
+    blink="";
+    exit;
+}
+
+first_setup=true;
+
+if blink="" blink="_" else blink="";
+alarm[8]=global.FSP/2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (cur_prompt_ind &lt; string_length(text_command[text_cmd])) {
+    cur_prompt_ind += 1;
+    current_prompt = string_copy(text_command[text_cmd], 1, cur_prompt_ind);
+    audio_play_sound(sound4,5,false);
+    alarm[7]=global.FSP/10;
+}
+else alarm[9]=global.FSP;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var test = audio_loop_sound(bios0,4089,41454,44100,0);
+audio_sound_pitch(test,0.52);
 </string>
           </argument>
         </arguments>
@@ -198,7 +420,8 @@ alarm[3]=global.FSP/3;
 audio_play_sound(boot1,0,false);
 didwestart=1;
 show_time = global.FSP*7;
-alarm[0]=global.FSP*14;
+if !fearful_harmony alarm[0]=global.FSP*14;
+if fearful_harmony alarm[6]=global.FSP*17;
 </string>
           </argument>
         </arguments>
@@ -222,7 +445,7 @@ alarm[0]=global.FSP*14;
           <argument>
             <kind>1</kind>
             <string>///Do something
-room_goto(rm_title);
+room_goto(rm_title)
 </string>
           </argument>
         </arguments>
@@ -276,7 +499,8 @@ room_goto(rm_title);
             phase += 1;
             if phase=1
             {
-                audio_play_sound(boot2,1,false)
+                if !fearful_harmony audio_play_sound(boot2,1,false)
+                else audio_play_sound(fear,1,false);
                 show_time = global.FSP*4;
             }
             timer = 0;
@@ -307,6 +531,16 @@ room_goto(rm_title);
         }
     }
 }
+
+if loading=1
+{
+    if load_seq&gt;=10
+    {
+        load_seq=10;
+        loading=0;
+        alarm[1]=global.FSP;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -334,36 +568,45 @@ draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
+// Overlay fading background
+var col_bg_light = make_color_rgb(180,180,180); // light gray
+var col_bg_dark  = make_color_rgb(0,0,0);       // black
+
+c1 = merge_color(c_blue,make_colour_hsv(abs(sin(c) * 255), 255, 255),0.3);
+
+// Interpolate between dark and light
+var final_col = merge_color(col_bg_dark, col_bg_light, alpha_test);
+
+var col_top    = make_color_rgb(120, 120, 255);
+var col_side   = make_color_rgb(0, 0, 255);
+var col_bottom = make_color_rgb(0, 0, 120);
+var col_center = make_color_rgb(50, 50, 255);
+
 if (phase == 0) {
     //background
     draw_clear(c_black);
-    
-    draw_set_font(fnt_smol);
-    draw_set_alpha(1);
-    if didwestart = 0
-    {
-        draw_text(cx, cy, text);
-    }
-    
-    draw_set_alpha(alpha_val);
-    // Overlay fading background
-    var col_bg_light = make_color_rgb(180,180,180); // light gray
-    var col_bg_dark  = make_color_rgb(0,0,0);       // black
-    
-    // Interpolate between dark and light
-    var final_col = merge_color(col_bg_dark, col_bg_light, alpha_test);
     
     // Fullscreen rectangle with that color
     draw_set_color(final_col);
     draw_rectangle(0, 0, room_width, room_height, false);
     draw_set_color(c_white);
     
-    // Colors
-    var col_top    = make_color_rgb(120, 120, 255);
-    var col_side   = make_color_rgb(0, 0, 255);
-    var col_bottom = make_color_rgb(0, 0, 120);
-    var col_center = make_color_rgb(50, 50, 255);
+    if didwestart=0 &amp;&amp; first_setup=true
+    {
+        draw_set_alpha(1);
+        draw_set_color(c_green);
+        draw_set_halign(fa_left);
+        draw_set_valign(fa_top);
+        draw_set_font(fnt_smoler);
+        for (var _cmd=0; _cmd&lt;ds_list_size(cmd_prompt)-1; _cmd++)
+        {
+            draw_text(2,_cmd*12,ds_list_find_value(cmd_prompt,_cmd));
+        }
+        var _s = ds_list_size(cmd_prompt)-1;
+        draw_text(2,_s*12,ds_list_find_value(cmd_prompt,_s)+current_prompt+blink);
+    }
     
+    // Colors
     if show_part1=true
     {
         // --- Gradient Diamond with alpha ---
@@ -410,36 +653,80 @@ if (phase == 0) {
     if show_part3=true
     {
         // --- Text with alpha ---
-        draw_set_font(fnt_main);
         draw_set_color(c_black);
-        draw_set_alpha(alpha_val);
-        draw_text(cx, cy, "AcidNT3.1# # # # #Productions");
-        
-        if global.debug=1
-        {
-            draw_set_color(c_red);
-            draw_text(cx, cy, "DEBUG BUILD.#PROCEED WITH#CAUTION!!");
-            draw_set_color(c_black);
-        }
+        draw_set_font(fnt_main);
+        c+=0.005;
+        draw_text_colour(cx, cy, "AcidNT3.1# # # # #Productions",c1,c1,c1,c1,alpha_val);
     }
 }
 else if (phase == 1) {
     // PlayStation logo
-    draw_set_font(fnt_smol);
-    draw_set_color(c_white);
-    draw_set_alpha(alpha_val);
-    draw_sprite_ext(spr_logo,0,cx,cy,0.5,0.5,0,c_white,alpha_val);
-    if show_part5==true
+    if !fearful_harmony
     {
-        draw_set_alpha(alpha_val);
-        draw_text(cx, cy - size + 10, "Made by");
-        draw_text(cx, cy + size - 10, "AcidPS3 Project");
+        draw_sprite_ext(spr_logo,0,cx,cy,0.5,0.5,0,c_white,alpha_val/6);
+        draw_set_color(c_white);
+        if show_part5==true
+        {
+            draw_set_font(fnt_smol);
+            draw_set_alpha(alpha_val2);
+            draw_text(cx, cy - size + 10, "Made by");
+            draw_text(cx, cy + size - 10, "AcidPS3 Project");
+        }
+        if show_part4==true
+        {
+            draw_set_font(fnt_smoler);
+            draw_set_alpha(alpha_val);
+            draw_text(cx, cy + size + 30, "The PS3 GameDEV revival project.#(Since 2025)");
+        }
     }
-    if show_part4==true
+    else
     {
-        draw_set_font(fnt_smoler);
-        draw_set_alpha(alpha_val);
-        draw_text(cx, cy + size + 15, "The PS3 GameDEV revival project.#(Since 2025)");
+        if alpha_val&gt;0.9 test=1;
+        if test=1 alpha_val=1;
+        
+        // --- Gradient Diamond with alpha ---
+        draw_primitive_begin(pr_linestrip);
+        draw_vertex_color(cx, cy - size, col_top, alpha_val);
+        draw_vertex_color(cx - size, cy, col_side, alpha_val);
+        draw_vertex_color(cx, cy, col_center, alpha_val);
+        draw_vertex_color(cx, cy - size, col_top, alpha_val);
+        draw_vertex_color(cx, cy, col_center, alpha_val);
+        draw_vertex_color(cx + size, cy, col_side, alpha_val);
+        
+        draw_vertex_color(cx, cy + size, col_bottom, alpha_val);
+        draw_vertex_color(cx - size, cy, col_side, alpha_val);
+        draw_vertex_color(cx, cy, col_center, alpha_val);
+        draw_vertex_color(cx, cy + size, col_bottom, alpha_val);
+        draw_vertex_color(cx, cy, col_center, alpha_val);
+        draw_vertex_color(cx + size, cy, col_side, alpha_val);
+        draw_primitive_end();
+        
+        draw_primitive_begin(pr_linestrip);
+        draw_vertex_color(cx, ty1 - tsize, col_top, alpha_val);
+        draw_vertex_color(cx - tsize, ty1, col_side, alpha_val);
+        draw_vertex_color(cx, ty1, col_center, alpha_val);
+        draw_vertex_color(cx, ty1 + tsize, col_bottom, alpha_val);
+        draw_vertex_color(cx - tsize, ty1, col_side, alpha_val);
+        draw_vertex_color(cx, ty1, col_center, alpha_val);
+        draw_primitive_end();
+        
+        draw_primitive_begin(pr_linestrip);
+        draw_vertex_color(cx, ty2 - tsize, col_top, alpha_val);
+        draw_vertex_color(cx, ty2, col_center, alpha_val);
+        draw_vertex_color(cx + tsize, ty2, col_side, alpha_val);
+        draw_vertex_color(cx, ty2 + tsize, col_bottom, alpha_val);
+        draw_vertex_color(cx, ty2, col_center, alpha_val);
+        draw_vertex_color(cx + tsize, ty2, col_side, alpha_val);
+        draw_primitive_end();
+        draw_set_font(fnt_main);
+        draw_text_colour(cx, cy, "AcidNT3.1# # # # #Productions",c1,c1,c1,c1,alpha_val);
+        draw_sprite_ext(spr_logo,0,cx,cy,0.5,0.5,0,c_white,alpha_val/6);
+        draw_set_font(fnt_smol);
+        {
+            draw_set_alpha(alpha_val/8);
+            draw_text(cx, cy - size + 10, "Made by");
+            draw_text(cx, cy + size - 10, "AcidPS3 Project");
+        }
     }
 }
 
@@ -447,6 +734,13 @@ else if (phase == 1) {
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_alpha(1);
+
+//TEST
+if show_time=1
+{
+    draw_set_font(fnt_smoler);
+    draw_text(0,0,time)
+}
 </string>
           </argument>
         </arguments>

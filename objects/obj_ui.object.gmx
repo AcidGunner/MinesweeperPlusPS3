@@ -267,6 +267,7 @@ if obj_game.win
         else
         {
             global.stage++;
+            save_game();
             if global.stage&lt;11 room_restart()
             else room_goto(rm_end);
         }

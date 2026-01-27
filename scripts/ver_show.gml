@@ -1,2 +1,2 @@
 ///ver_show();
-return "v0.2-DEV";
+return "v0.2 Full Test";

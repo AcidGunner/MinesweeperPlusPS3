@@ -38,7 +38,7 @@ any=0;
 //PS3 ONLY VALUES
 l1=0;r1=0;l1h=0;r1h=0;
 l2=0;r2=0;l2h=0;r2h=0;
-gmin=0.6;gmax=1;
+gmin=0.9;gmax=1;
 mx=0;my=0;mp1=0;mh1=0;
 mp2=0;mh2=0;sns=2;
 stick_h=gamepad_axis_value(0,gp_axislh);

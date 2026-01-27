@@ -65,7 +65,7 @@ if global.debug==1
     draw_set_valign(fa_top);
     draw_set_halign(fa_left);
     draw_set_font(fnt_smol);
-    draw_text(0,0,string(fps));
+    draw_text(2,220,string(fps));
     draw_set_colour(c_white);
 }
 </string>

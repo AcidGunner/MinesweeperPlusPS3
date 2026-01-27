@@ -59,8 +59,9 @@ else if global.stage==86 sprite_index=spr_bg86;
           <argument>
             <kind>1</kind>
             <string>var tile_size = obj_game.zoom*1.01;
-x = obj_game.grid_offset_x * (tile_size*16);
-y = obj_game.grid_offset_y * (tile_size*16);
+
+x = obj_game.grid_offset_x;
+y = obj_game.grid_offset_y;
 
 draw_sprite_tiled_ext(sprite_index,image_index,x,y,tile_size,tile_size,c_white,1);
 </string>

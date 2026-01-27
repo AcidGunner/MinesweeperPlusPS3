@@ -258,7 +258,7 @@ else
     for (var xx = 0; xx &lt; g.grid_w; xx++)
     for (var yy = 0; yy &lt; g.grid_h; yy++)
     {
-        g.grid_sprite[# xx, yy] = g.t10_grid; // default sprite
+        if !g.circle_grid[# xx, yy] g.grid_sprite[# xx, yy] = g.t10_grid;
     }
     g.spr_bgb=g.t10_gridb;
     obj_smiley.cutscene_10s = 5;
@@ -428,8 +428,6 @@ if active
     }
     if time=0 game_restart();
 }
-
-//window_set_caption(string(x)+"-"+string(y));
 </string>
           </argument>
         </arguments>

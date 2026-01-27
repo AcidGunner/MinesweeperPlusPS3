@@ -3,6 +3,27 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles">
+    <datafiles number="1" name="boot">
+      <datafile>
+        <name>load.elf</name>
+        <exists>-1</exists>
+        <size>115</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>load.elf</filename>
+      </datafile>
+    </datafiles>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\GMSched</extension>
   </NewExtensions>
@@ -114,6 +135,9 @@
       <sound>sound\sfx_10reset</sound>
       <sound>sound\sfx_gameover</sound>
       <sound>sound\sound67</sound>
+      <sound>sound\fear</sound>
+      <sound>sound\sound4</sound>
+      <sound>sound\bios0</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -217,6 +241,11 @@
       <script>scripts\scr_check_win.gml</script>
       <script>scripts\regenerate_grid.gml</script>
       <script>scripts\check_input.gml</script>
+      <script>scripts\checks_input.gml</script>
+      <script>scripts\hold_highlight.gml</script>
+      <script>scripts\zoom_update.gml</script>
+      <script>scripts\set_circle_grid.gml</script>
+      <script>scripts\draw_grid.gml</script>
     </scripts>
     <scripts name="badapple">
       <script>scripts\badapple_0.gml</script>
