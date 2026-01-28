@@ -206,6 +206,7 @@
             <sprite>sprites\spr_100_part</sprite>
           </sprites>
           <sprite>sprites\spr_10</sprite>
+          <sprite>sprites\spr_10_mask</sprite>
           <sprite>sprites\spr_10_part</sprite>
           <sprite>sprites\spr_10_num</sprite>
         </sprites>
@@ -246,6 +247,8 @@
       <script>scripts\zoom_update.gml</script>
       <script>scripts\set_circle_grid.gml</script>
       <script>scripts\draw_grid.gml</script>
+      <script>scripts\let_me_out.gml</script>
+      <script>scripts\spiral_setup.gml</script>
     </scripts>
     <scripts name="badapple">
       <script>scripts\badapple_0.gml</script>
@@ -300,6 +303,8 @@
     <script>scripts\ver_show.gml</script>
     <script>scripts\save_game.gml</script>
     <script>scripts\load_game.gml</script>
+    <script>scripts\message_set.gml</script>
+    <script>scripts\ask_10.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main</font>

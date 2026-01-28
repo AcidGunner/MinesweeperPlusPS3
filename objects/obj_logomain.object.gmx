@@ -31,7 +31,7 @@ initial_setup();
 
 cmd_prompt=ds_list_create();
 
-text_warning="[PLEASE READ BEFORE DOING ANYTHING!] ᗜˬᗜ
+text_warning="[PLEASE READ BEFORE DOING ANYTHING!]
 
 ACIDPS3 PROJECT IS NOT AFFILIATED OR APPROVED BY SONY COMPUTER ENTERTAINMENT!!
 WE ARE NOT GETTING ANY PROFIT OUT OF THIS. THOSE SERVICES ARE PURELY FREE NO MATTER WHAT.
@@ -80,7 +80,7 @@ c=0;
 c1=0;
 
 fearful_harmony=false;
-if irandom_range(1,100)==5 fearful_harmony=true;
+if irandom_range(1,50)==5 fearful_harmony=true;
 
 // Step control
 phase = 0;        // 0 = Sony logo, 1 = PlayStation logo, 2 = done
@@ -663,14 +663,14 @@ else if (phase == 1) {
     // PlayStation logo
     if !fearful_harmony
     {
-        draw_sprite_ext(spr_logo,0,cx,cy,0.5,0.5,0,c_white,alpha_val/6);
+        draw_sprite_ext(spr_logo,0,cx,cy,0.5,0.5,0,c_white,alpha_val);
         draw_set_color(c_white);
         if show_part5==true
         {
             draw_set_font(fnt_smol);
             draw_set_alpha(alpha_val2);
-            draw_text(cx, cy - size + 10, "Made by");
-            draw_text(cx, cy + size - 10, "AcidPS3 Project");
+            draw_text(cx, cy - size, "Made by");
+            draw_text(cx, cy + size, "AcidPS3 Project");
         }
         if show_part4==true
         {
@@ -719,13 +719,13 @@ else if (phase == 1) {
         draw_vertex_color(cx + tsize, ty2, col_side, alpha_val);
         draw_primitive_end();
         draw_set_font(fnt_main);
-        draw_text_colour(cx, cy, "AcidNT3.1# # # # #Productions",c1,c1,c1,c1,alpha_val);
+        draw_text_colour(cx, cy, "AcidNT3.1# # # # #",c1,c1,c1,c1,alpha_val);
         draw_sprite_ext(spr_logo,0,cx,cy,0.5,0.5,0,c_white,alpha_val/6);
         draw_set_font(fnt_smol);
         {
             draw_set_alpha(alpha_val/8);
-            draw_text(cx, cy - size + 10, "Made by");
-            draw_text(cx, cy + size - 10, "AcidPS3 Project");
+            draw_text(cx, cy - size, "Made by");
+            draw_text(cx, cy + size, "AcidPS3 Project");
         }
     }
 }

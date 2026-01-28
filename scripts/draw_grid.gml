@@ -1,5 +1,6 @@
 ///draw_grid();
 var draw_size = cell_size * zoom;
+
 for (var xx = 0; xx < grid_w; xx++)
 {
     for (var yy = 0; yy < grid_h; yy++)
@@ -9,12 +10,10 @@ for (var xx = 0; xx < grid_w; xx++)
             var x1 = grid_offset_x + xx * draw_size;
             var y1 = grid_offset_y + yy * draw_size;
             
-            depth=0;
-            
             // === Flagged ===
             if (flagged[# xx, yy])
             {
-                draw_sprite_stretched(grid_sprite[# xx, yy], image_index, x1, y1, draw_size, draw_size);
+                draw_sprite_stretched(grid_sprite[# xx, yy], image_index, x1, y1, draw_size, draw_size);                
                 draw_sprite_stretched(spr_flag, image_index, x1, y1, draw_size, draw_size);
             }
             else if (reveal[# xx, yy])
@@ -30,10 +29,7 @@ for (var xx = 0; xx < grid_w; xx++)
                     draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size);
             }
             else draw_sprite_stretched(grid_sprite[# xx, yy], image_index, x1, y1, draw_size, draw_size);
-            depth=0;
-            
             draw_sprite_stretched(spr_grid, 0, x1, y1, draw_size, draw_size);
-            
             if (highlight_x1 >= 0 && highlight_y1 >= 0)
             {
                 if (xx == highlight_x1 && yy == highlight_y1)
@@ -63,17 +59,19 @@ if !boss9_started && global.stage==9
 if !boss10_started && global.stage==10
     draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
 
-if cirno9=true && iceland[# xx, yy]=2
+if cirno9=true && boss9_started
+for (var xx = 0; xx < grid_w; xx++)
 {
-    for (var xx = 0; xx < grid_w; xx++)
+    for (var yy = 0; yy < grid_h; yy++)
     {
-        for (var yy = 0; yy < grid_h; yy++)
+        if iceland[# xx, yy]=2
         {
-            var draw_size = cell_size * zoom;
-            var x1 = grid_offset_x + xx * draw_size;
-            var y1 = grid_offset_y + yy * draw_size;
-            
-            draw_sprite_stretched(spr_ice, image_index, x1-draw_size, y1-draw_size, draw_size*3, draw_size*3);
+            if circle_grid[# xx, yy]!=1
+            {
+                var x1 = grid_offset_x + xx * draw_size;
+                var y1 = grid_offset_y + yy * draw_size;
+                draw_sprite_stretched(spr_ice, image_index, x1-draw_size, y1-draw_size, draw_size*3, draw_size*3);
+            }
         }
     }
 }

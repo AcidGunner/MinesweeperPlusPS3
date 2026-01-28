@@ -38,6 +38,8 @@ mines_left = mine_count;
 temp_mines=mine_count;
 global.pitch=1;
 sheesh=0;
+_sh=0;
+the_temp=0;
 
 if global.type_input=1 instance_create(0,0,obj_cursor);
 text = "You have to let me out eventually, Captain...";
@@ -46,9 +48,9 @@ circle_grid = ds_grid_create(grid_w,grid_h);
 ds_grid_clear(circle_grid,0);
 
 zoom = 1;
-zoom_min = 0.5;
+zoom_min = 0.55;
 zoom_max = 1;
-zoom_speed = 0.1;
+zoom_speed = 0.05;
 draw_size = 0;
 
 player_x=0;
@@ -118,6 +120,7 @@ if global.stage==9
 {
     spr_bg=spr_bg1;
     spr_bgb=spr_bg1b;
+    spiral_setup();
 }
 
 if global.stage==10
@@ -226,82 +229,13 @@ if global.stage==910
     obj_10.active=true;
     obj_10.moove=1;
     obj_10.time=11;
+    obj_10.spd=1;
+    obj_10.vspeed=1;
+    obj_10.hspeed=1;
     obj_10.alarm[3]=1;
     obj_ui.alarm[0]=1;
     obj_ui.rand_time=1;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Spiral Setup
-spiral = ds_list_create();
-spiral_index = 0;
-
-// Center of grid
-var cx = grid_w div 2;
-var cy = grid_h div 2;
-
-spiral_go=false;
-
-// Directions:
-// 0 = right, 1 = down, 2 = left, 3 = up
-var dir = 0;
-
-// Length of movement for this step
-var step = 1;
-
-// Add center first
-ds_list_add(spiral, cx &lt;&lt; 16 | cy);
-
-// Spiral until all cells are added
-while (ds_list_size(spiral) &lt; grid_w * grid_h)
-{
-    // Two passes per step length (right+down, then left+up)
-    repeat (2)
-    {
-        repeat (step)
-        {
-            // move in current direction
-            switch (dir)
-            {
-                case 0: cx += 1; break; // →
-                case 1: cy += 1; break; // ↓
-                case 2: cx -= 1; break; // ←
-                case 3: cy -= 1; break; // ↑
-            }
-            
-            // If inside bounds, add it
-            if (cx &gt;= 0 &amp;&amp; cy &gt;= 0 &amp;&amp; cx &lt; grid_w &amp;&amp; cy &lt; grid_h)
-            {
-                ds_list_add(spiral, cx &lt;&lt; 16 | cy);
-            }
-        }
-        
-        // Next direction
-        dir = (dir + 1) mod 4;
-    }
-
-    // After two directions, increase step length
-    step += 1;
-}
-
 </string>
           </argument>
         </arguments>
@@ -491,7 +425,6 @@ var yy = msy;
 
 temp_g = 0;
 
-if circle_grid[# xx, yy] exit;
 
 // === VALIDATION ===
 if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h)
@@ -502,6 +435,7 @@ if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h)
     exit; // Ignore click outside the grid
 }
 
+if circle_grid[# xx, yy] exit;
 //show_debug_message(string(xx)+"-"+string(yy)+"??"+string(temp_x)+"-"+string(temp_y));
 
 if obj_smiley.mine_detected != 0 exit;
@@ -520,6 +454,8 @@ if instance_exists(obj_9) &amp;&amp; !first_click
             obj_10.active=false;
             obj_10.stopped=1;
             obj_10.rand=0;
+            obj_10.vspeed=0;
+            obj_10.hspeed=0;
         }
         obj_9.stop=1;
         obj_9.active=false;
@@ -700,10 +636,9 @@ temp_g = 1;
 temp_x = xx;
 temp_y = yy;
 
-if circle_grid[# xx, yy] exit;
-
 // === VALIDATION ===
 if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h) exit;
+if circle_grid[# xx, yy] exit;
 
 if obj_smiley.mine_detected != 0 exit;
 if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
@@ -720,6 +655,7 @@ if win == false
         if (!reveal[# xx, yy])
         {
             flagged[# xx, yy] = !flagged[# xx, yy];
+            the_temp = flagged[# center_x, center_y];
             if flagged[# xx, yy] == 0
             {
                 audio_play_sound(sfx_unflag,4,false);
@@ -765,10 +701,9 @@ temp_y = msy;
 
 temp_g = 1;
 
-if circle_grid[# temp_x, temp_y] exit;
-
 // === VALIDATION ===
 if (temp_x &lt; 0 || temp_y &lt; 0 || temp_x &gt;= grid_w || temp_y &gt;= grid_h) exit;
+if circle_grid[# temp_x, temp_y] exit;
 </string>
           </argument>
         </arguments>
@@ -801,6 +736,8 @@ highlight_x1 = -1;
 highlight_y1 = -1;
 highlight_x2 = -1;
 highlight_y2 = -1;
+
+if global.stage==9 or global.stage==10 let_me_out();
 
 check_input();
 checks_input();
@@ -891,40 +828,6 @@ if bad_apple==1
         }
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///???
-if (!boss9_started) &amp;&amp; global.stage==9 &amp;&amp; (flagged[# center_x, center_y])
-{
-    sheesh++;
-    var _sh = sheesh mod 750;
-    if _sh=500 audio_play_sound(sfx_gameover,9,false);
-}
-else if (!boss10_started) &amp;&amp; global.stage==10 &amp;&amp; (flagged[# center_x, center_y])
-{
-    sheesh++;
-    var _sh = sheesh mod 750;
-    if _sh=500 audio_play_sound(sfx_gameover,9,false);
-}
-else sheesh=0;
 </string>
           </argument>
         </arguments>

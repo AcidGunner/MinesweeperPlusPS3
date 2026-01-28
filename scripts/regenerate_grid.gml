@@ -17,7 +17,7 @@ while (placed < cm)
     // Skip the clicked cell
     if (xx == cx && yy == cy) continue;
 
-    if (grid[# xx, yy] != -1)
+    if (grid[# xx, yy] != -1) && circle_grid[# xx, yy] == 0
     {
         grid[# xx, yy] = -1;
         placed++;

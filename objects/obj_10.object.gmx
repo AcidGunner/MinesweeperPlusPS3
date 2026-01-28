@@ -6,7 +6,7 @@
   <depth>-11</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>spr_10_mask</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -50,16 +50,12 @@ fall=0;
 yspd=0;
 temp2=0;
 
-point_x=0;
-point_y=0;
-
 spr_part=spr_10_part;
 spr_main=spr_10;
 
 spawned=0;
 
 if obj_game.utsuho10=true &amp;&amp; global.stage==10 secret_script_2_p2();
-
 if global.foughtutsuho==true &amp;&amp; global.stage==910 secret_script_p2();
 </string>
           </argument>
@@ -92,6 +88,7 @@ if global.foughtutsuho==true &amp;&amp; global.stage==910 secret_script_p2();
         if (obj_game.grid[# fx, fy] == -1)
             obj_game.flagged[# fx, fy] = true;
     }
+    mines_left = 0;
     obj_game.win=true;
     audio_play_sound(global.stage10_win,0,false);
     instance_destroy();
@@ -183,6 +180,8 @@ alarm[5]=_b;
           <argument>
             <kind>1</kind>
             <string>active=false;
+vspeed=0;
+hspeed=0;
 stopped=1;
 rand=0;
 obj_smiley.cutscene=true;
@@ -265,8 +264,6 @@ else
     obj_smiley.alarm[7]=240;
     rand=2;
     move=0;
-    point_x=the_x;
-    point_y=the_y;
 }
 </string>
           </argument>
@@ -291,13 +288,8 @@ else
           <argument>
             <kind>1</kind>
             <string>move=1;
-var _x=irandom_range(0,1);
-//var _y=irandom_range(0,1);
-
-if _x=0 point_x=20 else point_x=300;
-//if _y=0 point_y=20 else point_y=220;
-
-point_y=irandom_range(20,220);
+vspeed = 10;
+hspeed = 10;
 </string>
           </argument>
         </arguments>
@@ -383,14 +375,18 @@ if spawned=0 &amp;&amp; scale&lt;0.17
 
 if move=0 &amp;&amp; !active &amp;&amp; stopped=0
 {
+    vspeed=0;hspeed=0;
     x=lerp(x,the_x,0.05);
     y=lerp(y,the_y,0.05);
 }
 else if move=1
 {
-    x=lerp(x,point_x,0.1);
-    y=lerp(y,point_y,0.1);
-    if distance_to_point(point_x,point_y)&lt;5 alarm[1]=1;
+    if bbox_bottom &gt; 240 || bbox_top &lt; 0 {
+        vspeed = -vspeed;
+    }
+    if bbox_right &gt; 320 || bbox_left &lt; 0 {
+        hspeed = -hspeed;
+    }
 }
 else if fall=1
 {
@@ -407,23 +403,26 @@ if active
     {
         audio_stop_sound(sfx_beep);
         audio_play_sound(sfx_10reset,6,false);
-        the_x=irandom_range(20,300);
-        the_y=irandom_range(20,220);
-        moove=1;
+        if moove=0
+        {
+            moove=1;
+            vspeed=1;
+            hspeed=1;
+        }
         time=10;
-        spd+=0.001;
+        spd+=0.12;
         test=0;
+        vspeed = (vspeed/abs(vspeed))*spd;
+        hspeed = (hspeed/abs(hspeed))*spd;
     }
-    
-    x=lerp(x,the_x,spd);
-    y=lerp(y,the_y,spd);
     
     if moove=1
     {
-        if distance_to_point(the_x,the_y)&lt;5
-        {
-            the_x=irandom_range(20,300);
-            the_y=irandom_range(20,220);
+        if bbox_bottom &gt; 240 || bbox_top &lt; 0 {
+            vspeed = -vspeed;
+        }
+        if bbox_right &gt; 320 || bbox_left &lt; 0 {
+            hspeed = -hspeed;
         }
     }
     if time=0 game_restart();

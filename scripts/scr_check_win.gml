@@ -52,7 +52,7 @@ else
 {
     if global.stage==9 game_restart();
     
-    show_debug_message("NOT ENOUGH!! "+
-        string((grid_w * grid_h - mine_count)-revealed_total)+
-    " TILES LEFT.")
+    //show_debug_message("NOT ENOUGH!! "+
+    //    string((grid_w * grid_h - mine_count)-revealed_total)+
+    //" TILES LEFT.")
 }

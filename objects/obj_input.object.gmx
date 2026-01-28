@@ -38,9 +38,9 @@ any=0;
 //PS3 ONLY VALUES
 l1=0;r1=0;l1h=0;r1h=0;
 l2=0;r2=0;l2h=0;r2h=0;
-gmin=0.9;gmax=1;
+gmin=0.6;gmax=1;
 mx=0;my=0;mp1=0;mh1=0;
-mp2=0;mh2=0;sns=2;
+mp2=0;mh2=0;sns=1;
 stick_h=gamepad_axis_value(0,gp_axislh);
 stick_v=gamepad_axis_value(0,gp_axislv);
 global.prev_stick_h=0;
@@ -145,8 +145,8 @@ if global.CONTROL==0{
     dow=gamepad_button_check_pressed(0,gp_padd) or (stick_v&gt;=gmin &amp;&amp; global.prev_stick_v&lt;gmin);
     upp=gamepad_button_check_pressed(0,gp_padu) or (stick_v&lt;=-gmin &amp;&amp; global.prev_stick_v&gt;-gmin);
     
-    cursor_x=stick_h
-    cursor_y=stick_v
+    cursor_x=right-left;
+    cursor_y=down-up;
     
     global.prev_stick_h = stick_h;
     global.prev_stick_v = stick_v;

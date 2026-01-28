@@ -1,0 +1,5 @@
+///message_set();
+global.message_9="There is a boss battle in this game.
+The battle works the same as normal Minesweeper, but with some key distinctions: you won't know the number of mines hidden on the grid, you have limited time to complete the level, and you won't be able to use the sonar or pause the game. Clicking on a mine will make the time run out faster. To win, you must click on the boss ONLY AFTER revealing all the tiles that don't contain mines. If the timer hits 0, or you click on the boss before revealing the entire grid, it's game over.";
+global.message_10="There is another boss battle in this game.
+As soon as the game starts, this boss will start counting down from 10. If it counts all the way down to 0, it's game over. Click on the boss to reset the countdown back to 10, but be careful. The boss will move faster and faster every time you click on it. Clicking on a mine will cause the boss to count down more quickly. To win, reveal the entire grid before the boss is able to finish its countdown.";

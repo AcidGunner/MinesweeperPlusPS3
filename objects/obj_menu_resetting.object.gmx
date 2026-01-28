@@ -129,10 +129,9 @@ draw_set_colour(c_dkgray);
 draw_rectangle(30,y-90,290,y+90,false);
 draw_set_colour(c_white);
 draw_text_ext(160,y,'Reinstall the game? :P
-or delete the "msplus.ini" file on
+or delete the "msplus-ps3-save.ini" file on
 /dev_hdd0/packages/
 (IDK why it does save here..)
-(And even then the game doesn'+"'"+'t save your progress in Alpha state.`)
 
 Press (Circle) to go back.',-1,240);
 </string>

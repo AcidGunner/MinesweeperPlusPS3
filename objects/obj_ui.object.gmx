@@ -268,6 +268,9 @@ if obj_game.win
         {
             global.stage++;
             save_game();
+            
+            if global.stage==10 ask_10();
+            
             if global.stage&lt;11 room_restart()
             else room_goto(rm_end);
         }
