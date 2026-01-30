@@ -1,10 +1,10 @@
 ///initial_setup();
 audio_channel_num(20);
-window_set_caption("Minesweeper Plus PS3 Port ("+ver_show()+")");
+window_set_caption("Minesweeper Plus "+detect_console()+" Port ("+ver_show()+")");
 bad_apple_initialize();
 randomize();
 global.CONTROL=1;
-if os_type!=os_ps3 && !gamepad_is_connected(0) global.CONTROL=0;
+if os_type==os_windows && !gamepad_is_connected(0) global.CONTROL=0;
 
 load_game();
 message_set();

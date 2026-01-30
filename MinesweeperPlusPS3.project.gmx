@@ -250,6 +250,9 @@
       <script>scripts\let_me_out.gml</script>
       <script>scripts\spiral_setup.gml</script>
     </scripts>
+    <scripts name="logo">
+      <script>scripts\showLogo.gml</script>
+    </scripts>
     <scripts name="badapple">
       <script>scripts\badapple_0.gml</script>
       <script>scripts\badapple_1.gml</script>
@@ -285,26 +288,27 @@
       <script>scripts\badapple_31.gml</script>
       <script>scripts\badapple_32.gml</script>
     </scripts>
-    <scripts name="logo">
-      <script>scripts\showLogo.gml</script>
-    </scripts>
     <scripts name="easteregz">
       <script>scripts\secret_script_p1.gml</script>
       <script>scripts\secret_script_p2.gml</script>
       <script>scripts\secret_script_2_p1.gml</script>
       <script>scripts\secret_script_2_p2.gml</script>
     </scripts>
-    <script>scripts\audio_loop_sound.gml</script>
-    <script>scripts\init_globals_mus.gml</script>
-    <script>scripts\draw_text_outline.gml</script>
-    <script>scripts\gamepad_button_check_pressed_any.gml</script>
-    <script>scripts\bad_apple_initialize.gml</script>
+    <scripts name="hidden">
+      <script>scripts\audio_loop_sound.gml</script>
+      <script>scripts\init_globals_mus.gml</script>
+      <script>scripts\draw_text_outline.gml</script>
+      <script>scripts\gamepad_button_check_pressed_any.gml</script>
+      <script>scripts\bad_apple_initialize.gml</script>
+      <script>scripts\save_game.gml</script>
+      <script>scripts\load_game.gml</script>
+      <script>scripts\message_set.gml</script>
+      <script>scripts\ask_10.gml</script>
+      <script>scripts\do_bad_apple.gml</script>
+      <script>scripts\detect_console.gml</script>
+    </scripts>
     <script>scripts\initial_setup.gml</script>
     <script>scripts\ver_show.gml</script>
-    <script>scripts\save_game.gml</script>
-    <script>scripts\load_game.gml</script>
-    <script>scripts\message_set.gml</script>
-    <script>scripts\ask_10.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main</font>

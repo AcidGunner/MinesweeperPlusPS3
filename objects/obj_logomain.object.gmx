@@ -107,8 +107,15 @@ ty1 = cy;
 ty2 = cy;
 test_s=0;
 
-alarm[8]=global.FSP;
-alarm[7]=global.FSP*2;
+if global.debug=1
+{
+    alarm[0]=1;
+}
+else
+{
+    alarm[8]=global.FSP;
+    alarm[7]=global.FSP*2;
+}
 </string>
           </argument>
         </arguments>

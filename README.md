@@ -11,11 +11,22 @@ As for PS3 Port you can either download:
 # Project Status
 LATEST: v0.2
 
+IN DEVELOP: v0.3
+
 # Upcoming stuff!!
 ## v0.3
 Eleven Boss-Fight! Might use my fan-made one, or IDK.
 
 Full Episode 2!
+
+Hatsune Miku's Hair
+
+## Future Versions
+PlayStation Portable Port (on GameMaker 8.1).
+
+Almost everything from original game.
+
+Versus Mode.
 
 # About the Port
 This is the fun to make. The game indeed has an AI-generated code. (only on the main minesweeper mechanics, the bosses and other stuff are proudly AI-free.)

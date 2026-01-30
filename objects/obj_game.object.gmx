@@ -60,7 +60,6 @@ test_speed=0;
 msx=0;
 msy=0;
 
-bad_apple=0;
 bad_apple_frame=0;
 
 center_x = grid_w div 2;
@@ -112,7 +111,6 @@ if global.stage==86
 {
     spr_bg=spr_bg86;
     spr_bgb=spr_bg86b;
-    bad_apple=1;
     audio_play_sound(mus_bad,0,false);
 }
 
@@ -741,6 +739,8 @@ if global.stage==9 or global.stage==10 let_me_out();
 
 check_input();
 checks_input();
+
+if global.stage==86 do_bad_apple();
 </string>
           </argument>
         </arguments>
@@ -785,48 +785,6 @@ else if spiral_go == true
     }
     spr_bgb=t9_gridb;
     spiral_go = false;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Don't ask.
-if global.stage!=86 exit;
-
-if bad_apple==1
-{
-    bad_apple_frame+=0.5;
-    if bad_apple_frame&gt;6561 game_restart();
-    
-    var frame = global.bad_apple[bad_apple_frame];
-    var i = 1;
-    
-    for (var gy = 0; gy &lt; 12; gy++)
-    {
-        for (var gx = 0; gx &lt; 16; gx++)
-        {
-            var bit = real(string_char_at(frame, i));
-            if bit==0 bit=1 else bit=0;
-            reveal[# gx, gy] = bit;
-            i++;
-        }
-    }
 }
 </string>
           </argument>
