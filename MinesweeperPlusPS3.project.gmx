@@ -93,6 +93,10 @@
             <sound>sound\mus_stage100</sound>
             <sound>sound\mus_stage100_win</sound>
           </sounds>
+          <sounds name="mus_stage10r">
+            <sound>sound\mus_stage10r_prepare</sound>
+            <sound>sound\mus_stage10r</sound>
+          </sounds>
         </sounds>
         <sounds name="boss10-0">
           <sound>sound\mus_stage910_00</sound>
@@ -131,27 +135,6 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprites name="hats">
-      <sprite>sprites\spr_hat1</sprite>
-      <sprite>sprites\spr_hat2</sprite>
-      <sprite>sprites\spr_hat3</sprite>
-      <sprite>sprites\spr_hat4</sprite>
-      <sprite>sprites\spr_hat5</sprite>
-      <sprite>sprites\spr_hat6</sprite>
-      <sprite>sprites\spr_hat7</sprite>
-    </sprites>
-    <sprites name="smiley">
-      <sprite>sprites\spr_smiley1</sprite>
-      <sprite>sprites\spr_smiley2</sprite>
-      <sprite>sprites\spr_smiley3</sprite>
-      <sprite>sprites\spr_smiley4</sprite>
-      <sprite>sprites\spr_smiley5</sprite>
-      <sprite>sprites\spr_smiley5_cutscene</sprite>
-      <sprite>sprites\spr_smiley6</sprite>
-      <sprite>sprites\spr_smiley6_cutscene</sprite>
-      <sprite>sprites\spr_smiley_bonus</sprite>
-      <sprite>sprites\spr_smiley86</sprite>
-    </sprites>
     <sprites name="background">
       <sprite>sprites\spr_bg1</sprite>
       <sprite>sprites\spr_bg1b</sprite>
@@ -172,53 +155,81 @@
       <sprite>sprites\spr_bg10</sprite>
       <sprite>sprites\spr_bg10b</sprite>
     </sprites>
-    <sprites name="grid">
-      <sprite>sprites\spr_grid</sprite>
-      <sprite>sprites\spr_highlight</sprite>
-      <sprite>sprites\spr_red_grid</sprite>
-      <sprite>sprites\spr_light_grid</sprite>
-      <sprite>sprites\spr_dark_grid</sprite>
-    </sprites>
-    <sprites name="game">
-      <sprites name="bosses">
-        <sprites name="boss_9">
-          <sprites name="secret">
-            <sprite>sprites\spr_99</sprite>
-            <sprite>sprites\spr_99spike</sprite>
-            <sprite>sprites\spr_ice</sprite>
-          </sprites>
-          <sprite>sprites\spr_9</sprite>
-          <sprite>sprites\spr_9spike</sprite>
-        </sprites>
-        <sprites name="boss_10">
-          <sprites name="secret">
-            <sprite>sprites\spr_100</sprite>
-            <sprite>sprites\spr_100_part</sprite>
-          </sprites>
-          <sprite>sprites\spr_10</sprite>
-          <sprite>sprites\spr_10_mask</sprite>
-          <sprite>sprites\spr_10_part</sprite>
-          <sprite>sprites\spr_10_num</sprite>
-        </sprites>
-      </sprites>
-      <sprite>sprites\spr_num</sprite>
-      <sprite>sprites\spr_flag</sprite>
-      <sprite>sprites\spr_gold_flag</sprite>
-      <sprite>sprites\spr_mine</sprite>
-      <sprite>sprites\spr_explosion</sprite>
-    </sprites>
     <sprites name="ui">
+      <sprites name="gameui">
+        <sprite>sprites\spr_cursor</sprite>
+        <sprite>sprites\spr_ui1</sprite>
+        <sprite>sprites\spr_ui2</sprite>
+        <sprite>sprites\spr_mine_ui</sprite>
+        <sprite>sprites\spr_time_ui</sprite>
+      </sprites>
       <sprites name="menu">
+        <sprite>sprites\spr_main_menu</sprite>
+      </sprites>
+      <sprites name="title">
+        <sprite>sprites\spr_title</sprite>
         <sprite>sprites\spr_menu</sprite>
         <sprite>sprites\spr_menu_bonus</sprite>
       </sprites>
-      <sprite>sprites\spr_title</sprite>
-      <sprite>sprites\spr_ui1</sprite>
-      <sprite>sprites\spr_ui2</sprite>
-      <sprite>sprites\spr_cursor</sprite>
-      <sprite>sprites\spr_mine_ui</sprite>
-      <sprite>sprites\spr_time_ui</sprite>
       <sprite>sprites\spr_logo</sprite>
+    </sprites>
+    <sprites name="maingame">
+      <sprites name="grid">
+        <sprite>sprites\spr_grid</sprite>
+        <sprite>sprites\spr_highlight</sprite>
+        <sprite>sprites\spr_red_grid</sprite>
+        <sprite>sprites\spr_light_grid</sprite>
+        <sprite>sprites\spr_dark_grid</sprite>
+      </sprites>
+      <sprites name="game">
+        <sprites name="bosses">
+          <sprites name="boss_9">
+            <sprites name="secret">
+              <sprite>sprites\spr_99</sprite>
+              <sprite>sprites\spr_99spike</sprite>
+              <sprite>sprites\spr_ice</sprite>
+            </sprites>
+            <sprite>sprites\spr_9</sprite>
+            <sprite>sprites\spr_9spike</sprite>
+          </sprites>
+          <sprites name="boss_10">
+            <sprites name="secret">
+              <sprite>sprites\spr_100</sprite>
+              <sprite>sprites\spr_100_part</sprite>
+            </sprites>
+            <sprite>sprites\spr_10</sprite>
+            <sprite>sprites\spr_10_mask</sprite>
+            <sprite>sprites\spr_10_part</sprite>
+            <sprite>sprites\spr_10_num</sprite>
+          </sprites>
+        </sprites>
+        <sprite>sprites\spr_num</sprite>
+        <sprite>sprites\spr_flag</sprite>
+        <sprite>sprites\spr_gold_flag</sprite>
+        <sprite>sprites\spr_mine</sprite>
+        <sprite>sprites\spr_explosion</sprite>
+      </sprites>
+      <sprites name="smiley">
+        <sprite>sprites\spr_smiley1</sprite>
+        <sprite>sprites\spr_smiley2</sprite>
+        <sprite>sprites\spr_smiley3</sprite>
+        <sprite>sprites\spr_smiley4</sprite>
+        <sprite>sprites\spr_smiley5</sprite>
+        <sprite>sprites\spr_smiley5_cutscene</sprite>
+        <sprite>sprites\spr_smiley6</sprite>
+        <sprite>sprites\spr_smiley6_cutscene</sprite>
+        <sprite>sprites\spr_smiley_bonus</sprite>
+        <sprite>sprites\spr_smiley86</sprite>
+      </sprites>
+      <sprites name="hats">
+        <sprite>sprites\spr_hat1</sprite>
+        <sprite>sprites\spr_hat2</sprite>
+        <sprite>sprites\spr_hat3</sprite>
+        <sprite>sprites\spr_hat4</sprite>
+        <sprite>sprites\spr_hat5</sprite>
+        <sprite>sprites\spr_hat6</sprite>
+        <sprite>sprites\spr_hat7</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -347,6 +358,7 @@
       </objects>
       <objects name="MainMenu">
         <object>objects\obj_menu_bg</object>
+        <object>objects\obj_main_menu</object>
       </objects>
     </objects>
     <objects name="Debug">

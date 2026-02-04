@@ -58,8 +58,8 @@ else
     //global._music[8]=mus_stage6r;
     //global._music[9]=mus_stage7r;
     //global._music[10]=mus_stage8r;
-    global._music[11]=mus_stage10_prepare;
-    global._music[12]=mus_stage10;
+    global._music[11]=mus_stage10r_prepare;
+    global._music[12]=mus_stage10r;
     global._music[13]=mus_menu_1r;
     global.stage1_win=mus_stage1r_win;
     global.stage2_win=mus_stage2r_win;
