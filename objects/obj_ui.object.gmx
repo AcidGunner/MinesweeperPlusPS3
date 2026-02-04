@@ -233,20 +233,20 @@ while (string_length(s2) &lt; 3)
     s2 = "0" + s2;
 }
 
-if global.stage!=9 or global.stage!=910
-{
-    draw_sprite_stretched(spr_mine_ui,temp1,7,7,35,35);
-    draw_text_outline(45,5.2,s,c_red,c_white,1);
-    draw_sprite_stretched(spr_time_ui,temp1,215,7,35,35);
-    draw_text_outline(255,5.2,s2,c_red,c_white,1);
-}
-else
+if global.stage==9 or global.stage==910
 {
     draw_sprite_stretched(spr_mine_ui,temp1,7,7,35,35);
     if rand_time=1 draw_text_outline(45,5.2,string(irandom_range(-99,999)),c_red,c_white,1)
     else if rand_time=2 draw_text_outline(45,5.2,"000",c_red,c_white,1)
     else if rand_time=0 draw_text_outline(45,5.2,"???",c_red,c_white,1);
     draw_sprite_stretched_ext(spr_time_ui,temp1,215,7,35,35,red_ui,1);
+    draw_text_outline(255,5.2,s2,c_red,c_white,1);
+}
+else
+{
+    draw_sprite_stretched(spr_mine_ui,temp1,7,7,35,35);
+    draw_text_outline(45,5.2,s,c_red,c_white,1);
+    draw_sprite_stretched(spr_time_ui,temp1,215,7,35,35);
     draw_text_outline(255,5.2,s2,c_red,c_white,1);
 }
 

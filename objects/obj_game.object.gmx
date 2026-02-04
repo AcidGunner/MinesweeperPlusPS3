@@ -567,8 +567,8 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 obj_10.active=true;
                 obj_10.time=11;
                 obj_10.alarm[3]=1;
-            }
-            else if global.stage!=910 obj_ui.alarm[0]=1;
+            };
+            if global.stage!=910 obj_ui.alarm[0]=1;
         }
         
         var cell = grid[# xx, yy];

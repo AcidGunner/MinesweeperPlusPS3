@@ -29,26 +29,36 @@
   </NewExtensions>
   <sounds name="sound">
     <sounds name="music">
+      <sounds name="menu">
+        <sounds name="menu_1">
+          <sound>sound\mus_menu_1r</sound>
+          <sound>sound\mus_menu_1</sound>
+        </sounds>
+      </sounds>
       <sounds name="chapter1">
-        <sound>sound\mus_stage1</sound>
-        <sound>sound\mus_stage1_win</sound>
-        <sound>sound\mus_stage2</sound>
-        <sound>sound\mus_stage2_win</sound>
+        <sounds name="mus_stage1">
+          <sound>sound\mus_stage1</sound>
+          <sound>sound\mus_stage1r</sound>
+        </sounds>
+        <sounds name="mus_stage1_win">
+          <sound>sound\mus_stage1_win</sound>
+          <sound>sound\mus_stage1r_win</sound>
+        </sounds>
+        <sounds name="mus_stage2">
+          <sound>sound\mus_stage2</sound>
+          <sound>sound\mus_stage2r</sound>
+        </sounds>
+        <sounds name="mus_stage2_win">
+          <sound>sound\mus_stage2_win</sound>
+          <sound>sound\mus_stage2r_win</sound>
+        </sounds>
         <sounds name="mus_stage3">
           <sound>sound\mus_stage3</sound>
-          <sound>sound\mus_stage3b</sound>
-          <sound>sound\mus_stage3s</sound>
-          <sound>sound\mus_stage38</sound>
-          <sound>sound\mus_stage3m</sound>
-          <sound>sound\mus_stage3t</sound>
+          <sound>sound\mus_stage3r</sound>
         </sounds>
         <sounds name="mus_stage3_win">
           <sound>sound\mus_stage3_win</sound>
-          <sound>sound\mus_stage3b_win</sound>
-          <sound>sound\mus_stage3s_win</sound>
-          <sound>sound\mus_stage3t_win</sound>
-          <sound>sound\mus_stage3m_win</sound>
-          <sound>sound\mus_stage38_win</sound>
+          <sound>sound\mus_stage3r_win</sound>
         </sounds>
         <sound>sound\mus_stage4</sound>
         <sound>sound\mus_stage4_win</sound>
@@ -61,35 +71,15 @@
             <sound>sound\mus_stage9</sound>
             <sound>sound\mus_stage9_win</sound>
           </sounds>
-          <sounds name="mus_stage9b">
-            <sound>sound\mus_stage9b_prepare</sound>
-            <sound>sound\mus_stage9b</sound>
-            <sound>sound\mus_stage9b_win</sound>
-          </sounds>
-          <sounds name="mus_stage9s">
-            <sound>sound\mus_stage9s_prepare</sound>
-            <sound>sound\mus_stage9s</sound>
-            <sound>sound\mus_stage9s_win</sound>
-          </sounds>
-          <sounds name="mus_stage98">
-            <sound>sound\mus_stage98_prepare</sound>
-            <sound>sound\mus_stage98</sound>
-            <sound>sound\mus_stage98_win</sound>
-          </sounds>
-          <sounds name="mus_stage9m">
-            <sound>sound\mus_stage9m_prepare</sound>
-            <sound>sound\mus_stage9m</sound>
-            <sound>sound\mus_stage9m_win</sound>
-          </sounds>
-          <sounds name="mus_stage9t">
-            <sound>sound\mus_stage9t_prepare</sound>
-            <sound>sound\mus_stage9t</sound>
-            <sound>sound\mus_stage9t_win</sound>
-          </sounds>
           <sounds name="mus_stage99">
             <sound>sound\mus_stage99_prepare</sound>
             <sound>sound\mus_stage99</sound>
             <sound>sound\mus_stage99_win</sound>
+          </sounds>
+          <sounds name="mus_stage9r">
+            <sound>sound\mus_stage9r_prepare</sound>
+            <sound>sound\mus_stage9r</sound>
+            <sound>sound\mus_stage9r_win</sound>
           </sounds>
         </sounds>
         <sounds name="boss10">
@@ -296,17 +286,21 @@
     </scripts>
     <scripts name="hidden">
       <script>scripts\audio_loop_sound.gml</script>
-      <script>scripts\init_globals_mus.gml</script>
       <script>scripts\draw_text_outline.gml</script>
       <script>scripts\gamepad_button_check_pressed_any.gml</script>
       <script>scripts\bad_apple_initialize.gml</script>
-      <script>scripts\save_game.gml</script>
-      <script>scripts\load_game.gml</script>
       <script>scripts\message_set.gml</script>
       <script>scripts\ask_10.gml</script>
       <script>scripts\do_bad_apple.gml</script>
       <script>scripts\detect_console.gml</script>
+      <script>scripts\check_debug.gml</script>
     </scripts>
+    <scripts name="saving">
+      <script>scripts\save_game.gml</script>
+      <script>scripts\load_game.gml</script>
+      <script>scripts\reset_game.gml</script>
+    </scripts>
+    <script>scripts\init_globals_mus.gml</script>
     <script>scripts\initial_setup.gml</script>
     <script>scripts\ver_show.gml</script>
   </scripts>
@@ -337,18 +331,23 @@
       </objects>
     </objects>
     <objects name="Menu">
-      <object>objects\obj_first</object>
-      <object>objects\obj_start_first</object>
-      <object>objects\obj_menu</object>
-      <object>objects\obj_menu_bonus</object>
-      <object>objects\obj_menu_hats</object>
-      <object>objects\obj_menu_statistics</object>
-      <object>objects\obj_menu_tutorial</object>
-      <object>objects\obj_menu_credits</object>
-      <object>objects\obj_menu_options</object>
-      <object>objects\obj_menu_resetting</object>
-      <object>objects\obj_menu_bomb</object>
-      <object>objects\obj_menutransit</object>
+      <objects name="Title">
+        <object>objects\obj_first</object>
+        <object>objects\obj_start_first</object>
+        <object>objects\obj_menu</object>
+        <object>objects\obj_menu_bonus</object>
+        <object>objects\obj_menu_hats</object>
+        <object>objects\obj_menu_statistics</object>
+        <object>objects\obj_menu_tutorial</object>
+        <object>objects\obj_menu_credits</object>
+        <object>objects\obj_menu_options</object>
+        <object>objects\obj_menu_resetting</object>
+        <object>objects\obj_menu_bomb</object>
+        <object>objects\obj_menutransit</object>
+      </objects>
+      <objects name="MainMenu">
+        <object>objects\obj_menu_bg</object>
+      </objects>
     </objects>
     <objects name="Debug">
       <object>objects\obj_debug</object>
@@ -360,6 +359,7 @@
   <rooms name="rooms">
     <room>rooms\rm_logo</room>
     <room>rooms\rm_title</room>
+    <room>rooms\rm_menu</room>
     <room>rooms\rm_game</room>
     <room>rooms\rm_boo</room>
     <room>rooms\rm_end</room>

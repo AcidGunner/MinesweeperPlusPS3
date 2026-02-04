@@ -1,6 +1,7 @@
 ///initial_setup();
 audio_channel_num(20);
-window_set_caption("Minesweeper Plus "+detect_console()+" Port ("+ver_show()+")");
+global.debug=1;
+window_set_caption("Minesweeper Plus "+detect_console()+" Port ("+ver_show()+")"+check_debug());
 bad_apple_initialize();
 randomize();
 global.CONTROL=1;
@@ -9,9 +10,16 @@ if os_type==os_windows && !gamepad_is_connected(0) global.CONTROL=0;
 load_game();
 message_set();
 
+global.the_config=1; //< CONFIG VERSION!
+if global.the_config!=global.config reset_game();
+
 init_globals_mus();
 global.pitch=1;
-global.debug=1;
+
+if global.debug=1 show_message("WARNING!!
+
+This is the DEBUG Build. Many things are VERY UNSTABLE. IT IS RECOMMENDED TO PLAY THE CURRENT RELEASED VERSION.
+PROCEED WITH CAUTION!!")
 
 // First Chapter setup
 global.gridw[1]=6;

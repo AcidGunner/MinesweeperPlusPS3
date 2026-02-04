@@ -4,29 +4,17 @@ The Minesweeper Plus PS3 port is Finally open-sourced!
 [PLEASE PLAY THE ORIGINAL GAME FIRST!!](https://jorel-simpson.itch.io/minesweeper-plus)
 
 As for PS3 Port you can either download:
-### [v0.2 version (Latest)](https://github.com/AcidGunner/MinesweeperPlusPS3/releases/latest)
-### [v0.1.1F version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusv0-1-1f.pkg?download=)
-### [Demo version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusdemo.pkg?download=)
+#### [v0.2 version (Latest)](https://github.com/AcidGunner/MinesweeperPlusPS3/releases/latest)
+#### [v0.1.1F version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusv0-1-1f.pkg?download=)
+#### [Demo version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusdemo.pkg?download=)
 
 # Project Status
 LATEST: v0.2
 
 IN DEVELOP: v0.3
 
-# Upcoming stuff!!
-## v0.3
-Eleven Boss-Fight! Might use my fan-made one, or IDK.
-
-Full Episode 2!
-
-Hatsune Miku's Hair
-
-## Future Versions
-PlayStation Portable Port (on GameMaker 8.1).
-
-Almost everything from original game.
-
-Versus Mode.
+#Source Code Documentation
+Please read "help.rtf" file for more info.
 
 # About the Port
 This is the fun to make. The game indeed has an AI-generated code. (only on the main minesweeper mechanics, the bosses and other stuff are proudly AI-free.)
