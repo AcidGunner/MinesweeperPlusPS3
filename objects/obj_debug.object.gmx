@@ -61,11 +61,10 @@ if instance_exists(obj_ui) &amp;&amp; obj_ui.test_rect=1
 }
 if global.debug==1
 {
-    draw_set_colour(c_red);
     draw_set_valign(fa_top);
     draw_set_halign(fa_left);
     draw_set_font(fnt_smol);
-    draw_text(2,220,string(fps));
+    draw_text_outline(2,220,string(fps),c_red,c_black,1);
     draw_set_colour(c_white);
 }
 </string>

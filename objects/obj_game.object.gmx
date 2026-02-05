@@ -90,7 +90,16 @@ else if global.foughtcirno=1 and global.foughtutsuho=0 stage910=mus_stage910_10
 else if global.foughtcirno=0 and global.foughtutsuho=1 stage910=mus_stage910_01
 else if global.foughtcirno=0 and global.foughtutsuho=0 stage910=mus_stage910_00;
 
-if global.stage==910 audio_loop_sound(stage910,806,1888760,44100,0);
+if global.stage==910
+{
+    if global._music_type==1 audio_loop_sound(stage910,806,1888760,44100,0)
+    else
+    {
+        _temp000 = 3396951/44100;
+        audio_loop_sound(global._music[12],global._st[12],global._en[12],44100,0);
+        audio_sound_set_track_position(obj_audio_loop_sound._audio,_temp000);
+    }
+}
 
 spr_bg=-1;
 spr_bgb=-1;

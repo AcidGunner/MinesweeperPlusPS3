@@ -34,6 +34,41 @@
           <sound>sound\mus_menu_1r</sound>
           <sound>sound\mus_menu_1</sound>
         </sounds>
+        <sounds name="menu_2">
+          <sound>sound\mus_menu_2</sound>
+          <sound>sound\mus_menu_2r</sound>
+        </sounds>
+        <sounds name="menu_3">
+          <sound>sound\mus_menu_3</sound>
+          <sound>sound\mus_menu_3r</sound>
+        </sounds>
+        <sounds name="menu_4">
+          <sound>sound\mus_menu_4</sound>
+          <sound>sound\mus_menu_4r</sound>
+        </sounds>
+        <sounds name="menu_5">
+          <sound>sound\mus_menu_5</sound>
+        </sounds>
+        <sounds name="menu_6">
+          <sound>sound\mus_menu_6</sound>
+        </sounds>
+        <sounds name="menu_7">
+          <sound>sound\mus_menu_7</sound>
+        </sounds>
+        <sounds name="menu_8">
+          <sound>sound\mus_menu_8</sound>
+        </sounds>
+        <sounds name="menu_9">
+          <sound>sound\mus_menu_9</sound>
+          <sound>sound\mus_menu_9r</sound>
+        </sounds>
+        <sounds name="menu_10">
+          <sound>sound\mus_menu_10</sound>
+          <sound>sound\mus_menu_10r</sound>
+        </sounds>
+        <sounds name="menu_placeholder">
+          <sound>sound\mus_menu_placeholder</sound>
+        </sounds>
       </sounds>
       <sounds name="chapter1">
         <sounds name="mus_stage1">
@@ -60,8 +95,14 @@
           <sound>sound\mus_stage3_win</sound>
           <sound>sound\mus_stage3r_win</sound>
         </sounds>
-        <sound>sound\mus_stage4</sound>
-        <sound>sound\mus_stage4_win</sound>
+        <sounds name="mus_stage4">
+          <sound>sound\mus_stage4</sound>
+          <sound>sound\mus_stage4r</sound>
+        </sounds>
+        <sounds name="mus_stage4_win">
+          <sound>sound\mus_stage4_win</sound>
+          <sound>sound\mus_stage4r_win</sound>
+        </sounds>
         <sound>sound\mus_ocean</sound>
       </sounds>
       <sounds name="bosses">
@@ -96,6 +137,7 @@
           <sounds name="mus_stage10r">
             <sound>sound\mus_stage10r_prepare</sound>
             <sound>sound\mus_stage10r</sound>
+            <sound>sound\mus_stage10r_win</sound>
           </sounds>
         </sounds>
         <sounds name="boss10-0">
@@ -104,6 +146,9 @@
           <sound>sound\mus_stage910_10</sound>
           <sound>sound\mus_stage910_11</sound>
         </sounds>
+      </sounds>
+      <sounds name="bonus">
+        <sound>sound\mus_vs_lobby</sound>
       </sounds>
       <sound>sound\mus_title</sound>
       <sound>sound\mus_end</sound>
@@ -132,46 +177,41 @@
       <sound>sound\fear</sound>
       <sound>sound\sound4</sound>
       <sound>sound\bios0</sound>
+      <sound>sound\sfx_game_start</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="background">
-      <sprite>sprites\spr_bg1</sprite>
-      <sprite>sprites\spr_bg1b</sprite>
-      <sprite>sprites\spr_bg2</sprite>
-      <sprite>sprites\spr_bg2b</sprite>
-      <sprite>sprites\spr_bg3</sprite>
-      <sprite>sprites\spr_bg3b</sprite>
-      <sprite>sprites\spr_bg4</sprite>
-      <sprite>sprites\spr_bg4b</sprite>
-      <sprite>sprites\spr_bg5</sprite>
-      <sprite>sprites\spr_bg5b</sprite>
-      <sprite>sprites\spr_bg86</sprite>
-      <sprite>sprites\spr_bg86b</sprite>
-      <sprite>sprites\spr_bg99</sprite>
-      <sprite>sprites\spr_bg99b</sprite>
-      <sprite>sprites\spr_bg6</sprite>
-      <sprite>sprites\spr_bg6b</sprite>
-      <sprite>sprites\spr_bg10</sprite>
-      <sprite>sprites\spr_bg10b</sprite>
-    </sprites>
-    <sprites name="ui">
-      <sprites name="gameui">
-        <sprite>sprites\spr_cursor</sprite>
-        <sprite>sprites\spr_ui1</sprite>
-        <sprite>sprites\spr_ui2</sprite>
-        <sprite>sprites\spr_mine_ui</sprite>
-        <sprite>sprites\spr_time_ui</sprite>
+      <sprites name="chapter1">
+        <sprite>sprites\spr_bg1</sprite>
+        <sprite>sprites\spr_bg1b</sprite>
+        <sprite>sprites\spr_bg2</sprite>
+        <sprite>sprites\spr_bg2b</sprite>
+        <sprite>sprites\spr_bg3</sprite>
+        <sprite>sprites\spr_bg3b</sprite>
+        <sprite>sprites\spr_bg4</sprite>
+        <sprite>sprites\spr_bg4b</sprite>
+        <sprite>sprites\spr_bg5</sprite>
+        <sprite>sprites\spr_bg5b</sprite>
       </sprites>
-      <sprites name="menu">
-        <sprite>sprites\spr_main_menu</sprite>
+      <sprites name="chapter2">
+        <sprite>sprites\spr_bg6</sprite>
+        <sprite>sprites\spr_bg6b</sprite>
+        <sprite>sprites\spr_bg7</sprite>
+        <sprite>sprites\spr_bg7b</sprite>
+        <sprite>sprites\spr_bg8</sprite>
+        <sprite>sprites\spr_bg8b</sprite>
+        <sprite>sprites\spr_bg9</sprite>
+        <sprite>sprites\spr_bg9b</sprite>
+        <sprite>sprites\spr_bg10</sprite>
+        <sprite>sprites\spr_bg10b</sprite>
       </sprites>
-      <sprites name="title">
-        <sprite>sprites\spr_title</sprite>
-        <sprite>sprites\spr_menu</sprite>
-        <sprite>sprites\spr_menu_bonus</sprite>
+      <sprites name="bonus">
+        <sprite>sprites\spr_bg86</sprite>
+        <sprite>sprites\spr_bg86b</sprite>
+        <sprite>sprites\spr_bg99</sprite>
+        <sprite>sprites\spr_bg99b</sprite>
       </sprites>
-      <sprite>sprites\spr_logo</sprite>
     </sprites>
     <sprites name="maingame">
       <sprites name="grid">
@@ -204,6 +244,7 @@
           </sprites>
         </sprites>
         <sprite>sprites\spr_num</sprite>
+        <sprite>sprites\spr_hell</sprite>
         <sprite>sprites\spr_flag</sprite>
         <sprite>sprites\spr_gold_flag</sprite>
         <sprite>sprites\spr_mine</sprite>
@@ -230,6 +271,24 @@
         <sprite>sprites\spr_hat6</sprite>
         <sprite>sprites\spr_hat7</sprite>
       </sprites>
+    </sprites>
+    <sprites name="ui">
+      <sprites name="gameui">
+        <sprite>sprites\spr_cursor</sprite>
+        <sprite>sprites\spr_ui1</sprite>
+        <sprite>sprites\spr_ui2</sprite>
+        <sprite>sprites\spr_mine_ui</sprite>
+        <sprite>sprites\spr_time_ui</sprite>
+      </sprites>
+      <sprites name="menu">
+        <sprite>sprites\spr_main_menu</sprite>
+      </sprites>
+      <sprites name="title">
+        <sprite>sprites\spr_title</sprite>
+        <sprite>sprites\spr_menu</sprite>
+        <sprite>sprites\spr_menu_bonus</sprite>
+      </sprites>
+      <sprite>sprites\spr_logo</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>

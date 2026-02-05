@@ -10,4 +10,12 @@ global.foughtutsuho=ini_read_real("secret","boss10_secret",0);
 ini_close();
 
 //wait a second, if we completed the game...
-if global.stage==911 global.stage=1;
+if global.stage==911
+{
+    global.stage=1;
+    global.foughtcirno=0;
+    global.foughtutsuho=0;
+}
+
+//check on canceled music types!
+if global._music_type>1 global._music_type=1;

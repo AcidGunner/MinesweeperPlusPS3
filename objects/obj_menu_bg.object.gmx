@@ -25,30 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_loop_sound(global._music[13],global._st[13],global._en[13],44100,0);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>image_speed=0.02;
+            <string>list[0]=spr_bg1;
+list[1]=spr_bg2;
+list[2]=spr_bg3;
+list[3]=spr_bg4;
+list[4]=spr_bg6;
+list[5]=spr_bg7;
+list[6]=spr_bg8;
+list[7]=spr_bg9;
+list[8]=spr_bg5;
+list[9]=spr_bg10;
 </string>
           </argument>
         </arguments>
@@ -71,7 +57,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_tiled_ext(sprite_index,image_index,0,0,1,1,c_white,1);
+            <string>image_speed=0.02;
+draw_sprite_tiled_ext(sprite_index,image_index,0,0,1,1,c_white,1);
 </string>
           </argument>
         </arguments>

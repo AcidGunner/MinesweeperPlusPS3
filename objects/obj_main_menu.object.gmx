@@ -8,6 +8,137 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>menu_music = 1;
+prev_music = 1;
+alarm[0]=1;
+
+select=0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_game);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Switch music Test
+
+var t_menu_music = 12+menu_music;
+var p_menu_music = 12+prev_music;
+var _snd = 0;
+if instance_exists(obj_audio_loop_sound)
+{
+    _snd = audio_sound_get_track_position(obj_audio_loop_sound._audio);
+    instance_destroy(obj_audio_loop_sound);
+};
+audio_stop_sound(global._music[p_menu_music]);
+audio_loop_sound(global._music[t_menu_music],global._st[13],global._en[13],44100,0);
+if _snd!=0 audio_sound_set_track_position(obj_audio_loop_sound._audio,_snd);
+prev_music = menu_music;
+
+obj_menu_bg.sprite_index=obj_menu_bg.list[menu_music-1];
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if select=1 exit;
+
+if obj_input.l2
+{
+    menu_music--
+    if menu_music&lt;1 menu_music=1;
+    if menu_music!=prev_music alarm[0]=1;
+}
+if obj_input.r2
+{
+    menu_music++
+    if menu_music&gt;10 menu_music=10;
+    if menu_music!=prev_music alarm[0]=1;
+}
+if obj_input.a
+{
+    select=1;
+    audio_stop_all();
+    audio_play_sound(sfx_game_start,0,false);
+    alarm[1]=60;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -26,12 +157,25 @@
           <argument>
             <kind>1</kind>
             <string>draw_sprite_ext(sprite_index,0,16,16,0.25,0.25,0,c_white,1);
-draw_sprite_ext(sprite_index,2,192,16,0.25,0.25,0,c_white,1);
+draw_sprite_ext(sprite_index,1,192,16,0.25,0.25,0,c_white,1);
 
 draw_set_valign(fa_center);
 draw_set_halign(fa_middle);
-draw_set_font(fnt_smol);
-draw_text(160,176,"Early Menu Look");
+draw_set_font(fnt_smoler);
+draw_set_colour(c_black);
+draw_set_alpha(0.5);
+draw_rectangle(20,70,123,86,false);
+draw_rectangle(196,41,299,57,false);
+draw_rectangle(196,102,299,118,false);
+draw_set_colour(c_white);
+draw_set_alpha(1);
+//draw_text_outline(72,78,"Free Play",c_white,c_black,1);
+draw_text_outline(72,78,"PLACEHOLDER",c_white,c_black,1);
+draw_text_outline(248,49,"Minesweeper",c_white,c_black,1);
+draw_text_outline(248,110,"Adventure",c_white,c_black,1);
+
+//draw_text_outline(72,155,"[SQUARE]",c_white,c_black,1);
+draw_text_outline(248,155,"[CROSS]",c_white,c_black,1);
 </string>
           </argument>
         </arguments>
