@@ -149,6 +149,8 @@
       </sounds>
       <sounds name="bonus">
         <sound>sound\mus_vs_lobby</sound>
+        <sound>sound\mus_vs_wait</sound>
+        <sound>sound\mus_unknown</sound>
       </sounds>
       <sound>sound\mus_title</sound>
       <sound>sound\mus_end</sound>
@@ -178,6 +180,7 @@
       <sound>sound\sound4</sound>
       <sound>sound\bios0</sound>
       <sound>sound\sfx_game_start</sound>
+      <sound>sound\sfx_test</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -426,12 +429,16 @@
       <object>objects\obj_audio_loop_sound</object>
       <object>objects\obj_logomain</object>
     </objects>
+    <objects name="Versus">
+      <object>objects\obj_game_1p</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_logo</room>
     <room>rooms\rm_title</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_game</room>
+    <room>rooms\rm_vs_game</room>
     <room>rooms\rm_boo</room>
     <room>rooms\rm_end</room>
   </rooms>
