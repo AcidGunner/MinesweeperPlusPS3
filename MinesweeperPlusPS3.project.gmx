@@ -151,6 +151,9 @@
         <sound>sound\mus_vs_lobby</sound>
         <sound>sound\mus_vs_wait</sound>
         <sound>sound\mus_unknown</sound>
+        <sound>sound\mus_vs_boss</sound>
+        <sound>sound\mus_thorn</sound>
+        <sound>sound\mus_versus</sound>
       </sounds>
       <sound>sound\mus_title</sound>
       <sound>sound\mus_end</sound>
@@ -222,7 +225,6 @@
         <sprite>sprites\spr_highlight</sprite>
         <sprite>sprites\spr_red_grid</sprite>
         <sprite>sprites\spr_light_grid</sprite>
-        <sprite>sprites\spr_dark_grid</sprite>
       </sprites>
       <sprites name="game">
         <sprites name="bosses">
@@ -280,6 +282,7 @@
         <sprite>sprites\spr_cursor</sprite>
         <sprite>sprites\spr_ui1</sprite>
         <sprite>sprites\spr_ui2</sprite>
+        <sprite>sprites\spr_ui3</sprite>
         <sprite>sprites\spr_mine_ui</sprite>
         <sprite>sprites\spr_time_ui</sprite>
       </sprites>
@@ -373,6 +376,23 @@
       <script>scripts\load_game.gml</script>
       <script>scripts\reset_game.gml</script>
     </scripts>
+    <scripts name="versus_shit">
+      <scripts name="player1">
+        <script>scripts\create_first_player.gml</script>
+        <script>scripts\hold_highlight_1p.gml</script>
+        <script>scripts\check_input_1p.gml</script>
+        <script>scripts\checks_input_1p.gml</script>
+        <script>scripts\scr_mine_detected_1p.gml</script>
+        <script>scripts\zoom_update_1p.gml</script>
+      </scripts>
+      <scripts name="player2">
+        <script>scripts\create_second_player.gml</script>
+        <script>scripts\hold_highlight_2p.gml</script>
+        <script>scripts\check_input_2p.gml</script>
+        <script>scripts\checks_input_2p.gml</script>
+        <script>scripts\zoom_update_2p.gml</script>
+      </scripts>
+    </scripts>
     <script>scripts\init_globals_mus.gml</script>
     <script>scripts\initial_setup.gml</script>
     <script>scripts\ver_show.gml</script>
@@ -430,7 +450,18 @@
       <object>objects\obj_logomain</object>
     </objects>
     <objects name="Versus">
-      <object>objects\obj_game_1p</object>
+      <objects name="player1">
+        <object>objects\obj_game_1p</object>
+        <object>objects\obj_smiley_1p</object>
+        <object>objects\obj_bomb_1p</object>
+      </objects>
+      <objects name="player2">
+        <object>objects\obj_game_2p</object>
+        <object>objects\obj_smiley_2p</object>
+        <object>objects\obj_bomb_2p</object>
+      </objects>
+      <object>objects\obj_vs_bg</object>
+      <object>objects\obj_vs_ui</object>
     </objects>
   </objects>
   <rooms name="rooms">

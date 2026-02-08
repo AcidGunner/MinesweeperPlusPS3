@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>global.FSP=60;
 frame=0;
-audio_play_sound(mus_title,0,true);
+if global.secret_active title = audio_play_sound(mus_thorn,0,true)
+else title = audio_play_sound(global._music[0],0,true);
 instance_create(0,0,obj_start_first);
 </string>
           </argument>
@@ -80,9 +81,14 @@ frame=frame mod 4;
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 draw_sprite_stretched(spr_title,frame,0,0,320,240);
-draw_text_outline(24,24,"Minesweeper Plus",c_red,c_black,1);
+draw_text_outline(24,24,"Minesweeper Plus:",c_red,c_black,1);
 draw_set_font(fnt_smol);
 draw_text_outline(24,60,detect_console()+" Port ("+ver_show()+")",c_red,c_black,1);
+if global.secret_active
+{
+    draw_set_font(fnt_smoler);
+    draw_text_colour(24,80,"That's not... the... ThornRing, is it?",c_black,c_black,c_black,c_black,1);
+}
 draw_set_font(fnt_main);
 </string>
           </argument>

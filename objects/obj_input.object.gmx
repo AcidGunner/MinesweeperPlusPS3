@@ -35,6 +35,15 @@ c=0;c_held=0;d=0;d_held=0;
 lef=0;rig=0;dow=0;upp=0;
 any=0;
 
+rup=0;rdown=0;rright=0;rleft=0;
+
+cursor_x=right-left;
+cursor_y=down-up;
+
+cursor_rx=rleft-rright;
+cursor_ry=rup-rdown;
+cursor_r=0;
+
 //PS3 ONLY VALUES
 l1=0;r1=0;l1h=0;r1h=0;
 l2=0;r2=0;l2h=0;r2h=0;
@@ -99,6 +108,15 @@ if global.CONTROL==0{
     r2h=keyboard_check(vk_numpad6);
     any=keyboard_check_pressed(vk_anykey);
     
+    rup=keyboard_check(vk_up);
+    rdown=keyboard_check(vk_down);
+    rright=keyboard_check(vk_right);
+    rleft=keyboard_check(vk_left);
+    
+    cursor_rx=rright-rleft;
+    cursor_ry=rdown-rup;
+    cursor_r=keyboard_check_pressed(vk_space);
+    
     mx = mouse_x;
     my = mouse_y;
     mp1 = mouse_check_button_pressed(mb_left);
@@ -145,8 +163,17 @@ if global.CONTROL==0{
     dow=gamepad_button_check_pressed(0,gp_padd) or (stick_v&gt;=gmin &amp;&amp; global.prev_stick_v&lt;gmin);
     upp=gamepad_button_check_pressed(0,gp_padu) or (stick_v&lt;=-gmin &amp;&amp; global.prev_stick_v&gt;-gmin);
     
+    rup=gamepad_button_check(0,gp_padu) or stick_rv&lt;=-gmin;
+    rdown=gamepad_button_check(0,gp_padd) or stick_rv&gt;=gmin;
+    rright=gamepad_button_check(0,gp_padr) or stick_rh&gt;=gmin;
+    rleft=gamepad_button_check(0,gp_padl) or stick_rh&lt;=-gmin;
+    
     cursor_x=right-left;
     cursor_y=down-up;
+    
+    cursor_rx=rright-rleft;
+    cursor_ry=rdown-rup;
+    cursor_r=gamepad_button_check(0,gp_stickr);
     
     global.prev_stick_h = stick_h;
     global.prev_stick_v = stick_v;

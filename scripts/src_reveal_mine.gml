@@ -47,4 +47,13 @@ var draw_size = cell_size * zoom;
 var size = draw_size / 2;
 var fx = grid_offset_x + _x * draw_size + size;
 var fy = grid_offset_y + _y * draw_size + size;
-instance_create(fx,fy,obj_bomb);
+
+switch type
+{
+    case "single":  var test_bomb=instance_create(fx,fy,obj_bomb);    break;
+    case "player1": var test_bomb=instance_create(fx,fy,obj_bomb_1p); break;
+    case "player2": var test_bomb=instance_create(fx,fy,obj_bomb_2p); break;
+}
+
+test_bomb._x=_x;
+test_bomb._y=_y;

@@ -100,7 +100,15 @@ if obj_input.c &amp;&amp; select=0
 {
     global._music_type++;
     if global._music_type&gt;1 global._music_type=0;
+    var _snd = audio_sound_get_track_position(obj_first.title);
+    show_debug_message(string(_snd));
+    audio_stop_sound(obj_first.title);
     init_globals_mus();
+    with obj_first
+    {
+        title = audio_play_sound(global._music[0],0,true);
+    }
+    if _snd!=0 audio_sound_set_track_position(obj_first.title,_snd);
 }
 
 if obj_input.d &amp;&amp; select=0 global.type_input=!global.type_input;

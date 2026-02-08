@@ -1,6 +1,8 @@
 ///draw_grid();
 var draw_size = cell_size * zoom;
 
+var _grd=0;
+
 for (var xx = 0; xx < grid_w; xx++)
 {
     for (var yy = 0; yy < grid_h; yy++)
@@ -10,10 +12,27 @@ for (var xx = 0; xx < grid_w; xx++)
             var x1 = grid_offset_x + xx * draw_size;
             var y1 = grid_offset_y + yy * draw_size;
             
+            var _sprt=grid_sprite[# xx, yy];
+            
+            switch _sprt
+            {
+                case spr_bg1:  _grd=0; break;
+                case spr_bg2:  _grd=1; break;
+                case spr_bg3:  _grd=2; break;
+                case spr_bg4:  _grd=3; break;
+                case spr_bg5:  _grd=8; break;
+                case spr_bg6:  _grd=4; break;
+                case spr_bg7:  _grd=5; break;
+                case spr_bg8:  _grd=6; break;
+                case spr_bg9:  _grd=7; break;
+                case spr_bg10: _grd=9; break;
+                case spr_bg86: _grd=10; break;
+            }
+            
             // === Flagged ===
             if (flagged[# xx, yy])
             {
-                draw_sprite_stretched(grid_sprite[# xx, yy], image_index, x1, y1, draw_size, draw_size);                
+                draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);                
                 draw_sprite_stretched(spr_flag, image_index, x1, y1, draw_size, draw_size);
             }
             else if (reveal[# xx, yy])
@@ -28,8 +47,8 @@ for (var xx = 0; xx < grid_w; xx++)
                 else
                     draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size);
             }
-            else draw_sprite_stretched(grid_sprite[# xx, yy], image_index, x1, y1, draw_size, draw_size);
-            draw_sprite_stretched(spr_grid, 0, x1, y1, draw_size, draw_size);
+            else draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);
+            draw_sprite_stretched(spr_grid, _grd, x1, y1, draw_size, draw_size);
             if (highlight_x1 >= 0 && highlight_y1 >= 0)
             {
                 if (xx == highlight_x1 && yy == highlight_y1)
@@ -54,10 +73,16 @@ var c_x = grid_offset_x + center_x * draw_size;
 var c_y = grid_offset_y + center_y * draw_size;
 
 if !boss9_started && global.stage==9
+{
     draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
+    draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
+}
 
 if !boss10_started && global.stage==10
+{
     draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
+    draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
+}
 
 if cirno9=true && boss9_started
 for (var xx = 0; xx < grid_w; xx++)

@@ -28,6 +28,7 @@ Please wait patiently. ^_^
 ### Jorel Simpson - Original Game & FLPs
 ### LokiThePlug - Nuclear Ten Idea
 ### Pren3k - Frozen Nine Mechanics
+### Asdf - Versus Mode Concept
 ### EnergyPumpkin - Original 9 Boss music
 ### GameMaker Studio 1.4.9999 - Used game engine
 ### [GayMaker PS3](https://github.com/LiEnby/GayMaker-PS3) - Used PS3 exporter

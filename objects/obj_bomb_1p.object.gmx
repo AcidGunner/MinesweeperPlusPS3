@@ -52,12 +52,12 @@ test=audio_sound_length(sfx_mine)*60;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var zoom=obj_game.zoom;
-var grid_offset_x=obj_game.grid_offset_x;
-var grid_offset_y=obj_game.grid_offset_y;
-var off_x=obj_game.off_x;
-var off_y=obj_game.off_y;
-var cell_size=obj_game.cell_size;
+            <string>var zoom=obj_game_1p.zoom;
+var grid_offset_x=obj_game_1p.grid_offset_x;
+var grid_offset_y=obj_game_1p.grid_offset_y;
+var off_x=obj_game_1p.off_x;
+var off_y=obj_game_1p.off_y;
+var cell_size=obj_game_1p.cell_size;
 var draw_size = cell_size * zoom;
 var size = draw_size / 2;
 x=grid_offset_x + _x * draw_size + size-off_x;
@@ -68,8 +68,8 @@ testz++;
 if testz&gt;=test
 {
     instance_create(x,y,obj_explosion);
-    obj_smiley.mine_detected=2;
-    obj_game.alarm[4]=1;
+    obj_smiley_1p.mine_detected=2;
+    obj_game_1p.alarm[4]=1;
     instance_destroy();
 }
 </string>

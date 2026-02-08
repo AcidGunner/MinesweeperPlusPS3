@@ -1,6 +1,6 @@
-///check_input();
+///check_input_2p();
 draw_size = cell_size * zoom;
-grid_offset_x = ((room_width  - grid_draw_w) / 2)+off_x;
+grid_offset_x = (((room_width+(room_width/2))  - grid_draw_w) / 2)+off_x;
 grid_offset_y = (((room_height - grid_draw_h) / 2) + 25)+off_y;
 
 var test1 = window_get_width()/room_width;

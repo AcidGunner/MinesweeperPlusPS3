@@ -8,250 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>obj_game</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// --- Grid settings ---
-first_click = true;
-win = false;
-grid_w = global.gridw[global.stage];
-grid_h = global.gridh[global.stage];
-cell_size = 16;
-mine_count = global.minec[global.stage];
-boss9_started = false;
-boss10_started = false;
-mines_left = mine_count;
-temp_mines=mine_count;
-global.pitch=1;
-sheesh=0;
-_sh=0;
-the_temp=0;
-
-if global.type_input=1 instance_create(0,0,obj_cursor);
-text = "You have to let me out eventually, Captain...";
-
-type="single";
-
-circle_grid = ds_grid_create(grid_w,grid_h);
-ds_grid_clear(circle_grid,0);
-
-zoom = 1;
-zoom_min = 0.55;
-zoom_max = 1;
-zoom_speed = 0.05;
-draw_size = 0;
-
-player_x=0;
-player_y=0;
-test_speed=0;
-
-msx=0;
-msy=0;
-
-bad_apple_frame=0;
-
-center_x = grid_w div 2;
-center_y = grid_h div 2;
-
-temp_x=-1;
-temp_y=-1;
-temp_g=0;
-temp_111 = 1;
-
-if global.stage==1 temp_111 = 1
-else if global.stage==2 temp_111 = 1
-else if global.stage==3 temp_111 = 2
-else if global.stage==4 temp_111 = 2
-else if global.stage==5 temp_111 = 3
-else if global.stage==6 temp_111 = 3
-else if global.stage==7 temp_111 = 4
-else if global.stage==8 temp_111 = 4
-else if global.stage==910 temp_111 = 5;
-
-if global.stage!=9 and global.stage!=86 and global.stage!=10 and global.stage!=910
-    audio_loop_sound(global._music[temp_111],global._st[temp_111],global._en[temp_111],44100,0);
-
-if global.stage==9 or global.stage==10 audio_play_sound(mus_ocean,0,true);
-
-if global.foughtcirno=1 and global.foughtutsuho=1 stage910=mus_stage910_11
-else if global.foughtcirno=1 and global.foughtutsuho=0 stage910=mus_stage910_10
-else if global.foughtcirno=0 and global.foughtutsuho=1 stage910=mus_stage910_01
-else if global.foughtcirno=0 and global.foughtutsuho=0 stage910=mus_stage910_00;
-
-if global.stage==910
-{
-    if global._music_type==1 audio_loop_sound(stage910,806,1888760,44100,0)
-    else
-    {
-        _temp000 = 3396951/44100;
-        audio_loop_sound(global._music[12],global._st[12],global._en[12],44100,0);
-        audio_sound_set_track_position(obj_audio_loop_sound._audio,_temp000);
-    }
-}
-
-spr_bg=-1;
-spr_bgb=-1;
-
-if temp_111 == 1 spr_bg=spr_bg1
-else if temp_111 == 2 spr_bg=spr_bg2
-else if temp_111 == 3 spr_bg=spr_bg3
-else if temp_111 == 4 spr_bg=spr_bg4
-else if temp_111 == 5 spr_bg=spr_bg10;
-
-if temp_111 == 1 spr_bgb=spr_bg1b
-else if temp_111 == 2 spr_bgb=spr_bg2b
-else if temp_111 == 3 spr_bgb=spr_bg3b
-else if temp_111 == 4 spr_bgb=spr_bg4b;
-else if temp_111 == 5 spr_bgb=spr_bg10b;
-
-if global.stage==86
-{
-    spr_bg=spr_bg86;
-    spr_bgb=spr_bg86b;
-    audio_play_sound(mus_bad,0,false);
-}
-
-if global.stage==9
-{
-    spr_bg=spr_bg1;
-    spr_bgb=spr_bg1b;
-    spiral_setup();
-}
-
-if global.stage==10
-{
-    spr_bg=spr_bg6;
-    spr_bgb=spr_bg6b;
-    
-    // possible custom grid?
-    // yes, just thought about this bruh
-    _grid_w = grid_w - 1;
-    _grid_h = grid_h - 1;
-    
-    set_circle_grid(4);
-}
-
-// --- Create grid array ---
-grid = ds_grid_create(grid_w, grid_h);
-reveal = ds_grid_create(grid_w, grid_h);
-flagged = ds_grid_create(grid_w, grid_h);
-grid_sprite = ds_grid_create(grid_w, grid_h);
-
-// 0 = empty
-// -1 = mine
-// Any positive number = nearby mines
-
-ds_grid_clear(grid, 0);
-ds_grid_clear(reveal, 0);
-ds_grid_clear(flagged, 0);
-
-for (var xx = 0; xx &lt; grid_w; xx++)
-for (var yy = 0; yy &lt; grid_h; yy++)
-{
-    grid_sprite[# xx, yy] = spr_bg; // default sprite
-    if circle_grid[# xx, yy]=1 reveal[# xx, yy] = true;
-}
-
-// --- Place mines ---
-var placed = 0;
-while (placed &lt; mine_count)
-{
-    var xx = irandom(grid_w - 1);
-    var yy = irandom(grid_h - 1);
-
-    if (grid[# xx, yy] != -1) &amp;&amp; circle_grid[# xx, yy] == 0
-    {
-        grid[# xx, yy] = -1;
-        placed += 1;
-    }
-}
-
-alarm[4]=1;
-
-//grid_offset_x = (room_width  - grid_w * cell_size) / 2;
-//grid_offset_y = ((room_height - grid_h * cell_size) / 2);
-
-grid_draw_w = grid_w * cell_size * zoom;
-grid_draw_h = grid_h * cell_size * zoom;
-
-off_x=0; off_y=0;
-
-grid_offset_x = ((room_width  - grid_draw_w) / 2)-off_x;
-grid_offset_y = (((room_height - grid_draw_h) / 2) + 25)-off_y;
-
-highlight_x1 = -1;
-highlight_y1 = -1;
-highlight_x2 = -1;
-highlight_y2 = -1;
-
-t9_grid=spr_bg5;
-t9_gridb=spr_bg5b;
-cirno9=false;
-utsuho10=false;
-
-t10_grid=spr_bg10;
-t10_gridb=spr_bg10b;
-
-obj_bg.sprite_index=spr_bg;
-
-if obj_input.c_held &amp;&amp; global.stage==9
-{
-    secret_script_p1();
-    global.foughtcirno=1;
-    cirno9=true;
-    iceland = ds_grid_create(grid_w, grid_h);
-    ds_grid_clear(iceland, 0);
-}
-
-if obj_input.c_held &amp;&amp; global.stage==10
-{
-    secret_script_2_p1();
-    global.foughtutsuho=1;
-    utsuho10=true;
-}
-
-if global.stage==910
-{
-    instance_create(160,145,obj_9);
-    instance_create(160,145,obj_10);
-    boss9_started=true;
-    boss10_started=true;
-    alarm[9]=1;
-    alarm[4]=1;
-    obj_9.test_a=1;
-    obj_9.active=true;
-    obj_9.test_0=48;
-    obj_9.travel=3;
-    obj_9.image_index=5;
-    obj_10.active=true;
-    obj_10.moove=1;
-    obj_10.time=11;
-    obj_10.spd=1;
-    obj_10.vspeed=1;
-    obj_10.hspeed=1;
-    obj_10.alarm[3]=1;
-    obj_ui.alarm[0]=1;
-    obj_ui.rand_time=1;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="2" enumb="9">
       <action>
         <libid>1</libid>
@@ -430,7 +186,7 @@ temp_g = 0;
             <string>///Left released
 var draw_size = cell_size * zoom;
 
-check_input();
+check_input_2p();
 var xx = msx;
 var yy = msy;
 
@@ -449,9 +205,9 @@ if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h)
 if circle_grid[# xx, yy] exit;
 //show_debug_message(string(xx)+"-"+string(yy)+"??"+string(temp_x)+"-"+string(temp_y));
 
-if obj_smiley.mine_detected != 0 exit;
-if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
-if obj_smiley.cutscene == true &amp;&amp; boss10_started exit;
+if obj_smiley_2p.mine_detected != 0 exit;
+if obj_smiley_2p.cutscene == true &amp;&amp; boss9_started exit;
+if obj_smiley_2p.cutscene == true &amp;&amp; boss10_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
 
 if instance_exists(obj_9) &amp;&amp; !first_click
@@ -501,7 +257,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 boss9_started = true;
                 audio_stop_sound(mus_ocean);
                 audio_loop_sound(global._music[5],global._st[5],global._en[5],44100,0);
-                obj_smiley.alarm[0]=1;
+                obj_smiley_1p.alarm[0]=1;
                 
                 reveal[# xx, yy ] = true;
                 
@@ -535,7 +291,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 boss10_started = true;
                 audio_stop_sound(mus_ocean);
                 audio_loop_sound(global._music[11],global._st[11],global._en[11],44100,0);
-                obj_smiley.alarm[5]=1;
+                obj_smiley_1p.alarm[5]=1;
                 
                 reveal[# xx, yy ] = true;
                 grid[# xx, yy] = 10;
@@ -581,7 +337,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 obj_10.time=11;
                 obj_10.alarm[3]=1;
             };
-            if global.stage!=910 obj_ui.alarm[0]=1;
+            //if global.stage!=910 obj_ui.alarm[0]=1;
         }
         
         var cell = grid[# xx, yy];
@@ -599,7 +355,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
             {
                 if (cell == -1)
                 {
-                    scr_mine_detected();
+                    scr_mine_detected_1p();
                     src_reveal_mine(xx, yy);
                 }
                 else
@@ -639,7 +395,7 @@ temp_y=0;
             <string>///Right Clicked
 var draw_size = cell_size * zoom;
 
-check_input();
+check_input_2p();
 var xx = msx;
 var yy = msy;
 
@@ -651,9 +407,9 @@ temp_y = yy;
 if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h) exit;
 if circle_grid[# xx, yy] exit;
 
-if obj_smiley.mine_detected != 0 exit;
-if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
-if obj_smiley.cutscene == true &amp;&amp; boss10_started exit;
+if obj_smiley_2p.mine_detected != 0 exit;
+if obj_smiley_2p.cutscene == true &amp;&amp; boss9_started exit;
+if obj_smiley_2p.cutscene == true &amp;&amp; boss10_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
 
 if win == false
@@ -706,7 +462,7 @@ if win == false
 
 var draw_size = cell_size * zoom;
 
-check_input();
+check_input_2p();
 temp_x = msx;
 temp_y = msy;
 
@@ -753,10 +509,8 @@ highlight_y2 = -1;
 
 if global.stage==9 or global.stage==10 let_me_out();
 
-check_input();
-checks_input();
-
-if global.stage==86 do_bad_apple();
+check_input_2p();
+checks_input_2p();
 </string>
           </argument>
         </arguments>
@@ -793,7 +547,7 @@ if spiral_go == true &amp;&amp; (spiral_index &lt; ds_list_size(spiral))
 }
 else if spiral_go == true
 {
-    obj_bg.sprite_index=t9_grid;
+    //obj_bg.sprite_index=t9_grid;
     for (var xx = 0; xx &lt; grid_w; xx++)
     for (var yy = 0; yy &lt; grid_h; yy++)
     {
@@ -825,19 +579,7 @@ else if spiral_go == true
           <argument>
             <kind>1</kind>
             <string>draw_set_alpha(1);
-
 draw_grid();
-
-draw_set_valign(fa_center);
-draw_set_halign(fa_middle);
-draw_set_font(fnt_smol);
-draw_set_colour(c_red);
-var _sh = sheesh mod 750;
-
-if cirno9 text = "You have to let me out eventually, Baka...";
-if utsuho10 text = "You have to let me out eventually, Unyu...";
-
-if _sh&gt;=500 draw_text(160,120+sin(sheesh/25),text);
 </string>
           </argument>
         </arguments>

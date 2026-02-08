@@ -16,10 +16,14 @@ if global.the_config!=global.config reset_game();
 init_globals_mus();
 global.pitch=1;
 
+global.m_g_w=7;
+global.m_g_h=11;
+global.m_g_m=10;
+
 if global.debug=1 show_message("WARNING!!
 
 This is the DEBUG Build. Many things are VERY UNSTABLE. IT IS RECOMMENDED TO PLAY THE CURRENT RELEASED VERSION.
-PROCEED WITH CAUTION!!")
+PROCEED WITH CAUTION!!");
 
 // First Chapter setup
 global.gridw[1]=6;
@@ -62,3 +66,5 @@ global.minec[910]=10;
 global.gridw[86]=16;
 global.gridh[86]=12;
 global.minec[86]=0;
+
+global.secret_active=0;

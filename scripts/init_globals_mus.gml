@@ -1,6 +1,5 @@
 ///init_globals_mus();
 
-global._music[0] = -1;
 global._st[0] = 0;
 global._en[0] = 0;
 
@@ -24,8 +23,12 @@ global._en[12]= 6074808;
 global._st[13]= 177444;
 global._en[13]= 882825;
 
+global._st[14]= 757461;
+global._en[14]= 4385836;
+
 if global._music_type=0
 {
+    global._music[0]=mus_title;
     global._music[1]=mus_stage1;
     global._music[2]=mus_stage2;
     global._music[3]=mus_stage3;
@@ -57,6 +60,7 @@ if global._music_type=0
 }
 else
 {
+    global._music[0]=mus_title;
     global._music[1]=mus_stage1r;
     global._music[2]=mus_stage2r;
     global._music[3]=mus_stage3r;
@@ -87,3 +91,4 @@ else
     global.stage10_win=mus_stage10r_win;
 }
 global._music[23]=mus_vs_lobby;
+global._music[24]=mus_versus;

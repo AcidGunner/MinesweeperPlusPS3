@@ -65,6 +65,8 @@ cutscene_explosions = 4;
 the_spr_9spike=spr_9spike;
 the_spr_9=spr_9;
 
+_x=x;_y=y;
+
 if obj_game.cirno9=true &amp;&amp; global.stage==9 secret_script_p2();
 
 if global.foughtcirno==true &amp;&amp; global.stage==910 secret_script_p2();
@@ -367,9 +369,12 @@ else
 
 var g_o_x = obj_game.grid_offset_x;
 var g_o_y = obj_game.grid_offset_y;
-var draw_size = obj_game.cell_size * obj_game.zoom;
+var off_x = obj_game.off_x;
+var off_y = obj_game.off_y;
+var zoom = obj_game.zoom;
+var draw_size = obj_game.cell_size * zoom;
 var d_s = draw_size;
-var h_s = 0.5 * d_s;
+var h_s = (draw_size*0.5);
 var x_s = boss_x * d_s;
 var y_s = boss_y * d_s;
 
@@ -395,33 +400,51 @@ else
     angle-=test_a;
 }
 
-if travel = 1
+switch travel
 {
-    hsp=lerp(hsp,10,0.1);
-    x+=hsp;
-    if x&gt;360 &amp;&amp; y==145
+    case 0:
     {
-        x=-40;
-        y=24;
-        obj_smiley.alarm[2]=8;
-        alarm[3]=8;
+        x = _x+off_x;
+        y = _y+off_y;
+        break;
     }
-    else if x&gt;360 &amp;&amp; y==24
+    case 1:
     {
-        x=-40;
-        y=145;
-        travel = 2;
+        hsp=lerp(hsp,10,0.1);
+        _x+=hsp;
+        x = _x+off_x;
+        if _y&lt;30 y = _y
+        else y = _y+off_y;
+        
+        if _x&gt;360 &amp;&amp; _y==145
+        {
+            _x=-40;
+            _y=24;
+            obj_smiley.alarm[2]=8;
+            alarm[3]=8;
+        }
+        else if _x&gt;360 &amp;&amp; _y==24
+        {
+            _x=-40;
+            _y=145;
+            travel = 2;
+        }
+        break;
     }
-}
-else if travel = 2
-{
-    x=lerp(x,160,0.1);
-    if x&gt;=159.9 travel=3;
-}
-else if travel = 3
-{
-    x = g_o_x + x_s + h_s;
-    y = g_o_y + y_s + h_s;
+    case 2:
+    {
+        _x=lerp(_x,160,0.1);
+        if _x&gt;=159.9 travel=3;
+        x = _x+off_x;
+        y = _y+off_y;
+        break;
+    }
+    case 3:
+    {
+        x = g_o_x + x_s + h_s;
+        y = g_o_y + y_s + h_s;
+        break;
+    }
 }
 
 if active
@@ -650,14 +673,17 @@ else
 {
     var g_o_x = obj_game.grid_offset_x;
     var g_o_y = obj_game.grid_offset_y;
-    var draw_size = obj_game.cell_size * obj_game.zoom;
+    var off_x = obj_game.off_x;
+    var off_y = obj_game.off_y;
+    var zoom = obj_game.zoom;
+    var draw_size = obj_game.cell_size * zoom;
     var d_s = draw_size;
-    var h_s = 0.5 * d_s;
+    var h_s = (draw_size*0.5);
     var x_s = boss_x * d_s;
     var y_s = boss_y * d_s;
     
-    x = g_o_x + x_s + h_s;
-    y = g_o_y + y_s + h_s;
+    x = g_o_x + x_s + h_s-off_x;
+    y = g_o_y + y_s + h_s-off_y;
     
     image_xscale=obj_game.zoom;
     image_yscale=obj_game.zoom;
