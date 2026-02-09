@@ -19,9 +19,9 @@ with _2p
     _sh=0;
     the_temp=0;
     
-    type="player1";
+    type="player2";
     
-    if global.type_input=1 instance_create(0,0,obj_cursor);
+    if global.type_input=1 instance_create(240,120,obj_cursor_p2);
     text = "You have to let me out eventually, Captain...";
     
     circle_grid = ds_grid_create(grid_w,grid_h);

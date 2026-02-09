@@ -161,7 +161,7 @@ if obj_input.b
 {
     select=1;
     audio_stop_all();
-    audio_play_sound(sfx_test,0,false);
+    audio_play_sound(sfx_game_start,0,false);
     alarm[2]=60;
 }
 </string>
@@ -206,6 +206,7 @@ draw_text_outline(248,110,"Adventure",c_white,c_black,1);
 
 //draw_text_outline(72,155,"[SQUARE]",c_white,c_black,1);
 draw_text_outline(248,155,"[CROSS]",c_white,c_black,1);
+draw_text_outline(160,200,"[CIRCLE] for Versus Test!",c_white,c_black,1);
 </string>
           </argument>
         </arguments>

@@ -23,7 +23,7 @@ if obj_input.r1
 }
 
 // Only highlight if holding left button
-if obj_input.mk1 && win == false && global.stage!=86
+if obj_input.mk1 && win == false && obj_vs_ui.lost=0 
 {
     hold_highlight_1p();
 }

@@ -29,7 +29,7 @@ instance_create(0,0,obj_vs_ui);</code>
     <showViews>0</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
-    <page>1</page>
+    <page>4</page>
     <xoffset>-19</xoffset>
     <yoffset>-18</yoffset>
   </makerSettings>

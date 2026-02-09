@@ -34,15 +34,25 @@ a=0;a_held=0;b=0;bl=0;
 c=0;c_held=0;d=0;d_held=0;
 lef=0;rig=0;dow=0;upp=0;
 any=0;
-
 rup=0;rdown=0;rright=0;rleft=0;
-
 cursor_x=right-left;
 cursor_y=down-up;
-
 cursor_rx=rleft-rright;
 cursor_ry=rup-rdown;
 cursor_r=0;
+
+p2_up=0;p2_down=0;p2_right=0;p2_left=0;
+p2_start=0;p2_hstart=0;p2_select=0;
+p2_a=0;p2_a_held=0;p2_b=0;p2_bl=0;
+p2_c=0;p2_c_held=0;p2_d=0;p2_d_held=0;
+p2_lef=0;p2_rig=0;p2_dow=0;p2_upp=0;
+p2_any=0;
+p2_rup=0;p2_rdown=0;p2_rright=0;p2_rleft=0;
+p2_cursor_x=p2_right-p2_left;
+p2_cursor_y=p2_down-p2_up;
+p2_cursor_rx=p2_rleft-p2_rright;
+p2_cursor_ry=p2_rup-p2_rdown;
+p2_cursor_r=0;
 
 //PS3 ONLY VALUES
 l1=0;r1=0;l1h=0;r1h=0;
@@ -54,6 +64,15 @@ stick_h=gamepad_axis_value(0,gp_axislh);
 stick_v=gamepad_axis_value(0,gp_axislv);
 global.prev_stick_h=0;
 global.prev_stick_v=0;
+
+p2_l1=0;p2_r1=0;p2_l1h=0;p2_r1h=0;
+p2_l2=0;p2_r2=0;p2_l2h=0;p2_r2h=0;
+p2_mx=240;p2_my=120;p2_mp1=0;p2_mh1=0;
+p2_mp2=0;p2_mh2=0;
+p2_stick_h=gamepad_axis_value(1,gp_axislh);
+p2_stick_v=gamepad_axis_value(1,gp_axislv);
+global.p2_prev_stick_h=0;
+global.p2_prev_stick_v=0;
 </string>
           </argument>
         </arguments>
@@ -76,116 +95,8 @@ global.prev_stick_v=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Check for inputs
-
-if global.CONTROL==0{
-    up=keyboard_check(vk_up);
-    down=keyboard_check(vk_down);
-    right=keyboard_check(vk_right);
-    left=keyboard_check(vk_left);
-    start=keyboard_check_pressed(vk_enter);
-    hstart=keyboard_check(vk_enter);
-    select=keyboard_check(vk_backspace);
-    a=keyboard_check_pressed(ord('Z'));
-    a_held=keyboard_check(ord('Z'))
-    b=keyboard_check(ord('X'));
-    bl=keyboard_check_pressed(ord('X'));
-    c=keyboard_check_pressed(vk_rshift);
-    c_held=keyboard_check(vk_rshift);
-    d=keyboard_check_pressed(vk_lshift);
-    d_held=keyboard_check(vk_lshift);
-    lef=keyboard_check_pressed(vk_left);
-    rig=keyboard_check_pressed(vk_right);
-    dow=keyboard_check_pressed(vk_down);
-    upp=keyboard_check_pressed(vk_up);
-    l1=mouse_wheel_down();
-    r1=mouse_wheel_up();
-    l1h=keyboard_check(vk_lalt);
-    r1h=keyboard_check(vk_ralt);
-    l2=keyboard_check_pressed(vk_numpad4);
-    r2=keyboard_check_pressed(vk_numpad6);
-    l2h=keyboard_check(vk_numpad4);
-    r2h=keyboard_check(vk_numpad6);
-    any=keyboard_check_pressed(vk_anykey);
-    
-    rup=keyboard_check(vk_up);
-    rdown=keyboard_check(vk_down);
-    rright=keyboard_check(vk_right);
-    rleft=keyboard_check(vk_left);
-    
-    cursor_rx=rright-rleft;
-    cursor_ry=rdown-rup;
-    cursor_r=keyboard_check_pressed(vk_space);
-    
-    mx = mouse_x;
-    my = mouse_y;
-    mp1 = mouse_check_button_pressed(mb_left);
-    mk1 = mouse_check_button(mb_left);
-    mh1 = mouse_check_button_released(mb_left);
-    mp2 = mouse_check_button_pressed(mb_right);
-    mh2 = mouse_check_button_released(mb_right);
-} else {
-    //First config
-    start=gamepad_button_check_pressed(0,gp_start);
-    hstart=gamepad_button_check(0,gp_start);
-    select=gamepad_button_check(0,gp_select);
-    a=gamepad_button_check_pressed(0,gp_face1);
-    a_held=gamepad_button_check(0,gp_face1);
-    b=gamepad_button_check(0,gp_face2);
-    bl=gamepad_button_check_pressed(0,gp_face2);
-    c=gamepad_button_check_pressed(0,gp_face3);
-    c_held=gamepad_button_check(0,gp_face3);
-    d=gamepad_button_check_pressed(0,gp_face4);
-    d_held=gamepad_button_check(0,gp_face4);
-    l1=gamepad_button_check_pressed(0,gp_shoulderl);
-    r1=gamepad_button_check_pressed(0,gp_shoulderr);
-    l1h=gamepad_button_check(0,gp_shoulderl);
-    r1h=gamepad_button_check(0,gp_shoulderr);
-    l2=gamepad_button_check_pressed(0,gp_shoulderlb);
-    r2=gamepad_button_check_pressed(0,gp_shoulderrb);
-    l2h=gamepad_button_check(0,gp_shoulderlb);
-    r2h=gamepad_button_check(0,gp_shoulderrb);
-    any=gamepad_button_check_pressed_any();
-    
-    //Prepare the CONSOLE MOVEMENTS!!!!
-    stick_h=gamepad_axis_value(0,gp_axislh);
-    stick_v=gamepad_axis_value(0,gp_axislv);
-    var stick_rh=gamepad_axis_value(0,gp_axisrh);
-    var stick_rv=gamepad_axis_value(0,gp_axisrv);
-    
-    //Last config!
-    up=gamepad_button_check(0,gp_padu) or stick_v&lt;=-gmin;
-    down=gamepad_button_check(0,gp_padd) or stick_v&gt;=gmin;
-    right=gamepad_button_check(0,gp_padr) or stick_h&gt;=gmin;
-    left=gamepad_button_check(0,gp_padl) or stick_h&lt;=-gmin;
-    lef=gamepad_button_check_pressed(0,gp_padl) or (stick_h&lt;=-gmin &amp;&amp; global.prev_stick_h&gt;-gmin);
-    rig=gamepad_button_check_pressed(0,gp_padr) or (stick_h&gt;=gmin &amp;&amp; global.prev_stick_h&lt;gmin);
-    dow=gamepad_button_check_pressed(0,gp_padd) or (stick_v&gt;=gmin &amp;&amp; global.prev_stick_v&lt;gmin);
-    upp=gamepad_button_check_pressed(0,gp_padu) or (stick_v&lt;=-gmin &amp;&amp; global.prev_stick_v&gt;-gmin);
-    
-    rup=gamepad_button_check(0,gp_padu) or stick_rv&lt;=-gmin;
-    rdown=gamepad_button_check(0,gp_padd) or stick_rv&gt;=gmin;
-    rright=gamepad_button_check(0,gp_padr) or stick_rh&gt;=gmin;
-    rleft=gamepad_button_check(0,gp_padl) or stick_rh&lt;=-gmin;
-    
-    cursor_x=right-left;
-    cursor_y=down-up;
-    
-    cursor_rx=rright-rleft;
-    cursor_ry=rdown-rup;
-    cursor_r=gamepad_button_check(0,gp_stickr);
-    
-    global.prev_stick_h = stick_h;
-    global.prev_stick_v = stick_v;
-    
-    mx+=cursor_x*(2*sns);
-    my+=cursor_y*(2*sns);
-    mp1 = a;
-    mk1 = a_held;
-    mh1 = gamepad_button_check_released(0,gp_face1);
-    mp2 = bl;
-    mh2 = gamepad_button_check_released(0,gp_face2);
-}
+            <string>///Checks for inputs
+main_input_test();
 </string>
           </argument>
         </arguments>

@@ -32,6 +32,10 @@ if instance_exists(obj_ui)
 {
     obj_ui.shift=30;
 }
+if instance_exists(obj_vs_ui)
+{
+    obj_vs_ui.shift=30;
+}
 
 if audio_is_playing(global._music[6])
 {

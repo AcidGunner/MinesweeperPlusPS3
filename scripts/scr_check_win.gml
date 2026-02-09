@@ -38,15 +38,7 @@ if (revealed_total >= grid_w * grid_h - mine_count)
     
     win = true;
     mines_left = 0;
-    audio_stop_all();
-    if global.stage==1 audio_play_sound(global.stage1_win,0,false)
-    else if global.stage==2 audio_play_sound(global.stage1_win,0,false)
-    else if global.stage==3 audio_play_sound(global.stage2_win,0,false)
-    else if global.stage==4 audio_play_sound(global.stage2_win,0,false)
-    else if global.stage==5 audio_play_sound(global.stage3_win,0,false)
-    else if global.stage==6 audio_play_sound(global.stage3_win,0,false)
-    else if global.stage==7 audio_play_sound(global.stage4_win,0,false)
-    else if global.stage==8 audio_play_sound(global.stage4_win,0,false);
+    you_won_sfx();
 }
 else
 {

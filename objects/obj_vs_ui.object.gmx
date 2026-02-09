@@ -26,104 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>temp1=0;
-time=0;
+time=100;
 shift=0;
 shifting=0;
 red_ui=c_white;
-rand_time=0;
+lost=0;
 time_left=0;
 test_rect=0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="3">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>time_left=179;
-red_ui=merge_colour(c_red,c_white,0.5);
-if obj_game.cirno9=true
-{
-    time_left=floor(time_left/1.2);
-    red_ui=merge_colour(c_blue,c_white,0.5);
-    test_rect=1;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>rand_time=1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if global.stage==9 &amp;&amp; obj_9.stop==1 exit;
-if global.stage==10 &amp;&amp; obj_10.active==false exit;
-if global.stage==910 &amp;&amp; obj_9.stop==1 exit;
-
-if obj_game.win!=1
-{
-    time_left--;
-    time++;
-    if global.stage==9 or global.stage==910
-    {
-        if obj_9.stop=0 alarm[1]=60-shifting;
-    }
-    else alarm[1]=60-shifting;
-    
-    if time_left&lt;1 &amp;&amp; (global.stage==9 or global.stage==910) game_restart();
-}
 </string>
           </argument>
         </arguments>
@@ -146,7 +55,9 @@ if obj_game.win!=1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[1]=60;
+            <string>audio_stop_all();
+audio_play_sound(global.stagevs_lose,0,false);
+lost=1;
 </string>
           </argument>
         </arguments>
@@ -172,8 +83,14 @@ if obj_game.win!=1
             <string>temp1+=0.1;
 
 if instance_exists(obj_explosion) view_xview[0]=irandom_range(-shift,shift);
-
 if shift&gt;0 shift--;
+
+if lost=0 and !(obj_game_1p.win=1 or obj_game_2p.win=1)
+    and !(obj_smiley_1p.mine_detected=1 or obj_smiley_2p.mine_detected=1)
+{
+    time-=2/global.FSP;
+    if time&lt;=0 alarm[0]=1;
+}
 </string>
           </argument>
         </arguments>
@@ -196,52 +113,50 @@ if shift&gt;0 shift--;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_valign(fa_top);
-draw_set_halign(fa_left);
-draw_set_font(fnt_main);
-draw_set_colour(c_white);
+            <string>draw_set_colour(c_white);
+draw_set_valign(fa_center);
+draw_set_halign(fa_middle);
+draw_set_font(fnt_smol);
 //draw_sprite_stretched(spr_ui1,0,0,0,112,48);
 //draw_sprite_stretched(spr_ui2,0,112,0,96,48);
+draw_sprite_stretched(spr_ui3,0,0,0,56,48);
 draw_sprite_stretched(spr_ui3,0,56,0,48,48);
+draw_sprite_stretched(spr_ui1,0,104,0,112,48);
 draw_sprite_stretched(spr_ui3,0,216,0,48,48);
-//draw_sprite_stretched_ext(spr_ui1,0,208,0,112,48,red_ui,1);
-/*
+draw_sprite_stretched(spr_ui3,0,264,0,56,48);
+if (obj_game_1p.win=1 or obj_game_2p.win=1)
+{
+    if obj_game_1p.win=1
+        draw_text_outline(160,24,"Player 1 Won!",c_red,c_white,1)
+    else
+        draw_text_outline(160,24,"Player 2 Won!",c_red,c_white,1);
+}
+else if lost=1
+    draw_text_outline(160,24,"Draw!",c_red,c_white,1)
+else
+    draw_healthbar(116,20,204,28,time,c_white,c_red,c_green,0,true,false);
+
+draw_set_valign(fa_top);
+draw_set_halign(fa_left);
+draw_set_font(fnt_main);
+
 draw_set_colour(c_white);
 
 var n = obj_game_1p.mines_left;
+var n2 = obj_game_2p.mines_left;
 var s = string(n);
+var s2 = string(n2);
 
-while (string_length(s) &lt; 3)
-{
+if (string_length(s) &lt; 2)
     s = "0" + s;
-}
 
-var s2 = string(time);
-if global.stage==9 or global.stage==910 s2 = string(time_left);
-
-while (string_length(s2) &lt; 3)
-{
+if (string_length(s2) &lt; 2)
     s2 = "0" + s2;
-}
 
-if global.stage==9 or global.stage==910
-{
-    draw_sprite_stretched(spr_mine_ui,temp1,7,7,35,35);
-    if rand_time=1 draw_text_outline(45,5.2,string(irandom_range(-99,999)),c_red,c_white,1)
-    else if rand_time=2 draw_text_outline(45,5.2,"000",c_red,c_white,1)
-    else if rand_time=0 draw_text_outline(45,5.2,"???",c_red,c_white,1);
-    draw_sprite_stretched_ext(spr_time_ui,temp1,215,7,35,35,red_ui,1);
-    draw_text_outline(255,5.2,s2,c_red,c_white,1);
-}
-else
-{
-    draw_sprite_stretched(spr_mine_ui,temp1,7,7,35,35);
-    draw_text_outline(45,5.2,s,c_red,c_white,1);
-    draw_sprite_stretched(spr_time_ui,temp1,215,7,35,35);
-    draw_text_outline(255,5.2,s2,c_red,c_white,1);
-}
+draw_text_outline(10,5.2,s,c_red,c_white,1);
+draw_text_outline(274,5.2,s2,c_red,c_white,1);
 
-if obj_game.win
+if lost=1 or (obj_game_1p.win=1 or obj_game_2p.win=1)
 {
     draw_set_valign(fa_center);
     draw_set_halign(fa_middle);
@@ -250,21 +165,7 @@ if obj_game.win
     if obj_input.start
     {
         audio_stop_all();
-        if global.stage==10
-        {
-            global.stage=910;
-            room_goto(rm_boo);
-        }
-        else
-        {
-            global.stage++;
-            save_game();
-            
-            if global.stage==10 ask_10();
-            
-            if global.stage&lt;11 room_restart()
-            else room_goto(rm_end);
-        }
+        room_goto(rm_menu);
     }
 }
 </string>

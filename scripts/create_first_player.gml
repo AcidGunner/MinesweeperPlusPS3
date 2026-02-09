@@ -21,7 +21,7 @@ with _1p
     
     type="player1";
     
-    if global.type_input=1 instance_create(0,0,obj_cursor);
+    if global.type_input=1 instance_create(80,120,obj_cursor);
     text = "You have to let me out eventually, Captain...";
     
     circle_grid = ds_grid_create(grid_w,grid_h);

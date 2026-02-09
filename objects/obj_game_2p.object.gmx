@@ -205,7 +205,10 @@ if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h)
 if circle_grid[# xx, yy] exit;
 //show_debug_message(string(xx)+"-"+string(yy)+"??"+string(temp_x)+"-"+string(temp_y));
 
+if obj_vs_ui.lost=1 exit;
+if obj_game_1p.win=1 exit;
 if obj_smiley_2p.mine_detected != 0 exit;
+if obj_smiley_1p.mine_detected != 0 exit;
 if obj_smiley_2p.cutscene == true &amp;&amp; boss9_started exit;
 if obj_smiley_2p.cutscene == true &amp;&amp; boss10_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
@@ -257,7 +260,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 boss9_started = true;
                 audio_stop_sound(mus_ocean);
                 audio_loop_sound(global._music[5],global._st[5],global._en[5],44100,0);
-                obj_smiley_1p.alarm[0]=1;
+                obj_smiley_2p.alarm[0]=1;
                 
                 reveal[# xx, yy ] = true;
                 
@@ -291,7 +294,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 boss10_started = true;
                 audio_stop_sound(mus_ocean);
                 audio_loop_sound(global._music[11],global._st[11],global._en[11],44100,0);
-                obj_smiley_1p.alarm[5]=1;
+                obj_smiley_2p.alarm[5]=1;
                 
                 reveal[# xx, yy ] = true;
                 grid[# xx, yy] = 10;
@@ -355,7 +358,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
             {
                 if (cell == -1)
                 {
-                    scr_mine_detected_1p();
+                    scr_mine_detected_2p();
                     src_reveal_mine(xx, yy);
                 }
                 else
@@ -407,7 +410,10 @@ temp_y = yy;
 if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h) exit;
 if circle_grid[# xx, yy] exit;
 
+if obj_vs_ui.lost=1 exit;
+if obj_game_1p.win=1 exit;
 if obj_smiley_2p.mine_detected != 0 exit;
+if obj_smiley_1p.mine_detected != 0 exit;
 if obj_smiley_2p.cutscene == true &amp;&amp; boss9_started exit;
 if obj_smiley_2p.cutscene == true &amp;&amp; boss10_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
@@ -497,9 +503,9 @@ if circle_grid[# temp_x, temp_y] exit;
 image_speed=0.02;
 test_speed+=0.08;
 
-off_x-=obj_input.cursor_rx;
-off_y-=obj_input.cursor_ry;
-if obj_input.cursor_r{off_x=0;off_y=0;};
+off_x-=obj_input.p2_cursor_rx;
+off_y-=obj_input.p2_cursor_ry;
+if obj_input.p2_cursor_r{off_x=0;off_y=0;};
 
 // Reset highlight
 highlight_x1 = -1;

@@ -29,6 +29,7 @@
 testz=0;
 image_speed=0.1;
 audio_play_sound(sfx_mine,0,false);
+type="player2";
 test=audio_sound_length(sfx_mine)*60;
 </string>
           </argument>
@@ -70,6 +71,8 @@ if testz&gt;=test
     instance_create(x,y,obj_explosion);
     obj_smiley_1p.mine_detected=2;
     obj_game_1p.alarm[4]=1;
+    obj_game_2p.win=1;
+    you_won_sfx();
     instance_destroy();
 }
 </string>

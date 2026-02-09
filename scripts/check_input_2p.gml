@@ -16,8 +16,8 @@ if global.type_input=0
 }
 else if global.type_input=1
 {
-    mx = obj_input.mx;
-    my = obj_input.my;
+    mx = obj_input.p2_mx;
+    my = obj_input.p2_my;
 }
 
 msx = floor((mx - grid_offset_x) / draw_size);

@@ -148,12 +148,16 @@
         </sounds>
       </sounds>
       <sounds name="bonus">
-        <sound>sound\mus_vs_lobby</sound>
-        <sound>sound\mus_vs_wait</sound>
+        <sounds name="versus">
+          <sound>sound\mus_vs_lobby</sound>
+          <sound>sound\mus_vs_wait</sound>
+          <sound>sound\mus_versus</sound>
+          <sound>sound\mus_vs_win</sound>
+          <sound>sound\mus_vs_lost</sound>
+          <sound>sound\mus_vs_boss</sound>
+        </sounds>
         <sound>sound\mus_unknown</sound>
-        <sound>sound\mus_vs_boss</sound>
         <sound>sound\mus_thorn</sound>
-        <sound>sound\mus_versus</sound>
       </sounds>
       <sound>sound\mus_title</sound>
       <sound>sound\mus_end</sound>
@@ -256,16 +260,21 @@
         <sprite>sprites\spr_explosion</sprite>
       </sprites>
       <sprites name="smiley">
-        <sprite>sprites\spr_smiley1</sprite>
-        <sprite>sprites\spr_smiley2</sprite>
-        <sprite>sprites\spr_smiley3</sprite>
-        <sprite>sprites\spr_smiley4</sprite>
-        <sprite>sprites\spr_smiley5</sprite>
-        <sprite>sprites\spr_smiley5_cutscene</sprite>
-        <sprite>sprites\spr_smiley6</sprite>
-        <sprite>sprites\spr_smiley6_cutscene</sprite>
-        <sprite>sprites\spr_smiley_bonus</sprite>
-        <sprite>sprites\spr_smiley86</sprite>
+        <sprites name="original">
+          <sprite>sprites\spr_smiley1</sprite>
+          <sprite>sprites\spr_smiley2</sprite>
+          <sprite>sprites\spr_smiley3</sprite>
+          <sprite>sprites\spr_smiley4</sprite>
+          <sprite>sprites\spr_smiley5</sprite>
+          <sprite>sprites\spr_smiley5_cutscene</sprite>
+          <sprite>sprites\spr_smiley6</sprite>
+          <sprite>sprites\spr_smiley6_cutscene</sprite>
+        </sprites>
+        <sprites name="new">
+          <sprite>sprites\spr_smiley_bonus</sprite>
+          <sprite>sprites\spr_smiley86</sprite>
+          <sprite>sprites\spr_smiley_vs</sprite>
+        </sprites>
       </sprites>
       <sprites name="hats">
         <sprite>sprites\spr_hat1</sprite>
@@ -370,6 +379,8 @@
       <script>scripts\do_bad_apple.gml</script>
       <script>scripts\detect_console.gml</script>
       <script>scripts\check_debug.gml</script>
+      <script>scripts\you_won_sfx.gml</script>
+      <script>scripts\main_input_test.gml</script>
     </scripts>
     <scripts name="saving">
       <script>scripts\save_game.gml</script>
@@ -390,6 +401,7 @@
         <script>scripts\hold_highlight_2p.gml</script>
         <script>scripts\check_input_2p.gml</script>
         <script>scripts\checks_input_2p.gml</script>
+        <script>scripts\scr_mine_detected_2p.gml</script>
         <script>scripts\zoom_update_2p.gml</script>
       </scripts>
     </scripts>
@@ -459,6 +471,7 @@
         <object>objects\obj_game_2p</object>
         <object>objects\obj_smiley_2p</object>
         <object>objects\obj_bomb_2p</object>
+        <object>objects\obj_cursor_p2</object>
       </objects>
       <object>objects\obj_vs_bg</object>
       <object>objects\obj_vs_ui</object>

@@ -92,3 +92,5 @@ else
 }
 global._music[23]=mus_vs_lobby;
 global._music[24]=mus_versus;
+global.stagevs_win=mus_vs_win;
+global.stagevs_lose=mus_vs_lost;

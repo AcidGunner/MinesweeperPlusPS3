@@ -1,7 +1,7 @@
-///scr_mine_detected();
+///scr_mine_detected_1p();
 obj_smiley_1p.mine_detected=1;
 
-var temz = (room_width/2);
+var temz = (room_width/4);
 
 if instance_exists(obj_9) obj_9.active=false;
 

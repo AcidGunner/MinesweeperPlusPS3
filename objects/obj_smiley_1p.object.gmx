@@ -19,13 +19,15 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
             <string>image_speed = 0;
+image_blend = c_white;
+image_alpha = 1;
 temp2 = 0;
 image_anim = 0;
 image_anim2 = 0;
@@ -433,7 +435,22 @@ var temp1 = (room_width/4);
 var mousex=obj_input.mx;
 var mousey=obj_input.my;
 
-if obj_game_1p.win == false
+if obj_vs_ui.lost=1 or obj_game_2p.win=1
+{
+    var _temp_0 = 0;
+    sprite_index = spr_smiley_vs;
+    
+    switch obj_game_1p.temp_111
+    {
+        case 1: _temp_0=0; break;
+        case 2: _temp_0=2; break;
+        case 3: _temp_0=4; break;
+        case 4: _temp_0=6; break;
+        case 5: _temp_0=8; break;
+    }
+    image_index = _temp_0+image_anim2;
+}
+else if obj_game_1p.win == false
 {
     if cutscene == false
     {
@@ -652,7 +669,7 @@ else
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>obj_smiley_1p</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
