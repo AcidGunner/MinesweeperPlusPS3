@@ -149,12 +149,27 @@
       </sounds>
       <sounds name="bonus">
         <sounds name="versus">
-          <sound>sound\mus_vs_lobby</sound>
-          <sound>sound\mus_vs_wait</sound>
-          <sound>sound\mus_versus</sound>
-          <sound>sound\mus_vs_win</sound>
-          <sound>sound\mus_vs_lost</sound>
-          <sound>sound\mus_vs_boss</sound>
+          <sounds name="vsmisc">
+            <sound>sound\mus_vs_lobby</sound>
+            <sound>sound\mus_vs_wait</sound>
+            <sound>sound\mus_vs_boss</sound>
+          </sounds>
+          <sounds name="vs1">
+            <sound>sound\mus_versus</sound>
+            <sound>sound\mus_vs_win</sound>
+            <sound>sound\mus_vs_lost</sound>
+          </sounds>
+          <sounds name="vs2">
+            <sound>sound\mus_versus2</sound>
+          </sounds>
+          <sounds name="vs3">
+            <sound>sound\mus_versus3</sound>
+            <sound>sound\mus_vs_win3</sound>
+          </sounds>
+          <sounds name="vs4">
+            <sound>sound\mus_versus4</sound>
+            <sound>sound\mus_vs_win4</sound>
+          </sounds>
         </sounds>
         <sound>sound\mus_unknown</sound>
         <sound>sound\mus_thorn</sound>
@@ -274,6 +289,7 @@
           <sprite>sprites\spr_smiley_bonus</sprite>
           <sprite>sprites\spr_smiley86</sprite>
           <sprite>sprites\spr_smiley_vs</sprite>
+          <sprite>sprites\spr_smiley_alien</sprite>
         </sprites>
       </sprites>
       <sprites name="hats">

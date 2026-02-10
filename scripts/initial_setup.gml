@@ -19,6 +19,7 @@ global.pitch=1;
 global.m_g_w=7;
 global.m_g_h=11;
 global.m_g_m=10;
+global.m_g_t=2;
 
 if global.debug=1 show_message("WARNING!!
 

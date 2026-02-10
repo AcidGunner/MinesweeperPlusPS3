@@ -30,7 +30,12 @@ if (flags == required)
                 // If it's a mine → player loses
                 if (grid[# nx, ny] == -1)
                 {
-                    scr_mine_detected();
+                    switch type
+                    {
+                        case "single": scr_mine_detected(); break;
+                        case "player1": scr_mine_detected_1p(); break;
+                        case "player2": scr_mine_detected_2p(); break;
+                    }
                     src_reveal_mine(nx, ny);
                     exit;
                 }

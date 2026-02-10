@@ -46,7 +46,7 @@ with _2p
     temp_x=-1;
     temp_y=-1;
     temp_g=0;
-    temp_111 = 1;
+    temp_111 = global.m_g_t;
     
     spr_bg=-1;
     spr_bgb=-1;

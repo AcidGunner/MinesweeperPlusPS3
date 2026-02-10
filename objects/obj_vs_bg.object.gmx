@@ -26,6 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>image_speed=0.02;
+
+switch obj_game_1p.temp_111
+{
+    case 1: sprite_index=spr_bg1; break;
+    case 2: sprite_index=spr_bg2; break;
+    case 3: sprite_index=spr_bg3; break;
+    case 4: sprite_index=spr_bg4; break;
+}
 </string>
           </argument>
         </arguments>

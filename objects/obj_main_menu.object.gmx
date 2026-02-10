@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>menu_music = 1;
+            <string>menu_music = global.menu_t;
 prev_music = 1;
 alarm[0]=1;
 
@@ -52,7 +52,8 @@ select=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_vs_game);
+            <string>if global.m_g_t&gt;4 global.m_g_t=1+((global.m_g_t-1) mod 4);
+room_goto(rm_vs_game);
 </string>
           </argument>
         </arguments>
@@ -152,16 +153,21 @@ if obj_input.r2
 }
 if obj_input.a
 {
+    global.menu_t=menu_music;
     select=1;
     audio_stop_all();
     audio_play_sound(sfx_game_start,0,false);
+    save_game();
     alarm[1]=60;
 }
 if obj_input.b
 {
     select=1;
+    global.menu_t=menu_music;
+    global.m_g_t=menu_music;
     audio_stop_all();
     audio_play_sound(sfx_game_start,0,false);
+    save_game();
     alarm[2]=60;
 }
 </string>

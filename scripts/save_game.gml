@@ -6,6 +6,7 @@ ini_write_real("save","stage",global.stage);
 ini_write_real("save","hat",global.hat_type);
 ini_write_real("settings","input",global.type_input);
 ini_write_real("settings","music",global._music_type);
+ini_write_real("settings","menu",global.menu_t);
 ini_write_real("secret","boss9_secret",global.foughtcirno);
 ini_write_real("secret","boss10_secret",global.foughtutsuho);
 ini_close();

@@ -46,9 +46,7 @@ with _1p
     temp_x=-1;
     temp_y=-1;
     temp_g=0;
-    temp_111 = 1;
-    
-    
+    temp_111 = global.m_g_t;
     
     spr_bg=-1;
     spr_bgb=-1;
@@ -65,7 +63,7 @@ with _1p
     else if temp_111 == 4 spr_bgb=spr_bg4b;
     else if temp_111 == 5 spr_bgb=spr_bg10b;
     
-    audio_loop_sound(global._music[24],global._st[14],global._en[14],44100,0);
+    audio_loop_sound(global._music[23+temp_111],global._st[13+temp_111],global._en[13+temp_111],44100,0);
     
     if global.stage==9
     {
