@@ -52,7 +52,7 @@ select=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.m_g_t&gt;4 global.m_g_t=1+((global.m_g_t-1) mod 4);
+            <string>if global.m_g_t&gt;4 &amp;&amp; global.m_g_t!=9 global.m_g_t=1+((global.m_g_t-1) mod 4);
 room_goto(rm_vs_game);
 </string>
           </argument>

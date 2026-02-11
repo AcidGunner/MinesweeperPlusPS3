@@ -11,6 +11,7 @@ audio_stop_sound(global._music[24]);
 audio_stop_sound(global._music[25]);
 audio_stop_sound(global._music[26]);
 audio_stop_sound(global._music[27]);
+audio_stop_sound(global._music[29]);
 
 if type=="single"
 switch global.stage

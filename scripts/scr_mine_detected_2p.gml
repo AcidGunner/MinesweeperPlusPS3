@@ -3,7 +3,7 @@ obj_smiley_2p.mine_detected=1;
 
 var temz = (room_width/2)+(room_width/4);
 
-if instance_exists(obj_9) obj_9.active=false;
+if instance_exists(obj_9_2p) obj_9_2p.active=false;
 
 //if obj_input.mx<temz - 24 obj_smiley_hat.temp1=3
 //else if obj_input.mx>temz + 24 obj_smiley_hat.temp1=1

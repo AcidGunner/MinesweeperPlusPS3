@@ -94,7 +94,7 @@ if global.CONTROL==0{
     
     cursor_rx=rright-rleft;
     cursor_ry=rdown-rup;
-    cursor_r=gamepad_button_check(0,gp_stickr);
+    cursor_r=gamepad_button_check(0,gp_select);
     
     global.prev_stick_h = stick_h;
     global.prev_stick_v = stick_v;
@@ -158,7 +158,7 @@ if global.CONTROL==0{
     
     p2_cursor_rx=p2_rright-p2_rleft;
     p2_cursor_ry=p2_rdown-p2_rup;
-    p2_cursor_r=gamepad_button_check(1,gp_stickr);
+    p2_cursor_r=gamepad_button_check(1,gp_select);
     
     global.p2_prev_stick_h = p2_stick_h;
     global.p2_prev_stick_v = p2_stick_v;

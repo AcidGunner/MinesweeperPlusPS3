@@ -568,40 +568,50 @@ if obj_game.win == false
             else
             {
                 sprite_index = cutscene_10_0[cutscene_10s]
-                if cutscene_10s = 2
+                switch cutscene_10s
                 {
-                    obj_smiley_hat.image_index = 0;
-                    image_index = cutscene_10_1[cutscene_10s]+image_anim3;
-                }
-                else if cutscene_10s = 4
-                {
-                    obj_smiley_hat.image_index = 10+image_anim2;
-                    image_index = cutscene_10_1[cutscene_10s]+image_anim2;
-                }
-                else if cutscene_10s = 5
-                {
-                    obj_smiley_hat.image_index = 12+image_anim2;
-                    image_index = cutscene_10_1[cutscene_10s]+image_anim2;
-                }
-                else if cutscene_10s = 6
-                {
-                    obj_smiley_hat.image_index = 12;
-                    image_index = cutscene_10_1[cutscene_10s]+image_anim;
-                }
-                else if cutscene_10s = 7
-                {
-                    obj_smiley_hat.image_index = 14;
-                    image_index = cutscene_10_1[cutscene_10s];
-                }
-                else if cutscene_10s = 8
-                {
-                    obj_smiley_hat.image_index = 15+image_anim;
-                    image_index = cutscene_10_1[cutscene_10s]+image_anim;
-                }
-                else
-                {
-                    obj_smiley_hat.image_index = 0;
-                    image_index = cutscene_10_1[cutscene_10s];
+                    case 2:
+                    {
+                        obj_smiley_hat.image_index = 0;
+                        image_index = cutscene_10_1[cutscene_10s]+image_anim3;
+                        break;
+                    }
+                    case 4:
+                    {
+                        obj_smiley_hat.image_index = 10+image_anim2;
+                        image_index = cutscene_10_1[cutscene_10s]+image_anim2;
+                        break;
+                    }
+                    case 5:
+                    {
+                        obj_smiley_hat.image_index = 12+image_anim2;
+                        image_index = cutscene_10_1[cutscene_10s]+image_anim2;
+                        break;
+                    }
+                    case 6:
+                    {
+                        obj_smiley_hat.image_index = 12;
+                        image_index = cutscene_10_1[cutscene_10s]+image_anim;
+                        break;
+                    }
+                    case 7:
+                    {
+                        obj_smiley_hat.image_index = 14;
+                        image_index = cutscene_10_1[cutscene_10s];
+                        break;
+                    }
+                    case 8:
+                    {
+                        obj_smiley_hat.image_index = 15+image_anim;
+                        image_index = cutscene_10_1[cutscene_10s]+image_anim;
+                        break;
+                    }
+                    default:
+                    {
+                        obj_smiley_hat.image_index = 0;
+                        image_index = cutscene_10_1[cutscene_10s];
+                        break;
+                    }
                 }
             }
         }

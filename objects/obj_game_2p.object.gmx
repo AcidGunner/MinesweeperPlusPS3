@@ -72,8 +72,8 @@ alarm[9]=10*global.FSP;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var xx = obj_9.grid_x;
-var yy = obj_9.grid_y;
+            <string>var xx = obj_9_2p.grid_x;
+var yy = obj_9_2p.grid_y;
 
 grid[# xx-1, yy-1] = -1;
 grid[# xx-1, yy] = -1;
@@ -107,7 +107,7 @@ alarm[4]=1;
           <argument>
             <kind>1</kind>
             <string>/// === Number Fill ===
-if global.stage==9 or global.stage==910 mine_count=0
+if temp_111 == 9 mine_count=0
 for (var qx = 0; qx &lt; grid_w; qx++)
 for (var qy = 0; qy &lt; grid_h; qy++)
 {
@@ -125,7 +125,7 @@ for (var qy = 0; qy &lt; grid_h; qy++)
                 if (grid[# nx, ny] == -1)
                 {
                     c++;
-                    if global.stage==9 or global.stage==910 mine_count++;
+                    if temp_111 == 9 mine_count++;
                 }
             }
         }
@@ -133,9 +133,9 @@ for (var qy = 0; qy &lt; grid_h; qy++)
         if (grid[# qx, qy] != -2) grid[# qx, qy] = c;
     }
 }
-if instance_exists(obj_9) mine_count-=8;
+if instance_exists(obj_9_2p) mine_count-=8;
 
-if first_click &amp;&amp; boss9_started &amp;&amp; global.stage==9 grid[# center_x, center_y ] = 9;
+if first_click &amp;&amp; boss9_started &amp;&amp; temp_111 == 9 grid[# center_x, center_y ] = 9;
 </string>
           </argument>
         </arguments>
@@ -211,13 +211,13 @@ if obj_smiley_2p.mine_detected != 0 exit;
 if obj_smiley_1p.mine_detected != 0 exit;
 if obj_smiley_2p.cutscene == true &amp;&amp; boss9_started exit;
 if obj_smiley_2p.cutscene == true &amp;&amp; boss10_started exit;
-if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
+if instance_exists(obj_9_2p) &amp;&amp; obj_9_2p.stop exit;
 
-if instance_exists(obj_9) &amp;&amp; !first_click
+if instance_exists(obj_9_2p) &amp;&amp; !first_click
 {
     if cirno9==true &amp;&amp; iceland[# xx, yy] != 0 exit;
     
-    if obj_9.boss_x == xx &amp;&amp; obj_9.boss_y == yy
+    if obj_9_2p.boss_x == xx &amp;&amp; obj_9_2p.boss_y == yy
     {
         if global.stage==910
         {
@@ -227,11 +227,15 @@ if instance_exists(obj_9) &amp;&amp; !first_click
             obj_10.vspeed=0;
             obj_10.hspeed=0;
         }
-        obj_9.stop=1;
-        obj_9.active=false;
-        obj_9.alarm[5]=300;
-        obj_smiley.temp23=obj_input.mx;
-        obj_smiley.cutscene=true;
+        obj_9_2p.stop=1;
+        obj_9_2p.active=false;
+        obj_9_2p.alarm[5]=300;
+        obj_smiley_2p.temp23=obj_input.mx;
+        obj_smiley_2p.cutscene=true;
+        obj_9_1p.stop=1;
+        obj_9_1p.active=false;
+        obj_smiley_1p.temp23=obj_input.mx;
+        obj_smiley_1p.cutscene=true;
         audio_stop_all();
         audio_play_sound(sfx_done,0,false);
         exit;
@@ -251,7 +255,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
 {
     if win == false
     {
-        if (!boss9_started) &amp;&amp; global.stage==9
+        if (!boss9_started) &amp;&amp; temp_111 == 9
         {
             if (xx == center_x &amp;&amp; yy == center_y)
             {
@@ -274,6 +278,19 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 grid[# xx+1, yy] = -1;
                 grid[# xx+1, yy+1] = -1;
                 alarm[4]=1;
+                
+                obj_smiley_1p.alarm[0]=1;
+                obj_game_1p.reveal[# xx, yy ] = true;
+                obj_game_1p.boss9_started = true;
+                obj_game_1p.grid[# xx-1, yy-1] = -1;
+                obj_game_1p.grid[# xx-1, yy] = -1;
+                obj_game_1p.grid[# xx-1, yy+1] = -1;
+                obj_game_1p.grid[# xx, yy-1] = -1;
+                obj_game_1p.grid[# xx, yy+1] = -1;
+                obj_game_1p.grid[# xx+1, yy-1] = -1;
+                obj_game_1p.grid[# xx+1, yy] = -1;
+                obj_game_1p.grid[# xx+1, yy+1] = -1;
+                obj_game_1p.alarm[4]=1;
             }
             else
             {
@@ -323,14 +340,16 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 regenerate_grid(xx, yy, temp_mines);
             }
             
-            if global.stage==9
+            if temp_111 == 9
             {
-                audio_stop_all();
-                audio_loop_sound(global._music[6],global._st[6],global._en[6],44100,0);
-                obj_9.active=true;
-                reveal[# obj_9.boss_x, obj_9.boss_y ] = false;
+                obj_9_1p.active=true;
+                obj_9_2p.active=true;
+                reveal[# obj_9_1p.boss_x, obj_9_1p.boss_y ] = false;
+                reveal[# obj_9_2p.boss_x, obj_9_1p.boss_y ] = false;
                 alarm[9]=1;
                 alarm[4]=1;
+                obj_game_2p.alarm[9]=1;
+                obj_game_2p.alarm[4]=1;
             }
             else if global.stage==10
             {
@@ -349,7 +368,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
         if (reveal[# xx, yy] &amp;&amp; cell &gt; 0)
         {
             scr_open_neighbors(xx, yy);
-            if global.stage!=9 and global.stage!=910 scr_check_win();
+            if temp_111!=9 scr_check_win();
         }
         else
         {
@@ -364,7 +383,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 else
                 {
                     scr_reveal(xx, yy);
-                    if global.stage!=9 and global.stage!=910 scr_check_win();
+                    if temp_111!=9 scr_check_win();
                 }
             }
         }
@@ -416,7 +435,7 @@ if obj_smiley_2p.mine_detected != 0 exit;
 if obj_smiley_1p.mine_detected != 0 exit;
 if obj_smiley_2p.cutscene == true &amp;&amp; boss9_started exit;
 if obj_smiley_2p.cutscene == true &amp;&amp; boss10_started exit;
-if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
+if instance_exists(obj_9_2p) &amp;&amp; obj_9_2p.stop exit;
 
 if win == false
 {
@@ -538,7 +557,7 @@ checks_input_2p();
           <argument>
             <kind>1</kind>
             <string>///Spiral weeeeee
-if global.stage!=9 exit;
+if temp_111 != 9 exit;
 
 if spiral_go == true &amp;&amp; (spiral_index &lt; ds_list_size(spiral))
 {

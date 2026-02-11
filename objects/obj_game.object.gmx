@@ -751,7 +751,8 @@ highlight_y1 = -1;
 highlight_x2 = -1;
 highlight_y2 = -1;
 
-if global.stage==9 or global.stage==10 let_me_out();
+if (global.stage==9 or global.stage==10) &amp;&amp; 
+    (boss9_started==true or boss10_started==true) let_me_out();
 
 check_input();
 checks_input();

@@ -1,5 +1,4 @@
 ///create_first_player();
-instance_create(80,24,obj_smiley_1p);
 var _1p = instance_create(0,0,obj_game_1p);
 with _1p
 {
@@ -55,35 +54,36 @@ with _1p
     else if temp_111 == 2 spr_bg=spr_bg2
     else if temp_111 == 3 spr_bg=spr_bg3
     else if temp_111 == 4 spr_bg=spr_bg4
-    else if temp_111 == 5 spr_bg=spr_bg10;
     
     if temp_111 == 1 spr_bgb=spr_bg1b
     else if temp_111 == 2 spr_bgb=spr_bg2b
     else if temp_111 == 3 spr_bgb=spr_bg3b
     else if temp_111 == 4 spr_bgb=spr_bg4b;
-    else if temp_111 == 5 spr_bgb=spr_bg10b;
     
-    audio_loop_sound(global._music[23+temp_111],global._st[13+temp_111],global._en[13+temp_111],44100,0);
+    if temp_111 != 9
+        audio_loop_sound(global._music[23+temp_111],global._st[13+temp_111],global._en[13+temp_111],44100,0);
     
-    if global.stage==9
+    if temp_111 == 9 audio_play_sound(mus_ocean,0,true);
+
+    if temp_111 == 9
     {
         spr_bg=spr_bg1;
         spr_bgb=spr_bg1b;
         spiral_setup();
     }
     
-    if global.stage==10
-    {
-        spr_bg=spr_bg6;
-        spr_bgb=spr_bg6b;
-        
-        // possible custom grid?
-        // yes, just thought about this bruh
-        _grid_w = grid_w - 1;
-        _grid_h = grid_h - 1;
-        
-        set_circle_grid(4);
-    }
+    //if global.stage==10
+    //{
+    //    spr_bg=spr_bg6;
+    //    spr_bgb=spr_bg6b;
+    //    
+    //    // possible custom grid?
+    //    // yes, just thought about this bruh
+    //    _grid_w = grid_w - 1;
+    //    _grid_h = grid_h - 1;
+    //    
+    //    set_circle_grid(4);
+    //}
     
     // --- Create grid array ---
     grid = ds_grid_create(grid_w, grid_h);
@@ -183,3 +183,4 @@ with _1p
         obj_ui.rand_time=1;
     }
 }
+instance_create(80,24,obj_smiley_1p);

@@ -32,6 +32,10 @@ global._st[16]= 0;
 global._en[16]= 3174028;
 global._st[17]= 729226;
 global._en[17]= 2845976;
+global._st[18]= 1730235;
+global._en[18]= 1926144;
+global._st[19]= 1204700;
+global._en[19]= 3513913;
 
 if global._music_type=0
 {
@@ -116,3 +120,8 @@ global.stagevs3_lose=-1;
 global._music[27]=mus_versus4;
 global.stagevs4_win=mus_vs_win4;
 global.stagevs4_lose=-1;
+
+global._music[28]=mus_versus9_intro;
+global._music[29]=mus_versus9;
+global.stagevs9_win=mus_vs_win4;
+global.stagevs9_lose=-1;

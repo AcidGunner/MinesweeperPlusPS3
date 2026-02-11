@@ -11,20 +11,30 @@ for (var wy = 0; wy < grid_h; wy++)
 // Check win condition
 if (revealed_total >= grid_w * grid_h - mine_count)
 {
-    if global.stage==9
+    switch global.stage
     {
-        obj_9.alarm[6]=1;
-        exit;
+        case 9:
+        {
+            obj_9.alarm[6]=1;
+            exit;
+        }
+        case 10:
+        {
+            obj_10.alarm[4]=1;
+            exit;
+        }
+        case 910:
+        {
+            obj_9.alarm[6]=1;
+            obj_10.alarm[6]=1;
+            exit;
+        }
     }
-    else if global.stage==10
+    
+    if temp_111==9
     {
-        obj_10.alarm[4]=1;
-        exit;
-    }
-    else if global.stage==910
-    {
-        obj_9.alarm[6]=1;
-        obj_10.alarm[6]=1;
+        if type=="player1" obj_9_1p.alarm[6]=1
+        else obj_9_2p.alarm[6]=1;
         exit;
     }
     

@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="0">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,16 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed=0.02;
+            <string>list[0]=spr_bg1;
+list[1]=spr_bg1;
+list[2]=spr_bg2;
+list[3]=spr_bg2;
+list[4]=spr_bg3;
+list[5]=spr_bg3;
+list[6]=spr_bg4;
+list[7]=spr_bg4;
+list[8]=spr_bg1;
 
-switch obj_game_1p.temp_111
-{
-    case 1: sprite_index=spr_bg1; break;
-    case 2: sprite_index=spr_bg2; break;
-    case 3: sprite_index=spr_bg3; break;
-    case 4: sprite_index=spr_bg4; break;
-    case 9: sprite_index=obj_game_1p.spr_bg;  break;
-}
+//list[4]=spr_bg6;
+//list[5]=spr_bg7;
+//list[6]=spr_bg8;
+//list[7]=spr_bg9;
 </string>
           </argument>
         </arguments>
@@ -57,12 +61,8 @@ switch obj_game_1p.temp_111
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var tile_size = obj_game_1p.zoom*1.01;
-
-x = obj_game_1p.grid_offset_x;
-y = obj_game_1p.grid_offset_y;
-
-draw_sprite_tiled_ext(sprite_index,image_index,x,y,tile_size,tile_size,c_white,1);
+            <string>image_speed=0.02;
+draw_sprite_tiled_ext(sprite_index,image_index,0,0,1,1,c_white,1);
 </string>
           </argument>
         </arguments>

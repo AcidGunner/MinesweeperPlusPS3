@@ -134,7 +134,8 @@ if (obj_game_1p.win=1 or obj_game_2p.win=1)
 else if lost=1
     draw_text_outline(160,24,"Draw!",c_red,c_white,1);
 else
-    draw_text_outline(160,24,"[TEMP]",c_red,c_white,1);
+    draw_text_outline(160,24,"",c_red,c_white,1);
+//    draw_text_outline(160,24,"[TEMP]",c_red,c_white,1);
 //    draw_healthbar(116,20,204,28,time,c_white,c_red,c_green,0,true,false);
 
 draw_set_valign(fa_top);

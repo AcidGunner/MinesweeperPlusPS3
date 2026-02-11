@@ -1,5 +1,4 @@
 ///create_second_player();
-instance_create(240,24,obj_smiley_2p);
 var _2p = instance_create(0,0,obj_game_2p);
 with _2p
 {
@@ -63,7 +62,7 @@ with _2p
     else if temp_111 == 4 spr_bgb=spr_bg4b;
     else if temp_111 == 5 spr_bgb=spr_bg10b;
     
-    if global.stage==9
+    if temp_111 == 9
     {
         spr_bg=spr_bg1;
         spr_bgb=spr_bg1b;
@@ -181,3 +180,4 @@ with _2p
         obj_ui.rand_time=1;
     }
 }
+instance_create(240,24,obj_smiley_2p);

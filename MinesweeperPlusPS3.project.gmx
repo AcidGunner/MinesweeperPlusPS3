@@ -170,6 +170,10 @@
             <sound>sound\mus_versus4</sound>
             <sound>sound\mus_vs_win4</sound>
           </sounds>
+          <sounds name="vs9">
+            <sound>sound\mus_versus9_intro</sound>
+            <sound>sound\mus_versus9</sound>
+          </sounds>
         </sounds>
         <sound>sound\mus_unknown</sound>
         <sound>sound\mus_thorn</sound>
@@ -338,7 +342,6 @@
       <script>scripts\zoom_update.gml</script>
       <script>scripts\set_circle_grid.gml</script>
       <script>scripts\draw_grid.gml</script>
-      <script>scripts\let_me_out.gml</script>
       <script>scripts\spiral_setup.gml</script>
     </scripts>
     <scripts name="logo">
@@ -397,6 +400,7 @@
       <script>scripts\check_debug.gml</script>
       <script>scripts\you_won_sfx.gml</script>
       <script>scripts\main_input_test.gml</script>
+      <script>scripts\let_me_out.gml</script>
     </scripts>
     <scripts name="saving">
       <script>scripts\save_game.gml</script>
@@ -470,6 +474,9 @@
         <object>objects\obj_menu_bg</object>
         <object>objects\obj_main_menu</object>
       </objects>
+      <objects name="GameMap">
+        <object>objects\obj_map_bg</object>
+      </objects>
     </objects>
     <objects name="Debug">
       <object>objects\obj_debug</object>
@@ -482,12 +489,14 @@
         <object>objects\obj_game_1p</object>
         <object>objects\obj_smiley_1p</object>
         <object>objects\obj_bomb_1p</object>
+        <object>objects\obj_9_1p</object>
       </objects>
       <objects name="player2">
         <object>objects\obj_game_2p</object>
         <object>objects\obj_smiley_2p</object>
         <object>objects\obj_bomb_2p</object>
         <object>objects\obj_cursor_p2</object>
+        <object>objects\obj_9_2p</object>
       </objects>
       <object>objects\obj_vs_bg</object>
       <object>objects\obj_vs_ui</object>
