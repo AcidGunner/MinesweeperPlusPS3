@@ -271,7 +271,7 @@ if obj_game.win
             
             if global.stage==10 ask_10();
             
-            if global.stage&lt;11 room_restart()
+            if global.stage&lt;11 room_goto(rm_map)
             else room_goto(rm_end);
         }
     }

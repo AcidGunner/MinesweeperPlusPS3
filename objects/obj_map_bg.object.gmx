@@ -35,10 +35,108 @@ list[6]=spr_bg4;
 list[7]=spr_bg4;
 list[8]=spr_bg1;
 
+sprite_index=list[global.stage-1];
+
 //list[4]=spr_bg6;
 //list[5]=spr_bg7;
 //list[6]=spr_bg8;
 //list[7]=spr_bg9;
+
+_p1 = 0;
+_p2 = 210;
+_p3 = 420;
+_p4 = 0;
+_p5 = 210;
+_p6 = 420;
+_p7 = 0;
+_p8 = 210;
+_p9 = 420;
+
+if global.stage=1 _x=-20
+else _x=40+(global.stage-2)*64;
+
+instance_create(_x,80,obj_map_boat);
+
+for (var i=0; i&lt;8; i++)
+{
+    g = instance_create(16+i*64,96,obj_map);
+    g.mine_count = i+1;
+    with g
+    {
+        grid_w = 3;
+        grid_h = 3;
+        
+        switch global.stage
+        {
+            case 1: temp_111=1; break;
+            case 2: temp_111=1; break;
+            case 3: temp_111=2; break;
+            case 4: temp_111=2; break;
+            case 5: temp_111=3; break;
+            case 6: temp_111=3; break;
+            case 7: temp_111=4; break;
+            case 8: temp_111=4; break;
+            case 9: temp_111=1; break;
+        }
+        
+        spr_bg=-1;
+        spr_bgb=-1;
+        
+        if temp_111 == 1 spr_bg=spr_bg1
+        else if temp_111 == 2 spr_bg=spr_bg2
+        else if temp_111 == 3 spr_bg=spr_bg3
+        else if temp_111 == 4 spr_bg=spr_bg4;
+        
+        if temp_111 == 1 spr_bgb=spr_bg1b
+        else if temp_111 == 2 spr_bgb=spr_bg2b
+        else if temp_111 == 3 spr_bgb=spr_bg3b
+        else if temp_111 == 4 spr_bgb=spr_bg4b;
+        
+        // --- Create grid array ---
+        grid = ds_grid_create(grid_w, grid_h);
+        reveal = ds_grid_create(grid_w, grid_h);
+        grid_sprite = ds_grid_create(grid_w, grid_h);
+        
+        // 0 = empty
+        // -1 = mine
+        // Any positive number = nearby mines
+        
+        ds_grid_clear(grid, 0);
+        ds_grid_clear(reveal, 0);
+        
+        for (var xx = 0; xx &lt; grid_w; xx++)
+        for (var yy = 0; yy &lt; grid_h; yy++)
+        {
+            grid_sprite[# xx, yy] = spr_bg; // default sprite
+        }
+        
+        // --- Place mines ---
+        var placed = 0;
+        while (placed &lt; mine_count)
+        {
+            var xx = irandom(grid_w - 1);
+            var yy = irandom(grid_h - 1);
+        
+            if (grid[# xx, yy] != -1) &amp;&amp; !(xx == 1 &amp;&amp; yy == 1)
+            {
+                grid[# xx, yy] = -1;
+                placed += 1;
+            }
+        }
+        
+        alarm[4]=1;
+        
+        grid_draw_w = grid_w * 16;
+        grid_draw_h = grid_h * 16;
+        
+        grid_offset_x = x;
+        grid_offset_y = y;
+        
+        ds_grid_set(reveal,1,1,true);
+        
+        image_speed=0.02;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -63,6 +161,18 @@ list[8]=spr_bg1;
             <kind>1</kind>
             <string>image_speed=0.02;
 draw_sprite_tiled_ext(sprite_index,image_index,0,0,1,1,c_white,1);
+draw_set_color(c_black);
+draw_rectangle(544,0,864,240,false);
+
+_p1+=2.1;_p2+=2.1;_p3+=2.1;
+_p4--;_p5--;_p6--;
+_p7+=0.4;_p8+=0.4;_p9+=0.4;
+draw_set_color(merge_color(c_red,c_black,0.66));
+draw_triangle_1();
+draw_set_color(merge_color(c_red,c_black,0.33));
+draw_triangle_2();
+draw_set_color(c_red);
+draw_triangle_3();
 </string>
           </argument>
         </arguments>

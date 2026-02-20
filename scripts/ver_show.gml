@@ -1,2 +1,2 @@
 ///ver_show();
-return "v0.3 Versus Test 2";
+return "v0.3 UI Test";

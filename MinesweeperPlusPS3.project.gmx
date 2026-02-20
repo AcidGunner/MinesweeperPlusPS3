@@ -178,6 +178,9 @@
         <sound>sound\mus_unknown</sound>
         <sound>sound\mus_thorn</sound>
       </sounds>
+      <sounds name="map">
+        <sound>sound\mus_map_1</sound>
+      </sounds>
       <sound>sound\mus_title</sound>
       <sound>sound\mus_end</sound>
       <sound>sound\mus_bad</sound>
@@ -207,6 +210,7 @@
       <sound>sound\bios0</sound>
       <sound>sound\sfx_game_start</sound>
       <sound>sound\sfx_test</sound>
+      <sound>sound\sfx_level_start</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -323,6 +327,9 @@
         <sprite>sprites\spr_menu</sprite>
         <sprite>sprites\spr_menu_bonus</sprite>
       </sprites>
+      <sprites name="map">
+        <sprite>sprites\spr_boat_right</sprite>
+      </sprites>
       <sprite>sprites\spr_logo</sprite>
     </sprites>
   </sprites>
@@ -401,6 +408,10 @@
       <script>scripts\you_won_sfx.gml</script>
       <script>scripts\main_input_test.gml</script>
       <script>scripts\let_me_out.gml</script>
+      <script>scripts\draw_grid_map.gml</script>
+      <script>scripts\draw_triangle_1.gml</script>
+      <script>scripts\draw_triangle_2.gml</script>
+      <script>scripts\draw_triangle_3.gml</script>
     </scripts>
     <scripts name="saving">
       <script>scripts\save_game.gml</script>
@@ -476,6 +487,8 @@
       </objects>
       <objects name="GameMap">
         <object>objects\obj_map_bg</object>
+        <object>objects\obj_map</object>
+        <object>objects\obj_map_boat</object>
       </objects>
     </objects>
     <objects name="Debug">
@@ -506,6 +519,7 @@
     <room>rooms\rm_logo</room>
     <room>rooms\rm_title</room>
     <room>rooms\rm_menu</room>
+    <room>rooms\rm_map</room>
     <room>rooms\rm_game</room>
     <room>rooms\rm_vs_game</room>
     <room>rooms\rm_boo</room>

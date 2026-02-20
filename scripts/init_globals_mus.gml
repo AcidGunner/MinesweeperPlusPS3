@@ -62,12 +62,15 @@ if global._music_type=0
     global._music[20]=mus_menu_8;
     global._music[21]=mus_menu_9;
     global._music[22]=mus_menu_10;
+    
     global.stage1_win=mus_stage1_win;
     global.stage2_win=mus_stage2_win;
     global.stage3_win=mus_stage3_win;
     global.stage4_win=mus_stage4_win;
     global.stage9_win=mus_stage9_win;
     global.stage10_win=mus_stage10_win;
+    
+    global.stage1_map=mus_map_1;
 }
 else
 {
@@ -94,12 +97,15 @@ else
     global._music[20]=mus_menu_placeholder;
     global._music[21]=mus_menu_9r;
     global._music[22]=mus_menu_10r;
+    
     global.stage1_win=mus_stage1r_win;
     global.stage2_win=mus_stage2r_win;
     global.stage3_win=mus_stage3r_win;
     global.stage4_win=mus_stage4r_win;
     global.stage9_win=mus_stage9r_win;
     global.stage10_win=mus_stage10r_win;
+    
+    global.stage1_map=mus_map_1;
 }
 // Versus Mode!
 
