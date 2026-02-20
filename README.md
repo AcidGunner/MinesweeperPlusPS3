@@ -1,4 +1,4 @@
-# Minesweeper Plus PS3 Port [FROZEN]
+# Minesweeper Plus PS3 Port
 ![Minesweeper Plus PS3 Port Banner](https://img.itch.zone/aW1nLzI1NTg5MjQ0LnBuZw==/original/33patO.png)
 The Minesweeper Plus PS3 port is Finally open-sourced!\
 ***[PLEASE PLAY THE ORIGINAL GAME FIRST!!](https://jorel-simpson.itch.io/minesweeper-plus)***\
@@ -25,7 +25,6 @@ As for now, you can change hats by pressing L2/R2, because the proper ui is not 
 
 # Some news for OG Game and PS3 Port
 The Minesweeper Plus (NOT PS3 PORT) Episode 3 is delayed again. I don't know if I can say the issue, so I'm not gonna say why. We all understand the issue and we just need to wait.\
-The Minesweeper Plus PS3 Port v0.3 is frozen due to being completely burnt out from developing this port.\
 \
 Thanks for understanding.
 
