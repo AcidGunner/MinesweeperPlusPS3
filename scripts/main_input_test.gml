@@ -6,7 +6,7 @@ if global.CONTROL==0{
     left=keyboard_check(vk_left);
     start=keyboard_check_pressed(vk_enter);
     hstart=keyboard_check(vk_enter);
-    select=keyboard_check(vk_backspace);
+    select=keyboard_check_pressed(vk_backspace);
     a=keyboard_check_pressed(ord('Z'));
     a_held=keyboard_check(ord('Z'))
     b=keyboard_check(ord('X'));
@@ -49,7 +49,7 @@ if global.CONTROL==0{
     //First config
     start=gamepad_button_check_pressed(0,gp_start);
     hstart=gamepad_button_check(0,gp_start);
-    select=gamepad_button_check(0,gp_select);
+    select=gamepad_button_check_pressed(0,gp_select);
     a=gamepad_button_check_pressed(0,gp_face1);
     a_held=gamepad_button_check(0,gp_face1);
     b=gamepad_button_check(0,gp_face2);
@@ -94,7 +94,7 @@ if global.CONTROL==0{
     
     cursor_rx=rright-rleft;
     cursor_ry=rdown-rup;
-    cursor_r=gamepad_button_check(0,gp_select);
+    cursor_r=gamepad_button_check(0,gp_stickr);
     
     global.prev_stick_h = stick_h;
     global.prev_stick_v = stick_v;

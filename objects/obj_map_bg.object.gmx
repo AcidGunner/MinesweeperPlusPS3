@@ -34,13 +34,9 @@ list[5]=spr_bg3;
 list[6]=spr_bg4;
 list[7]=spr_bg4;
 list[8]=spr_bg1;
+list[9]=spr_bg1;
 
 sprite_index=list[global.stage-1];
-
-//list[4]=spr_bg6;
-//list[5]=spr_bg7;
-//list[6]=spr_bg8;
-//list[7]=spr_bg9;
 
 _p1 = 0;
 _p2 = 210;
@@ -77,6 +73,7 @@ for (var i=0; i&lt;8; i++)
             case 7: temp_111=4; break;
             case 8: temp_111=4; break;
             case 9: temp_111=1; break;
+            case 10: temp_111=1; break;
         }
         
         spr_bg=-1;
@@ -103,6 +100,8 @@ for (var i=0; i&lt;8; i++)
         
         ds_grid_clear(grid, 0);
         ds_grid_clear(reveal, 0);
+        
+        if mine_count&lt;global.stage ds_grid_clear(reveal, 1);
         
         for (var xx = 0; xx &lt; grid_w; xx++)
         for (var yy = 0; yy &lt; grid_h; yy++)

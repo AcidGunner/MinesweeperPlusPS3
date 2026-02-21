@@ -95,6 +95,12 @@ alarm[1]=70;
     alarm[0]=1;
     instance_create(0,360,obj_menu);
 }
+if obj_input.a &amp;&amp; select=0
+{
+    alarm[0]=1;
+    instance_create(0,360,obj_menu);
+    instance_create(160,360,obj_menu_bomb_reset);
+}
 
 if select == 0 y=lerp(y,120,0.25)
 else y=lerp(y,360,0.25);
@@ -128,13 +134,7 @@ draw_rectangle(20,y-100,300,y+100,false);
 draw_set_colour(c_dkgray);
 draw_rectangle(30,y-90,290,y+90,false);
 draw_set_colour(c_white);
-draw_text_ext(160,y,'Reinstall the game? :P
-or delete the
-"msplus-ps3-save.ini" file on
-/dev_hdd0/packages/
-(IDK why it does save here..)
-
-Press (Circle) to go back.',-1,240);
+draw_text_ext(160,y,global.str[35]+"# #"+global.str[36]+"#"+global.str[16],-1,240);
 </string>
           </argument>
         </arguments>

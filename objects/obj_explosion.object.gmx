@@ -28,6 +28,7 @@
             <string>image_speed=0.35;
 audio_play_sound(sfx_explosion,2,false);
 title=0;
+kaboom=0;
 if instance_exists(obj_ui)
 {
     obj_ui.shift=30;
@@ -86,6 +87,7 @@ if instance_exists(obj_game) &amp;&amp; audio_is_playing(obj_game.stage910)
             <kind>1</kind>
             <string>///Title :)
 title=1;
+kaboom=1;
 instance_create(0,0,obj_menutransit);
 </string>
           </argument>
@@ -109,7 +111,7 @@ instance_create(0,0,obj_menutransit);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if image_index=14 &amp;&amp; title=1 instance_destroy(obj_first);
+            <string>if image_index=14 &amp;&amp; title=1 &amp;&amp; kaboom=1 instance_destroy(obj_first);
 if image_index&gt;=24
 {
     if instance_exists(obj_smiley) &amp;&amp; obj_smiley.mine_detected!=0

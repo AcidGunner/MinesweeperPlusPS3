@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>select=0;
 y=360;
-player="Player";
+player=global.str[18];
 
 /* please uncomment this if building for ps3 systems ^_^ */
 
@@ -137,13 +137,8 @@ draw_rectangle(20,y-100,300,y+100,false);
 draw_set_colour(c_dkgray);
 draw_rectangle(30,y-90,290,y+90,false);
 draw_set_colour(c_white);
-draw_text_ext(160,y,"Sorry, "+player+", I can't teach you.
-Please play the original game first.
-Come back when you're little...
-mmmmmmmmmmmmmmm..
-More skillful.
-
-Press (Circle) to go back.",-1,240);
+draw_text_ext(160,y,global.str[19]+player+global.str[20]+"#"+global.str[21]+"
+"+global.str[22]+"#"+global.str[23]+"#"+global.str[24]+"# #"+global.str[16],-1,240);
 </string>
           </argument>
         </arguments>

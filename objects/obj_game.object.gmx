@@ -41,6 +41,9 @@ sheesh=0;
 _sh=0;
 the_temp=0;
 
+timer=0;
+final_timer=0;
+
 if global.type_input=1 instance_create(0,0,obj_cursor);
 text = "You have to let me out eventually, Captain...";
 
@@ -553,6 +556,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
         // === Safe First Click ===
         if (first_click)
         {
+            timer=get_timer();
             first_click = false;
             
             // If the first clicked cell is a mine, rebuild the board

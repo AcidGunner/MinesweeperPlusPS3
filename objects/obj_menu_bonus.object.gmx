@@ -32,8 +32,8 @@ select=0;
 y=360;
 
 list[0]="Bad Apple!!";
-list[1]="Additional Hats Guide";
-list[2]="Go Back";
+list[1]=global.str[12];
+list[2]=global.str[13];
 
 menu_x = 160;
 menu_y = 120;

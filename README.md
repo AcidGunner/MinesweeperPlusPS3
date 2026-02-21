@@ -7,7 +7,7 @@ As for PS3 Port you can either download:
 
 # Project Status
 LATEST: v0.2\
-IN DEVELOP: v0.3
+IN DEVELOP: v0.2.5
 
 # Source Code Documentation
 Please read "help.rtf" file for more info.
@@ -36,3 +36,4 @@ Thanks for understanding.
 * EnergyPumpkin - Original 9 Boss music
 * GameMaker Studio 1.4.9999 - Used game engine
 * [GayMaker PS3](https://github.com/LiEnby/GayMaker-PS3) - Used PS3 exporter
+* And you! - Supporting this port <3

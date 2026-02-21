@@ -127,15 +127,8 @@ draw_rectangle(20,y-100,300,y+100,false);
 draw_set_colour(c_dkgray);
 draw_rectangle(30,y-90,290,y+90,false);
 draw_set_colour(c_white);
-draw_text_ext(160,y,"The Credits
-Jorel Simpson - Original Game &amp; FLPs
-LokiThePlug - Nuclear Ten Idea
-Pren3k - Frozen Nine Mechanics
-Asdf - Versus Mode Concept
-Zeltizy - XMB Background Art
-EnergyPumpkin - Original 9 Boss music
-
-Press (Circle) to go back.",-1,240);
+draw_text_ext(160,y,global.str[8]+"#
+Jorel Simpson, LokiThePlug, Pren3k, Asdf, Zeltizy, EnergyPumpkin, "+global.str[25]+"# #"+global.str[16],-1,240);
 </string>
           </argument>
         </arguments>

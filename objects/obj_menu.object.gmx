@@ -31,13 +31,13 @@ item=-selected mod image_number;
 select=0;
 y=360;
 
-list[0]="Begin";
-list[1]="Bonus Content";
-list[2]="Statistics";
-list[3]="How to Play";
-list[4]="Options";
-list[5]="Credits";
-list[6]="Reset Data";
+list[0]=global.str[3];
+list[1]=global.str[4];
+list[2]=global.str[5];
+list[3]=global.str[6];
+list[4]=global.str[7];
+list[5]=global.str[8];
+list[6]=global.str[9];
 
 menu_x = 160;
 menu_y = 120;

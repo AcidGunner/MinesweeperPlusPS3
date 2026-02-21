@@ -113,6 +113,13 @@ if obj_input.c &amp;&amp; select=0
 
 if obj_input.d &amp;&amp; select=0 global.type_input=!global.type_input;
 
+if obj_input.select &amp;&amp; select=0
+{
+    global.lang++;
+    if global.lang&gt;2 global.lang=0;
+    strings_set();
+}
+
 if select == 0 y=lerp(y,120,0.25)
 else y=lerp(y,360,0.25);
 </string>
@@ -146,21 +153,20 @@ draw_set_colour(c_dkgray);
 draw_rectangle(30,y-90,290,y+90,false);
 draw_set_colour(c_white);
 
-var inp_type="Cursor";
-if global.type_input=0 inp_type="Tile";
+var inp_type=global.str[31];
+if global.type_input=0 inp_type=global.str[32];
 
-var music_type="Original";
-if global._music_type=1 music_type="Remastered";
+var music_type=global.str[33];
+if global._music_type=1 music_type=global.str[34];
 
-draw_text_ext(160,y,"Options
+var language="English";
+if global.lang=1 language="Français";
+if global.lang=2 language="Русский";
 
-(Triangle) - Change Input type
-Current: "+inp_type+" type
-
-(Square) - Change Music type
-Current: "+music_type+"
-
-Press (Circle) to go back.",-1,240);
+draw_text_ext(160,y,global.str[7]+"#
+△ - "+global.str[26]+global.str[27]+"#"+global.str[30]+": "+inp_type+"#
+□ - "+global.str[26]+global.str[28]+"#"+global.str[30]+": "+music_type+"#
+SELECT - "+global.str[26]+global.str[29]+"#"+global.str[30]+": "+language+"# #"+global.str[16],-1,240);
 </string>
           </argument>
         </arguments>

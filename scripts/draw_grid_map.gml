@@ -30,7 +30,12 @@ for (var xx = 0; xx < 3; xx++)
             draw_sprite_stretched(spr_bgb, image_index, x1, y1, 16, 16);
 
             var v = grid[# xx, yy];
-            draw_sprite_stretched(spr_num, v, x1, y1, 16, 16);
+            if v=-1
+            {
+                draw_sprite_stretched(_sprt, image_index, x1, y1, 16, 16);
+                draw_sprite_stretched(spr_flag, image_index, x1, y1, 16, 16);
+            }
+            else draw_sprite_stretched(spr_num, v, x1, y1, 16, 16);
         }
         else draw_sprite_stretched(_sprt, image_index, x1, y1, 16, 16);
         

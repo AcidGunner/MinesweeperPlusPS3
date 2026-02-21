@@ -33,6 +33,7 @@ red_ui=c_white;
 rand_time=0;
 time_left=0;
 test_rect=0;
+final_time="";
 
 if global.stage==910
 {
@@ -255,7 +256,14 @@ if obj_game.win
     draw_set_valign(fa_center);
     draw_set_halign(fa_middle);
     draw_set_font(fnt_smol);
-    draw_text_outline(160,60,"Press Start to Continue.",c_red,c_white,1);
+    
+    draw_set_alpha(0.5);
+    draw_set_color(c_black);
+    draw_rectangle(160-80,140-40,160+80,140+40,false);
+    draw_set_alpha(1);
+    
+    draw_text_outline(160,120,"CLEAR!#"+final_time,c_white,c_black,1);
+    draw_text_outline(160,170,"Press Start",c_red,c_white,1);
     if obj_input.start
     {
         audio_stop_all();

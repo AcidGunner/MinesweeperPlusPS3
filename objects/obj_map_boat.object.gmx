@@ -28,19 +28,59 @@
             <string>dir=1;
 move=1;
 goto=0;
+view=0;
+nine=0;
 
 mus[0]=global.stage1_map;
 mus[1]=global.stage1_map;
-mus[2]=global.stage1_map;
-mus[3]=global.stage1_map;
-mus[4]=global.stage1_map;
-mus[5]=global.stage1_map;
-mus[6]=global.stage1_map;
-mus[7]=global.stage1_map;
-mus[8]=-1;
+mus[2]=global.stage2_map;
+mus[3]=global.stage2_map;
+mus[4]=global.stage3_map;
+mus[5]=global.stage3_map;
+mus[6]=global.stage4_map;
+mus[7]=global.stage4_map;
+mus[8]=global.stage9_map;
 
-audio_play_sound(mus[global.stage-1],0,true);
+name[0]="Kiddie Pool";
+name[1]="Rainy Puddle";
+name[2]="Small Pond";
+name[3]="Blue Lagoon";
+name[4]="Lazy River";
+name[5]="Great Lake";
+name[6]="Open Ocean";
+name[7]="Dead Sea";
+
+if global.stage&lt;9 audio_play_sound(mus[global.stage-1],0,true);
 image_speed=0.02;
+
+if global.stage==10
+{
+    move=0;
+    alarm[1]=2.5*global.FSP;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_map10);
 </string>
           </argument>
         </arguments>
@@ -95,24 +135,45 @@ var _stuff_ = 40+(global.stage-1)*64;
 if x&gt;_stuff_ &amp;&amp; global.stage!=9 move=0;
 if x&gt;704 &amp;&amp; global.stage=9 move=0;
 
-if x&gt;536 &amp;&amp; global.stage==9 &amp;&amp; goto=0 view_xview[0]=lerp(view_xview[0],544,0.02)
-else if x&gt;224 &amp;&amp; goto=0 view_xview[0]=224
-else if x&gt;160 &amp;&amp; goto=0 view_xview[0]=x-160;
-
-if move=0 &amp;&amp; goto=0
+if x&gt;536
 {
+    if global.stage==9
+    {
+        if goto=0 view_xview[0]=lerp(view_xview[0],544,0.02);
+        if nine=0
+        {
+            nine=9;
+            audio_play_sound(mus[global.stage-1],0,true);
+        }
+    }
+    else if global.stage==10
+    {
+        view_xview[0]=544;
+        x=704;
+    }
+}
+else if x&gt;160 &amp;&amp; goto=0
+{
+    if x&gt;536-152 view_xview[0]=224
+    else view_xview[0]=x-160;
+}
+
+if move=0 &amp;&amp; goto=0 &amp;&amp; global.stage&lt;10
+{
+    view=view_xview[0];
     if obj_input.a
     {
         goto=1;
         audio_stop_all();
-        audio_play_sound(sfx_level_start,1,false);
+        if global.stage&gt;=9 audio_play_sound(sfx_level_start2,1,false)
+        else audio_play_sound(sfx_level_start,1,false);
         alarm[0]=1.5*global.FSP;
     }
 }
 
 if goto
 {
-    if global.stage!=9 view_xview[0]=lerp(view_xview[0],(global.stage-1)*64,0.12)
+    if global.stage&lt;9 view_xview[0]=lerp(view_xview[0],(global.stage-1)*64,0.12)
     else view_xview[0]=lerp(view_xview[0],672,0.12);
     
     view_yview[0]=lerp(view_yview[0],y+10,0.12);
@@ -145,10 +206,10 @@ if goto
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 draw_set_font(fnt_main);
-if move=0 &amp;&amp; global.stage!=9 draw_text_outline(view_xview[0]+160,48,"TEST",c_white,c_black,1);
+if move=0 &amp;&amp; global.stage&lt;9 draw_text_outline(view+160,48,name[global.stage-1],c_white,c_black,1);
 
 draw_set_font(fnt_smol);
-draw_text_outline(704,48,"THE DEVIL'S TRIANGLE",c_white,c_black,1);
+draw_text_outline(704,48,"THE DEVIL'S TRIANGLE",c_black,c_white,1);
 </string>
           </argument>
         </arguments>

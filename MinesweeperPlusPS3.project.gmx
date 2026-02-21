@@ -179,38 +179,75 @@
         <sound>sound\mus_thorn</sound>
       </sounds>
       <sounds name="map">
-        <sound>sound\mus_map_1</sound>
+        <sounds name="map1">
+          <sound>sound\mus_map1</sound>
+          <sound>sound\mus_map1r</sound>
+        </sounds>
+        <sounds name="map2">
+          <sound>sound\mus_map2</sound>
+        </sounds>
+        <sounds name="map3">
+          <sound>sound\mus_map3</sound>
+        </sounds>
+        <sounds name="map4">
+          <sound>sound\mus_map4</sound>
+        </sounds>
+        <sounds name="map9">
+          <sound>sound\mus_map9</sound>
+        </sounds>
+        <sounds name="map99">
+          <sound>sound\mus_map99</sound>
+        </sounds>
+        <sounds name="map10">
+          <sound>sound\mus_map10</sound>
+        </sounds>
       </sounds>
       <sound>sound\mus_title</sound>
       <sound>sound\mus_end</sound>
       <sound>sound\mus_bad</sound>
     </sounds>
     <sounds name="sfx">
-      <sound>sound\sfx_spin</sound>
-      <sound>sound\sfx_spikes</sound>
-      <sound>sound\sfx_explosion</sound>
-      <sound>sound\sfx_mine</sound>
-      <sound>sound\sfx_done</sound>
-      <sound>sound\sfx_flag</sound>
-      <sound>sound\sfx_click</sound>
-      <sound>sound\sfx_unflag</sound>
-      <sound>sound\sfx_9move</sound>
-      <sound>sound\sfx_9stop</sound>
-      <sound>sound\sfx_saw</sound>
-      <sound>sound\sfx_defeat</sound>
-      <sound>sound\boot1</sound>
-      <sound>sound\boot2</sound>
-      <sound>sound\sfx_ice</sound>
-      <sound>sound\sfx_beep</sound>
-      <sound>sound\sfx_10reset</sound>
-      <sound>sound\sfx_gameover</sound>
-      <sound>sound\sound67</sound>
-      <sound>sound\fear</sound>
-      <sound>sound\sound4</sound>
-      <sound>sound\bios0</sound>
-      <sound>sound\sfx_game_start</sound>
-      <sound>sound\sfx_test</sound>
-      <sound>sound\sfx_level_start</sound>
+      <sounds name="boss">
+        <sounds name="boss9">
+          <sound>sound\sfx_spin</sound>
+          <sound>sound\sfx_spikes</sound>
+          <sound>sound\sfx_9move</sound>
+          <sound>sound\sfx_9stop</sound>
+          <sound>sound\sfx_saw</sound>
+          <sound>sound\sfx_defeat</sound>
+          <sound>sound\sfx_ice</sound>
+        </sounds>
+        <sounds name="boss10">
+          <sound>sound\sfx_beep</sound>
+          <sound>sound\sfx_10reset</sound>
+        </sounds>
+        <sound>sound\sfx_done</sound>
+      </sounds>
+      <sounds name="game">
+        <sound>sound\sfx_explosion</sound>
+        <sound>sound\sfx_mine</sound>
+        <sound>sound\sfx_flag</sound>
+        <sound>sound\sfx_click</sound>
+        <sound>sound\sfx_unflag</sound>
+        <sound>sound\sfx_gameover</sound>
+      </sounds>
+      <sounds name="menu">
+        <sound>sound\sfx_game_start</sound>
+        <sound>sound\sfx_level_start</sound>
+        <sound>sound\sfx_level_start2</sound>
+        <sound>sound\sfx_blackout</sound>
+      </sounds>
+      <sounds name="hidden">
+        <sound>sound\sound67</sound>
+        <sound>sound\sfx_test</sound>
+      </sounds>
+      <sounds name="dabios">
+        <sound>sound\boot1</sound>
+        <sound>sound\boot2</sound>
+        <sound>sound\fear</sound>
+        <sound>sound\sound4</sound>
+        <sound>sound\bios0</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -330,6 +367,9 @@
       <sprites name="map">
         <sprite>sprites\spr_boat_right</sprite>
       </sprites>
+      <sprites name="end">
+        <sprite>sprites\spr_end_1</sprite>
+      </sprites>
       <sprite>sprites\spr_logo</sprite>
     </sprites>
   </sprites>
@@ -438,6 +478,7 @@
     </scripts>
     <script>scripts\init_globals_mus.gml</script>
     <script>scripts\initial_setup.gml</script>
+    <script>scripts\strings_set.gml</script>
     <script>scripts\ver_show.gml</script>
   </scripts>
   <fonts name="fonts">
@@ -479,6 +520,7 @@
         <object>objects\obj_menu_options</object>
         <object>objects\obj_menu_resetting</object>
         <object>objects\obj_menu_bomb</object>
+        <object>objects\obj_menu_bomb_reset</object>
         <object>objects\obj_menutransit</object>
       </objects>
       <objects name="MainMenu">
@@ -489,6 +531,8 @@
         <object>objects\obj_map_bg</object>
         <object>objects\obj_map</object>
         <object>objects\obj_map_boat</object>
+        <object>objects\obj_map_10</object>
+        <object>objects\obj_map_10_sqr</object>
       </objects>
     </objects>
     <objects name="Debug">
@@ -520,6 +564,7 @@
     <room>rooms\rm_title</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_map</room>
+    <room>rooms\rm_map10</room>
     <room>rooms\rm_game</room>
     <room>rooms\rm_vs_game</room>
     <room>rooms\rm_boo</room>

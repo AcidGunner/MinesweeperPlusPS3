@@ -128,13 +128,10 @@ draw_rectangle(20,y-100,300,y+100,false);
 draw_set_colour(c_dkgray);
 draw_rectangle(30,y-90,290,y+90,false);
 draw_set_colour(c_white);
-draw_text_ext(160,y,"Hats guide!
+draw_text_ext(160,y,global.str[14]+"# #"+global.str[15]+"# #"+global.str[16],-1,240);
 
-Just because this is a not-completed version of the port, the game allows you
-to change your hat by pressing either L2 or R2.
+/*   SOON!!
 
-Press (Circle) to go back.",-1,240);
-/*
 draw_text_ext(160,y,"Hats guide!
 
 * How to get Koishi's Hat? *
@@ -146,7 +143,7 @@ Achieved with Koishi's hat.
 * How to get JPEGMafia's bandana? *
 You are not ready for this.
 
-Press (Circle) to go back.",-1,240);
+Press O to go back.",-1,240);
 </string>
           </argument>
         </arguments>

@@ -46,6 +46,17 @@ if (revealed_total >= grid_w * grid_h - mine_count)
             flagged[# fx, fy] = true;
     }
     
+    if type=="single"
+    {
+        final_timer=get_timer()-timer;
+        var f_ms=final_timer div 10000;
+        var f_ts=f_ms mod 100;
+        var f_s=f_ts mod 60;
+        var f_m=f_ts div 60;
+        
+        obj_ui.final_time=string(f_m)+":"+string(f_s)+"."+string(f_ms)+"s";
+    }
+    
     win = true;
     mines_left = 0;
     you_won_sfx();
@@ -53,8 +64,4 @@ if (revealed_total >= grid_w * grid_h - mine_count)
 else
 {
     if global.stage==9 game_restart();
-    
-    //show_debug_message("NOT ENOUGH!! "+
-    //    string((grid_w * grid_h - mine_count)-revealed_total)+
-    //" TILES LEFT.")
 }
