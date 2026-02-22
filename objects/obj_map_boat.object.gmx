@@ -41,17 +41,23 @@ mus[6]=global.stage4_map;
 mus[7]=global.stage4_map;
 mus[8]=global.stage9_map;
 
-name[0]="Kiddie Pool";
-name[1]="Rainy Puddle";
-name[2]="Small Pond";
-name[3]="Blue Lagoon";
-name[4]="Lazy River";
-name[5]="Great Lake";
-name[6]="Open Ocean";
-name[7]="Dead Sea";
+name[0]=global.str[51];
+name[1]=global.str[52];
+name[2]=global.str[53];
+name[3]=global.str[54];
+name[4]=global.str[55];
+name[5]=global.str[56];
+name[6]=global.str[57];
+name[7]=global.str[58];
 
 if global.stage&lt;9 audio_play_sound(mus[global.stage-1],0,true);
 image_speed=0.02;
+
+if global.foughtcirno
+{
+    move=0;
+    hspeed=-0.01;
+}
 
 if global.stage==10
 {
@@ -131,6 +137,11 @@ if global.stage==10
     x+=0.25;
 }
 
+if hspeed&lt;0
+{
+    hspeed+=-0.01;
+}
+
 var _stuff_ = 40+(global.stage-1)*64;
 if x&gt;_stuff_ &amp;&amp; global.stage!=9 move=0;
 if x&gt;704 &amp;&amp; global.stage=9 move=0;
@@ -156,6 +167,10 @@ else if x&gt;160 &amp;&amp; goto=0
 {
     if x&gt;536-152 view_xview[0]=224
     else view_xview[0]=x-160;
+}
+else if x&lt;-536
+{
+    room_goto(rm_map99);
 }
 
 if move=0 &amp;&amp; goto=0 &amp;&amp; global.stage&lt;10
@@ -209,7 +224,7 @@ draw_set_font(fnt_main);
 if move=0 &amp;&amp; global.stage&lt;9 draw_text_outline(view+160,48,name[global.stage-1],c_white,c_black,1);
 
 draw_set_font(fnt_smol);
-draw_text_outline(704,48,"THE DEVIL'S TRIANGLE",c_black,c_white,1);
+draw_text_outline(704,48,global.str[59],c_black,c_white,1);
 </string>
           </argument>
         </arguments>

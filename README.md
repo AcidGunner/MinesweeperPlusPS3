@@ -34,6 +34,7 @@ Thanks for understanding.
 * Asdf - Versus Mode Concept
 * Zeltizy - XMB Background Art
 * EnergyPumpkin - Original 9 Boss music
+* Fakharmel - French Translation
 * GameMaker Studio 1.4.9999 - Used game engine
 * [GayMaker PS3](https://github.com/LiEnby/GayMaker-PS3) - Used PS3 exporter
 * And you! - Supporting this port <3

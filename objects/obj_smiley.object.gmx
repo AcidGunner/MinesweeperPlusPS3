@@ -31,6 +31,7 @@ image_anim = 0;
 image_anim2 = 0;
 image_anim3 = 0;
 image_anim_speed = 0.1;
+get_ready = 0;
 temp23=0;
 
 // Cutscene 9
@@ -129,10 +130,12 @@ else if cutscene_10s == 6
 else if cutscene_10s == 7
 {
     cutscene_10s = 8;
+    get_ready = 1;
     alarm[7]=120;
 }
 else if cutscene_10s == 8
 {
+    get_ready = 0;
     cutscene = false;
     cutscene_10 = false;
     obj_game.temp_x=0;
@@ -236,10 +239,12 @@ else if cutscene_9s == 5
     if cutscene_9temp==1
     {
         cutscene_9temp=0;
+        get_ready = 1;
         alarm[4]=180;
     }
     else
     {
+        get_ready = 0;
         cutscene = false;
         cutscene_9 = false;
         cutscene = false;

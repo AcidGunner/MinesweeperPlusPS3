@@ -452,6 +452,7 @@
       <script>scripts\draw_triangle_1.gml</script>
       <script>scripts\draw_triangle_2.gml</script>
       <script>scripts\draw_triangle_3.gml</script>
+      <script>scripts\time_set.gml</script>
     </scripts>
     <scripts name="saving">
       <script>scripts\save_game.gml</script>
@@ -532,6 +533,7 @@
         <object>objects\obj_map</object>
         <object>objects\obj_map_boat</object>
         <object>objects\obj_map_10</object>
+        <object>objects\obj_map_99</object>
         <object>objects\obj_map_10_sqr</object>
       </objects>
     </objects>
@@ -565,6 +567,7 @@
     <room>rooms\rm_menu</room>
     <room>rooms\rm_map</room>
     <room>rooms\rm_map10</room>
+    <room>rooms\rm_map99</room>
     <room>rooms\rm_game</room>
     <room>rooms\rm_vs_game</room>
     <room>rooms\rm_boo</room>

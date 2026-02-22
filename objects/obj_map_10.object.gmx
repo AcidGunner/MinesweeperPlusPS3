@@ -143,7 +143,7 @@ if goto
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 draw_set_font(fnt_smol);
-if goto&gt;=0 draw_text_outline(160,48,"THE DEVIL'S PASSAGE",c_black,c_white,1);
+if goto&gt;=0 draw_text_outline(160,48,global.str[60],c_black,c_white,1);
 </string>
           </argument>
         </arguments>

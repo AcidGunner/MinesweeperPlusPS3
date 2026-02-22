@@ -131,14 +131,14 @@ draw_rectangle(0,240,320,180,false);
 draw_set_valign(fa_center);
 draw_set_halign(fa_middle);
 draw_set_font(fnt_main);
-draw_text_outline(160,30,"Minesweeper Plus",c_red,c_white,1);
+draw_text_outline(160,30,global.str[0],c_red,c_white,1);
 draw_set_font(fnt_smol);
-draw_text_outline(275,50,"PS3 Port",c_red,c_white,1);
-draw_text_outline(160,210,"Ported by AcidNT3.1 (Original by Jorel)",c_red,c_white,1);
+draw_text_outline(275,50,"PS3 "+global.str[1],c_red,c_white,1);
+draw_text_outline(160,210,global.str[68],c_red,c_white,1);
 
 if thanks=1
 {
-    draw_text_outline(160,120,"Thanks for playing this port.#Press Start.",c_red,c_white,1);
+    draw_text_outline(160,120,global.str[69]+"#"+global.str[2],c_red,c_white,1);
     if obj_input.start &amp;&amp; !pressed
     {
         audio_play_sound(sfx_game_start,1,false);

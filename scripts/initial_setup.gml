@@ -7,8 +7,8 @@ global.CONTROL=1;
 if os_type==os_windows && !gamepad_is_connected(0) global.CONTROL=0;
 
 load_game();
-message_set();
 strings_set();
+message_set();
 window_set_caption(global.str[0]+" "+detect_console()+" "+global.str[1]+" ("+ver_show()+")"+check_debug());
 
 global.the_config=1; //< CONFIG VERSION!

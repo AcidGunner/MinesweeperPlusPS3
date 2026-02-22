@@ -31,11 +31,7 @@ initial_setup();
 
 cmd_prompt=ds_list_create();
 
-text_warning="[PLEASE READ BEFORE DOING ANYTHING!]
-
-ACIDPS3 PROJECT IS NOT AFFILIATED OR APPROVED BY SONY COMPUTER ENTERTAINMENT!!
-WE ARE NOT GETTING ANY PROFIT OUT OF THIS. THOSE SERVICES ARE PURELY FREE NO MATTER WHAT.
-(NOT LICENSED BY SONY)";
+text_warning=global.str[37];
 
 show_warning=true; // set to true before release!!!!!
 first_setup=false;
@@ -47,7 +43,7 @@ text_command[0]="cd boot";
 text_command[1]="load.elf";
 text_msg=0;
 text_message[0]=start_directory+"boot/";
-text_message[1]="Loading boot sequence...";
+text_message[1]=global.str[38];
 load_seq=0;
 load_sequence[0] ="__________";
 load_sequence[1] ="=_________";
@@ -65,7 +61,7 @@ current_prompt="";
 loading=0;
 blink="";
 
-ds_list_add(cmd_prompt,"GMS4PS3 Loader v1.0");
+ds_list_add(cmd_prompt,global.str[39]);
 ds_list_add(cmd_prompt,"");
 ds_list_add(cmd_prompt,start_directory);
 
@@ -676,7 +672,6 @@ else if (phase == 1) {
         {
             draw_set_font(fnt_smol);
             draw_set_alpha(alpha_val2);
-            draw_text(cx, cy - size, "Made by");
             draw_text(cx, cy + size, "AcidPS3 Project");
         }
         if show_part4==true
@@ -731,7 +726,6 @@ else if (phase == 1) {
         draw_set_font(fnt_smol);
         {
             draw_set_alpha(alpha_val/8);
-            draw_text(cx, cy - size, "Made by");
             draw_text(cx, cy + size, "AcidPS3 Project");
         }
     }

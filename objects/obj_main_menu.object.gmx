@@ -162,6 +162,11 @@ if obj_input.a
 }
 if obj_input.b
 {
+    if !gamepad_is_connected(1)
+    {
+        show_message(global.str[61]);
+        exit;
+    }
     select=1;
     global.menu_t=menu_music;
     global.m_g_t=menu_music;
@@ -205,14 +210,14 @@ draw_rectangle(196,41,299,57,false);
 draw_rectangle(196,102,299,118,false);
 draw_set_colour(c_white);
 draw_set_alpha(1);
-//draw_text_outline(72,78,"Free Play",c_white,c_black,1);
-draw_text_outline(72,78,"PLACEHOLDER",c_white,c_black,1);
-draw_text_outline(248,49,"Minesweeper",c_white,c_black,1);
-draw_text_outline(248,110,"Adventure",c_white,c_black,1);
+//draw_text_outline(72,78,global.str[41],c_white,c_black,1);
+draw_text_outline(72,78,global.str[40],c_white,c_black,1);
+draw_text_outline(248,49,global.str[42],c_white,c_black,1);
+draw_text_outline(248,110,global.str[43],c_white,c_black,1);
 
-//draw_text_outline(72,155,"[SQUARE]",c_white,c_black,1);
-draw_text_outline(248,155,"[CROSS]",c_white,c_black,1);
-draw_text_outline(160,200,"[CIRCLE] for Versus Test!",c_white,c_black,1);
+//draw_text_outline(72,155,"[□]",c_white,c_black,1);
+draw_text_outline(248,155,"[X]",c_white,c_black,1);
+draw_text_outline(160,200,"[○] "+global.str[44],c_white,c_black,1);
 </string>
           </argument>
         </arguments>

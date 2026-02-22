@@ -251,10 +251,20 @@ else
     draw_text_outline(255,5.2,s2,c_red,c_white,1);
 }
 
+draw_set_halign(fa_middle);
+draw_set_valign(fa_center);
+
+if obj_smiley.get_ready
+{
+    draw_set_alpha(0.5);
+    draw_set_color(c_black);
+    draw_rectangle(160-80,70-20,160+80,70+20,false);
+    draw_set_alpha(1);
+    draw_text_outline(160,70,global.str[49],c_white,c_black,1);
+}
+
 if obj_game.win
 {
-    draw_set_valign(fa_center);
-    draw_set_halign(fa_middle);
     draw_set_font(fnt_smol);
     
     draw_set_alpha(0.5);
@@ -262,8 +272,8 @@ if obj_game.win
     draw_rectangle(160-80,140-40,160+80,140+40,false);
     draw_set_alpha(1);
     
-    draw_text_outline(160,120,"CLEAR!#"+final_time,c_white,c_black,1);
-    draw_text_outline(160,170,"Press Start",c_red,c_white,1);
+    draw_text_outline(160,120,global.str[45]+"#"+final_time,c_white,c_black,1);
+    draw_text_outline(160,170,global.str[2],c_red,c_white,1);
     if obj_input.start
     {
         audio_stop_all();
@@ -275,12 +285,25 @@ if obj_game.win
         else
         {
             global.stage++;
+            if global.stage==9 &amp;&amp; obj_input.c_held
+            {
+                global.foughtcirno=1;
+            }
+            if global.stage==10
+            {
+                if obj_input.c_held global.foughtutsuho=1;
+                ask_10();
+            }
+            
+            //Game Save!
             save_game();
             
-            if global.stage==10 ask_10();
-            
             if global.stage&lt;11 room_goto(rm_map)
-            else room_goto(rm_end);
+            else
+            {
+                global.stage=1;
+                room_goto(rm_end);
+            }
         }
     }
 }

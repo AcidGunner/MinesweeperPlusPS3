@@ -1,4 +1,5 @@
 ///strings_set();
+//△○□X
 
 switch global.lang
 {
@@ -42,49 +43,114 @@ switch global.lang
         global.str[34]="Remastered";
         global.str[35]="Are you sure?";
         global.str[36]="Press X to Reset.";
+        global.str[37]="[PLEASE READ BEFORE DOING ANYTHING!]# #ACIDPS3 PROJECT IS NOT AFFILIATED OR APPROVED BY SONY COMPUTER ENTERTAINMENT!!#WE ARE NOT GETTING ANY PROFIT OUT OF THIS. THOSE SERVICES ARE PURELY FREE NO MATTER WHAT.#(NOT LICENSED BY SONY)";
+        global.str[38]="Loading boot sequence...";
+        global.str[39]="GMS4PS3 Loader v1.0";
+        global.str[40]="PLACEHOLDER";
+        global.str[41]="Free Play";
+        global.str[42]="Minesweeper";
+        global.str[43]="Adventure";
+        global.str[44]="for Versus Test!";
+        global.str[45]="CLEAR!";
+        global.str[46]="Player 1 Won!";
+        global.str[47]="Player 2 Won!";
+        global.str[48]="Draw!";
+        global.str[49]="Ready";
+        global.str[50]="Miss";
+        global.str[51]="Kiddie Pool";
+        global.str[52]="Rainy Puddle";
+        global.str[53]="Small Pond";
+        global.str[54]="Blue Lagoon";
+        global.str[55]="Lazy River";
+        global.str[56]="Great Lake";
+        global.str[57]="Open Ocean";
+        global.str[58]="Dead Sea";
+        global.str[59]="THE DEVIL'S TRIANGLE";
+        global.str[60]="THE DEVIL'S PASSAGE";
+        global.str[61]="Player 2 is not connected. Please, connect the second gamepad.";
+        global.str[62]="There is a boss battle in this game.#The battle works the same as normal Minesweeper, but with some key distinctions: you won't know the number of mines hidden on the grid, you have limited time to complete the level, and you won't be able to use the sonar or pause the game. Clicking on a mine will make the time run out faster. To win, you must click on the boss ONLY AFTER revealing all the tiles that don't contain mines. If the timer hits 0, or you click on the boss before revealing the entire grid, it's game over.";
+        global.str[63]="There is another boss battle in this game.#As soon as the game starts, this boss will start counting down from 10. If it counts all the way down to 0, it's game over. Click on the boss to reset the countdown back to 10, but be careful. The boss will move faster and faster every time you click on it. Clicking on a mine will cause the boss to count down more quickly. To win, reveal the entire grid before the boss is able to finish its countdown.";
+        global.str[64]="#Additional Note:#This is the Frozen Nine, heavily differs from Devil's Nine. It summons the iceberg every 10 seconds. After 10 seconds, the iceberg melts and summons another. The iceberg blocks the 3x3 area on it's location. Good luck.";
+        global.str[65]="#Additional Note:#This is the Nuclear Ten. As for now, this is just a re-skin. If you want to add some cool mechanics, please contact me at http://acidnt31.thsite.top/contact/ for more.";
+        global.str[66]="THE FREEZING CIRCLE";
+        global.str[67]="THE NUCLEAR WASTE";
+        global.str[68]="Ported by AcidNT3.1 (Original by Jorel)";
+        global.str[69]="Thanks for playing this port.";
         break;
     }
     case 1:
     {
         //The French!
-        //Using Google Translate for now, gonna contact with a native French speaker later..
         global.str[0]="Démineur Plus";
-        global.str[1]="Port";
-        global.str[2]="Presse Start";
+        global.str[1]="Portage";
+        global.str[2]="Appuyez sur Start";
         global.str[3]="Commencer";
-        global.str[4]="Contenu bonus";
+        global.str[4]="Contenu Bonus";
         global.str[5]="Statistiques";
         global.str[6]="Comment jouer";
-        global.str[7]="Possibilités";
+        global.str[7]="Options";
         global.str[8]="Crédits";
-        global.str[9]="Réinitialiser les données";
-        global.str[10]="ATTENTION!# #Ceci est une version de débogage. De nombreux éléments sont TRÈS INSTABLES. IL EST RECOMMANDÉ DE JOUER À LA VERSION PUBLIÉE ACTUELLE.#JOUEZ AVEC PRÉCAUTION !"
-        global.str[11]="Test de langue";
-        global.str[12]="Guide des chapeaux supplémentaires";
-        global.str[13]="Retourner";
-        global.str[14]="Guide des chapeaux!";
-        global.str[15]="Même s'il s'agit d'une version inachevée du portage, le jeu vous permet de changer de chapeau en appuyant sur L2 ou R2.";
-        global.str[16]="Appuyez sur ○ pour revenir en arrière.";
+        global.str[9]="Réinitialiser la sauvegarde";
+        global.str[10]="ATTENTION!!# #Vous utilisez actuellement la version DEBUG. BEAUCOUP de choses sont instables. IL EST RECOMMENDÉ DE JOUER AVEC LA DERNIÈRE VERSION SORTIE.#SOYEZ-DONC PRUDENT!!"
+        global.str[11]="Test langage";
+        global.str[12]="Chapeaux supplémentaires";
+        global.str[13]="Retour";
+        global.str[14]="Chapeaux Supplémentaires!";
+        global.str[15]="Puisqu'il s'agit d'une version non-complète du portage, vous pouvez changez de chapeau avec L2 ou R2.";
+        global.str[16]="Revenez en arrière avec ○.";
         global.str[17]="Vous n'êtes pas encore prêt.";
         global.str[18]="Joueur";
         global.str[19]="Désolé, ";
-        global.str[20]=", je ne peux pas vous l'apprendre.";
-        global.str[21]="Veuillez d'abord jouer au jeu original.";
-        global.str[22]="Reviens quand tu seras petit...";
+        global.str[20]=", je ne fais pas cours.";
+        global.str[21]="Veuillez jouer au jeu original s'il-vous-plaît";
+        global.str[22]="Revenez quand vous serez...";
         global.str[23]="mmmmmmmmmmmmmmm..";
-        global.str[24]="Plus habile.";
-        global.str[25]="et toi!";
-        global.str[26]="Modifier";
-        global.str[27]="Type d'entrée";
+        global.str[24]="Un peu plus expérimenté.";
+        global.str[25]="Et vous!";
+        global.str[26]="Changer";
+        global.str[27]="Type d'Input";
         global.str[28]="Type de musique";
         global.str[29]="Langue";
         global.str[30]="Actuel";
         global.str[31]="Type de curseur";
-        global.str[32]="Type de carrelage";
+        global.str[32]="Type de tuile";
         global.str[33]="Original";
         global.str[34]="Remasterisé";
-        global.str[35]="Es-tu sûr?";
-        global.str[36]="Appuyez sur X pour réinitialiser.";
+        global.str[35]="Êtes-vous sur?";
+        global.str[36]="Réinitialisez avec X.";
+        global.str[37]="#ACIDPS3 PROJECT N'EST PAS UNE FILIALE OU PARTENAIRE DE SONY COMPUTER ENTERTAINMENT!!#CE PROJET EST ENTIÈREMENT NON-LUCRATIF. NOS SERVICES SERONT TOUJOURS GRATUIT.#(PAS LICENCIÉ PAR SONY)";
+        global.str[38]="Lancement...";
+        global.str[39]="GMS4PS3 Loader v1.0";
+        global.str[40]="PLACEHOLDER";
+        global.str[41]="Jeu Libre";
+        global.str[42]="Démineur";
+        global.str[43]="Aventure";
+        global.str[44]="Mode VS Test!";
+        global.str[45]="TERMINÉ!";
+        global.str[46]="Joueur 1 a gagné!";
+        global.str[47]="Joueur 2 a gagné!";
+        global.str[48]="Égalité!";
+        global.str[49]="Prêt";
+        global.str[50]="Raté";
+        global.str[51]="Piscine pour enfants";
+        global.str[52]="Flaque pluvieuse";
+        global.str[53]="Petit étang";
+        global.str[54]="Lagon bleu";
+        global.str[55]="Rivière rocambolesque";
+        global.str[56]="Grand lac";
+        global.str[57]="Océan ouvert";
+        global.str[58]="Mer morte";
+        global.str[59]="LE TRIANGLE DU DIABLE";
+        global.str[60]="LE PASSAGE DU DIABLE";
+        global.str[61]="Joueur 2 non-connecté. Veuillez connecter le second gamepad.";
+        global.str[62]="Il y a un boss dans ce jeu.#Le combat marche de la même façon que le démineur classique hormis certaines distinctions: vous ne saurez pas la quantité de mines présente sur la grille, vous avez un temps limité, et vous ne pourrez pas utiliser le sonar ni mettre le jeu en pause. Cliquer sur une mine accéléra le temps limité. Pour gagner, vous devez cliquer sur le boss SEULEMENT LORSQUE TOUTES LES TUILES QUI NE SONT PAS DES MINES ONT ÉTÉ DÉCOUVERTES. Si le temps atteint 0 ou vous cliquer sur le boss avant d'avoir révélé toutes les tuiles, c'est PERDU.";
+        global.str[63]="Il y a un autre Boss dans ce jeu.#dès que la partie commence, le boss va commencer à compter de 10 à 0. S'il compte jusqu'a 0 c'est PERDU. Cliquez sur le boss pour remettre le compte à rebours à 10 mais attention. Le boss accélère pour chaque clic. Cliquer sur une mine accéléra le compte à rebours. Pour gagner, révélez toute la grille avant que le boss ait atteint la fin de son compte à rebours.";
+        global.str[64]="#Note supplémentaire:#Voici le Neuf gelé, Très différent du Neuf diabolique. Il invoque un iceberg toutes les 10 secondes. Après 10 secondes, l'iceberg fonds et le boss en invoquera un autre. L'iceberg bloque une zone de 3x3. Bonne chance." ;
+        global.str[65]="#Note supplémentaire:#Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez ajouter des mécaniques cool, contactez moi ici: http://acidnt31.thsite.top/contact/.";
+        global.str[66]="LE CERCLE FRIGORIFIQUE";
+        global.str[67]="LA DÉCHETTERIE NUCLÉAIRE";
+        global.str[68]="Porté par AcidNT3.1 (Jeu original par Jorel)";
+        global.str[69]="Merci d'avoir joué à ce portage.";
         break;
     }
     case 2:
@@ -127,6 +193,39 @@ switch global.lang
         global.str[34]="Переделанный";
         global.str[35]="Вы уверены?";
         global.str[36]="Нажмите X чтобы стереть.";
+        global.str[37]="[ПОЖАЛУЙСТА ПРОЧТИТЕ ПРЕЖДЕ ЧЕМ ЧТО ЛИБО ДЕЛАТЬ!]# #ПРОЕКТ ACIDPS3 НИКАК НЕ СВЯЗАН ИЛИ ОДОБРЕН SONY COMPUTER ENTERTAINMENT!!#МЫ НЕ ПОЛУЧАЕМ НИКАКОГО ДОХОДА. ЭТИ СЕРВИСЫ БЕСПЛАТНЫ НЕСМОТРЯ НИ НА ЧТО.#(НЕ ЛИЦЕНЗИРОВАНО SONY)";
+        global.str[38]="Загружаем загрузочность...";
+        global.str[39]="Загрузщик GMS4PS3 v1.0";
+        global.str[40]="ЗАГЛУШКА";
+        global.str[41]="Своя игра";
+        global.str[42]="Режим";
+        global.str[43]="Истории";
+        global.str[44]="чтобы протестировать#Соревнование!";
+        global.str[45]="ПРОЙДЕНО!";
+        global.str[46]="Выиграл игрок 1!";
+        global.str[47]="Выиграл игрок 1!";
+        global.str[48]="Ничья!";
+        global.str[49]="Готовься";
+        global.str[50]="Промах";
+        global.str[51]="Детский Бассейн";
+        global.str[52]="Дождевая Лужа";
+        global.str[53]="Малый Пруд";
+        global.str[54]="Синее Море";
+        global.str[55]="Ленивая Река";
+        global.str[56]="Большое Озеро";
+        global.str[57]="Открытый Океан";
+        global.str[58]="Море Мертвеца";
+        global.str[59]="ДЬЯВОЛЬСКИЙ ТРЕУГОЛЬНИК";
+        global.str[60]="ДЬЯВОЛЬСКАЯ ПРОПАСТЬ";
+        global.str[61]="Игрок 2 не подключен. Пожалуйста, подсоедините второй контроллер.";
+        global.str[62]="Здесь имеется битва с боссом.#Битва работает также, как в обычном сапере, только с усложнениями: ты не знаешь сколько здесь мин, время ограничено, и ты не можешь использовать радар или паузу (хотя здесь радара и паузы пока нет ЛОЛ). Нажатие на мину ускоряет таймер. Чтобы выиграть, нажмите на босса ТОЛЬКО после того, как все пустые клетки открыты. Истечение времени, или же нажатие на босса до того, как все пустые клетки открыты, приводят к окончанию игры.";
+        global.str[63]="Здесь имеется еще одна битва с боссом (боже опять?).#Как только вы начнете, пойдет обратный отсчет от 10. Если оно опустится до нуля, игра окончена. Нажмите на босса, чтобы сбросить отсчет, НО будьте аккуратны. Босс от этого будет двигаться быстрее. Нажатие на мину ускорит обратный отсчет. Чтобы выиграть, откройте все пустые клетки до того, как истечет обратный отсчет.";
+        global.str[64]="#ЗАМЕТКА:#Это Ледяная Девятка (да, это Чирно. идите нахуй), сильно отличается от Дьявольской Девятки. Она призывает айсберги каждые 10 секунд. По истечении 10 секунд айсберг тает, и появляется новая, но в другом месте. Айсберг блокирует определенную территорию 3 на 3. Удачи.";
+        global.str[65]="#ЗАМЕТКА:#Это Ядерная Десятка (Утсухо, да да да, завалите ебальники). На данный момент это является обычным скином. Если вы хотите добавить ей пару хороших способностей, пожалуйста, обратитесь в http://acidnt31.thsite.top/contact/ для большей информации.";
+        global.str[66]="ЛЕДЯНОЙ КРУГ";
+        global.str[67]="ЯДЕРНЫЕ ОТХОДЫ";
+        global.str[68]="Портировано AcidNT3.1 (Оригинал от Jorel)";
+        global.str[69]="Спасибо за прохождение данного порта.";
         break;
     }
 }
