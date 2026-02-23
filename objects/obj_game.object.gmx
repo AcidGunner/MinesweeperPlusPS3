@@ -39,6 +39,7 @@ temp_mines=mine_count;
 global.pitch=1;
 sheesh=0;
 _sh=0;
+lost=0;
 the_temp=0;
 
 timer=0;
@@ -248,6 +249,9 @@ if global.stage==910
     obj_ui.alarm[0]=1;
     obj_ui.rand_time=1;
 }
+
+if cirno9 text = "You have to let me out eventually, Baka...";
+if utsuho10 text = "You have to let me out eventually, Unyu...";
 </string>
           </argument>
         </arguments>
@@ -352,7 +356,8 @@ alarm[4]=1;
           <argument>
             <kind>1</kind>
             <string>/// === Number Fill ===
-if global.stage==9 or global.stage==910 mine_count=0
+if global.stage==9 or global.stage==910 mine_count=0;
+
 for (var qx = 0; qx &lt; grid_w; qx++)
 for (var qy = 0; qy &lt; grid_h; qy++)
 {
@@ -370,15 +375,14 @@ for (var qy = 0; qy &lt; grid_h; qy++)
                 if (grid[# nx, ny] == -1)
                 {
                     c++;
-                    if global.stage==9 or global.stage==910 mine_count++;
                 }
             }
         }
         
         if (grid[# qx, qy] != -2) grid[# qx, qy] = c;
     }
+    else if global.stage==9 or global.stage==910 mine_count++;
 }
-if instance_exists(obj_9) mine_count-=8;
 
 if first_click &amp;&amp; boss9_started &amp;&amp; global.stage==9 grid[# center_x, center_y ] = 9;
 </string>
@@ -437,7 +441,6 @@ var yy = msy;
 
 temp_g = 0;
 
-
 // === VALIDATION ===
 if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h)
 {
@@ -446,7 +449,7 @@ if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h)
     temp_y=0;
     exit; // Ignore click outside the grid
 }
-
+if lost exit;
 if circle_grid[# xx, yy] exit;
 //show_debug_message(string(xx)+"-"+string(yy)+"??"+string(temp_x)+"-"+string(temp_y));
 
@@ -652,6 +655,7 @@ temp_y = yy;
 
 // === VALIDATION ===
 if (xx &lt; 0 || yy &lt; 0 || xx &gt;= grid_w || yy &gt;= grid_h) exit;
+if lost exit;
 if circle_grid[# xx, yy] exit;
 
 if obj_smiley.mine_detected != 0 exit;
@@ -717,6 +721,7 @@ temp_g = 1;
 
 // === VALIDATION ===
 if (temp_x &lt; 0 || temp_y &lt; 0 || temp_x &gt;= grid_w || temp_y &gt;= grid_h) exit;
+if lost exit;
 if circle_grid[# temp_x, temp_y] exit;
 </string>
           </argument>
@@ -753,13 +758,11 @@ highlight_x1 = -1;
 highlight_y1 = -1;
 highlight_x2 = -1;
 highlight_y2 = -1;
-
-if (global.stage==9 or global.stage==10) &amp;&amp; 
-    (boss9_started==true or boss10_started==true) let_me_out();
-
 check_input();
 checks_input();
 
+if (global.stage==9 or global.stage==10) &amp;&amp; 
+    (boss9_started==false or boss10_started==false) let_me_out();
 if global.stage==86 do_bad_apple();
 </string>
           </argument>
@@ -837,9 +840,6 @@ draw_set_halign(fa_middle);
 draw_set_font(fnt_smol);
 draw_set_colour(c_red);
 var _sh = sheesh mod 750;
-
-if cirno9 text = "You have to let me out eventually, Baka...";
-if utsuho10 text = "You have to let me out eventually, Unyu...";
 
 if _sh&gt;=500 draw_text(160,120+sin(sheesh/25),text);
 </string>

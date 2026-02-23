@@ -9,7 +9,7 @@ for (var wy = 0; wy < grid_h; wy++)
 }
 
 // Check win condition
-if (revealed_total >= grid_w * grid_h - mine_count)
+if (revealed_total >= (grid_w * grid_h) - mine_count)
 {
     switch global.stage
     {
@@ -54,5 +54,5 @@ if (revealed_total >= grid_w * grid_h - mine_count)
 }
 else
 {
-    if global.stage==9 game_restart();
+    if global.stage==9 instance_create(0,0,obj_9_end);
 }

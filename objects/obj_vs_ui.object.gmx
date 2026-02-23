@@ -56,7 +56,7 @@ test_rect=0;
           <argument>
             <kind>1</kind>
             <string>audio_stop_all();
-audio_play_sound(global.stagevs_lose,0,false);
+audio_play_sound(global.stagevs1_lose,0,false);
 lost=1;
 </string>
           </argument>
@@ -85,12 +85,12 @@ lost=1;
 if instance_exists(obj_explosion) view_xview[0]=irandom_range(-shift,shift);
 if shift&gt;0 shift--;
 
-//if lost=0 and !(obj_game_1p.win=1 or obj_game_2p.win=1)
-//    and !(obj_smiley_1p.mine_detected=1 or obj_smiley_2p.mine_detected=1)
-//{
-//    time-=2/global.FSP;
-//    if time&lt;=0 alarm[0]=1;
-//}
+if lost=0 and !(obj_game_1p.win=1 or obj_game_2p.win=1)
+    and !(obj_smiley_1p.mine_detected=1 or obj_smiley_2p.mine_detected=1)
+{
+    time-=2/global.FSP;
+    if time&lt;=0 alarm[0]=1;
+}
 </string>
           </argument>
         </arguments>
@@ -117,8 +117,6 @@ if shift&gt;0 shift--;
 draw_set_valign(fa_center);
 draw_set_halign(fa_middle);
 draw_set_font(fnt_smol);
-//draw_sprite_stretched(spr_ui1,0,0,0,112,48);
-//draw_sprite_stretched(spr_ui2,0,112,0,96,48);
 draw_sprite_stretched(spr_ui3,0,0,0,56,48);
 draw_sprite_stretched(spr_ui3,0,56,0,48,48);
 draw_sprite_stretched(spr_ui1,0,104,0,112,48);

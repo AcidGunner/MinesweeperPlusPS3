@@ -32,6 +32,8 @@ image_anim2 = 0;
 image_anim3 = 0;
 image_anim_speed = 0.1;
 get_ready = 0;
+cutscene_10_lost = false;
+cutscene_10_lose = 0;
 temp23=0;
 
 // Cutscene 9
@@ -442,6 +444,22 @@ if obj_game.win == false
 {
     if cutscene == false
     {
+        if cutscene_10_lost
+        {
+            cutscene_10_lose+=image_anim_speed/2;
+            if cutscene_10_lose&gt;=3 cutscene_10_lose=3;
+            sprite_index=spr_smiley6;
+            if cutscene_10_lose&lt;1 image_index = 8
+            else image_index = 13+cutscene_10_lose;
+            exit;
+        }
+        if obj_game.lost
+        {
+            if sprite_index==spr_smiley3 image_index = 16+image_anim2
+            else if sprite_index==spr_smiley5 image_index = 26
+            else image_index = 8;
+            exit;
+        }
         if mine_detected = 1
         {
             if sprite_index==spr_smiley3 image_index = temp3+image_anim2
@@ -457,15 +475,20 @@ if obj_game.win == false
             exit;
         }
         
-        if obj_game.temp_111 = 1 sprite_index = spr_smiley1
-        else if obj_game.temp_111 = 2 sprite_index = spr_smiley2
-        else if obj_game.temp_111 = 3 sprite_index = spr_smiley3
-        else if obj_game.temp_111 = 4 sprite_index = spr_smiley4
-        else if obj_game.temp_111 = 5 sprite_index = spr_smiley5;
-        
-        if global.stage==86 sprite_index = spr_smiley86;
-        if global.stage==9 sprite_index = spr_smiley5;
-        if global.stage==10 sprite_index = spr_smiley6;
+        switch global.stage
+        {
+            case 86: sprite_index = spr_smiley86; break;
+            case 9: sprite_index = spr_smiley5; break;
+            case 10: sprite_index = spr_smiley6; break;
+            default: switch obj_game.temp_111
+            {
+                case 1: sprite_index = spr_smiley1; break;
+                case 2: sprite_index = spr_smiley2; break;
+                case 3: sprite_index = spr_smiley3; break;
+                case 4: sprite_index = spr_smiley4; break;
+                case 5: sprite_index = spr_smiley5; break;
+            };
+        }
         
         if mousey&lt;48
             if sprite_index == spr_smiley5
@@ -505,10 +528,11 @@ if obj_game.win == false
             }
         }
         
-        if obj_game.temp_g!=0
-            temp2=1
-        else
-            temp2=0;
+        switch obj_game.temp_g
+        {
+            case 0: temp2=0; break;
+            default: temp2=1;
+        }
     }
     else
     {
@@ -573,6 +597,13 @@ if obj_game.win == false
             else
             {
                 sprite_index = cutscene_10_0[cutscene_10s]
+                if instance_exists(obj_9_end)
+                {
+                    obj_smiley.sprite_index=spr_smiley6;
+                    obj_smiley.image_index=10;
+                    obj_smiley_hat.image_index = 2;
+                    exit;
+                }
                 switch cutscene_10s
                 {
                     case 2:
@@ -624,33 +655,41 @@ if obj_game.win == false
 }
 else
 {
-    if global.stage==9
+    switch global.stage
     {
-        sprite_index = spr_smiley5
-        image_index=27+image_anim;
-    }
-    else if global.stage==10
-    {
-        sprite_index = spr_smiley6
-        image_index=17+image_anim;
-    }
-    else if global.stage==910
-    {
-        sprite_index = spr_smiley5
-        image_index=27+image_anim;
-    }
-    else
-    {
-        if obj_game.temp_111 = 1 sprite_index = spr_smiley1
-        else if obj_game.temp_111 = 2 sprite_index = spr_smiley2
-        else if obj_game.temp_111 = 3 sprite_index = spr_smiley3
-        else if obj_game.temp_111 = 4 sprite_index = spr_smiley4
-        
-        if sprite_index==spr_smiley3 image_index=26+image_anim
-        else image_index=14+image_anim;
+        case 9:
+        {
+            sprite_index = spr_smiley5
+            image_index=27+image_anim;
+            break;
+        }
+        case 10:
+        {
+            sprite_index = spr_smiley6
+            image_index=17+image_anim;
+            break;
+        }
+        case 910:
+        {
+            sprite_index = spr_smiley5
+            image_index=27+image_anim;
+            break;
+        }
+        default:
+        {
+            switch obj_game.temp_111
+            {
+                case 1: sprite_index = spr_smiley1; break;
+                case 2: sprite_index = spr_smiley2; break;
+                case 3: sprite_index = spr_smiley3; break;
+                case 4: sprite_index = spr_smiley4; break;
+            }
+            
+            if sprite_index==spr_smiley3 image_index=26+image_anim
+            else image_index=14+image_anim;
+        }
     }
 }
-
 
 </string>
           </argument>

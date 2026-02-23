@@ -58,7 +58,7 @@ p2_cursor_r=0;
 l1=0;r1=0;l1h=0;r1h=0;
 l2=0;r2=0;l2h=0;r2h=0;
 gmin=0.6;gmax=1;
-mx=0;my=0;mp1=0;mh1=0;
+mx=160;my=120;mp1=0;mh1=0;
 mp2=0;mh2=0;sns=1;
 stick_h=gamepad_axis_value(0,gp_axislh);
 stick_v=gamepad_axis_value(0,gp_axislv);

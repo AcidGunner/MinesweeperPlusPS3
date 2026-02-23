@@ -1,5 +1,6 @@
 ///main_input_test();
-if global.CONTROL==0{
+if global.CONTROL==0
+{
     up=keyboard_check(vk_up);
     down=keyboard_check(vk_down);
     right=keyboard_check(vk_right);
@@ -45,7 +46,9 @@ if global.CONTROL==0{
     mh1 = mouse_check_button_released(mb_left);
     mp2 = mouse_check_button_pressed(mb_right);
     mh2 = mouse_check_button_released(mb_right);
-} else {
+}
+else
+{
     //First config
     start=gamepad_button_check_pressed(0,gp_start);
     hstart=gamepad_button_check(0,gp_start);
@@ -109,6 +112,7 @@ if global.CONTROL==0{
 }
 
 //PLAYER 2!!
+if gamepad_is_connected(1)
 {
     //First config
     p2_start=gamepad_button_check_pressed(1,gp_start);

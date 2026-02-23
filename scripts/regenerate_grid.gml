@@ -1,4 +1,5 @@
 /// regenerate_grid(x_clicked, y_clicked, mine_count)
+show_debug_message("GRID REGEN");
 var cx = argument0;
 var cy = argument1;
 var cm = argument2;

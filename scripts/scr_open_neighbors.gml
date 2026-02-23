@@ -25,8 +25,10 @@ if (flags == required)
         if (nx >= 0 && ny >= 0 && nx < grid_w && ny < grid_h)
         {
             // Skip flagged squares
-            if (!flagged[# nx, ny])
-            {                
+            if !flagged[# nx, ny]
+            {
+                if (cirno9==true && iceland[# nx, ny] == 1) exit;
+                
                 // If it's a mine → player loses
                 if (grid[# nx, ny] == -1)
                 {

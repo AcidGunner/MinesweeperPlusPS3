@@ -652,7 +652,7 @@ move_timer = irandom_range(20, 60);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var spike = obj_game_1p.zoom/8;
+            <string>var spike = obj_game_1p.zoom/8*1.35;
 var test_1 = (test_0*spike)/48;
 
 sprite_index=the_spr_9;

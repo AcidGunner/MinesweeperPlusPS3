@@ -42,7 +42,7 @@ if audio_is_playing(global._music[6])
 {
     global.pitch+=0.05;
     audio_sound_pitch(global._music[6], global.pitch);
-    obj_ui.shifting+=8;
+    obj_ui.shifting+=14.2;
     if obj_ui.shifting&gt;=60 obj_ui.shifting=59;
 }
 
@@ -58,7 +58,7 @@ if instance_exists(obj_game) &amp;&amp; audio_is_playing(obj_game.stage910)
 {
     global.pitch+=0.05;
     audio_sound_pitch(obj_game.stage910, global.pitch);
-    obj_ui.shifting+=8;
+    obj_ui.shifting+=14.2;
     if obj_ui.shifting&gt;=60 obj_ui.shifting=59;
     obj_10.shifting+=8;
     if obj_10.shifting&gt;=60 obj_10.shifting=59;
@@ -118,7 +118,7 @@ if image_index&gt;=24
     {
         obj_smiley.mine_detected=0;
     };
-    if instance_exists(obj_9) &amp;&amp; obj_game.first_click==false
+    if instance_exists(obj_9) &amp;&amp; !obj_game.first_click &amp;&amp; !obj_game.lost
     {
         obj_9.active=true;
     };

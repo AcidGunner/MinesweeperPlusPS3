@@ -201,6 +201,9 @@
         <sounds name="map10">
           <sound>sound\mus_map10</sound>
         </sounds>
+        <sounds name="map100">
+          <sound>sound\mus_map100</sound>
+        </sounds>
       </sounds>
       <sound>sound\mus_title</sound>
       <sound>sound\mus_end</sound>
@@ -215,7 +218,9 @@
           <sound>sound\sfx_9stop</sound>
           <sound>sound\sfx_saw</sound>
           <sound>sound\sfx_defeat</sound>
+          <sound>sound\sfx_9lost</sound>
           <sound>sound\sfx_ice</sound>
+          <sound>sound\sfx_9lose</sound>
         </sounds>
         <sounds name="boss10">
           <sound>sound\sfx_beep</sound>
@@ -240,6 +245,8 @@
       <sounds name="hidden">
         <sound>sound\sound67</sound>
         <sound>sound\sfx_test</sound>
+        <sound>sound\sound110</sound>
+        <sound>sound\sound111</sound>
       </sounds>
       <sounds name="dabios">
         <sound>sound\boot1</sound>
@@ -355,6 +362,7 @@
         <sprite>sprites\spr_ui3</sprite>
         <sprite>sprites\spr_mine_ui</sprite>
         <sprite>sprites\spr_time_ui</sprite>
+        <sprite>sprites\spr_lives</sprite>
       </sprites>
       <sprites name="menu">
         <sprite>sprites\spr_main_menu</sprite>
@@ -366,6 +374,7 @@
       </sprites>
       <sprites name="map">
         <sprite>sprites\spr_boat_right</sprite>
+        <sprite>sprites\spr_99_map</sprite>
       </sprites>
       <sprites name="end">
         <sprite>sprites\spr_end_1</sprite>
@@ -373,7 +382,10 @@
       <sprite>sprites\spr_logo</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_nuclear</background>
+    <background>background\bg_wind</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="maingame">
@@ -499,6 +511,7 @@
       <objects name="bosses">
         <object>objects\obj_9</object>
         <object>objects\obj_9boo</object>
+        <object>objects\obj_9_end</object>
         <object>objects\obj_10</object>
       </objects>
       <objects name="other">
@@ -506,6 +519,7 @@
         <object>objects\obj_bomb</object>
         <object>objects\obj_cursor</object>
         <object>objects\obj_end_demo</object>
+        <object>objects\obj_audio_pitcher</object>
       </objects>
     </objects>
     <objects name="Menu">
@@ -535,6 +549,7 @@
         <object>objects\obj_map_10</object>
         <object>objects\obj_map_99</object>
         <object>objects\obj_map_10_sqr</object>
+        <object>objects\obj_map_100</object>
       </objects>
     </objects>
     <objects name="Debug">

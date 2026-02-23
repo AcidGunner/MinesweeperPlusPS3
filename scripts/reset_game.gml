@@ -9,6 +9,7 @@ global.menu_t=1;
 global.lang=0;
 global.foughtcirno=0;
 global.foughtutsuho=0;
+lives=3;
 
 //only then save!
 save_game();

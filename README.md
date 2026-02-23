@@ -1,16 +1,16 @@
 ![Minesweeper Plus PS3 Port Banner](https://img.itch.zone/aW1nLzI1NTg5MjQ0LnBuZw==/original/33patO.png)
 ***[PLEASE PLAY THE ORIGINAL GAME FIRST!!](https://jorel-simpson.itch.io/minesweeper-plus)***\
 As for PS3 Port you can either download:
-* [v0.2 version (Latest)](https://github.com/AcidGunner/MinesweeperPlusPS3/releases/latest)
+* [v0.2.5 version (Latest)](https://github.com/AcidGunner/MinesweeperPlusPS3/releases/latest)
+* [v0.2 version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusv0-2.pkg?download=)
 * [v0.1.1F version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusv0-1-1f.pkg?download=)
 * [Demo version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusdemo.pkg?download=)
 
 # Project Status
-LATEST: v0.2\
-IN DEVELOP: v0.2.5
+LATEST: v0.2.5
 
 # Source Code Documentation
-Please read "help.rtf" file for more info.
+Please read "non-gms-help.rtf" file for more info.
 
 # About the Port
 AI-generated code is only included as a base Minesweeper mechanics. Nothing else is AI-generated, so don't worry.\

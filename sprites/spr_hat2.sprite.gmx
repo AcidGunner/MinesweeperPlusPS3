@@ -10,7 +10,7 @@
   <bbox_left>0</bbox_left>
   <bbox_right>39</bbox_right>
   <bbox_top>0</bbox_top>
-  <bbox_bottom>30</bbox_bottom>
+  <bbox_bottom>35</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -41,5 +41,8 @@
     <frame index="18">images\spr_hat2_18.png</frame>
     <frame index="19">images\spr_hat2_19.png</frame>
     <frame index="20">images\spr_hat2_20.png</frame>
+    <frame index="21">images\spr_hat2_21.png</frame>
+    <frame index="22">images\spr_hat2_22.png</frame>
+    <frame index="23">images\spr_hat2_23.png</frame>
   </frames>
 </sprite>

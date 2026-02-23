@@ -36,6 +36,8 @@ global._st[18]= 1730235;
 global._en[18]= 1926144;
 global._st[19]= 1204700;
 global._en[19]= 3513913;
+global._st[20]= 1212339;
+global._en[20]= 2420316;
 
 if global._music_type=0
 {
@@ -75,6 +77,7 @@ if global._music_type=0
     global.stage3_map=mus_map3;
     global.stage4_map=mus_map4;
     global.stage9_map=mus_map9;
+    global.stage10_map=mus_map9;
 }
 else
 {
@@ -114,6 +117,7 @@ else
     global.stage3_map=mus_map3;
     global.stage4_map=mus_map4;
     global.stage9_map=mus_map9;
+    global.stage10_map=mus_map10;
 }
 // Versus Mode!
 
@@ -137,5 +141,7 @@ global.stagevs4_lose=-1;
 
 global._music[28]=mus_versus9_intro;
 global._music[29]=mus_versus9;
-global.stagevs9_win=mus_vs_win4;
+global.stagevs9_win=-1;
 global.stagevs9_lose=-1;
+
+global._music[30]=mus_map99;

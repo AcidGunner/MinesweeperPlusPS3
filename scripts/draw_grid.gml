@@ -13,6 +13,7 @@ for (var xx = 0; xx < grid_w; xx++)
             var y1 = grid_offset_y + yy * draw_size;
             
             var _sprt=grid_sprite[# xx, yy];
+            var v = grid[# xx, yy];
             
             switch _sprt
             {
@@ -29,25 +30,36 @@ for (var xx = 0; xx < grid_w; xx++)
                 case spr_bg86: _grd=10; break;
             }
             
-            // === Flagged ===
-            if (flagged[# xx, yy])
-            {
-                draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);                
-                draw_sprite_stretched(spr_flag, image_index, x1, y1, draw_size, draw_size);
-            }
-            else if (reveal[# xx, yy])
+            if type=="single" && lost=1
             {
                 draw_sprite_stretched(spr_bgb, image_index, x1, y1, draw_size, draw_size);
-    
-                var v = grid[# xx, yy];
-                if (v == -2)
-                    draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size);
-                else if (v == -1)
-                    draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size);
-                else
-                    draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size);
+                switch v
+                {
+                    case -2: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
+                    case -1: draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size); break;
+                    default: draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size); break;
+                }
             }
-            else draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);
+            else
+            {
+                // === Flagged ===
+                if (flagged[# xx, yy])
+                {
+                    draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);                
+                    draw_sprite_stretched(spr_flag, image_index, x1, y1, draw_size, draw_size);
+                }
+                else if (reveal[# xx, yy])
+                {
+                    draw_sprite_stretched(spr_bgb, image_index, x1, y1, draw_size, draw_size);
+                    switch v
+                    {
+                        case -2: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
+                        case -1: draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size); break;
+                        default: draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size); break;
+                    }
+                }
+                else draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);
+            }
             draw_sprite_stretched(spr_grid, _grd, x1, y1, draw_size, draw_size);
             if (highlight_x1 >= 0 && highlight_y1 >= 0)
             {

@@ -67,6 +67,18 @@ if obj_game.win == false
 {
     if obj_smiley.cutscene == false
     {
+        if obj_smiley.cutscene_10_lost
+        {
+            if obj_smiley.cutscene_10_lose&lt;1 image_index = 21
+            else image_index = 20+obj_smiley.cutscene_10_lose;
+            exit;
+        }
+        if obj_game.lost
+        {
+            image_index = 6;
+            exit;
+        }
+        
         if obj_input.my&lt;48
             if obj_smiley.mine_detected == 1 image_index=temp1
             else if obj_smiley.mine_detected == 2 image_index=6+obj_smiley.image_anim2

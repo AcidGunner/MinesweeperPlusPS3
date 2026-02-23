@@ -30,6 +30,7 @@ move=1;
 goto=0;
 view=0;
 nine=0;
+t=0;
 
 mus[0]=global.stage1_map;
 mus[1]=global.stage1_map;
@@ -55,8 +56,12 @@ image_speed=0.02;
 
 if global.foughtcirno
 {
+    audio_play_sound(sound110,0,true);
+    audio_play_sound(sound111,0,true);
     move=0;
     hspeed=-0.01;
+    goto=-1;
+    if global.stage==10 room_goto(rm_map99);
 }
 
 if global.stage==10
@@ -140,6 +145,7 @@ if global.stage==10
 if hspeed&lt;0
 {
     hspeed+=-0.01;
+    t-=10;
 }
 
 var _stuff_ = 40+(global.stage-1)*64;
@@ -163,7 +169,7 @@ if x&gt;536
         x=704;
     }
 }
-else if x&gt;160 &amp;&amp; goto=0
+else if x&gt;160 &amp;&amp; goto&lt;1
 {
     if x&gt;536-152 view_xview[0]=224
     else view_xview[0]=x-160;
@@ -217,7 +223,8 @@ if goto
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>image_blend=c_white;
+draw_self();
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 draw_set_font(fnt_main);
@@ -225,6 +232,9 @@ if move=0 &amp;&amp; global.stage&lt;9 draw_text_outline(view+160,48,name[global
 
 draw_set_font(fnt_smol);
 draw_text_outline(704,48,global.str[59],c_black,c_white,1);
+
+if global.foughtcirno &amp;&amp; global.stage==9
+    draw_background_tiled(bg_wind,t,0);
 </string>
           </argument>
         </arguments>

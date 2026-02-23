@@ -26,10 +26,42 @@
           <argument>
             <kind>1</kind>
             <string>goto=-1;
+rot=0;
 _x=x;
 x=400;
-//audio_play_sound(mus_map10,0,true);
+audio_stop_all();
+if global.stage==9 audio_loop_sound(global._music[30],global._st[20],global._en[20],44100,0);
 image_speed=0.02;
+
+if global.stage==10
+{
+    goto=-1;
+    x=_x;
+    alarm[1]=2.5*global.FSP;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_map10);
 </string>
           </argument>
         </arguments>
@@ -76,8 +108,9 @@ image_speed=0.02;
           <argument>
             <kind>1</kind>
             <string>x=lerp(x,_x,0.05);
+rot-=0.5;
 
-if x&lt;163 &amp;&amp; goto==-1 goto=0;
+if x&lt;163 &amp;&amp; goto==-1 &amp;&amp; global.stage==9 goto=0;
 
 if goto=0
 {
@@ -119,10 +152,13 @@ if goto
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>image_blend=c_white;
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 draw_set_font(fnt_smol);
+draw_sprite_ext(spr_99_map,0,160,120,1,1,rot,c_aqua,0.25);
+draw_self();
+
 draw_text_outline(160,48,global.str[66],c_black,c_white,1);
 </string>
           </argument>

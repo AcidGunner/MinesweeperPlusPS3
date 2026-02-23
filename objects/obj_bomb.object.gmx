@@ -70,6 +70,15 @@ if testz&gt;=test
     instance_create(x,y,obj_explosion);
     obj_smiley.mine_detected=2;
     obj_game.alarm[4]=1;
+    if !(global.stage==9 or global.stage==10)
+    {
+        lives--;
+        if lives&lt;=0
+        {
+            obj_game.lost=1;
+            instance_create(0,0,obj_audio_pitcher);
+        }
+    }
     instance_destroy();
 }
 </string>

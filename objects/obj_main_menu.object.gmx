@@ -162,7 +162,7 @@ if obj_input.a
 }
 if obj_input.b
 {
-    if !gamepad_is_connected(1)
+    if !gamepad_is_connected(1) &amp;&amp; global.debug=0
     {
         show_message(global.str[61]);
         exit;

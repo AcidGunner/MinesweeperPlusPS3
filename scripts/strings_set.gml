@@ -55,7 +55,7 @@ switch global.lang
         global.str[46]="Player 1 Won!";
         global.str[47]="Player 2 Won!";
         global.str[48]="Draw!";
-        global.str[49]="Ready";
+        global.str[49]="Ready...";
         global.str[50]="Miss";
         global.str[51]="Kiddie Pool";
         global.str[52]="Rainy Puddle";
@@ -130,7 +130,7 @@ switch global.lang
         global.str[46]="Joueur 1 a gagné!";
         global.str[47]="Joueur 2 a gagné!";
         global.str[48]="Égalité!";
-        global.str[49]="Prêt";
+        global.str[49]="Prêt...";
         global.str[50]="Raté";
         global.str[51]="Piscine pour enfants";
         global.str[52]="Flaque pluvieuse";
@@ -205,7 +205,7 @@ switch global.lang
         global.str[46]="Выиграл игрок 1!";
         global.str[47]="Выиграл игрок 1!";
         global.str[48]="Ничья!";
-        global.str[49]="Готовься";
+        global.str[49]="Готовься...";
         global.str[50]="Промах";
         global.str[51]="Детский Бассейн";
         global.str[52]="Дождевая Лужа";
@@ -226,6 +226,81 @@ switch global.lang
         global.str[67]="ЯДЕРНЫЕ ОТХОДЫ";
         global.str[68]="Портировано AcidNT3.1 (Оригинал от Jorel)";
         global.str[69]="Спасибо за прохождение данного порта.";
+        break;
+    }
+    case 3:
+    {
+        //The MSPLUS JK!
+        global.str[0]="MSPlus JK";
+        global.str[1]="Edition";
+        global.str[2]="Just press Start dude";
+        global.str[3]="Enjoy";
+        global.str[4]="This Port's stuff?";
+        global.str[5]="Stats";
+        global.str[6]="Tutorial";
+        global.str[7]="Settings";
+        global.str[8]="Credits";
+        global.str[9]="GREAT MEME RESET";
+        global.str[10]="WARNING!!# #This is the DEBUG Build. Many things are VERY OOOOOOH. IT IS RECOMMENDED TO PLAY THE CURRENT RELEASED VERSION.#PROCEED WITH BOOOOO!!"
+        global.str[11]="fumo";
+        global.str[12]="Addons guide";
+        global.str[13]="Back Button";
+        global.str[14]="Hats guide!";
+        global.str[15]="Just because this is a not-completed version of the port, the game allows you to change your hat by pressing either L2 or R2.";
+        global.str[16]="Press ○ to yeet back.";
+        global.str[17]="You are not ready yet.";
+        global.str[18]="Link";
+        global.str[19]="Sorry, ";
+        global.str[20]=", I can't give credit.";
+        global.str[21]="";
+        global.str[22]="Come back when you're little...";
+        global.str[23]="mmmmmmmmmmmmmmm..";
+        global.str[24]="Richer.";
+        global.str[25]="and you!";
+        global.str[26]="Change";
+        global.str[27]="Input";
+        global.str[28]="Musica";
+        global.str[29]="Langz";
+        global.str[30]="Current";
+        global.str[31]="Cursor type";
+        global.str[32]="Tile type";
+        global.str[33]="Original";
+        global.str[34]="Remastered";
+        global.str[35]="Are you sure?";
+        global.str[36]='Press X for "Pretty sure.."';
+        global.str[37]="[PLEASE READ BEFORE DOING ANYTHING!]# #ACIDPS3 PROJECT IS NOT AFFILIATED OR APPROVED BY SONY COMPUTER ENTERTAINMENT!!#WE ARE NOT GETTING ANY PROFIT OUT OF THIS. THOSE SERVICES ARE PURELY FREE NO MATTER WHAT.#(NOT LICENSED BY SONY)";
+        global.str[38]="Finding da wae...";
+        global.str[39]="GMS4PS3 Loader v0.0";
+        global.str[40]="Boo";
+        global.str[41]="Free";
+        global.str[42]="MC Story";
+        global.str[43]="Mode";
+        global.str[44]="for VS!";
+        global.str[45]="DONE!";
+        global.str[46]="Player 1 Won!";
+        global.str[47]="Player 2 Won!";
+        global.str[48]="Draw!";
+        global.str[49]="...";
+        global.str[50]="ouch..";
+        global.str[51]="First Blood";
+        global.str[52]="Expired Milk";
+        global.str[53]="Crazy Frog";
+        global.str[54]="Goo Lagoon";
+        global.str[55]="Great Britain";
+        global.str[56]="SIX SEVEN (Sorry)";
+        global.str[57]="Open Source";
+        global.str[58]="Dead Body";
+        global.str[59]="THE";
+        global.str[60]="THE FUCK";
+        global.str[61]="Player 2 is yeeted. Please, unyeet the second frank.";
+        global.str[62]="There is nothing we can help.";
+        global.str[63]="There is nothing we can help";
+        global.str[64]="#Additional Note:#Good luck.";
+        global.str[65]="#Additional Note:#No.";
+        global.str[66]="cirno baka";
+        global.str[67]="okuu";
+        global.str[68]="edited by AcidNT3.1 (Original by Jorel)";
+        global.str[69]="Thank you so much for-a playing my game.";
         break;
     }
 }

@@ -51,8 +51,16 @@ alarm[1]=2.5*global.FSP;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(160,128,obj_map_10_sqr);
-audio_play_sound(mus_map10,0,true);
+            <string>if global.foughtutsuho=0
+{
+    instance_create(160,128,obj_map_10_sqr);
+    audio_play_sound(mus_map10,0,true);
+}
+else
+{
+    instance_create(0,0,obj_map_100);
+    audio_play_sound(mus_map100,0,true);
+}
 goto=0;
 </string>
           </argument>
@@ -139,11 +147,16 @@ if goto
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>image_blend=c_white;
+draw_self();
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 draw_set_font(fnt_smol);
-if goto&gt;=0 draw_text_outline(160,48,global.str[60],c_black,c_white,1);
+if goto&gt;=0
+{
+    if global.foughtutsuho=0 draw_text_outline(160,48,global.str[60],c_black,c_white,1)
+    else draw_text_outline(160,48,global.str[67],c_black,c_white,1);
+}
 </string>
           </argument>
         </arguments>

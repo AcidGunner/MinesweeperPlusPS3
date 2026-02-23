@@ -261,6 +261,7 @@ else
     }
     g.spr_bgb=g.t10_gridb;
     obj_smiley.cutscene_10s = 5;
+    obj_ui.rand_life=1;
     obj_smiley.alarm[7]=240;
     rand=2;
     move=0;
@@ -425,7 +426,12 @@ if active
             hspeed = -hspeed;
         }
     }
-    if time=0 game_restart();
+    if time=0
+    {
+        audio_stop_all();
+        audio_play_sound(sfx_done,0,false);
+        instance_create(0,0,obj_9_end);
+    }
 }
 </string>
           </argument>

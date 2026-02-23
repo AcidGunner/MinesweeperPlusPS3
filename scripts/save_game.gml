@@ -4,6 +4,7 @@ ini_open("msplus-ps3-save.ini");
 ini_write_real("save","config",global.config);
 ini_write_real("save","stage",global.stage);
 ini_write_real("save","hat",global.hat_type);
+ini_write_real("save","lives",lives);
 ini_write_real("settings","input",global.type_input);
 ini_write_real("settings","music",global._music_type);
 ini_write_real("settings","menu",global.menu_t);

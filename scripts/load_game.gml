@@ -3,6 +3,7 @@ ini_open("msplus-ps3-save.ini");
 global.config=ini_read_real("save","config",0);
 global.stage=ini_read_real("save","stage",1);
 global.hat_type=ini_read_real("save","hat",1);
+lives=ini_read_real("save","lives",3);
 global.type_input=ini_read_real("settings","input",1);
 global._music_type=ini_read_real("settings","music",0);
 global.menu_t=ini_read_real("settings","menu",1);
