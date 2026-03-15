@@ -7,3 +7,9 @@ var f_s=f_ts2 mod 60;
 var f_m=f_ts2 div 60;
 
 obj_ui.final_time=string(f_m)+":"+string(f_s)+"."+string(f_ms)+"s";
+
+var f_s_data=f_ts/100;
+ds_list_add(obj_chap1_data.time,f_s_data);
+ini_open("msplus-ps3-save.ini");
+ini_write_string("save","current_time",ds_list_write(obj_chap1_data.time));
+ini_close();

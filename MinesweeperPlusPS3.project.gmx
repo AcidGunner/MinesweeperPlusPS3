@@ -507,6 +507,7 @@
         <object>objects\obj_smiley</object>
         <object>objects\obj_smiley_hat</object>
         <object>objects\obj_bg</object>
+        <object>objects\obj_chap1_data</object>
       </objects>
       <objects name="bosses">
         <object>objects\obj_9</object>

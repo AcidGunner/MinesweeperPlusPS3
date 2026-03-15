@@ -15,7 +15,7 @@ Please read "non-gms-help.rtf" file for more info.
 # About the Port
 AI-generated code is only included as a base Minesweeper mechanics. Nothing else is AI-generated, so don't worry.\
 The PS3 Port includes several cool features, as remastered OST (OSTs are toggleable, so you can enjoy the original masterpiece), more hats and (upcoming) Local Versus mode.\
-As for now, you can change hats by pressing L2/R2, because the proper ui is not done yet..\
+As for now, you can change hats by pressing L2/R2, because the proper ui is not done yet..
 
 > [!NOTE]
 > * This port's engine is not the same, as the original's engine (Godot), so many features might be slightly different.
@@ -35,6 +35,7 @@ Thanks for understanding.
 * Zeltizy - XMB Background Art
 * EnergyPumpkin - Original 9 Boss music
 * Fakharmel - French Translation
+* ERRORwhately - aPS3e tester/debugger
 * GameMaker Studio 1.4.9999 - Used game engine
 * [GayMaker PS3](https://github.com/LiEnby/GayMaker-PS3) - Used PS3 exporter
 * And you! - Supporting this port <3

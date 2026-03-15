@@ -564,10 +564,13 @@ if temp_x==xx &amp;&amp; temp_y==yy
             // If the first clicked cell is a mine, rebuild the board
             if (grid[# xx, yy] == -1)
             {
-                if !((xx == center_x or xx == center_x+1 or xx == center_x-1)
-                and (yy == center_y or yy == center_y+1 or yy == center_y-1))
-                and global.stage==9
-                regenerate_grid(xx, yy, temp_mines);
+                if global.stage==9
+                {
+                    if !((xx == center_x or xx == center_x+1 or xx == center_x-1)
+                    and (yy == center_y or yy == center_y+1 or yy == center_y-1))
+                    regenerate_grid(xx, yy, temp_mines);
+                }
+                else regenerate_grid(xx, yy, temp_mines);
             }
             
             if global.stage==9
