@@ -12,6 +12,9 @@ global.foughtutsuho=0;
 lives=3;
 
 //only then save!
+ini_open("msplus-ps3-save.ini");
+ini_write_string("save","current_time","");
+ini_close();
 save_game();
 strings_set();
 init_globals_mus();

@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-60</depth>
-  <persistent>-1</persistent>
+  <depth>0</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,19 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>time=ds_list_create();
-show_debug_message("time is created.");
-ini_open("msplus-ps3-save.ini");
-if ini_key_exists("save","current_time")
-{
-    temp0 = ini_read_string("save","current_time","")
-    if temp0!=""
-    {   
-        ds_list_read(obj_chap1_data.time,temp0);
-        show_debug_message("data is loaded.");
-    }
-}
-ini_close();
+            <string>count=0;
+data="";
+x=-160;
+strings="";
 </string>
           </argument>
         </arguments>
@@ -60,14 +51,13 @@ ini_close();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*for (var i = 0; i &lt; ds_list_size(time); i++)
-{
-    draw_set_valign(fa_top);
-    draw_set_halign(fa_left);
-    draw_set_font(fnt_smol);
-    draw_set_colour(c_white);
-    draw_text_outline(0,i*12,string(ds_list_find_value(time,i)),c_white,c_black,1);
-}
+            <string>draw_set_valign(fa_top);
+draw_set_halign(fa_left);
+draw_set_font(fnt_smoler);
+x=lerp(x,5,0.1);
+y=230-(obj_end_demo.data_count-count)*12;
+draw_sprite_ext(spr_num,count+1,x-4,y-2,1,1,0,c_white,1)
+draw_text_outline(x+12,y,strings,c_white,c_black,1);
 </string>
           </argument>
         </arguments>

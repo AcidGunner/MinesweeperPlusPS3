@@ -46,7 +46,7 @@ if (revealed_total >= (grid_w * grid_h) - mine_count)
             flagged[# fx, fy] = true;
     }
     
-    if type=="single" && global.stage<9 time_set();
+    if type=="single" time_set();
     
     win = true;
     mines_left = 0;
@@ -54,5 +54,5 @@ if (revealed_total >= (grid_w * grid_h) - mine_count)
 }
 else
 {
-    if global.stage==9 instance_create(0,0,obj_9_end);
+    if global.stage==9 or global.stage==910 instance_create(0,0,obj_9_end);
 }

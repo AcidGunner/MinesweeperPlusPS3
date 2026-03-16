@@ -28,6 +28,7 @@
             <string>menu_music = global.menu_t;
 prev_music = 1;
 alarm[0]=1;
+x=0;
 
 select=0;
 </string>
@@ -138,9 +139,7 @@ obj_menu_bg.sprite_index=obj_menu_bg.list[menu_music-1];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if select=1 exit;
-
-if obj_input.l2
+            <string>if obj_input.l2
 {
     menu_music--
     if menu_music&lt;1 menu_music=1;
@@ -152,18 +151,18 @@ if obj_input.r2
     if menu_music&gt;10 menu_music=10;
     if menu_music!=prev_music alarm[0]=1;
 }
-if obj_input.a
+if obj_input.a &amp;&amp; select=0
 {
-    global.menu_t=menu_music;
+    //global.menu_t=menu_music;
     select=1;
-    audio_stop_all();
-    audio_play_sound(sfx_game_start,0,false);
-    save_game();
-    alarm[1]=60;
+    //audio_stop_all();
+    //audio_play_sound(sfx_game_start,0,false);
+    //save_game();
+    //alarm[1]=60;
 }
-if obj_input.b
+if obj_input.b &amp;&amp; select=0
 {
-    if !gamepad_is_connected(1) &amp;&amp; global.debug=0
+    if !gamepad_is_connected(1)
     {
         show_message(global.str[61]);
         exit;
@@ -198,27 +197,27 @@ if obj_input.b
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_index,0,16,16,0.25,0.25,0,c_white,1);
-draw_sprite_ext(sprite_index,1,192,16,0.25,0.25,0,c_white,1);
+            <string>draw_sprite_ext(sprite_index,0,x+16,16,0.25,0.25,0,c_white,1);
+draw_sprite_ext(sprite_index,1,x+192,16,0.25,0.25,0,c_white,1);
 
 draw_set_valign(fa_center);
 draw_set_halign(fa_middle);
 draw_set_font(fnt_smoler);
 draw_set_colour(c_black);
 draw_set_alpha(0.5);
-draw_rectangle(20,70,123,86,false);
-draw_rectangle(196,41,299,57,false);
-draw_rectangle(196,102,299,118,false);
+draw_rectangle(x+20,70,x+123,86,false);
+draw_rectangle(x+196,41,x+299,57,false);
+draw_rectangle(x+196,102,x+299,118,false);
 draw_set_colour(c_white);
 draw_set_alpha(1);
-//draw_text_outline(72,78,global.str[41],c_white,c_black,1);
-draw_text_outline(72,78,global.str[40],c_white,c_black,1);
-draw_text_outline(248,49,global.str[42],c_white,c_black,1);
-draw_text_outline(248,110,global.str[43],c_white,c_black,1);
+draw_text_outline(x+72,78,global.str[41],c_white,c_black,1);
+//draw_text_outline(x+72,78,global.str[40],c_white,c_black,1);
+draw_text_outline(x+248,49,global.str[42],c_white,c_black,1);
+draw_text_outline(x+248,110,global.str[43],c_white,c_black,1);
 
-//draw_text_outline(72,155,"[□]",c_white,c_black,1);
-draw_text_outline(248,155,"[X]",c_white,c_black,1);
-draw_text_outline(160,200,"[○] "+global.str[44],c_white,c_black,1);
+draw_text_outline(x+72,155,"[□]",c_white,c_black,1);
+draw_text_outline(x+248,155,"[X]",c_white,c_black,1);
+draw_text_outline(x+160,200,"[○] "+global.str[44],c_white,c_black,1);
 </string>
           </argument>
         </arguments>

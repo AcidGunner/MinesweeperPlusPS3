@@ -70,7 +70,7 @@ if testz&gt;=test
     instance_create(x,y,obj_explosion);
     obj_smiley.mine_detected=2;
     obj_game.alarm[4]=1;
-    if !(global.stage==9 or global.stage==10)
+    if !(global.stage==9 or global.stage==10 or global.stage==910)
     {
         lives--;
         if lives&lt;=0

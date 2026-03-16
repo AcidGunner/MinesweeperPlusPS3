@@ -76,6 +76,7 @@ switch global.lang
         global.str[67]="THE NUCLEAR WASTE";
         global.str[68]="Ported by AcidNT3.1 (Original by Jorel)";
         global.str[69]="Thanks for playing this port.";
+        global.str[70]="s";
         break;
     }
     case 1:
@@ -151,6 +152,7 @@ switch global.lang
         global.str[67]="LA DÉCHETTERIE NUCLÉAIRE";
         global.str[68]="Porté par AcidNT3.1 (Jeu original par Jorel)";
         global.str[69]="Merci d'avoir joué à ce portage.";
+        global.str[70]="s";
         break;
     }
     case 2:
@@ -226,6 +228,7 @@ switch global.lang
         global.str[67]="ЯДЕРНЫЕ ОТХОДЫ";
         global.str[68]="Портировано AcidNT3.1 (Оригинал от Jorel)";
         global.str[69]="Спасибо за прохождение данного порта.";
+        global.str[70]="сек";
         break;
     }
     case 3:
@@ -301,6 +304,7 @@ switch global.lang
         global.str[67]="okuu";
         global.str[68]="edited by AcidNT3.1 (Original by Jorel)";
         global.str[69]="Thank you so much for-a playing my game.";
+        global.str[70]="s";
         break;
     }
 }

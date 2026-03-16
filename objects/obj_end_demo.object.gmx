@@ -26,12 +26,130 @@
           <argument>
             <kind>1</kind>
             <string>audio_play_sound(mus_end,0,false);
+time=ds_list_create();
+ds_list_read(time,ds_list_write(obj_chap1_data.time));
 shown=0;
 thanks=0;
 pressed=0;
-alarm[0]=1.75*global.FSP;
-alarm[1]=19.35*global.FSP;
+y_change=0;
+y1=60;
+y2=180;
+data_count=0;
+alarm[0]=1.65*global.FSP;
+alarm[1]=19.25*global.FSP;
+alarm[3]=6.4*global.FSP;
+alarm[4]=8*global.FSP;
+alarm[5]=14.42*global.FSP;
 image_speed=0.08;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///chapter text rearrangement?
+txt1[0]=global.str[51];
+txt1[1]=global.str[52];
+txt1[2]=global.str[53];
+txt1[3]=global.str[54];
+txt1[4]=global.str[55];
+txt1[5]=global.str[56];
+txt1[6]=global.str[57];
+txt1[7]=global.str[58];
+txt1[8]=global.str[59];
+txt1[9]=global.str[60];
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if data_count&gt;ds_list_size(time)+3 exit;
+data_count++;
+alarm[5]=0.836*global.FSP;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if data_count&gt;ds_list_size(time)-1 exit;
+var tmp=instance_create(0,0,obj_end_text1);
+var tmp_data=ds_list_find_value(time,data_count);
+tmp.count=data_count;
+tmp.data=tmp_data;
+tmp.strings=txt1[data_count]+": "+string(tmp_data)+global.str[70];
+data_count++;
+alarm[4]=0.418*global.FSP;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>y_change=1;
 </string>
           </argument>
         </arguments>
@@ -124,17 +242,24 @@ image_speed=0.08;
           <argument>
             <kind>1</kind>
             <string>if shown=0 exit;
+
+if y_change=1
+{
+    y1=lerp(y1,0,0.1);
+    y2=lerp(y2,240,0.1);
+}
+
 draw_self();
 draw_set_color(c_black);
-draw_rectangle(0,0,320,60,false);
-draw_rectangle(0,240,320,180,false);
+draw_rectangle(0,0,320,y1,false);
+draw_rectangle(0,240,320,y2,false);
 draw_set_valign(fa_center);
 draw_set_halign(fa_middle);
 draw_set_font(fnt_main);
-draw_text_outline(160,30,global.str[0],c_red,c_white,1);
+draw_text_outline(160,y1-30,global.str[0],c_red,c_white,1);
 draw_set_font(fnt_smol);
-draw_text_outline(275,50,"PS3 "+global.str[1],c_red,c_white,1);
-draw_text_outline(160,210,global.str[68],c_red,c_white,1);
+draw_text_outline(275,y1-10,"PS3 "+global.str[1],c_red,c_white,1);
+draw_text_outline(160,y2+30,global.str[68],c_red,c_white,1);
 
 if thanks=1
 {

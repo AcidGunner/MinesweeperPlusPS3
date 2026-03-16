@@ -520,6 +520,7 @@
         <object>objects\obj_bomb</object>
         <object>objects\obj_cursor</object>
         <object>objects\obj_end_demo</object>
+        <object>objects\obj_end_text1</object>
         <object>objects\obj_audio_pitcher</object>
       </objects>
     </objects>

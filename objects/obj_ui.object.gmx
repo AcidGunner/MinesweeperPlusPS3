@@ -327,7 +327,9 @@ if obj_game.win
                     case 9: if obj_input.c_held global.foughtcirno=1; break;
                     case 10: if obj_input.c_held global.foughtutsuho=1; ask_10(); break;
                 }
-                
+                ini_open("msplus-ps3-save.ini");
+                ini_write_string("save","current_time",ds_list_write(obj_chap1_data.time));
+                ini_close();
                 save_game();
                 if global.stage&lt;11 room_goto(rm_map)
                 else
@@ -335,6 +337,9 @@ if obj_game.win
                     global.stage=1;
                     global.foughtcirno=0;
                     global.foughtutsuho=0;
+                    ini_open("msplus-ps3-save.ini");
+                    ini_write_string("save","current_time","");
+                    ini_close();
                     lives=3;
                     save_game();
                     room_goto(rm_end);

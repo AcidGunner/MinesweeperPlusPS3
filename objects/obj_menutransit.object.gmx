@@ -49,6 +49,9 @@
           <argument>
             <kind>1</kind>
             <string>if global.stage!=86 room_goto(rm_menu) else room_goto(rm_game);
+
+//instance_create(0,0,obj_chap1_data);
+//room_goto(rm_end);
 </string>
           </argument>
         </arguments>
