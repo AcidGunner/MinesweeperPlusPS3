@@ -25,15 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>menu_music = global.menu_t;
-prev_music = 1;
-alarm[0]=1;
-x=0;
-instance_create(320,0,obj_menu_adventure);
-
-select=0;
-temp_x=0;
-type=0;
+            <string>select=1;
+difficulty=0;
+temp_x=x;
+color=c_white;
 </string>
           </argument>
         </arguments>
@@ -56,8 +51,7 @@ type=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.m_g_t&gt;4 &amp;&amp; global.m_g_t!=9 global.m_g_t=1+((global.m_g_t-1) mod 4);
-room_goto(rm_vs_game);
+            <string>select=0;
 </string>
           </argument>
         </arguments>
@@ -80,22 +74,8 @@ room_goto(rm_vs_game);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Switch music Test
-
-var t_menu_music = 12+menu_music;
-var p_menu_music = 12+prev_music;
-var _snd = 0;
-if instance_exists(obj_audio_loop_sound)
-{
-    _snd = audio_sound_get_track_position(obj_audio_loop_sound._audio);
-    instance_destroy(obj_audio_loop_sound);
-};
-audio_stop_sound(global._music[p_menu_music]);
-audio_loop_sound(global._music[t_menu_music],global._st[13],global._en[13],44100,0);
-if _snd!=0 audio_sound_set_track_position(obj_audio_loop_sound._audio,_snd);
-prev_music = menu_music;
-
-obj_menu_bg.sprite_index=obj_menu_bg.list[menu_music-1];
+            <string>instance_create(0,0,obj_chap1_data);
+room_goto(rm_map);
 </string>
           </argument>
         </arguments>
@@ -118,54 +98,29 @@ obj_menu_bg.sprite_index=obj_menu_bg.list[menu_music-1];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if obj_input.l2
-{
-    menu_music--
-    if menu_music&lt;1 menu_music=1;
-    if menu_music!=prev_music alarm[0]=1;
-}
-if obj_input.r2
-{
-    menu_music++
-    if menu_music&gt;10 menu_music=10;
-    if menu_music!=prev_music alarm[0]=1;
-}
-if select=0
+            <string>if select=0
 {
     if obj_input.a
     {
+        global.menu_t=obj_main_menu.menu_music;
         select=1;
-        type=1;
-        obj_menu_adventure.alarm[1]=5;
-    }
-    if obj_input.c
-    {
-        select=1;
-        type=2;
+        audio_stop_all();
+        audio_play_sound(sfx_game_start,0,false);
+        setup_field(difficulty);
+        save_game();
+        alarm[0]=60;
     }
     if obj_input.bl
     {
-        if !gamepad_is_connected(1)
-        {
-            show_message(global.str[61]);
-            exit;
-        }
         select=1;
-        global.menu_t=menu_music;
-        global.m_g_t=menu_music;
-        audio_stop_all();
-        audio_play_sound(sfx_game_start,0,false);
-        save_game();
-        alarm[1]=60;
+        obj_main_menu.type=0;
+        obj_main_menu.select=0;
     }
+    if obj_input.upp &amp;&amp; difficulty&gt;0 difficulty--;
+    if obj_input.dow &amp;&amp; difficulty&lt;3 difficulty++;
 }
 
-switch type
-{
-    case 0: temp_x=0; break;
-    case 1: temp_x=-320; break;
-    case 2: temp_x=320; break;
-}
+if select=1 &amp;&amp; obj_main_menu.type!=1 temp_x=320 else temp_x=0;
 x=lerp(x,temp_x,0.1);
 </string>
           </argument>
@@ -189,27 +144,29 @@ x=lerp(x,temp_x,0.1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_main_menu,0,x+16,16,0.25,0.25,0,c_white,1);
-draw_sprite_ext(spr_main_menu,1,x+192,16,0.25,0.25,0,c_white,1);
+            <string>draw_set_alpha(1);
+for (var i=0; i&lt;4; i++)
+{
+    if i!=difficulty color=c_gray else color=c_white;
+    draw_sprite_ext(spr_difficulty,i,x+16,16+(i*32),0.25,0.25,0,color,1);
+    draw_set_alpha(0.5);
+    draw_set_colour(c_black);
+    draw_rectangle(x+192,24+(i*32),x+288,40+(i*32),false);
+    draw_set_alpha(1);
+}
 
-draw_set_valign(fa_center);
-draw_set_halign(fa_middle);
+draw_set_color(c_black);
 draw_set_font(fnt_smoler);
-draw_set_colour(c_black);
-draw_set_alpha(0.5);
-draw_rectangle(x+20,70,x+123,86,false);
-draw_rectangle(x+196,41,x+299,57,false);
-draw_rectangle(x+196,102,x+299,118,false);
-draw_set_colour(c_white);
-draw_set_alpha(1);
-draw_text_outline(x+72,78,global.str[41],c_white,c_black,1);
-//draw_text_outline(x+72,78,global.str[40],c_white,c_black,1);
-draw_text_outline(x+248,49,global.str[42],c_white,c_black,1);
-draw_text_outline(x+248,110,global.str[43],c_white,c_black,1);
-
-draw_text_outline(x+72,155,"[□]",c_white,c_black,1);
-draw_text_outline(x+248,155,"[X]",c_white,c_black,1);
-draw_text_outline(x+160,200,"[○] "+global.str[44],c_white,c_black,1);
+draw_set_valign(fa_top);
+draw_set_halign(fa_right);
+draw_text_outline(x+144,16,"BEGINNER SWEEPER",c_white,c_black,1);
+draw_text_outline(x+144,80,"VETERAN SWEEPER",c_white,c_black,1);
+draw_set_halign(fa_left);
+draw_text_outline(x+16,48,"NOVICE SWEEPER",c_white,c_black,1);
+draw_set_halign(fa_middle);
+draw_text_outline(x+80,112,"EXPERT SWEEPER",c_white,c_black,1);
+draw_set_valign(fa_center);
+draw_text_outline(x+248,200,"[X] TO START",c_white,c_black,1);
 </string>
           </argument>
         </arguments>

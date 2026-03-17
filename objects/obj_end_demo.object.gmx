@@ -123,8 +123,8 @@ alarm[5]=0.836*global.FSP;
 var tmp=instance_create(0,0,obj_end_text1);
 var tmp_data=ds_list_find_value(time,data_count);
 tmp.count=data_count;
-tmp.data=tmp_data;
-tmp.strings=txt1[data_count]+": "+string(tmp_data)+global.str[70];
+tmp.data=tmp_data/100;
+tmp.strings=txt1[data_count]+": "+string(tmp_data/100)+global.str[70];
 data_count++;
 alarm[4]=0.418*global.FSP;
 </string>

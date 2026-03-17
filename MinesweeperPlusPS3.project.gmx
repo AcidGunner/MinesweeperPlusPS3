@@ -366,6 +366,7 @@
       </sprites>
       <sprites name="menu">
         <sprite>sprites\spr_main_menu</sprite>
+        <sprite>sprites\spr_difficulty</sprite>
       </sprites>
       <sprites name="title">
         <sprite>sprites\spr_title</sprite>
@@ -492,7 +493,9 @@
     <script>scripts\init_globals_mus.gml</script>
     <script>scripts\initial_setup.gml</script>
     <script>scripts\strings_set.gml</script>
+    <script>scripts\setup_field.gml</script>
     <script>scripts\ver_show.gml</script>
+    <script>scripts\temp_script.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main</font>
@@ -543,6 +546,7 @@
       <objects name="MainMenu">
         <object>objects\obj_menu_bg</object>
         <object>objects\obj_main_menu</object>
+        <object>objects\obj_menu_adventure</object>
       </objects>
       <objects name="GameMap">
         <object>objects\obj_map_bg</object>
