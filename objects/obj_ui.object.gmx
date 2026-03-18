@@ -92,10 +92,10 @@ if global.stage==910
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.gridw[9]=11 time_left=199
-else if global.gridw[9]=13 time_left=179
-else if global.gridw[9]=17 time_left=149
-else if global.gridw[9]=19 time_left=119;
+            <string>if global.difficulty=0 time_left=199
+else if global.difficulty=1 time_left=179
+else if global.difficulty=2 time_left=149
+else if global.difficulty=3 time_left=119;
 
 red_ui=merge_colour(c_red,c_white,0.5);
 if obj_game.cirno9=true

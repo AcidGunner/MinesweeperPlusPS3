@@ -135,8 +135,17 @@ if select=0
     if obj_input.a
     {
         select=1;
-        type=1;
-        obj_menu_adventure.alarm[1]=5;
+        if global.stage&gt;1
+        {
+            var _question = show_question("Would you like to start a new game?")
+            if !_question
+            {
+                start_game();
+                exit;
+            }
+            type=1;
+            obj_menu_adventure.alarm[1]=5;
+        }
     }
     if obj_input.c
     {

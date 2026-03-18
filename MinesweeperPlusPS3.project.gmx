@@ -342,6 +342,7 @@
           <sprite>sprites\spr_smiley86</sprite>
           <sprite>sprites\spr_smiley_vs</sprite>
           <sprite>sprites\spr_smiley_alien</sprite>
+          <sprite>sprites\spr_murasa1</sprite>
         </sprites>
       </sprites>
       <sprites name="hats">
@@ -404,68 +405,73 @@
       <script>scripts\draw_grid.gml</script>
       <script>scripts\spiral_setup.gml</script>
     </scripts>
-    <scripts name="logo">
-      <script>scripts\showLogo.gml</script>
-    </scripts>
-    <scripts name="badapple">
-      <script>scripts\badapple_0.gml</script>
-      <script>scripts\badapple_1.gml</script>
-      <script>scripts\badapple_2.gml</script>
-      <script>scripts\badapple_3.gml</script>
-      <script>scripts\badapple_4.gml</script>
-      <script>scripts\badapple_5.gml</script>
-      <script>scripts\badapple_6.gml</script>
-      <script>scripts\badapple_7.gml</script>
-      <script>scripts\badapple_8.gml</script>
-      <script>scripts\badapple_9.gml</script>
-      <script>scripts\badapple_10.gml</script>
-      <script>scripts\badapple_11.gml</script>
-      <script>scripts\badapple_12.gml</script>
-      <script>scripts\badapple_13.gml</script>
-      <script>scripts\badapple_14.gml</script>
-      <script>scripts\badapple_15.gml</script>
-      <script>scripts\badapple_16.gml</script>
-      <script>scripts\badapple_17.gml</script>
-      <script>scripts\badapple_18.gml</script>
-      <script>scripts\badapple_19.gml</script>
-      <script>scripts\badapple_20.gml</script>
-      <script>scripts\badapple_21.gml</script>
-      <script>scripts\badapple_22.gml</script>
-      <script>scripts\badapple_23.gml</script>
-      <script>scripts\badapple_24.gml</script>
-      <script>scripts\badapple_25.gml</script>
-      <script>scripts\badapple_26.gml</script>
-      <script>scripts\badapple_27.gml</script>
-      <script>scripts\badapple_28.gml</script>
-      <script>scripts\badapple_29.gml</script>
-      <script>scripts\badapple_30.gml</script>
-      <script>scripts\badapple_31.gml</script>
-      <script>scripts\badapple_32.gml</script>
-    </scripts>
-    <scripts name="easteregz">
-      <script>scripts\secret_script_p1.gml</script>
-      <script>scripts\secret_script_p2.gml</script>
-      <script>scripts\secret_script_2_p1.gml</script>
-      <script>scripts\secret_script_2_p2.gml</script>
-    </scripts>
     <scripts name="hidden">
-      <script>scripts\audio_loop_sound.gml</script>
-      <script>scripts\draw_text_outline.gml</script>
-      <script>scripts\gamepad_button_check_pressed_any.gml</script>
-      <script>scripts\bad_apple_initialize.gml</script>
-      <script>scripts\message_set.gml</script>
-      <script>scripts\ask_10.gml</script>
-      <script>scripts\do_bad_apple.gml</script>
-      <script>scripts\detect_console.gml</script>
-      <script>scripts\check_debug.gml</script>
-      <script>scripts\you_won_sfx.gml</script>
-      <script>scripts\main_input_test.gml</script>
-      <script>scripts\let_me_out.gml</script>
-      <script>scripts\draw_grid_map.gml</script>
-      <script>scripts\draw_triangle_1.gml</script>
-      <script>scripts\draw_triangle_2.gml</script>
-      <script>scripts\draw_triangle_3.gml</script>
-      <script>scripts\time_set.gml</script>
+      <scripts name="easteregz">
+        <scripts name="badapple">
+          <script>scripts\badapple_0.gml</script>
+          <script>scripts\badapple_1.gml</script>
+          <script>scripts\badapple_2.gml</script>
+          <script>scripts\badapple_3.gml</script>
+          <script>scripts\badapple_4.gml</script>
+          <script>scripts\badapple_5.gml</script>
+          <script>scripts\badapple_6.gml</script>
+          <script>scripts\badapple_7.gml</script>
+          <script>scripts\badapple_8.gml</script>
+          <script>scripts\badapple_9.gml</script>
+          <script>scripts\badapple_10.gml</script>
+          <script>scripts\badapple_11.gml</script>
+          <script>scripts\badapple_12.gml</script>
+          <script>scripts\badapple_13.gml</script>
+          <script>scripts\badapple_14.gml</script>
+          <script>scripts\badapple_15.gml</script>
+          <script>scripts\badapple_16.gml</script>
+          <script>scripts\badapple_17.gml</script>
+          <script>scripts\badapple_18.gml</script>
+          <script>scripts\badapple_19.gml</script>
+          <script>scripts\badapple_20.gml</script>
+          <script>scripts\badapple_21.gml</script>
+          <script>scripts\badapple_22.gml</script>
+          <script>scripts\badapple_23.gml</script>
+          <script>scripts\badapple_24.gml</script>
+          <script>scripts\badapple_25.gml</script>
+          <script>scripts\badapple_26.gml</script>
+          <script>scripts\badapple_27.gml</script>
+          <script>scripts\badapple_28.gml</script>
+          <script>scripts\badapple_29.gml</script>
+          <script>scripts\badapple_30.gml</script>
+          <script>scripts\badapple_31.gml</script>
+          <script>scripts\badapple_32.gml</script>
+        </scripts>
+        <script>scripts\secret_script_p1.gml</script>
+        <script>scripts\secret_script_p2.gml</script>
+        <script>scripts\secret_script_2_p1.gml</script>
+        <script>scripts\secret_script_2_p2.gml</script>
+      </scripts>
+      <scripts name="debug">
+        <script>scripts\audio_loop_sound.gml</script>
+        <script>scripts\gamepad_button_check_pressed_any.gml</script>
+        <script>scripts\bad_apple_initialize.gml</script>
+        <script>scripts\message_set.gml</script>
+        <script>scripts\do_bad_apple.gml</script>
+        <script>scripts\detect_console.gml</script>
+        <script>scripts\check_debug.gml</script>
+        <script>scripts\main_input_test.gml</script>
+        <script>scripts\ask_10.gml</script>
+      </scripts>
+      <scripts name="draw">
+        <script>scripts\draw_text_outline.gml</script>
+        <script>scripts\draw_grid_map.gml</script>
+        <script>scripts\draw_triangle_1.gml</script>
+        <script>scripts\draw_triangle_2.gml</script>
+        <script>scripts\draw_triangle_3.gml</script>
+      </scripts>
+      <scripts name="other">
+        <script>scripts\you_won_sfx.gml</script>
+        <script>scripts\let_me_out.gml</script>
+        <script>scripts\time_set.gml</script>
+        <script>scripts\start_game.gml</script>
+        <script>scripts\showLogo.gml</script>
+      </scripts>
     </scripts>
     <scripts name="saving">
       <script>scripts\save_game.gml</script>
@@ -490,11 +496,13 @@
         <script>scripts\zoom_update_2p.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\init_globals_mus.gml</script>
-    <script>scripts\initial_setup.gml</script>
-    <script>scripts\strings_set.gml</script>
-    <script>scripts\setup_field.gml</script>
-    <script>scripts\ver_show.gml</script>
+    <scripts name="important">
+      <script>scripts\initial_setup.gml</script>
+      <script>scripts\init_globals_mus.gml</script>
+      <script>scripts\strings_set.gml</script>
+      <script>scripts\setup_field.gml</script>
+      <script>scripts\ver_show.gml</script>
+    </scripts>
     <script>scripts\temp_script.gml</script>
   </scripts>
   <fonts name="fonts">

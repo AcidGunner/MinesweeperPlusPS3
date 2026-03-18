@@ -27,15 +27,4 @@ And since then I cannot work onto the 11 bossfight. It's neither my or Jorel's f
 \
 Thanks for understanding.
 
-# Credits
-* Jorel Simpson - Original Game & FLPs
-* LokiThePlug - Nuclear Ten Idea
-* Pren3k - Frozen Nine Mechanics
-* Asdf - Versus Mode Concept
-* Zeltizy - XMB Background Art
-* EnergyPumpkin - Original 9 Boss music
-* Fakharmel - French Translation
-* ERRORwhately - aPS3e tester/debugger
-* GameMaker Studio 1.4.9999 - Used game engine
-* [GayMaker PS3](https://github.com/LiEnby/GayMaker-PS3) - Used PS3 exporter
-* And you! - Supporting this port <3
+# [Credits](CREDITS.md)

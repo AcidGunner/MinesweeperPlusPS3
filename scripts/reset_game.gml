@@ -5,10 +5,13 @@ global.config=global.the_config;
 global.hat_type=1;
 global._music_type=0;
 global.type_input=1;
+global.difficulty=1;
 global.menu_t=1;
 global.lang=0;
 global.foughtcirno=0;
 global.foughtutsuho=0;
+global.episode=1;
+global.route=0;
 lives=3;
 
 //only then save!

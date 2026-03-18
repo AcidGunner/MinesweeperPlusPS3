@@ -128,7 +128,10 @@ draw_set_colour(c_dkgray);
 draw_rectangle(30,y-90,290,y+90,false);
 draw_set_colour(c_white);
 draw_text_ext(160,y,global.str[8]+"#
-Jorel Simpson, LokiThePlug, Pren3k, Asdf, Zeltizy, EnergyPumpkin, Fakharmel, "+global.str[25]+"# #"+global.str[16],-1,240);
+https://github.com/AcidGunner/
+MinesweeperPlusPS3/blob/main/CREDITS.md/
+
+"+global.str[16],-1,240);
 </string>
           </argument>
         </arguments>

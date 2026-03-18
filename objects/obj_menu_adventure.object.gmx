@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>select=1;
-difficulty=0;
 temp_x=x;
 color=c_white;
 </string>
@@ -102,13 +101,8 @@ room_goto(rm_map);
 {
     if obj_input.a
     {
-        global.menu_t=obj_main_menu.menu_music;
         select=1;
-        audio_stop_all();
-        audio_play_sound(sfx_game_start,0,false);
-        setup_field(difficulty);
-        save_game();
-        alarm[0]=60;
+        start_game();
     }
     if obj_input.bl
     {
@@ -116,8 +110,8 @@ room_goto(rm_map);
         obj_main_menu.type=0;
         obj_main_menu.select=0;
     }
-    if obj_input.upp &amp;&amp; difficulty&gt;0 difficulty--;
-    if obj_input.dow &amp;&amp; difficulty&lt;3 difficulty++;
+    if obj_input.upp &amp;&amp; global.difficulty&gt;0 global.difficulty--;
+    if obj_input.dow &amp;&amp; global.difficulty&lt;3 global.difficulty++;
 }
 
 if select=1 &amp;&amp; obj_main_menu.type!=1 temp_x=320 else temp_x=0;
@@ -147,7 +141,7 @@ x=lerp(x,temp_x,0.1);
             <string>draw_set_alpha(1);
 for (var i=0; i&lt;4; i++)
 {
-    if i!=difficulty color=c_gray else color=c_white;
+    if i!=global.difficulty color=c_gray else color=c_white;
     draw_sprite_ext(spr_difficulty,i,x+16,16+(i*32),0.25,0.25,0,color,1);
     draw_set_alpha(0.5);
     draw_set_colour(c_black);
