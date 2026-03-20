@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-600</depth>
-  <persistent>-1</persistent>
+  <depth>0</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,7 +25,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fps_show=1;
+            <string>select=1;
+temp_y=y;
+type=0;
+option=0;
+option_1_max=1;
+option_1=c_white;
+option_2=c_white;
+option_3=c_white;
+
+option_1_list[0]="Main";
+option_1_list[1]="Touhou";
+if global.unlocked
+{
+    option_1_list[2]="???";
+    option_1_max=2;
+}
+
+option_2_list[0]="Episode One";
+option_2_list[1]="Episode Two (Unavailable!)";
+
+option_3_list[0]="Normal";
+option_3_list[1]="Casual";
 </string>
           </argument>
         </arguments>
@@ -48,83 +69,46 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Handle anything
-if os_type!=os_ps3 scheduler_resolution_set(1);
-room_speed=global.FSP;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>display_set_gui_size(320,240);
-if instance_exists(obj_ui) &amp;&amp; obj_ui.test_rect=1
+            <string>if select=0
 {
-    draw_set_alpha(0.2);
-    draw_set_colour(c_aqua);
-    draw_rectangle(0,0,640,360,false);
-    draw_set_colour(c_white);
-    draw_set_alpha(1);
-}
-if global.debug==1 &amp;&amp; fps_show
-{
-    draw_set_valign(fa_top);
-    draw_set_halign(fa_left);
-    draw_set_font(fnt_smol);
-    draw_text_outline(2,220,string(fps),c_red,c_black,1);
-    draw_set_colour(c_white);
+    if obj_input.bl
+    {
+        select=1;
+        obj_menu_adventure.type=0;
+        obj_menu_adventure.select=0;
+    }
+    if obj_input.upp &amp;&amp; option&gt;0 option--;
+    if obj_input.dow &amp;&amp; option&lt;2 option++;
+    if obj_input.lef
+    {
+        if option=0 &amp;&amp; global.route&gt;0 global.route--;
+        if option=1 &amp;&amp; global.episode&gt;1 global.episode--;
+        if option=2 &amp;&amp; global.gamemode&gt;0 global.gamemode--;
+    }
+    if obj_input.rig
+    {
+        if option=0 &amp;&amp; global.route&lt;option_1_max global.route++;
+        if option=1 &amp;&amp; global.episode&lt;2 global.episode++;
+        if option=2 &amp;&amp; global.gamemode&lt;1 global.gamemode++;
+    }
 }
 
-if global.invert
+switch option
 {
-    draw_set_blend_mode_ext(bm_inv_dest_color,bm_zero);
-    draw_rectangle(-100,-100,420,340,false);
-    draw_set_blend_mode(bm_normal);
+    case 0: option_1=c_red; option_2=c_white; option_3=c_white; break;
+    case 1: option_1=c_white; option_2=c_red; option_3=c_white; break;
+    case 2: option_1=c_white; option_2=c_white; option_3=c_red; break;
 }
+
+if select=1 temp_y=-240; else temp_y=0;
+x=obj_menu_adventure.x;
+y=lerp(y,temp_y,0.1);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="115">
-      <action>
-        <libid>1</libid>
-        <id>531</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_fullscreen</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="112">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -141,7 +125,15 @@ if global.invert
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fps_show=!fps_show;
+            <string>draw_set_font(fnt_smoler);
+draw_set_halign(fa_middle);
+draw_set_valign(fa_top);
+draw_text_outline(x+160,y+2,"Game Settings",c_white,c_black,1);
+
+draw_text_outline(x+160,y+40,"Current Route:#"+option_1_list[global.route],option_1,c_black,1);
+draw_text_outline(x+160,y+100,"Current Episode:#"+option_2_list[global.episode-1],option_2,c_black,1);
+draw_text_outline(x+160,y+160,"Current GameMode:#"+option_3_list[global.gamemode],option_3,c_black,1);
+draw_text_outline(x+160,y+220,"[○] to go Back",c_white,c_black,1);
 </string>
           </argument>
         </arguments>

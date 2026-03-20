@@ -39,6 +39,7 @@ final_time="";
 if global.stage==910
 {
     time_left=99;
+    rand_time=1;
     red_ui=merge_colour(c_red,c_white,0.5);
     if obj_game.cirno9=true
     {
@@ -323,17 +324,28 @@ if obj_game.win
                 room_goto(rm_boo);
                 break;
             }
+            case 0:
+            {
+                global.stage=global.temp_stage;
+                lives=global.temp_lives;
+                global.temp_stage=0;
+                global.temp_lives=0;
+                save_game();
+                room_goto(rm_menu);
+                break;
+            }
             default:
             {
                 global.stage++;
                 switch global.stage
                 {
                     case 9: if obj_input.c_held global.foughtcirno=1; break;
-                    case 10: if obj_input.c_held global.foughtutsuho=1; ask_10(); break;
+                    case 10: if obj_input.c_held {global.foughtutsuho=1;} ask_10(); break;
                 }
                 ini_open("msplus-ps3-save.ini");
                 ini_write_string("save","current_time",ds_list_write(obj_chap1_data.time));
                 ini_close();
+                if global.gamemode==1 lives=3;
                 save_game();
                 if global.stage&lt;11 room_goto(rm_map)
                 else

@@ -7,6 +7,8 @@ ini_write_real("save","hat",global.hat_type);
 ini_write_real("save","lives",lives);
 ini_write_real("save","difficulty",global.difficulty);
 ini_write_real("save","episode",global.episode);
+ini_write_real("save","gamemode",global.gamemode);
+ini_write_real("save","mastermode",global.mastermode);
 ini_write_real("save","route",global.route);
 ini_write_real("settings","input",global.type_input);
 ini_write_real("settings","music",global._music_type);

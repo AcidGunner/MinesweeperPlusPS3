@@ -480,13 +480,13 @@ if obj_game.win == false
             case 86: sprite_index = spr_smiley86; break;
             case 9: sprite_index = spr_smiley5; break;
             case 10: sprite_index = spr_smiley6; break;
-            default: switch obj_game.temp_111
+            default: switch global.smiley_face
             {
-                case 1: sprite_index = spr_smiley1; break;
-                case 2: sprite_index = spr_smiley2; break;
-                case 3: sprite_index = spr_smiley3; break;
-                case 4: sprite_index = spr_smiley4; break;
-                case 5: sprite_index = spr_smiley5; break;
+                case 0: sprite_index = spr_smiley1; break;
+                case 1: sprite_index = spr_smiley2; break;
+                case 2: sprite_index = spr_smiley3; break;
+                case 3: sprite_index = spr_smiley4; break;
+                case 4: sprite_index = spr_smiley5; break;
             };
         }
         

@@ -4,6 +4,11 @@ global.debug=1;
 bad_apple_initialize();
 randomize();
 global.CONTROL=1;
+global.invert=0;
+global.temp_stage=0;
+global.temp_lives=0;
+global.smiley_face=0;
+global.bg_music=0;
 if os_type==os_windows && !gamepad_is_connected(0) global.CONTROL=0;
 
 load_game();

@@ -30,6 +30,8 @@ prev_music = 1;
 alarm[0]=1;
 x=0;
 instance_create(320,0,obj_menu_adventure);
+instance_create(0,-240,obj_menu_adventure_settings);
+instance_create(-320,0,obj_menu_freeplay);
 
 select=0;
 temp_x=0;
@@ -143,14 +145,15 @@ if select=0
                 start_game();
                 exit;
             }
-            type=1;
-            obj_menu_adventure.alarm[1]=5;
         }
+        type=1;
+        obj_menu_adventure.alarm[1]=5;
     }
     if obj_input.c
     {
         select=1;
         type=2;
+        obj_menu_freeplay.alarm[1]=5;
     }
     if obj_input.bl
     {

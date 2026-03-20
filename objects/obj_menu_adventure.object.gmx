@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>select=1;
 temp_x=x;
+temp_y=y;
+type=0;
 color=c_white;
 </string>
           </argument>
@@ -102,7 +104,14 @@ room_goto(rm_map);
     if obj_input.a
     {
         select=1;
+        global.stage=1;
         start_game();
+    }
+    if obj_input.select
+    {
+        select=1;
+        type=1;
+        obj_menu_adventure_settings.select=0;
     }
     if obj_input.bl
     {
@@ -115,7 +124,9 @@ room_goto(rm_map);
 }
 
 if select=1 &amp;&amp; obj_main_menu.type!=1 temp_x=320 else temp_x=0;
+if select=1 &amp;&amp; type!=0 temp_y=240; else temp_y=0;
 x=lerp(x,temp_x,0.1);
+y=lerp(y,temp_y,0.1);
 </string>
           </argument>
         </arguments>
@@ -142,10 +153,10 @@ x=lerp(x,temp_x,0.1);
 for (var i=0; i&lt;4; i++)
 {
     if i!=global.difficulty color=c_gray else color=c_white;
-    draw_sprite_ext(spr_difficulty,i,x+16,16+(i*32),0.25,0.25,0,color,1);
+    draw_sprite_ext(spr_difficulty,i,x+16,y+16+(i*32),0.25,0.25,0,color,1);
     draw_set_alpha(0.5);
     draw_set_colour(c_black);
-    draw_rectangle(x+192,24+(i*32),x+288,40+(i*32),false);
+    draw_rectangle(x+192,y+24+(i*32),x+288,y+40+(i*32),false);
     draw_set_alpha(1);
 }
 
@@ -153,14 +164,15 @@ draw_set_color(c_black);
 draw_set_font(fnt_smoler);
 draw_set_valign(fa_top);
 draw_set_halign(fa_right);
-draw_text_outline(x+144,16,"BEGINNER SWEEPER",c_white,c_black,1);
-draw_text_outline(x+144,80,"VETERAN SWEEPER",c_white,c_black,1);
+draw_text_outline(x+144,y+16,"BEGINNER SWEEPER",c_white,c_black,1);
+draw_text_outline(x+144,y+80,"VETERAN SWEEPER",c_white,c_black,1);
 draw_set_halign(fa_left);
-draw_text_outline(x+16,48,"NOVICE SWEEPER",c_white,c_black,1);
+draw_text_outline(x+16,y+48,"NOVICE SWEEPER",c_white,c_black,1);
 draw_set_halign(fa_middle);
-draw_text_outline(x+80,112,"EXPERT SWEEPER",c_white,c_black,1);
+draw_text_outline(x+80,y+112,"EXPERT SWEEPER",c_white,c_black,1);
 draw_set_valign(fa_center);
-draw_text_outline(x+248,200,"[X] TO START",c_white,c_black,1);
+draw_text_outline(x+248,y+200,"[X] to Start",c_white,c_black,1);
+draw_text_outline(x+160,y+8,"[SELECT] for Game Settings",c_white,c_black,1);
 </string>
           </argument>
         </arguments>

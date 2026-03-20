@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-600</depth>
-  <persistent>-1</persistent>
+  <depth>0</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,7 +25,54 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fps_show=1;
+            <string>select=1;
+temp_x=x;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>select=0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_game);
 </string>
           </argument>
         </arguments>
@@ -48,83 +95,41 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Handle anything
-if os_type!=os_ps3 scheduler_resolution_set(1);
-room_speed=global.FSP;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>display_set_gui_size(320,240);
-if instance_exists(obj_ui) &amp;&amp; obj_ui.test_rect=1
+            <string>if select=0
 {
-    draw_set_alpha(0.2);
-    draw_set_colour(c_aqua);
-    draw_rectangle(0,0,640,360,false);
-    draw_set_colour(c_white);
-    draw_set_alpha(1);
-}
-if global.debug==1 &amp;&amp; fps_show
-{
-    draw_set_valign(fa_top);
-    draw_set_halign(fa_left);
-    draw_set_font(fnt_smol);
-    draw_text_outline(2,220,string(fps),c_red,c_black,1);
-    draw_set_colour(c_white);
+    if obj_input.a
+    {
+        select=1;
+        global.menu_t=obj_main_menu.menu_music;
+        audio_stop_all();
+        audio_play_sound(sfx_game_start,0,false);
+        save_game();
+        global.temp_stage=global.stage;
+        global.temp_lives=lives;
+        global.stage=0;
+        global.smiley_face=3;
+        global.bg_music=0;
+        global.gridw[0]=9;
+        global.gridh[0]=9;
+        global.minec[0]=10;
+        alarm[0]=60;
+    }
+    if obj_input.bl
+    {
+        select=1;
+        obj_main_menu.type=0;
+        obj_main_menu.select=0;
+    }
 }
 
-if global.invert
-{
-    draw_set_blend_mode_ext(bm_inv_dest_color,bm_zero);
-    draw_rectangle(-100,-100,420,340,false);
-    draw_set_blend_mode(bm_normal);
-}
+if select=1 &amp;&amp; obj_main_menu.type!=2 temp_x=-320 else temp_x=0;
+x=lerp(x,temp_x,0.1);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="115">
-      <action>
-        <libid>1</libid>
-        <id>531</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_fullscreen</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="112">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -141,7 +146,10 @@ if global.invert
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fps_show=!fps_show;
+            <string>draw_set_font(fnt_smoler);
+draw_set_valign(fa_top);
+draw_set_halign(fa_middle);
+draw_text_outline(x+160,y+200,"[X] to Start",c_white,c_black,1);
 </string>
           </argument>
         </arguments>
