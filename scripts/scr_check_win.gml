@@ -31,7 +31,7 @@ if (revealed_total >= (grid_w * grid_h) - mine_count)
         }
     }
     
-    if temp_111==9
+    if temp_111==9 && type!="single"
     {
         if type=="player1" obj_9_1p.alarm[6]=1
         else obj_9_2p.alarm[6]=1;

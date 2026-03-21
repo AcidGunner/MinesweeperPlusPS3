@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>menu_music = global.menu_t;
+            <string>menu_music = global.bg_music;
 prev_music = 1;
+obj_menu_bg.sprite_index=obj_menu_bg.list[global.menu_t-1];
 alarm[0]=1;
 x=0;
 instance_create(320,0,obj_menu_adventure);
@@ -96,8 +97,6 @@ audio_stop_sound(global._music[p_menu_music]);
 audio_loop_sound(global._music[t_menu_music],global._st[13],global._en[13],44100,0);
 if _snd!=0 audio_sound_set_track_position(obj_audio_loop_sound._audio,_snd);
 prev_music = menu_music;
-
-obj_menu_bg.sprite_index=obj_menu_bg.list[menu_music-1];
 </string>
           </argument>
         </arguments>
@@ -120,19 +119,7 @@ obj_menu_bg.sprite_index=obj_menu_bg.list[menu_music-1];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if obj_input.l2
-{
-    menu_music--
-    if menu_music&lt;1 menu_music=1;
-    if menu_music!=prev_music alarm[0]=1;
-}
-if obj_input.r2
-{
-    menu_music++
-    if menu_music&gt;10 menu_music=10;
-    if menu_music!=prev_music alarm[0]=1;
-}
-if select=0
+            <string>if select=0
 {
     if obj_input.a
     {

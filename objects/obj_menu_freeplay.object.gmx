@@ -27,6 +27,13 @@
             <kind>1</kind>
             <string>select=1;
 temp_x=x;
+sprite=0;
+hat=0;
+the_y=0;
+
+grid_w=9;
+grid_h=9;
+grid_m=10;
 </string>
           </argument>
         </arguments>
@@ -97,21 +104,54 @@ temp_x=x;
             <kind>1</kind>
             <string>if select=0
 {
+    if obj_input.l2
+    {
+        global.menu_t--
+        if global.menu_t&lt;1 global.menu_t=1;
+        obj_menu_bg.sprite_index=obj_menu_bg.list[global.menu_t-1];
+    }
+    if obj_input.r2
+    {
+        global.menu_t++
+        if global.menu_t&gt;10 global.menu_t=10;
+        obj_menu_bg.sprite_index=obj_menu_bg.list[global.menu_t-1];
+    }
+    if obj_input.l1
+    {
+        obj_main_menu.menu_music--
+        if obj_main_menu.menu_music&lt;1 obj_main_menu.menu_music=1;
+        if obj_main_menu.menu_music!=obj_main_menu.prev_music obj_main_menu.alarm[0]=1;
+    }
+    if obj_input.r1
+    {
+        obj_main_menu.menu_music++
+        if obj_main_menu.menu_music&gt;10 obj_main_menu.menu_music=10;
+        if obj_main_menu.menu_music!=obj_main_menu.prev_music obj_main_menu.alarm[0]=1;
+    }
     if obj_input.a
     {
         select=1;
-        global.menu_t=obj_main_menu.menu_music;
         audio_stop_all();
         audio_play_sound(sfx_game_start,0,false);
+        global.bg_music=obj_main_menu.menu_music;
+        global.smiley_face=3;
         save_game();
         global.temp_stage=global.stage;
         global.temp_lives=lives;
         global.stage=0;
-        global.smiley_face=3;
-        global.bg_music=0;
-        global.gridw[0]=9;
-        global.gridh[0]=9;
-        global.minec[0]=10;
+        lives=3;
+        
+        if grid_w&lt;3 grid_w=3;
+        if grid_h&lt;3 grid_h=3;
+        if grid_m&lt;3 grid_m=3;
+        
+        if grid_w&gt;48 grid_w=48;
+        if grid_h&gt;32 grid_h=32;
+        if grid_m&gt;1000 grid_m=1000;
+        
+        global.gridw[0]=grid_w;
+        global.gridh[0]=grid_h;
+        global.minec[0]=grid_m;
         alarm[0]=60;
     }
     if obj_input.bl
@@ -119,6 +159,12 @@ temp_x=x;
         select=1;
         obj_main_menu.type=0;
         obj_main_menu.select=0;
+    }
+    if obj_input.c
+    {
+        grid_w=get_integer("Set grid width",9);
+        grid_h=get_integer("Set grid height",9);
+        grid_m=get_integer("Set mine count",10);
     }
 }
 
@@ -150,6 +196,62 @@ x=lerp(x,temp_x,0.1);
 draw_set_valign(fa_top);
 draw_set_halign(fa_middle);
 draw_text_outline(x+160,y+200,"[X] to Start",c_white,c_black,1);
+draw_text_outline(x+160,y+70,"[L1/R1] to Change Music",c_white,c_black,1);
+draw_text_outline(x+160,y+90,"[L2/R2] to Change Background",c_white,c_black,1);
+draw_text_outline(x+160,y+150,"[□] to Setup",c_white,c_black,1);
+draw_text_outline(x+160,y+170,"W: "+string(grid_w)+"; H: "+string(grid_h)+"; M: "+string(grid_m)+";",c_white,c_black,1);
+draw_sprite_stretched(spr_ui3,0,x+136,20,48,48);
+
+if global.route=0
+{
+    spr_smiley_1=spr_smiley1;
+    spr_smiley_2=spr_smiley2;
+    spr_smiley_3=spr_smiley3;
+    spr_smiley_4=spr_smiley4;
+    spr_smiley_5=spr_smiley5;
+    spr_smiley_6=spr_smiley6;
+    spr_smiley_86=spr_smiley86;
+}
+else if global.route=1
+{
+    spr_smiley_1=spr_murasa1;
+    spr_smiley_2=spr_smiley2;
+    spr_smiley_3=spr_smiley3;
+    spr_smiley_4=spr_smiley4;
+    spr_smiley_5=spr_smiley5;
+    spr_smiley_6=spr_smiley6;
+    spr_smiley_86=spr_smiley86;
+}
+
+switch global.smiley_face
+{
+    case 0: sprite = spr_smiley_1 break;
+    case 1: sprite = spr_smiley_2 break;
+    case 2: sprite = spr_smiley_3 break;
+    case 3: sprite = spr_smiley_4 break;
+    case 4: sprite = spr_smiley_5 break;
+    case 5: sprite = spr_smiley_6 break;
+}
+
+switch global.hat_type
+{
+    case 0: hat = -1; break;
+    case 1: hat = spr_hat1; break;
+    case 2: hat = spr_hat2; break;
+    case 3: hat = spr_hat3; break;
+    case 4: hat = spr_hat4; break;
+    case 5: hat = spr_hat5; break;
+    case 6: hat = spr_hat6; break;
+    case 7: hat = spr_hat7; break;
+}
+
+draw_sprite(sprite,0,x+160,44+the_y);
+if hat!=0
+{
+    draw_sprite(hat,0,x+160,44);
+    the_y=2;
+}
+else the_y=0;
 </string>
           </argument>
         </arguments>

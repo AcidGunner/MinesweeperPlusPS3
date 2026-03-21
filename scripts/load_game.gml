@@ -12,6 +12,7 @@ global.mastermode=ini_read_real("save","mastermode",0);
 global.type_input=ini_read_real("settings","input",1);
 global._music_type=ini_read_real("settings","music",0);
 global.menu_t=ini_read_real("settings","menu",1);
+global.bg_music=ini_read_real("settings","bg_music",1);
 global.lang=ini_read_real("settings","lang",0);
 global.foughtcirno=ini_read_real("secret","boss9_secret",0);
 global.foughtutsuho=ini_read_real("secret","boss10_secret",0);

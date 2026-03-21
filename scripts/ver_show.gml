@@ -1,2 +1,2 @@
 ///ver_show();
-return "vUNKNOWN";
+return "v0.3 Pre-Alpha";

@@ -339,15 +339,15 @@ if obj_game.win
                 global.stage++;
                 switch global.stage
                 {
-                    case 9: if obj_input.c_held global.foughtcirno=1; break;
-                    case 10: if obj_input.c_held {global.foughtutsuho=1;} ask_10(); break;
+                    case 9: if global.route=1 global.foughtcirno=1; break;
+                    case 10: if global.route=1 {global.foughtutsuho=1;} ask_10(); break;
                 }
                 ini_open("msplus-ps3-save.ini");
                 ini_write_string("save","current_time",ds_list_write(obj_chap1_data.time));
                 ini_close();
                 if global.gamemode==1 lives=3;
                 save_game();
-                if global.stage&lt;11 room_goto(rm_map)
+                if global.stage&lt;11 &amp;&amp; global.episode!=1 room_goto(rm_map)
                 else
                 {
                     global.stage=1;

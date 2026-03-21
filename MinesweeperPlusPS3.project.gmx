@@ -66,9 +66,6 @@
           <sound>sound\mus_menu_10</sound>
           <sound>sound\mus_menu_10r</sound>
         </sounds>
-        <sounds name="menu_placeholder">
-          <sound>sound\mus_menu_placeholder</sound>
-        </sounds>
       </sounds>
       <sounds name="chapter1">
         <sounds name="mus_stage1">
@@ -175,6 +172,7 @@
             <sound>sound\mus_versus9</sound>
           </sounds>
         </sounds>
+        <sound>sound\mus_menu_placeholder</sound>
         <sound>sound\mus_unknown</sound>
         <sound>sound\mus_thorn</sound>
       </sounds>
@@ -397,6 +395,7 @@
       <script>scripts\scr_mine_detected.gml</script>
       <script>scripts\scr_check_win.gml</script>
       <script>scripts\regenerate_grid.gml</script>
+      <script>scripts\grid_regen.gml</script>
       <script>scripts\check_input.gml</script>
       <script>scripts\checks_input.gml</script>
       <script>scripts\hold_highlight.gml</script>
@@ -404,6 +403,7 @@
       <script>scripts\set_circle_grid.gml</script>
       <script>scripts\draw_grid.gml</script>
       <script>scripts\spiral_setup.gml</script>
+      <script>scripts\number_grid_regen.gml</script>
     </scripts>
     <scripts name="hidden">
       <scripts name="easteregz">

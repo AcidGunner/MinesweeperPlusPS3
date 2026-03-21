@@ -9,6 +9,7 @@ global.difficulty=1;
 global.gamemode=0;
 global.mastermode=0;
 global.menu_t=1;
+global.bg_music=1;
 global.lang=0;
 global.foughtcirno=0;
 global.foughtutsuho=0;

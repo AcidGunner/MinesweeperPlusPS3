@@ -8,7 +8,6 @@
 * Fakharmel - French translation
 * ERRORwhately - aPS3e Tester/debugger
 * Team Shanghai Alice - Touhou stuff
-* Maratyla - Darken Challange idea
 * GameMaker Studio 1.4.9999 - Used Game engine
 * [GayMaker PS3](https://github.com/LiEnby/GayMaker-PS3) - Used PS3 exporter
 * And you! - Supporting this Port <3

@@ -115,8 +115,9 @@ if global.stage==910
 
 if global.stage=0
 {
-    temp_111=global.menu_t;
-    //audio_loop_sound(global._music[12],global._st[12],global._en[12],44100,0);
+    temp_123=global.bg_music;
+    temp_111=global.menu_t+1;
+    audio_loop_sound(global._music[temp_123],global._st[temp_123],global._en[temp_123],44100,0);
 }
 
 spr_bg=-1;
@@ -205,6 +206,9 @@ while (placed &lt; mine_count)
         placed += 1;
     }
 }
+
+temp_0 = global.stage;
+//number_grid_regen();
 
 alarm[4]=1;
 

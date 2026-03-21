@@ -11,6 +11,8 @@ global.smiley_face=0;
 global.bg_music=0;
 if os_type==os_windows && !gamepad_is_connected(0) global.CONTROL=0;
 
+//show_message(os_type);
+
 load_game();
 strings_set();
 message_set();

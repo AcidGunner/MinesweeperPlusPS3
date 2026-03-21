@@ -13,8 +13,7 @@ audio_stop_sound(global._music[26]);
 audio_stop_sound(global._music[27]);
 audio_stop_sound(global._music[29]);
 
-if type=="single"
-switch global.stage
+if type=="single" && global.stage!=0 switch global.stage
 {
     case 1: audio_play_sound(global.stage1_win,0,false); break;
     case 2: audio_play_sound(global.stage1_win,0,false); break;
@@ -24,6 +23,19 @@ switch global.stage
     case 6: audio_play_sound(global.stage3_win,0,false); break;
     case 7: audio_play_sound(global.stage4_win,0,false); break;
     case 8: audio_play_sound(global.stage4_win,0,false); break;
+}
+else if type=="single" && global.stage==0 switch global.bg_music
+{
+    case 1: audio_play_sound(global.stage1_win,0,false); break;
+    case 2: audio_play_sound(global.stage2_win,0,false); break;
+    case 3: audio_play_sound(global.stage3_win,0,false); break;
+    case 4: audio_play_sound(global.stage4_win,0,false); break;
+    //case 5: audio_play_sound(global.stage5_win,0,false); break;
+    //case 6: audio_play_sound(global.stage6_win,0,false); break;
+    //case 7: audio_play_sound(global.stage7_win,0,false); break;
+    //case 8: audio_play_sound(global.stage8_win,0,false); break;
+    case 9: audio_play_sound(global.stage9_win,0,false); break;
+    case 10: audio_play_sound(global.stage10_win,0,false); break;
 }
 else switch obj_game_1p.temp_111
 {
