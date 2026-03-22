@@ -8,7 +8,7 @@ As for PS3 Port you can download those versions:
 * [Demo Stable version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/ps3/minesweeperplusdemo.pkg?download=)
 
 # Project Status
-LATEST STABLE: v0.2.5
+LATEST STABLE: v0.2.5\
 LATEST NIGHTLY: v0.3-N-03.23
 
 # Documentation
