@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>image_speed=0;
 temp1=0;
+unlocked=0;
 
 hat_list[0] = -1;
 hat_list[1] = spr_hat1;
@@ -119,7 +120,8 @@ if obj_game.win == false
 }
 else
 {
-    image_index=4+obj_smiley.image_anim;
+    if unlocked==0 image_index=4+obj_smiley.image_anim
+    else image_index=0;
 }
 
 if obj_input.l2 &amp;&amp; global.hat_type&gt;0 global.hat_type--;

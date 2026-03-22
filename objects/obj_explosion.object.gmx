@@ -29,6 +29,7 @@
 audio_play_sound(sfx_explosion,2,false);
 title=0;
 kaboom=0;
+unlocked=0;
 if instance_exists(obj_ui)
 {
     obj_ui.shift=30;
@@ -127,8 +128,16 @@ if image_index&gt;=24
 
 if instance_exists(obj_game)
 {
-    image_xscale=obj_game.zoom;
-    image_yscale=obj_game.zoom;
+    if unlocked=0
+    {
+        image_xscale=obj_game.zoom;
+        image_yscale=obj_game.zoom;
+    }
+    else
+    {
+        image_xscale=10;
+        image_yscale=10;
+    }
 }
 else if title=1
 {

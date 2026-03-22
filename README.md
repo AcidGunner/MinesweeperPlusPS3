@@ -1,30 +1,16 @@
 ![Minesweeper Plus PS3 Port Banner](https://img.itch.zone/aW1nLzI1NTg5MjQ0LnBuZw==/original/33patO.png)
 ***[PLEASE PLAY THE ORIGINAL GAME FIRST!!](https://jorel-simpson.itch.io/minesweeper-plus)***\
-As for PS3 Port you can either download:
-* [v0.2.5 version (Latest)](https://github.com/AcidGunner/MinesweeperPlusPS3/releases/latest)
-* [v0.2 version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusv0-2.pkg?download=)
-* [v0.1.1F version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusv0-1-1f.pkg?download=)
-* [Demo version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/minesweeperplusdemo.pkg?download=)
+As for PS3 Port you can download those versions:
+* [Latest Nightly version](https://github.com/AcidGunner/MinesweeperPlusPS3/releases/latest)
+* [v0.2.5 Latest Stable version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/ps3/minesweeperplusv0-2-5.pkg?download=)
+* [v0.2 Stable version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/ps3/minesweeperplusv0-2.pkg?download=)
+* [v0.1.1F Stable version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/ps3/minesweeperplusv0-1-1f.pkg?download=)
+* [Demo Stable version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/ps3/minesweeperplusdemo.pkg?download=)
 
 # Project Status
-LATEST: v0.2.5
+LATEST STABLE: v0.2.5
+LATEST NIGHTLY: v0.3-N-03.23
 
-# Source Code Documentation
-Please read "non-gms-help.rtf" file for more info.
-
-# About the Port
-AI-generated code is only included as a base Minesweeper mechanics. Nothing else is AI-generated, so don't worry.\
-The PS3 Port includes several cool features, as remastered OST (OSTs are toggleable, so you can enjoy the original masterpiece), more hats and (upcoming) Local Versus mode.\
-As for now, you can change hats by pressing L2/R2, because the proper ui is not done yet..
-
-> [!NOTE]
-> * This port's engine is not the same, as the original's engine (Godot), so many features might be slightly different.
-> * This port is in early development stage, so many bugs and incomplete features may occur. Please wait patiently. ^_^
-
-# Some news for OG Game and PS3 Port
-The Minesweeper Plus (NOT PS3 PORT) Episode 3 is delayed again. I don't know if I can say the issue, so I'm not gonna say why. We all understand the issue and we just need to wait.\
-And since then I cannot work onto the 11 bossfight. It's neither my or Jorel's fault here. The time will show anything eventually.\
-\
-Thanks for understanding.
-
-# [Credits](CREDITS.md)
+# Documentation
+Please refer to this [Wiki page](https://github.com/AcidGunner/MinesweeperPlusPS3/wiki) for more information.\
+Also you might want to check the [Credits](CREDITS.md).

@@ -102,6 +102,20 @@
         </sounds>
         <sound>sound\mus_ocean</sound>
       </sounds>
+      <sounds name="chapter2">
+        <sounds name="mus_stage5">
+          <sound>sound\mus_stage5</sound>
+        </sounds>
+        <sounds name="mus_stage5_win">
+          <sound>sound\mus_stage5_win</sound>
+        </sounds>
+        <sounds name="mus_stage6">
+          <sound>sound\mus_stage6</sound>
+        </sounds>
+        <sounds name="mus_stage6_win">
+          <sound>sound\mus_stage6_win</sound>
+        </sounds>
+      </sounds>
       <sounds name="bosses">
         <sounds name="boss9">
           <sounds name="mus_stage9">
@@ -245,6 +259,7 @@
         <sound>sound\sfx_test</sound>
         <sound>sound\sound110</sound>
         <sound>sound\sound111</sound>
+        <sound>sound\sfx_weird</sound>
       </sounds>
       <sounds name="dabios">
         <sound>sound\boot1</sound>

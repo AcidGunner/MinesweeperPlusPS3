@@ -99,7 +99,7 @@ else if global.difficulty=2 time_left=149
 else if global.difficulty=3 time_left=119;
 
 red_ui=merge_colour(c_red,c_white,0.5);
-if obj_game.cirno9=true
+if global.foughtcirno==1
 {
     time_left=floor(time_left/1.2);
     red_ui=merge_colour(c_blue,c_white,0.5);
@@ -220,6 +220,20 @@ if obj_game.win==0 and obj_game.lost==0
 if instance_exists(obj_explosion) view_xview[0]=irandom_range(-shift,shift);
 
 if shift&gt;0 shift--;
+
+if obj_game.win &amp;&amp; global.stage==8
+{
+    if obj_input.c &amp;&amp; global.foughtcirno==0
+    {
+        audio_stop_all();
+        var _t = instance_create(160,120,obj_explosion);
+        audio_play_sound(sfx_weird,0,false);
+        _t.unlocked=1;
+        obj_smiley_hat.unlocked=1;
+        obj_smiley.unlocked=1;
+        if global.route==1 global.foughtcirno=1;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -337,17 +351,13 @@ if obj_game.win
             default:
             {
                 global.stage++;
-                switch global.stage
-                {
-                    case 9: if global.route=1 global.foughtcirno=1; break;
-                    case 10: if global.route=1 {global.foughtutsuho=1;} ask_10(); break;
-                }
+                if global.stage==10 ask_10();
                 ini_open("msplus-ps3-save.ini");
                 ini_write_string("save","current_time",ds_list_write(obj_chap1_data.time));
                 ini_close();
                 if global.gamemode==1 lives=3;
                 save_game();
-                if global.stage&lt;11 &amp;&amp; global.episode!=1 room_goto(rm_map)
+                if global.stage&lt;11 &amp;&amp; global.episode==1 room_goto(rm_map)
                 else
                 {
                     global.stage=1;
