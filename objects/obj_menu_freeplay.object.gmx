@@ -134,7 +134,7 @@ grid_m=10;
         audio_stop_all();
         audio_play_sound(sfx_game_start,0,false);
         global.bg_music=obj_main_menu.menu_music;
-        global.smiley_face=3;
+        global.smiley_face=irandom_range(0,6);
         save_game();
         global.temp_stage=global.stage;
         global.temp_lives=lives;
@@ -143,11 +143,11 @@ grid_m=10;
         
         if grid_w&lt;3 grid_w=3;
         if grid_h&lt;3 grid_h=3;
-        if grid_m&lt;3 grid_m=3;
+        if grid_m&lt;1 grid_m=1;
         
         if grid_w&gt;48 grid_w=48;
         if grid_h&gt;32 grid_h=32;
-        if grid_m&gt;1000 grid_m=1000;
+        if grid_m&gt;(grid_w*grid_h)-1 grid_m=(grid_w*grid_h)-1;
         
         global.gridw[0]=grid_w;
         global.gridh[0]=grid_h;
@@ -231,6 +231,7 @@ switch global.smiley_face
     case 3: sprite = spr_smiley_4 break;
     case 4: sprite = spr_smiley_5 break;
     case 5: sprite = spr_smiley_6 break;
+    case 6: sprite = spr_smiley_86 break;
 }
 
 switch global.hat_type

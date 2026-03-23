@@ -117,7 +117,8 @@ if global.stage=0
 {
     temp_123=global.bg_music;
     temp_111=global.menu_t;
-    if global.bg_music&gt;6 temp_123+=2;
+    if global.bg_music&gt;4 temp_123+=2;
+    if global.bg_music=10 temp_123+=2;
     audio_loop_sound(global._music[temp_123],global._st[temp_123],global._en[temp_123],44100,0);
 }
 
@@ -781,7 +782,7 @@ test_speed+=0.08;
 
 off_x-=obj_input.cursor_rx;
 off_y-=obj_input.cursor_ry;
-if obj_input.cursor_r{off_x=0;off_y=0;};
+if obj_input.select{off_x=0;off_y=0;};
 
 // Reset highlight
 highlight_x1 = -1;
@@ -793,7 +794,7 @@ checks_input();
 
 if (global.stage==9 or global.stage==10) &amp;&amp; 
     (boss9_started==false and boss10_started==false) let_me_out();
-if global.stage==86 do_bad_apple();
+if global.stage==86 or (global.stage==0 &amp;&amp; grid_w=16 &amp;&amp; grid_h=12) do_bad_apple();
 </string>
           </argument>
         </arguments>

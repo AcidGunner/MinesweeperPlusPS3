@@ -113,15 +113,19 @@ if obj_game.win == false
             }
         }
     }
-    else
-    if global.stage=9
-    {
-    }
 }
 else
 {
-    if unlocked==0 image_index=4+obj_smiley.image_anim
-    else image_index=0;
+    if global.stage!=0
+    {
+        if unlocked==0 image_index=4+obj_smiley.image_anim
+        else image_index=0;
+    }
+    else
+    {
+        if global.smiley_face==6 image_index=0
+        else image_index=4+obj_smiley.image_anim;
+    }
 }
 
 if obj_input.l2 &amp;&amp; global.hat_type&gt;0 global.hat_type--;

@@ -514,6 +514,8 @@ if obj_game.win == false
                 case 2: sprite_index = spr_smiley_3; break;
                 case 3: sprite_index = spr_smiley_4; break;
                 case 4: sprite_index = spr_smiley_5; break;
+                case 5: sprite_index = spr_smiley_6; break;
+                case 6: sprite_index = spr_smiley_86; break;
             };
         }
         
@@ -713,9 +715,13 @@ else
                     case 2: sprite_index = spr_smiley_3; break;
                     case 3: sprite_index = spr_smiley_4; break;
                     case 4: sprite_index = spr_smiley_5; break;
+                    case 5: sprite_index = spr_smiley_6; break;
+                    case 6: sprite_index = spr_smiley_86; break;
                 }
                 
                 if sprite_index==spr_smiley_3 image_index=26+image_anim
+                else if sprite_index==spr_smiley_5 image_index=27+image_anim
+                else if sprite_index==spr_smiley_6 image_index=17+image_anim
                 else image_index=14+image_anim;
             }
         }

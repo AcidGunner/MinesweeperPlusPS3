@@ -357,7 +357,8 @@ if obj_game.win
                 ini_close();
                 if global.gamemode==1 lives=3;
                 save_game();
-                if global.stage&lt;11 &amp;&amp; global.episode==1 room_goto(rm_map)
+                if global.stage&lt;10 &amp;&amp; global.episode=1 room_goto(rm_map)
+                else if global.stage&lt;11 &amp;&amp; global.episode=2 room_goto(rm_map)
                 else
                 {
                     global.stage=1;

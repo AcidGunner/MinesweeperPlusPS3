@@ -87,17 +87,16 @@ else
     dow=gamepad_button_check_pressed(0,gp_padd) or (stick_v>=gmin && global.prev_stick_v<gmin);
     upp=gamepad_button_check_pressed(0,gp_padu) or (stick_v<=-gmin && global.prev_stick_v>-gmin);
     
-    rup=gamepad_button_check(0,gp_padu) or stick_rv<=-gmin;
-    rdown=gamepad_button_check(0,gp_padd) or stick_rv>=gmin;
-    rright=gamepad_button_check(0,gp_padr) or stick_rh>=gmin;
-    rleft=gamepad_button_check(0,gp_padl) or stick_rh<=-gmin;
+    rup=stick_rv<=-gmin;
+    rdown=stick_rv>=gmin;
+    rright=stick_rh>=gmin;
+    rleft=stick_rh<=-gmin;
     
     cursor_x=right-left;
     cursor_y=down-up;
     
     cursor_rx=rright-rleft;
     cursor_ry=rdown-rup;
-    cursor_r=gamepad_button_check(0,gp_stickr);
     
     global.prev_stick_h = stick_h;
     global.prev_stick_v = stick_v;
@@ -152,10 +151,10 @@ if gamepad_is_connected(1)
     p2_dow=gamepad_button_check_pressed(1,gp_padd) or (p2_stick_v>=gmin && global.p2_prev_stick_v<gmin);
     p2_upp=gamepad_button_check_pressed(1,gp_padu) or (p2_stick_v<=-gmin && global.p2_prev_stick_v>-gmin);
     
-    p2_rup=gamepad_button_check(1,gp_padu) or p2_stick_rv<=-gmin;
-    p2_rdown=gamepad_button_check(1,gp_padd) or p2_stick_rv>=gmin;
-    p2_rright=gamepad_button_check(1,gp_padr) or p2_stick_rh>=gmin;
-    p2_rleft=gamepad_button_check(1,gp_padl) or p2_stick_rh<=-gmin;
+    p2_rup=p2_stick_rv<=-gmin;
+    p2_rdown=p2_stick_rv>=gmin;
+    p2_rright=p2_stick_rh>=gmin;
+    p2_rleft=p2_stick_rh<=-gmin;
     
     p2_cursor_x=p2_right-p2_left;
     p2_cursor_y=p2_down-p2_up;

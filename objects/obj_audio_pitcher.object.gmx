@@ -25,12 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.stage==1 or global.stage==2 mus=global._music[1]
+            <string>temp_123=0;
+
+if global.stage==1 or global.stage==2 mus=global._music[1]
 else if global.stage==3 or global.stage==4 mus=global._music[2]
 else if global.stage==5 or global.stage==6 mus=global._music[3]
 else if global.stage==7 or global.stage==8 mus=global._music[4]
 else if global.stage==9 mus=global._music[6]
 else if global.stage==10 or global.stage==11 mus=global._music[12];
+else if global.stage==0
+{
+    temp_123=global.bg_music;
+    if global.bg_music&gt;6 temp_123+=2;
+    mus=global._music[global.bg_music];
+}
 
 pitch=1;
 alarm[0]=4*global.FSP;
