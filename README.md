@@ -9,7 +9,7 @@ As for PS3 Port you can download those versions:
 
 # Project Status
 LATEST STABLE: v0.2.5\
-LATEST NIGHTLY: v0.3-N-03.23-1
+LATEST NIGHTLY: v0.3-N-03.25-0
 
 # Documentation
 Please refer to this [Wiki page](https://github.com/AcidGunner/MinesweeperPlusPS3/wiki) for more information.\
