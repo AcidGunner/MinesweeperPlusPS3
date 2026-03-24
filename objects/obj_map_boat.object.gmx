@@ -54,7 +54,7 @@ name[7]=global.str[58];
 if global.stage&lt;9 audio_play_sound(mus[global.stage-1],0,true);
 image_speed=0.02;
 
-if global.foughtcirno
+if global.route==1
 {
     audio_play_sound(sound110,0,true);
     audio_play_sound(sound111,0,true);

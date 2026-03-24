@@ -123,8 +123,7 @@ alarm[5]=0.836*global.FSP;
 var tmp=instance_create(0,0,obj_end_text1);
 var tmp_data=ds_list_find_value(time,data_count);
 tmp.count=data_count;
-tmp.data=tmp_data;
-tmp.strings=txt1[data_count]+": "+string(tmp_data)+global.str[70];
+tmp.strings=txt1[data_count]+": "+string(tmp_data/100)+global.str[70];
 data_count++;
 alarm[4]=0.418*global.FSP;
 </string>
@@ -251,8 +250,8 @@ if y_change=1
 
 draw_self();
 draw_set_color(c_black);
-draw_rectangle(0,0,320,y1,false);
-draw_rectangle(0,240,320,y2,false);
+draw_rectangle(0,-10,320,y1,false);
+draw_rectangle(0,250,320,y2,false);
 draw_set_valign(fa_center);
 draw_set_halign(fa_middle);
 draw_set_font(fnt_main);

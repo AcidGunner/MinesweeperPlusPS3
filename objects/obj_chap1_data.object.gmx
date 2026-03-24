@@ -60,13 +60,13 @@ ini_close();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*for (var i = 0; i &lt; ds_list_size(time); i++)
+            <string>for (var i = 0; i &lt; ds_list_size(time); i++)
 {
     draw_set_valign(fa_top);
     draw_set_halign(fa_left);
     draw_set_font(fnt_smol);
     draw_set_colour(c_white);
-    draw_text_outline(0,i*12,string(ds_list_find_value(time,i)),c_white,c_black,1);
+    draw_text_outline(0,i*14,string(ds_list_find_value(time,i)/100),c_white,c_black,1);
 }
 </string>
           </argument>
