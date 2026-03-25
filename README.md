@@ -1,6 +1,6 @@
 ![Minesweeper Plus: PS3 Edition Banner](https://img.itch.zone/aW1nLzI1NTg5MjQ0LnBuZw==/original/33patO.png)
 ***[PLEASE PLAY THE ORIGINAL GAME FIRST!!](https://jorel-simpson.itch.io/minesweeper-plus)***\
-As for PS3 Port you can download those versions:
+As for PS3 Edition you can download those versions:
 * [Latest Nightly version](https://github.com/AcidGunner/MinesweeperPlusPS3/releases/latest)
 * [v0.2.5 Latest Stable version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/ps3/minesweeperplusv0-2-5.pkg?download=)
 * [v0.2 Stable version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/ps3/minesweeperplusv0-2.pkg?download=)
