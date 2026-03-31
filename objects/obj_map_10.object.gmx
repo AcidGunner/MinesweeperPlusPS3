@@ -51,7 +51,7 @@ alarm[1]=2.5*global.FSP;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.route==1
+            <string>if global.route==0
 {
     instance_create(160,128,obj_map_10_sqr);
     audio_play_sound(mus_map10,0,true);

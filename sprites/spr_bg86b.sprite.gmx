@@ -17,8 +17,8 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>16</width>
-  <height>16</height>
+  <width>40</width>
+  <height>40</height>
   <frames>
     <frame index="0">images\spr_bg86b_0.png</frame>
     <frame index="1">images\spr_bg86b_1.png</frame>

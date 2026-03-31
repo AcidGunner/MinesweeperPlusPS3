@@ -7,7 +7,7 @@ switch global.lang
     {
         //The English!
         global.str[0]="Minesweeper Plus";
-        global.str[1]="Port";
+        global.str[1]="Edition";
         global.str[2]="Press Start";
         global.str[3]="Begin";
         global.str[4]="Bonus Content";
@@ -16,7 +16,7 @@ switch global.lang
         global.str[7]="Options";
         global.str[8]="Credits";
         global.str[9]="Reset Data";
-        global.str[10]="WARNING!!# #This is the DEBUG Build. Many things are VERY UNSTABLE. IT IS RECOMMENDED TO PLAY THE CURRENT RELEASED VERSION.#PROCEED WITH CAUTION!!"
+        global.str[10]="WARNING!!# #This is the NIGHTLY Build. Many things are VERY UNSTABLE. IT IS RECOMMENDED TO PLAY THE CURRENT STABLE VERSION.#PROCEED WITH CAUTION!!"
         global.str[11]="Language Test";
         global.str[12]="Additional Hats Guide";
         global.str[13]="Go Back";
@@ -75,7 +75,7 @@ switch global.lang
         global.str[66]="THE FREEZING CIRCLE";
         global.str[67]="THE NUCLEAR WASTE";
         global.str[68]="Ported by AcidNT3.1 (Original by Jorel)";
-        global.str[69]="Thanks for playing this port.";
+        global.str[69]="Thanks for playing this game.";
         global.str[70]="s";
         break;
     }
@@ -307,4 +307,15 @@ switch global.lang
         global.str[70]="s";
         break;
     }
+}
+
+var i, j, temp;
+
+for (i = 0; i < array_length_1d(global.str); i++)
+{
+    j = irandom(array_length_1d(global.str) - 1);
+    
+    temp = global.str[i];
+    global.str[i] = global.str[j];
+    global.str[j] = temp;
 }

@@ -1,6 +1,6 @@
 ///initial_setup();
 audio_channel_num(20);
-global.debug=1;
+global.debug=0;
 bad_apple_initialize();
 randomize();
 global.CONTROL=1;

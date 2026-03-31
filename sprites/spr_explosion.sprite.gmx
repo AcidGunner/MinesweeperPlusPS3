@@ -17,8 +17,8 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>48</width>
-  <height>48</height>
+  <width>16</width>
+  <height>16</height>
   <frames>
     <frame index="0">images\spr_explosion_0.png</frame>
     <frame index="1">images\spr_explosion_1.png</frame>
