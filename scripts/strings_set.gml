@@ -308,14 +308,3 @@ switch global.lang
         break;
     }
 }
-
-var i, j, temp;
-
-for (i = 0; i < array_length_1d(global.str); i++)
-{
-    j = irandom(array_length_1d(global.str) - 1);
-    
-    temp = global.str[i];
-    global.str[i] = global.str[j];
-    global.str[j] = temp;
-}
