@@ -29,24 +29,23 @@
 temp_y=y;
 type=0;
 option=0;
-option_1_max=1;
+option_1_max=0;
 option_1=c_white;
 option_2=c_white;
 option_3=c_white;
 
-option_1_list[0]="Main";
-option_1_list[1]="Touhou";
+option_1_list[0]=global.str[81];
 if global.unlocked
 {
-    option_1_list[2]="???";
-    option_1_max=2;
+    option_1_list[1]=global.str[82];
+    option_1_max=1;
 }
 
-option_2_list[0]="Episode One";
-option_2_list[1]="Episode Two (Unavailable!)";
+option_2_list[0]=global.str[83];
+option_2_list[1]=global.str[84];
 
-option_3_list[0]="Normal";
-option_3_list[1]="Casual";
+option_3_list[0]=global.str[85];
+option_3_list[1]=global.str[86];
 </string>
           </argument>
         </arguments>
@@ -128,12 +127,12 @@ y=lerp(y,temp_y,0.1);
             <string>draw_set_font(fnt_smoler);
 draw_set_halign(fa_middle);
 draw_set_valign(fa_top);
-draw_text_outline(x+160,y+2,"Game Settings",c_white,c_black,1);
+draw_text_outline(x+160,y+2,global.str[77],c_white,c_black,1);
 
-draw_text_outline(x+160,y+40,"Current Route:#"+option_1_list[global.route],option_1,c_black,1);
-draw_text_outline(x+160,y+100,"Current Episode:#"+option_2_list[global.episode-1],option_2,c_black,1);
-draw_text_outline(x+160,y+160,"Current GameMode:#"+option_3_list[global.gamemode],option_3,c_black,1);
-draw_text_outline(x+160,y+220,"[○] to go Back",c_white,c_black,1);
+draw_text_outline(x+160,y+40,global.str[78]+":#"+option_1_list[global.route],option_1,c_black,1);
+draw_text_outline(x+160,y+100,global.str[79]+":#"+option_2_list[global.episode-1],option_2,c_black,1);
+draw_text_outline(x+160,y+160,global.str[80]+":#"+option_3_list[global.gamemode],option_3,c_black,1);
+draw_text_outline(x+160,y+220,"[○] "+global.str[13],c_white,c_black,1);
 </string>
           </argument>
         </arguments>

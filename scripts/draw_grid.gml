@@ -14,6 +14,7 @@ for (var xx = 0; xx < grid_w; xx++)
             
             var _sprt=grid_sprite[# xx, yy];
             var v = grid[# xx, yy];
+            var v1 = grid_type[# xx, yy];
             
             switch _sprt
             {
@@ -33,11 +34,11 @@ for (var xx = 0; xx < grid_w; xx++)
             if type=="single" && lost=1
             {
                 draw_sprite_stretched(spr_bgb, image_index, x1, y1, draw_size, draw_size);
-                switch v
+                switch v1
                 {
-                    case -2: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
-                    case -1: draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size); break;
-                    default: draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size); break;
+                    case -1: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
+                    case 0: draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size); break;
+                    default: draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size); break;
                 }
             }
             else
@@ -51,11 +52,12 @@ for (var xx = 0; xx < grid_w; xx++)
                 else if (reveal[# xx, yy])
                 {
                     draw_sprite_stretched(spr_bgb, image_index, x1, y1, draw_size, draw_size);
-                    switch v
+                    switch v1
                     {
-                        case -2: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
-                        case -1: draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size); break;
-                        default: draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size); break;
+                        case -1: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
+                        case 9: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
+                        case 0: draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size); break;
+                        default: draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size); break;
                     }
                 }
                 else draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);

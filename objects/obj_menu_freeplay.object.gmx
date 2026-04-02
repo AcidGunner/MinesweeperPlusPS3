@@ -30,6 +30,8 @@ temp_x=x;
 sprite=0;
 hat=0;
 the_y=0;
+temp=0;
+temp1=0;
 
 grid_w=9;
 grid_h=9;
@@ -128,13 +130,14 @@ grid_m=10;
         if obj_main_menu.menu_music&gt;10 obj_main_menu.menu_music=10;
         if obj_main_menu.menu_music!=obj_main_menu.prev_music obj_main_menu.alarm[0]=1;
     }
+    if obj_input.lef &amp;&amp; global.smiley_face&gt;0 global.smiley_face--;
+    if obj_input.rig &amp;&amp; global.smiley_face&lt;6 global.smiley_face++;
     if obj_input.a
     {
         select=1;
         audio_stop_all();
         audio_play_sound(sfx_game_start,0,false);
         global.bg_music=obj_main_menu.menu_music;
-        global.smiley_face=irandom_range(0,6);
         save_game();
         global.temp_stage=global.stage;
         global.temp_lives=lives;
@@ -162,14 +165,16 @@ grid_m=10;
     }
     if obj_input.c
     {
-        grid_w=get_integer("Set grid width",9);
-        grid_h=get_integer("Set grid height",9);
-        grid_m=get_integer("Set mine count",10);
+        grid_w=get_integer(global.str[91],9);
+        grid_h=get_integer(global.str[92],9);
+        grid_m=get_integer(global.str[93],10);
     }
 }
 
 if select=1 &amp;&amp; obj_main_menu.type!=2 temp_x=-320 else temp_x=0;
 x=lerp(x,temp_x,0.1);
+
+temp+=0.05;
 </string>
           </argument>
         </arguments>
@@ -195,10 +200,11 @@ x=lerp(x,temp_x,0.1);
             <string>draw_set_font(fnt_smoler);
 draw_set_valign(fa_top);
 draw_set_halign(fa_middle);
-draw_text_outline(x+160,y+200,"[X] to Start",c_white,c_black,1);
-draw_text_outline(x+160,y+70,"[L1/R1] to Change Music",c_white,c_black,1);
-draw_text_outline(x+160,y+90,"[L2/R2] to Change Background",c_white,c_black,1);
-draw_text_outline(x+160,y+150,"[□] to Setup",c_white,c_black,1);
+draw_text_outline(x+160,y+200,"[X] "+global.str[75],c_white,c_black,1);
+draw_text_outline(x+160,y+70,"[L1/R1] "+global.str[87],c_white,c_black,1);
+draw_text_outline(x+160,y+90,"[L2/R2] "+global.str[88],c_white,c_black,1);
+draw_text_outline(x+160,y+120,"[&lt;-&gt;] "+global.str[89],c_white,c_black,1);
+draw_text_outline(x+160,y+150,"[□] "+global.str[90],c_white,c_black,1);
 draw_text_outline(x+160,y+170,"W: "+string(grid_w)+"; H: "+string(grid_h)+"; M: "+string(grid_m)+";",c_white,c_black,1);
 draw_sprite_stretched(spr_ui3,0,x+136,20,48,48);
 
@@ -225,13 +231,13 @@ else if global.route=1
 
 switch global.smiley_face
 {
-    case 0: sprite = spr_smiley_1 break;
-    case 1: sprite = spr_smiley_2 break;
-    case 2: sprite = spr_smiley_3 break;
-    case 3: sprite = spr_smiley_4 break;
-    case 4: sprite = spr_smiley_5 break;
-    case 5: sprite = spr_smiley_6 break;
-    case 6: sprite = spr_smiley_86 break;
+    case 0: sprite = spr_smiley_1; temp1=0; break;
+    case 1: sprite = spr_smiley_2; temp1=0; break;
+    case 2: sprite = spr_smiley_3; temp1=1; break;
+    case 3: sprite = spr_smiley_4; temp1=0; break;
+    case 4: sprite = spr_smiley_5; temp1=2; break;
+    case 5: sprite = spr_smiley_6; temp1=0; break;
+    case 6: sprite = spr_smiley_86; temp1=0; break;
 }
 
 switch global.hat_type
@@ -246,7 +252,10 @@ switch global.hat_type
     case 7: hat = spr_hat7; break;
 }
 
-draw_sprite(sprite,0,x+160,44+the_y);
+if temp1==0 draw_sprite(sprite,0,x+160,44+the_y)
+else if temp1==1 draw_sprite(sprite,0+(temp mod 2),x+160,44+the_y)
+else draw_sprite(sprite,0+(temp mod 3),x+160,44+the_y);
+
 if hat!=0
 {
     draw_sprite(hat,0,x+160,44);

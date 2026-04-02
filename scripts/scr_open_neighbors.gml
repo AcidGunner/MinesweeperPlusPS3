@@ -28,9 +28,8 @@ if (flags == required)
             if !flagged[# nx, ny]
             {
                 if (cirno9==true && iceland[# nx, ny] == 1) exit;
-                
                 // If it's a mine → player loses
-                if (grid[# nx, ny] == -1)
+                if (grid_type[# nx,ny] > 0 && grid_type[# nx,ny] < 9)
                 {
                     switch type
                     {

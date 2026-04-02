@@ -8,6 +8,7 @@ var cm = argument2;
 ds_grid_clear(grid, 0);
 ds_grid_clear(reveal, 0);
 ds_grid_clear(flagged, 0);
+ds_grid_clear(grid_type, 0);
 
 // Re-place mines, but NEVER at (cx, cy)
 var placed = 0;
@@ -18,9 +19,9 @@ while (placed < cm)
     // Skip the clicked cell
     if (xx == cx && yy == cy) continue;
 
-    if (grid[# xx, yy] != -1) && circle_grid[# xx, yy] == 0
+    if (grid_type[# xx, yy] == 0) && circle_grid[# xx, yy] == 0
     {
-        grid[# xx, yy] = -1;
+        grid_type[# xx, yy] = 1;
         placed++;
     }
 }
@@ -38,11 +39,17 @@ for (var gy = 0; gy < grid_h; gy++)
         {
             if (nx >= 0 && ny >= 0 && nx < grid_w && ny < grid_h)
             {
-                if (grid[# nx, ny] == -1)
-                    c++;
+                switch (grid_type[# nx, ny])
+                {
+                    case 1: c += 1; break;
+                    case 2: c += 2; break;
+                    case 3: c -= 1; break;
+                }
             }
         }
-
+        if (c > 8) c = 8;
+        if (c < -8) c = -8;
+        
         grid[# gx, gy] = c;
     }
 }

@@ -44,6 +44,7 @@ if audio_is_playing(global._music[6])
     global.pitch+=0.05;
     audio_sound_pitch(global._music[6], global.pitch);
     obj_ui.shifting+=14.2;
+    if global.mastermode==1 obj_ui.shifting=59;
     if obj_ui.shifting&gt;=60 obj_ui.shifting=59;
 }
 
@@ -51,6 +52,17 @@ if audio_is_playing(global._music[12])
 {
     global.pitch+=0.05;
     audio_sound_pitch(global._music[12], global.pitch);
+    obj_10.shifting+=8;
+    if global.mastermode==1 obj_10.shifting=59;
+    if obj_10.shifting&gt;=60 obj_10.shifting=59;
+}
+
+if audio_is_playing(global._music[99])
+{
+    global.pitch+=0.05;
+    audio_sound_pitch(global._music[99], global.pitch);
+    obj_ui.shifting+=14.2;
+    if obj_ui.shifting&gt;=60 obj_ui.shifting=59;
     obj_10.shifting+=8;
     if obj_10.shifting&gt;=60 obj_10.shifting=59;
 }
@@ -62,6 +74,7 @@ if instance_exists(obj_game) &amp;&amp; audio_is_playing(obj_game.stage910)
     obj_ui.shifting+=14.2;
     if obj_ui.shifting&gt;=60 obj_ui.shifting=59;
     obj_10.shifting+=8;
+    if global.mastermode==1 obj_10.shifting=59;
     if obj_10.shifting&gt;=60 obj_10.shifting=59;
 }
 </string>

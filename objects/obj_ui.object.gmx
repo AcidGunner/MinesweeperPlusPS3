@@ -93,10 +93,26 @@ if global.stage==910
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.difficulty=0 time_left=199
-else if global.difficulty=1 time_left=179
-else if global.difficulty=2 time_left=149
-else if global.difficulty=3 time_left=119;
+            <string>if global.stage!=0
+{
+    if global.difficulty=0 time_left=199
+    else if global.difficulty=1 time_left=179
+    else if global.difficulty=2 time_left=149
+    else if global.difficulty=3 time_left=119;
+}
+else
+{
+    if obj_game.grid_w!=72 time_left=99 else
+    {
+        time_left=299;
+        var _temp_ = 0.25;
+        obj_game.zoom_min=_temp_;
+        obj_game.zoom=_temp_;
+        with obj_game zoom_update();
+    }
+    rand_life=1;
+    rand_time=1;
+}
 
 red_ui=merge_colour(c_red,c_white,0.5);
 if global.foughtcirno==1
@@ -150,9 +166,8 @@ if global.foughtcirno==1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.stage==9 &amp;&amp; obj_9.stop==1 exit;
-if global.stage==10 &amp;&amp; obj_10.active==false exit;
-if global.stage==910 &amp;&amp; obj_9.stop==1 exit;
+            <string>if instance_exists(obj_9) &amp;&amp; obj_9.stop==1 exit;
+if instance_exists(obj_10) &amp;&amp; obj_10.active==false exit;
 
 if obj_game.win==0 and obj_game.lost==0
 {
@@ -164,10 +179,11 @@ if obj_game.win==0 and obj_game.lost==0
     }
     else alarm[1]=60-shifting;
     
-    if time_left&lt;1 &amp;&amp; (global.stage==9 or global.stage==910) &amp;&amp; !instance_exists(obj_9_end)
+    if time_left&lt;1 &amp;&amp; instance_exists(obj_9) &amp;&amp; !instance_exists(obj_9_end)
     {
         audio_play_sound(sfx_done,0,false);
         instance_create(0,0,obj_9_end);
+        obj_9.stop=1;
     }
 }
 </string>
@@ -274,14 +290,14 @@ while (string_length(s) &lt; 3)
 }
 
 var s2 = string(time);
-if global.stage==9 or global.stage==910 s2 = string(time_left);
+if instance_exists(obj_9) s2 = string(time_left);
 
 while (string_length(s2) &lt; 3)
 {
     s2 = "0" + s2;
 }
 
-if global.stage==9 or global.stage==910
+if instance_exists(obj_9)
 {
     draw_sprite_stretched(spr_mine_ui,temp1,7,7,35,35);
     if rand_time=1 draw_text_outline(45,5.2,string(irandom_range(-99,999)),c_red,c_white,1)

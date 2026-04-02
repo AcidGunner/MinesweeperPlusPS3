@@ -51,12 +51,15 @@
         </sounds>
         <sounds name="menu_6">
           <sound>sound\mus_menu_6</sound>
+          <sound>sound\mus_menu_6r</sound>
         </sounds>
         <sounds name="menu_7">
           <sound>sound\mus_menu_7</sound>
+          <sound>sound\mus_menu_7r</sound>
         </sounds>
         <sounds name="menu_8">
           <sound>sound\mus_menu_8</sound>
+          <sound>sound\mus_menu_8r</sound>
         </sounds>
         <sounds name="menu_9">
           <sound>sound\mus_menu_9</sound>
@@ -189,6 +192,8 @@
         <sound>sound\mus_menu_placeholder</sound>
         <sound>sound\mus_unknown</sound>
         <sound>sound\mus_thorn</sound>
+        <sound>sound\mus_sweeping</sound>
+        <sound>sound\mus_sweeping2</sound>
       </sounds>
       <sounds name="map">
         <sounds name="map1">
@@ -197,12 +202,15 @@
         </sounds>
         <sounds name="map2">
           <sound>sound\mus_map2</sound>
+          <sound>sound\mus_map2r</sound>
         </sounds>
         <sounds name="map3">
           <sound>sound\mus_map3</sound>
+          <sound>sound\mus_map3r</sound>
         </sounds>
         <sounds name="map4">
           <sound>sound\mus_map4</sound>
+          <sound>sound\mus_map4t</sound>
         </sounds>
         <sounds name="map9">
           <sound>sound\mus_map9</sound>

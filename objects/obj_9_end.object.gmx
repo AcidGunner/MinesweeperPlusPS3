@@ -66,11 +66,14 @@ else if global.stage==10
           <argument>
             <kind>1</kind>
             <string>audio_stop_all();
-global.stage=1;
-global.foughtcirno=0;
-global.foughtutsuho=0;
-lives=3;
-save_game();
+if global.stage!=0
+{
+    global.stage=1;
+    global.foughtcirno=0;
+    global.foughtutsuho=0;
+    lives=3;
+    save_game();
+}
 room_goto(rm_menu);
 </string>
           </argument>
@@ -119,15 +122,14 @@ alarm[2]=5;
           <argument>
             <kind>1</kind>
             <string>obj_game.lost=1;
+obj_smiley.cutscene=false;
 if global.stage==9
 {
     obj_smiley.sprite_index=spr_smiley5;
-    obj_smiley.cutscene=false;
 }
-else
+else if global.stage==10
 {
     obj_smiley.cutscene_10_lost=true;
-    obj_smiley.cutscene=false;
 }
 go=-1;
 alarm[2]=5;

@@ -8,7 +8,8 @@ if (reveal[# _x, _y] || flagged[# _x, _y]) exit;
 reveal[# _x, _y] = true;
 
 // If this cell has number > 0, stop (no flood)
-if (grid[# _x, _y] > 0) exit;
+//if (grid[# _x, _y] > 0) exit;
+if (grid[# _x, _y] != 0) exit;
 
 // Flood-fill empty cells
 for (var nx = _x-1; nx <= _x+1; nx++)

@@ -1,36 +1,54 @@
 /// scr_check_win();
 var revealed_total = 0;
+var valid_total = 0;
 
-for (var wx = 0; wx < grid_w; wx++)
+/*for (var wx = 0; wx < grid_w; wx++)
 for (var wy = 0; wy < grid_h; wy++)
 {
     if (reveal[# wx, wy])
         revealed_total++;
+}*/
+
+for (var wx = 0; wx < grid_w; wx++)
+for (var wy = 0; wy < grid_h; wy++)
+{
+    if (circle_grid[# wx, wy] == 0)
+    {
+        valid_total++;
+
+        if (reveal[# wx, wy] && grid_type[# wx, wy] == 0) revealed_total++;
+    }
 }
 
 // Check win condition
-if (revealed_total >= (grid_w * grid_h) - mine_count)
+//var _left = (grid_w * grid_h) - mine_count;
+
+var _left = valid_total - mine_count;
+
+if instance_exists(obj_9) _left-=9;
+
+if (revealed_total >= _left)
 {
-    switch global.stage
+    if instance_exists(obj_9)
     {
-        case 9:
-        {
-            obj_9.alarm[6]=1;
-            exit;
-        }
-        case 10:
-        {
-            obj_10.alarm[4]=1;
-            exit;
-        }
-        case 910:
-        {
-            obj_9.alarm[6]=1;
-            obj_10.alarm[6]=1;
-            exit;
-        }
+        obj_9.alarm[6]=1;
+        if instance_exists(obj_10) obj_10.alarm[6]=1;
+        exit;
     }
-    
+    if instance_exists(obj_10)
+    {
+        if global.stage==10 obj_10.alarm[4]=1
+        else
+        {
+            obj_10.active=false;
+            obj_10.stopped=1;
+            obj_10.rand=0;
+            obj_10.vspeed=0;
+            obj_10.hspeed=0;
+            obj_10.alarm[6]=1;
+        }
+        exit;
+    }
     if temp_111==9 && type!="single"
     {
         if type=="player1" obj_9_1p.alarm[6]=1
@@ -42,7 +60,7 @@ if (revealed_total >= (grid_w * grid_h) - mine_count)
     for (var fx = 0; fx < grid_w; fx++)
     for (var fy = 0; fy < grid_h; fy++)
     {
-        if (grid[# fx, fy] == -1)
+        if (grid_type[# fx, fy] > 0 && grid_type[# fx, fy] < 9)
             flagged[# fx, fy] = true;
     }
     
@@ -54,5 +72,6 @@ if (revealed_total >= (grid_w * grid_h) - mine_count)
 }
 else
 {
-    if global.stage==9 or global.stage==910 instance_create(0,0,obj_9_end);
+    if instance_exists(obj_9) instance_create(0,0,obj_9_end);
+    show_debug_message(string(_left-revealed_total));
 }

@@ -45,9 +45,9 @@ boss_y = obj_game.grid_h div 2;
 
 dx=0;dy=0;
 
-mine_1_g=-1;mine_2_g=-1;mine_3_g=-1;
-mine_4_g=-1;mine_6_g=-1;
-mine_7_g=-1;mine_8_g=-1;mine_9_g=-1;
+mine_1_g=1;mine_2_g=1;mine_3_g=1;
+mine_4_g=1;mine_6_g=1;
+mine_7_g=1;mine_8_g=1;mine_9_g=1;
 
 mine_1_r=false;mine_2_r=false;mine_3_r=false;
 mine_4_r=false;mine_6_r=false;
@@ -67,7 +67,7 @@ the_spr_9=spr_9;
 
 _x=x;_y=y;
 
-if obj_game.cirno9=true &amp;&amp; global.stage==9 secret_script_p2();
+if global.stage==9 &amp;&amp; obj_game.cirno9=true secret_script_p2();
 
 if global.foughtcirno==true &amp;&amp; global.stage==910 secret_script_p2();
 </string>
@@ -121,13 +121,14 @@ alarm[8]=90;
 for (var fx = 0; fx &lt; obj_game.grid_w; fx++)
 for (var fy = 0; fy &lt; obj_game.grid_h; fy++)
 {
-    if (obj_game.grid[# fx, fy] == -1)
+    if (obj_game.grid_type[# fx, fy] &gt; 0)
         obj_game.flagged[# fx, fy] = true;
 }
 obj_game.win=true;
 mines_left = 0;
-if global.stage==9 audio_play_sound(global.stage9_win,0,false);
-else audio_play_sound(global.stage10_win,0,false);
+if global.stage==9 audio_play_sound(global.stage9_win,0,false)
+else if global.stage==10 audio_play_sound(global.stage10_win,0,false)
+else with obj_game you_won_sfx();
 </string>
           </argument>
         </arguments>
@@ -481,7 +482,7 @@ if scale&lt;1 scale=lerp(scale,0,0.05);
             <string>/// Mechanics?
 if (!active) exit;
 
-var grid = obj_game.grid;
+var grid = obj_game.grid_type;
 var reveal = obj_game.reveal;
 var flagged = obj_game.flagged;
 
@@ -581,7 +582,7 @@ grid[# boss_x+1, boss_y+1] =mine_1_g;
 grid[# boss_x, boss_y+1]   =mine_2_g;
 grid[# boss_x-1, boss_y+1] =mine_3_g;
 grid[# boss_x+1, boss_y]   =mine_4_g;
-grid[# boss_x, boss_y]     =-2;
+grid[# boss_x, boss_y]     =9;
 grid[# boss_x-1, boss_y]   =mine_6_g;
 grid[# boss_x+1, boss_y-1] =mine_7_g;
 grid[# boss_x, boss_y-1]   =mine_8_g;
@@ -669,7 +670,7 @@ else move_timer = irandom_range(20, 60);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var spike = obj_game.zoom/8*1.35;
+            <string>var spike = obj_game.zoom/8;
 var test_1 = (test_0*spike)/48;
 
 sprite_index=the_spr_9;

@@ -3,7 +3,8 @@ var _x = argument0;
 var _y = argument1;
 
 reveal[# _x, _y] = true;
-grid[# _x, _y] = -2;
+grid_type[# _x, _y] = -1;
+//grid[# _x, _y] = -2;
 
 if instance_exists(obj_9)
 {
@@ -40,7 +41,7 @@ if instance_exists(obj_9)
         obj_9.mine_9_g=-2;obj_9.mine_9_r=true;
     }
 }
-mine_count--;
+//mine_count--;
 mines_left--;
 
 var draw_size = cell_size * zoom;

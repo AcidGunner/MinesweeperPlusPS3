@@ -55,8 +55,8 @@ spr_main=spr_10;
 
 spawned=0;
 
-if obj_game.utsuho10=true &amp;&amp; global.stage==10 secret_script_2_p2();
-if global.foughtutsuho==true &amp;&amp; global.stage==910 secret_script_p2();
+if global.stage==10 &amp;&amp; obj_game.utsuho10=true secret_script_2_p2();
+if global.stage==910 &amp;&amp; global.foughtutsuho==true secret_script_p2();
 </string>
           </argument>
         </arguments>

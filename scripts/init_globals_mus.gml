@@ -39,6 +39,9 @@ global._en[19]= 3513913;
 global._st[20]= 1212339;
 global._en[20]= 2420316;
 
+global._st[99]= 460984;
+global._en[99]= 6700344;
+
 if global._music_type=0
 {
     global._music[0]=mus_title;
@@ -79,7 +82,7 @@ if global._music_type=0
     global.stage3_map=mus_map3;
     global.stage4_map=mus_map4;
     global.stage9_map=mus_map9;
-    global.stage10_map=mus_map9;
+    global.stage10_map=mus_map10;
 }
 else
 {
@@ -101,9 +104,9 @@ else
     global._music[15]=mus_menu_3r;
     global._music[16]=mus_menu_4r;
     global._music[17]=mus_menu_placeholder;
-    global._music[18]=mus_menu_placeholder;
-    global._music[19]=mus_menu_placeholder;
-    global._music[20]=mus_menu_placeholder;
+    global._music[18]=mus_menu_6r;
+    global._music[19]=mus_menu_7r;
+    global._music[20]=mus_menu_8r;
     global._music[21]=mus_menu_9r;
     global._music[22]=mus_menu_10r;
     
@@ -115,9 +118,9 @@ else
     global.stage10_win=mus_stage10r_win;
     
     global.stage1_map=mus_map1r;
-    global.stage2_map=mus_map2;
-    global.stage3_map=mus_map3;
-    global.stage4_map=mus_map4;
+    global.stage2_map=mus_map2r;
+    global.stage3_map=mus_map3r;
+    global.stage4_map=mus_map4t;
     global.stage9_map=mus_map9;
     global.stage10_map=mus_map10;
 }
@@ -147,3 +150,4 @@ global.stagevs9_win=-1;
 global.stagevs9_lose=-1;
 
 global._music[30]=mus_map99;
+global._music[99]=mus_sweeping;

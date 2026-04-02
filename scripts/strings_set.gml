@@ -21,7 +21,7 @@ switch global.lang
         global.str[12]="Additional Hats Guide";
         global.str[13]="Go Back";
         global.str[14]="Hats guide!";
-        global.str[15]="Just because this is a not-completed version of the port, the game allows you to change your hat by pressing either L2 or R2.";
+        global.str[15]="Just because this is a not-completed version, the game allows you to change your hat by pressing either L2 or R2.";
         global.str[16]="Press ○ to go back.";
         global.str[17]="You are not ready yet.";
         global.str[18]="Player";
@@ -74,9 +74,39 @@ switch global.lang
         global.str[65]="#Additional Note:#This is the Nuclear Ten. As for now, this is just a re-skin. If you want to add some cool mechanics, please contact me at http://acidnt31.thsite.top/contact/ for more.";
         global.str[66]="THE FREEZING CIRCLE";
         global.str[67]="THE NUCLEAR WASTE";
-        global.str[68]="Ported by AcidNT3.1 (Original by Jorel)";
+        global.str[68]="Made by AcidNT3.1 (Original by Jorel)";
         global.str[69]="Thanks for playing this game.";
         global.str[70]="s";
+        global.str[71]="BEGINNER SWEEPER";
+        global.str[72]="NOVICE SWEEPER";
+        global.str[73]="VETERAN SWEEPER";
+        global.str[74]="EXPERT SWEEPER";
+        global.str[75]="to Start";
+        global.str[76]="for Game Settings";
+        global.str[77]="Game Settings";
+        global.str[78]="Current Route";
+        global.str[79]="Current Episode";
+        global.str[80]="Current GameMode";
+        global.str[81]="Main";
+        global.str[82]="Touhou";
+        global.str[83]="Episode One";
+        global.str[84]="Episode Two (Unavailable!)";
+        global.str[85]="Normal";
+        global.str[86]="Casual";
+        global.str[87]="to Change Music";
+        global.str[88]="to Change Background";
+        global.str[89]="to Change Smiley";
+        global.str[90]="to Setup";
+        global.str[91]="Set grid width";
+        global.str[92]="Set grid height";
+        global.str[93]="Set mine count";
+        global.str[94]="";
+        global.str[95]="";
+        global.str[96]="";
+        global.str[97]="";
+        global.str[98]="";
+        global.str[99]="";
+        global.str[100]="";
         break;
     }
     case 1:
@@ -159,7 +189,7 @@ switch global.lang
     {
         //The Russian!
         global.str[0]="Сапер Плюс";
-        global.str[1]="Порт";
+        global.str[1]="Издание";
         global.str[2]="Нажмите Start";
         global.str[3]="Начать";
         global.str[4]="Дополнительно";
@@ -168,12 +198,12 @@ switch global.lang
         global.str[7]="Настройки";
         global.str[8]="Благодарность";
         global.str[9]="Сброс Игры";
-        global.str[10]="ВНИМАНИЕ!!# #Это ОТЛАДОЧНАЯ Сборка. Некоторые вещи НЕ СТАБИЛЬНЫ. РЕКОМЕНДУЕТСЯ ИГРАТЬ НА ТЕКУЩЕЙ ВЫПУЩЕННОЙ ВЕРСИИ.#ВЫ БЫЛИ ПРЕДУПРЕЖДЕНЫ!!"
+        global.str[10]="ВНИМАНИЕ!!# #Это НОЧНАЯ Сборка. Некоторые вещи НЕ СТАБИЛЬНЫ. РЕКОМЕНДУЕТСЯ ИГРАТЬ НА ТЕКУЩЕЙ СТАБИЛЬНОЙ ВЕРСИИ.#ВЫ БЫЛИ ПРЕДУПРЕЖДЕНЫ!!"
         global.str[11]="Языковой Тест";
         global.str[12]="Помощь по дополнительным шляпам";
         global.str[13]="Назад";
         global.str[14]="Гайд по шляпам!";
-        global.str[15]="Так как это не завершенная версия порта, игра позволяет вам менять шляпы нажатием L2 или R2.";
+        global.str[15]="Так как это не завершенная версия издания, игра позволяет вам менять шляпы нажатием L2 или R2.";
         global.str[16]="Нажмите ○ чтобы вернуться.";
         global.str[17]="Вы еще не готовы.";
         global.str[18]="Игрок";
@@ -226,7 +256,7 @@ switch global.lang
         global.str[65]="#ЗАМЕТКА:#Это Ядерная Десятка (Утсухо, да да да, завалите ебальники). На данный момент это является обычным скином. Если вы хотите добавить ей пару хороших способностей, пожалуйста, обратитесь в http://acidnt31.thsite.top/contact/ для большей информации.";
         global.str[66]="ЛЕДЯНОЙ КРУГ";
         global.str[67]="ЯДЕРНЫЕ ОТХОДЫ";
-        global.str[68]="Портировано AcidNT3.1 (Оригинал от Jorel)";
+        global.str[68]="Сделано AcidNT3.1 (Оригинал от Jorel)";
         global.str[69]="Спасибо за прохождение данного порта.";
         global.str[70]="сек";
         break;
@@ -234,22 +264,22 @@ switch global.lang
     case 3:
     {
         //The MSPLUS JK!
-        global.str[0]="MSPlus JK";
+        global.str[0]="Bruhsweeper Delta";
         global.str[1]="Edition";
         global.str[2]="Just press Start dude";
-        global.str[3]="Enjoy";
-        global.str[4]="This Port's stuff?";
-        global.str[5]="Stats";
-        global.str[6]="Tutorial";
-        global.str[7]="Settings";
+        global.str[3]="Start Goo-";
+        global.str[4]="This Edition's stuff?";
+        global.str[5]="Analyze";
+        global.str[6]="Help me";
+        global.str[7]="Changer";
         global.str[8]="Credits";
         global.str[9]="GREAT MEME RESET";
-        global.str[10]="WARNING!!# #This is the DEBUG Build. Many things are VERY OOOOOOH. IT IS RECOMMENDED TO PLAY THE CURRENT RELEASED VERSION.#PROCEED WITH BOOOOO!!"
+        global.str[10]="WARNING!!# #This is the NIGHTLY Build. Many things are VERY OOOOOOH. IT IS RECOMMENDED TO PLAY THE CURRENT STABLE VERSION.#PROCEED WITH BOOOOO!!"
         global.str[11]="fumo";
         global.str[12]="Addons guide";
         global.str[13]="Back Button";
         global.str[14]="Hats guide!";
-        global.str[15]="Just because this is a not-completed version of the port, the game allows you to change your hat by pressing either L2 or R2.";
+        global.str[15]="Just because this is a not-completed version of the game, the game allows you to change your hat by pressing either L2 or R2.";
         global.str[16]="Press ○ to yeet back.";
         global.str[17]="You are not ready yet.";
         global.str[18]="Link";
@@ -293,8 +323,8 @@ switch global.lang
         global.str[56]="SIX SEVEN (Sorry)";
         global.str[57]="Open Source";
         global.str[58]="Dead Body";
-        global.str[59]="THE";
-        global.str[60]="THE FUCK";
+        global.str[59]="THE DEVIL'S APPLE";
+        global.str[60]="THE DEVIL'S GOON#AREA";
         global.str[61]="Player 2 is yeeted. Please, unyeet the second frank.";
         global.str[62]="There is nothing we can help.";
         global.str[63]="There is nothing we can help";
