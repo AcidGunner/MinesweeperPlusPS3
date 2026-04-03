@@ -37,6 +37,7 @@ hat_list[4] = spr_hat4;
 hat_list[5] = spr_hat5;
 hat_list[6] = spr_hat6;
 hat_list[7] = spr_hat7;
+hat_list[8] = spr_hat8;
 </string>
           </argument>
         </arguments>
@@ -61,7 +62,7 @@ hat_list[7] = spr_hat7;
             <kind>1</kind>
             <string>sprite_index=hat_list[global.hat_type];
 
-if sprite_index==-1 or global.hat_type&gt;5
+if sprite_index==-1 or (global.hat_type&gt;5 &amp;&amp; global.hat_type&lt;8)
 obj_smiley.y=obj_smiley._y-2 else obj_smiley.y=obj_smiley._y;
 
 if obj_game.win == false

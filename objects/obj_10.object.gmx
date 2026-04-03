@@ -85,12 +85,14 @@ if global.stage==910 &amp;&amp; global.foughtutsuho==true secret_script_p2();
     for (var fx = 0; fx &lt; obj_game.grid_w; fx++)
     for (var fy = 0; fy &lt; obj_game.grid_h; fy++)
     {
-        if (obj_game.grid[# fx, fy] == -1)
+        if (obj_game.grid_type[# fx, fy] &gt; 0)
             obj_game.flagged[# fx, fy] = true;
     }
     mines_left = 0;
     obj_game.win=true;
-    audio_play_sound(global.stage10_win,0,false);
+    if global.stage==9 audio_play_sound(global.stage9_win,0,false)
+    else if global.stage==10 audio_play_sound(global.stage10_win,0,false)
+    else with obj_game you_won_sfx();
     instance_destroy();
 }
 
@@ -472,11 +474,11 @@ if rand=1
 }
 else if rand=2
 {
-    temp_000+=0.1;
-    temp_001+=0.1;
-    temp_002+=0.1;
-    temp_003+=0.1;
-    temp_004+=0.1;
+    temp_000+=0.6/time;
+    temp_001+=0.6/time;
+    temp_002+=0.6/time;
+    temp_003+=0.6/time;
+    temp_004+=0.6/time;
     var t0=sin(temp_000)/10;
     var t1=sin(temp_001)/10;
     var t2=sin(temp_002)/10;

@@ -81,7 +81,8 @@ grid_m=10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_game);
+            <string>global.stage=0;
+room_goto(rm_game);
 </string>
           </argument>
         </arguments>
@@ -131,7 +132,7 @@ grid_m=10;
         if obj_main_menu.menu_music!=obj_main_menu.prev_music obj_main_menu.alarm[0]=1;
     }
     if obj_input.lef &amp;&amp; global.smiley_face&gt;0 global.smiley_face--;
-    if obj_input.rig &amp;&amp; global.smiley_face&lt;6 global.smiley_face++;
+    if obj_input.rig &amp;&amp; global.smiley_face&lt;7 global.smiley_face++;
     if obj_input.a
     {
         select=1;
@@ -141,7 +142,6 @@ grid_m=10;
         save_game();
         global.temp_stage=global.stage;
         global.temp_lives=lives;
-        global.stage=0;
         lives=3;
         
         if grid_w&lt;3 grid_w=3;
@@ -216,6 +216,7 @@ if global.route=0
     spr_smiley_4=spr_smiley4;
     spr_smiley_5=spr_smiley5;
     spr_smiley_6=spr_smiley6;
+    spr_smiley_7=spr_smiley_alien;
     spr_smiley_86=spr_smiley86;
 }
 else if global.route=1
@@ -226,6 +227,7 @@ else if global.route=1
     spr_smiley_4=spr_smiley4;
     spr_smiley_5=spr_smiley5;
     spr_smiley_6=spr_smiley6;
+    spr_smiley_7=spr_smiley_alien;
     spr_smiley_86=spr_smiley86;
 }
 
@@ -238,11 +240,11 @@ switch global.smiley_face
     case 4: sprite = spr_smiley_5; temp1=2; break;
     case 5: sprite = spr_smiley_6; temp1=0; break;
     case 6: sprite = spr_smiley_86; temp1=0; break;
+    case 7: sprite = spr_smiley_7; temp1=0; break;
 }
 
 switch global.hat_type
 {
-    case 0: hat = -1; break;
     case 1: hat = spr_hat1; break;
     case 2: hat = spr_hat2; break;
     case 3: hat = spr_hat3; break;
@@ -250,6 +252,8 @@ switch global.hat_type
     case 5: hat = spr_hat5; break;
     case 6: hat = spr_hat6; break;
     case 7: hat = spr_hat7; break;
+    case 8: hat = spr_hat8; break;
+    default: hat = -1; break;
 }
 
 if temp1==0 draw_sprite(sprite,0,x+160,44+the_y)

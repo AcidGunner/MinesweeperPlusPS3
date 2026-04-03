@@ -131,7 +131,14 @@ if global.stage=0
         obj_ui.rand_time=1;
         obj_ui.alarm[3]=1;
     }
-    if global.bg_music=10 temp_123=11;
+    if global.bg_music=10
+    {
+        temp_123=11;
+        instance_create(irandom_range(30,290),irandom_range(30,210),obj_10);
+        obj_10.the_x=obj_10.x;
+        obj_10.the_y=obj_10.y;
+        obj_10.rand=2;
+    }
     if grid_w==72
     {
         temp_123=99;
@@ -156,6 +163,7 @@ if global.stage=0
         obj_10.spd=1;
         obj_10.vspeed=1;
         obj_10.hspeed=1;
+        obj_10.rand=2;
         obj_10.alarm[3]=1;
     }
     audio_loop_sound(global._music[temp_123],global._st[temp_123],global._en[temp_123],44100,0)
@@ -312,6 +320,7 @@ if global.stage==910
     obj_10.moove=1;
     obj_10.time=11;
     obj_10.spd=1;
+    obj_10.rand=2;
     obj_10.vspeed=1;
     obj_10.hspeed=1;
     obj_10.alarm[3]=1;

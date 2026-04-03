@@ -374,6 +374,7 @@
         <sprite>sprites\spr_hat5</sprite>
         <sprite>sprites\spr_hat6</sprite>
         <sprite>sprites\spr_hat7</sprite>
+        <sprite>sprites\spr_hat8</sprite>
       </sprites>
     </sprites>
     <sprites name="ui">

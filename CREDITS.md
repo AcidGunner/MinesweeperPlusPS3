@@ -8,7 +8,8 @@
 * Fakharmel - French translation
 * ERRORwhately - aPS3e Tester/debugger
 * Team Shanghai Alice - Touhou stuff
-* Maratyla - Darken Challange idea
+* Maratyla - Darken Challange idea (soon to be implemented)
+* Alien Captain's Creator - Alien Captain's hat
 * GameMaker Studio 1.4.9999 - Used Game engine
 * [GayMaker PS3](https://github.com/LiEnby/GayMaker-PS3) - Used PS3 exporter
 * And you! - Supporting this Port <3

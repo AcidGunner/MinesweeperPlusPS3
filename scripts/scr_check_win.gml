@@ -2,30 +2,22 @@
 var revealed_total = 0;
 var valid_total = 0;
 
-/*for (var wx = 0; wx < grid_w; wx++)
-for (var wy = 0; wy < grid_h; wy++)
-{
-    if (reveal[# wx, wy])
-        revealed_total++;
-}*/
-
 for (var wx = 0; wx < grid_w; wx++)
 for (var wy = 0; wy < grid_h; wy++)
 {
-    if (circle_grid[# wx, wy] == 0)
+    if grid_type[# wx, wy]<1
     {
         valid_total++;
-
-        if (reveal[# wx, wy] && grid_type[# wx, wy] == 0) revealed_total++;
+        if (reveal[# wx, wy]) revealed_total++;
     }
 }
 
 // Check win condition
 //var _left = (grid_w * grid_h) - mine_count;
 
-var _left = valid_total - mine_count;
+var _left = valid_total;
 
-if instance_exists(obj_9) _left-=9;
+//if instance_exists(obj_9) _left-=9;
 
 if (revealed_total >= _left)
 {
@@ -45,7 +37,12 @@ if (revealed_total >= _left)
             obj_10.rand=0;
             obj_10.vspeed=0;
             obj_10.hspeed=0;
+            obj_smiley.cutscene=true;
+            audio_stop_all();
+            audio_play_sound(sfx_done,0,false);
+            time_set();
             obj_10.alarm[6]=1;
+            obj_10.alarm[7]=90;
         }
         exit;
     }

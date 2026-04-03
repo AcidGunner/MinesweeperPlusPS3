@@ -75,6 +75,7 @@ if global.route=0
     spr_smiley_6=spr_smiley6;
     spr_smiley_6c=spr_smiley6_cutscene;
     spr_smiley_86=spr_smiley86;
+    spr_smiley_7=spr_smiley_alien;
 }
 else if global.route=1
 {
@@ -87,6 +88,7 @@ else if global.route=1
     spr_smiley_6=spr_smiley6;
     spr_smiley_6c=spr_smiley6_cutscene;
     spr_smiley_86=spr_smiley86;
+    spr_smiley_7=spr_smiley_alien;
 }
 
 // Spritesheet
@@ -516,6 +518,7 @@ if obj_game.win == false
                 case 4: sprite_index = spr_smiley_5; break;
                 case 5: sprite_index = spr_smiley_6; break;
                 case 6: sprite_index = spr_smiley_86; break;
+                case 7: sprite_index = spr_smiley_7; break;
             };
         }
         
@@ -717,6 +720,7 @@ else
                     case 4: sprite_index = spr_smiley_5; break;
                     case 5: sprite_index = spr_smiley_6; break;
                     case 6: sprite_index = spr_smiley_86; break;
+                    case 7: sprite_index = spr_smiley_7; break;
                 }
                 
                 if sprite_index==spr_smiley_3 image_index=26+image_anim
