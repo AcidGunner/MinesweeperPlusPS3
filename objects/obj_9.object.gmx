@@ -482,6 +482,7 @@ if scale&lt;1 scale=lerp(scale,0,0.05);
             <string>/// Mechanics?
 if (!active) exit;
 
+// Note to self: fix 9's movement to behave like the original
 var grid = obj_game.grid_type;
 var reveal = obj_game.reveal;
 var flagged = obj_game.flagged;

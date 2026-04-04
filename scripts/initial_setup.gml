@@ -37,3 +37,5 @@ global.gridh[86]=12;
 global.minec[86]=0;
 
 global.secret_active=0;
+
+if irandom_range(6,10)==7 rsx_failed();

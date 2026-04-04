@@ -268,6 +268,7 @@
         <sound>sound\sound110</sound>
         <sound>sound\sound111</sound>
         <sound>sound\sfx_weird</sound>
+        <sound>sound\sfx_error</sound>
       </sounds>
       <sounds name="dabios">
         <sound>sound\boot1</sound>
@@ -402,6 +403,10 @@
       </sprites>
       <sprites name="end">
         <sprite>sprites\spr_end_1</sprite>
+        <sprite>sprites\spr_end_2</sprite>
+      </sprites>
+      <sprites name="bonus">
+        <sprite>sprites\spr_message</sprite>
       </sprites>
       <sprite>sprites\spr_logo</sprite>
     </sprites>
@@ -471,6 +476,7 @@
         <script>scripts\secret_script_2_p1.gml</script>
         <script>scripts\secret_script_2_p2.gml</script>
         <script>scripts\unlock_the_secret.gml</script>
+        <script>scripts\rsx_failed.gml</script>
       </scripts>
       <scripts name="debug">
         <script>scripts\audio_loop_sound.gml</script>
@@ -598,6 +604,7 @@
       <object>objects\obj_input</object>
       <object>objects\obj_audio_loop_sound</object>
       <object>objects\obj_logomain</object>
+      <object>objects\obj_message</object>
     </objects>
     <objects name="Versus">
       <objects name="player1">

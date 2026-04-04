@@ -74,6 +74,7 @@ room_speed=global.FSP;
           <argument>
             <kind>1</kind>
             <string>display_set_gui_size(320,240);
+draw_set_alpha(1);
 if instance_exists(obj_ui) &amp;&amp; obj_ui.test_rect=1
 {
     draw_set_alpha(0.2);
@@ -93,9 +94,11 @@ if global.debug==1 &amp;&amp; fps_show
 
 if global.invert
 {
+    draw_set_alpha(1);
     draw_set_blend_mode_ext(bm_inv_dest_color,bm_zero);
-    draw_rectangle(-100,-100,420,340,false);
+    draw_rectangle(-100,-100,160-1,340,false);
     draw_set_blend_mode(bm_normal);
+    draw_set_alpha(1);
 }
 </string>
           </argument>

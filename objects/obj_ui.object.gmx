@@ -399,6 +399,8 @@ if obj_game.lost
     draw_set_alpha(1);
     draw_text_outline(160,70,global.str[50],c_white,c_black,1)
 }
+
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>
