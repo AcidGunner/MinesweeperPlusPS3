@@ -49,6 +49,10 @@ temp3 = 0;
 cutscene_10 = false;
 cutscene_10s = 0;
 
+cutscene_11 = false;
+cutscene_11s = 0;
+cutscene_11temp = -1;
+
 _y=y;
 
 if global.stage==9
@@ -63,6 +67,12 @@ if global.stage==10
     cutscene_10 = true;
 }
 
+if global.stage==11
+{
+    cutscene = true;
+    cutscene_11 = true;
+}
+
 // Sprites Rearrange??
 if global.route=0
 {
@@ -74,8 +84,10 @@ if global.route=0
     spr_smiley_5c=spr_smiley5_cutscene;
     spr_smiley_6=spr_smiley6;
     spr_smiley_6c=spr_smiley6_cutscene;
+    spr_smiley_7=spr_smiley7;
+    spr_smiley_7c=spr_smiley7_cutscene;
     spr_smiley_86=spr_smiley86;
-    spr_smiley_7=spr_smiley_alien;
+    spr_smiley_8=spr_smiley_alien;
 }
 else if global.route=1
 {
@@ -87,8 +99,10 @@ else if global.route=1
     spr_smiley_5c=spr_smiley5_cutscene;
     spr_smiley_6=spr_smiley6;
     spr_smiley_6c=spr_smiley6_cutscene;
+    spr_smiley_7=spr_smiley7;
+    spr_smiley_7c=spr_smiley7_cutscene;
     spr_smiley_86=spr_smiley86;
-    spr_smiley_7=spr_smiley_alien;
+    spr_smiley_8=spr_smiley_alien;
 }
 
 // Spritesheet
@@ -109,6 +123,13 @@ cutscene_10_0[6]=spr_smiley_6c;
 cutscene_10_0[7]=spr_smiley_6c;
 cutscene_10_0[8]=spr_smiley_6c;
 
+cutscene_11_0[0]=spr_smiley_7c;
+cutscene_11_0[1]=spr_smiley_7c;
+cutscene_11_0[2]=spr_smiley_7c;
+cutscene_11_0[3]=spr_smiley_7c;
+cutscene_11_0[4]=spr_smiley_7c;
+cutscene_11_0[5]=spr_smiley_7c;
+
 // Sprite index
 cutscene_9_1[0]=0;
 cutscene_9_1[1]=0;
@@ -126,6 +147,119 @@ cutscene_10_1[5]=7;
 cutscene_10_1[6]=9;
 cutscene_10_1[7]=11;
 cutscene_10_1[8]=12;
+
+cutscene_11_1[0]=0;
+cutscene_11_1[1]=1;
+cutscene_11_1[2]=2;
+cutscene_11_1[3]=4;
+cutscene_11_1[4]=7;
+cutscene_11_1[5]=10;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy(obj_fade);
+cutscene_11s = 5;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if cutscene_11s == 2
+{
+    cutscene_11temp++;
+    instance_destroy(obj_fade);
+    var _fade = instance_create(0,0,obj_fade);
+    instance_create(160,145,obj_11_intro);
+    _fade.aspeed=0.00175;
+    cutscene_11s = 3;
+    alarm[9]=45;
+    alarm[10]=(455555/44100)*global.FSP;
+}
+else if cutscene_11s == 3
+{
+    if cutscene_11temp==2
+    {
+        cutscene_11s = 4;
+        cutscene_11temp=-1;
+    }
+    cutscene_11temp++;
+    if cutscene_11temp&lt;2 alarm[9]=45 else alarm[9]=80;
+}
+else if cutscene_11s == 4
+{
+    cutscene_11temp++;
+    if cutscene_11temp&lt;2 alarm[9]=45;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if cutscene_11s == 0
+{
+    cutscene_11s = 1;
+    alarm[8]=180;
+    alarm[9]=(529072/44100)*global.FSP;
+}
+else if cutscene_11s == 1
+{
+    cutscene_11s = 2;
+    var _fade = instance_create(0,0,obj_fade);
+    _fade.aspeed=0.0025;
+}
 </string>
           </argument>
         </arguments>
@@ -678,6 +812,55 @@ if obj_game.win == false
                     {
                         obj_smiley_hat.image_index = 0;
                         image_index = cutscene_10_1[cutscene_10s];
+                        break;
+                    }
+                }
+            }
+        }
+        else if global.stage==11
+        {
+            /*if instance_exists(obj_11) &amp;&amp; obj_10.stopped=1
+            {
+                if obj_10.temp2=1
+                {
+                    sprite_index = spr_smiley_6c;
+                    image_index = 16+(image_anim2*2);
+                    obj_smiley_hat.image_index = 17+(image_anim2*2);
+                }
+                else
+                {
+                    sprite_index = spr_smiley_6c;
+                    image_index = 14+image_anim2;
+                    obj_smiley_hat.image_index = 4+image_anim2;
+                }
+            }
+            else*/
+            {
+                sprite_index = cutscene_11_0[cutscene_11s]
+                switch cutscene_11s
+                {
+                    case 2:
+                    {
+                        obj_smiley_hat.image_index = 4+image_anim;
+                        image_index = cutscene_11_1[cutscene_11s]+image_anim;
+                        break;
+                    }
+                    case 3:
+                    {
+                        obj_smiley_hat.image_index = 3;
+                        image_index = cutscene_11_1[cutscene_11s]+cutscene_11temp;
+                        break;
+                    }
+                    case 4:
+                    {
+                        obj_smiley_hat.image_index = 1;
+                        image_index = cutscene_11_1[cutscene_11s]+cutscene_11temp;
+                        break;
+                    }
+                    default:
+                    {
+                        obj_smiley_hat.image_index = 0;
+                        image_index = cutscene_11_1[cutscene_11s];
                         break;
                     }
                 }

@@ -34,6 +34,7 @@ cell_size = 16;
 mine_count = global.minec[global.stage];
 boss9_started = false;
 boss10_started = false;
+boss11_started = false;
 mines_left = mine_count;
 temp_mines=mine_count;
 global.pitch=1;
@@ -92,10 +93,10 @@ if global.stage!=0
     else global.smiley_face=temp_111-1
 }
 
-if global.stage!=9 and global.stage!=0 and global.stage!=86 and global.stage!=10 and global.stage!=910
+if global.stage!=9 and global.stage!=0 and global.stage!=86 and global.stage!=10 and global.stage!=910 and global.stage!=11
     audio_loop_sound(global._music[temp_111],global._st[temp_111],global._en[temp_111],44100,0);
 
-if global.stage==9 or global.stage==10 audio_play_sound(mus_ocean,0,true);
+if global.stage==9 or global.stage==10 or global.stage==11 audio_play_sound(mus_ocean,0,true);
 
 if global.foughtcirno=1 and global.foughtutsuho=1 stage910=mus_stage910_11
 else if global.foughtcirno=1 and global.foughtutsuho=0 stage910=mus_stage910_10
@@ -199,6 +200,20 @@ if global.stage==86
     spr_bg=spr_bg86;
     spr_bgb=spr_bg86b;
     audio_play_sound(mus_bad,0,false);
+    
+    if irandom_range(1,10)==10
+    {
+        instance_create(160,145,obj_10);
+        boss10_started=true;
+        obj_10.active=true;
+        obj_10.moove=1;
+        obj_10.time=11;
+        obj_10.spd=0.2;
+        obj_10.vspeed=0.2;
+        obj_10.hspeed=0.2;
+        obj_10.rand=2;
+        obj_10.alarm[3]=1;
+    }
 }
 
 if global.stage==9
@@ -219,6 +234,12 @@ if global.stage==10
     _grid_h = grid_h - 1;
     
     set_circle_grid(4);
+}
+
+if global.stage==11
+{
+    spr_bg=spr_bg1;
+    spr_bgb=spr_bg1b;
 }
 
 // --- Create grid array ---
@@ -537,6 +558,7 @@ if circle_grid[# xx, yy] exit;
 if obj_smiley.mine_detected != 0 exit;
 if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
 if obj_smiley.cutscene == true &amp;&amp; boss10_started exit;
+if obj_smiley.cutscene == true &amp;&amp; boss11_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
 
 if instance_exists(obj_9) &amp;&amp; !first_click
@@ -625,7 +647,33 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 obj_smiley.alarm[5]=1;
                 
                 reveal[# xx, yy ] = true;
+                grid_type[# xx, yy] = 0;
                 grid[# xx, yy] = 10;
+            }
+            else
+            {
+                // Wrong square — clicking does nothing
+                show_debug_message("!! Must click boss center tile first");
+                exit;
+            }
+            
+            exit; // first click handled
+        }
+        
+        if (!boss11_started) &amp;&amp; global.stage==11
+        {
+            if (xx == center_x &amp;&amp; yy == center_y)
+            {
+                if (flagged[# xx, yy]) exit;
+                // Good! Start the game
+                boss11_started = true;
+                audio_stop_sound(mus_ocean);
+                audio_loop_sound(global._music[31],global._st[21],global._en[21],44100,0);
+                obj_smiley.alarm[8]=1;
+                
+                reveal[# xx, yy ] = true;
+                grid_type[# xx, yy] = 0;
+                grid[# xx, yy] = 11;
             }
             else
             {
@@ -640,6 +688,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
         // === Safe First Click ===
         if (first_click)
         {
+            regenerate_grid(xx, yy, temp_mines);
             timer=get_timer();
             first_click = false;
             
@@ -746,6 +795,7 @@ if circle_grid[# xx, yy] exit;
 if obj_smiley.mine_detected != 0 exit;
 if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
 if obj_smiley.cutscene == true &amp;&amp; boss10_started exit;
+if obj_smiley.cutscene == true &amp;&amp; boss11_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
 
 if win == false
@@ -846,8 +896,8 @@ highlight_y2 = -1;
 check_input();
 checks_input();
 
-if (global.stage==9 or global.stage==10) &amp;&amp; 
-    (boss9_started==false and boss10_started==false) let_me_out();
+if (global.stage==9 or global.stage==10 or global.stage==11) &amp;&amp; 
+    (boss9_started==false and boss10_started==false and boss11_started==false) let_me_out();
 if global.stage==86 or (global.stage==0 &amp;&amp; grid_w=16 &amp;&amp; grid_h=12) do_bad_apple();
 </string>
           </argument>

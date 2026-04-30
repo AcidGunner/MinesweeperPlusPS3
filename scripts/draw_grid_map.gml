@@ -39,6 +39,6 @@ for (var xx = 0; xx < 3; xx++)
         }
         else draw_sprite_stretched(_sprt, image_index, x1, y1, 16, 16);
         
-        draw_sprite_stretched(spr_grid, _grd, x1, y1, 16, 16);
+        if global.if_draw_grid draw_sprite_stretched(spr_grid, _grd, x1, y1, 16, 16);
     }
 }

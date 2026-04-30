@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_sound(global._music[6]);
+            <string>audio_stop_all();
 audio_play_sound(sfx_9lost,1,false);
+audio_play_sound(sfx_done,0,false);
 alpha=0;
 go=0;
 alarm[0]=audio_sound_length(sfx_9lost)*global.FSP;

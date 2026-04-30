@@ -67,6 +67,11 @@ x = obj_game.grid_offset_x;
 y = obj_game.grid_offset_y;
 
 draw_sprite_tiled_ext(sprite_index,image_index,x,y,tile_size,tile_size,c_white,1);
+draw_set_alpha(0.25);
+draw_set_color(c_black);
+if global.if_draw_grid=0 draw_rectangle(0,0,320,240,false);
+draw_set_color(c_white);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

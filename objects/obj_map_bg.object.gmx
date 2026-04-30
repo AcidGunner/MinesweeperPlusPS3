@@ -163,6 +163,10 @@ draw_sprite_tiled_ext(sprite_index,image_index,0,0,1,1,c_white,1);
 draw_set_color(c_black);
 draw_rectangle(544,0,864,240,false);
 
+draw_set_alpha(0.25);
+if global.if_draw_grid=0 draw_rectangle(0,0,544,240,false);
+draw_set_alpha(1);
+
 _p1+=2.1;_p2+=2.1;_p3+=2.1;
 _p4--;_p5--;_p6--;
 _p7+=0.4;_p8+=0.4;_p9+=0.4;

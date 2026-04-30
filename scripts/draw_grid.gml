@@ -12,6 +12,9 @@ for (var xx = 0; xx < grid_w; xx++)
             var x1 = grid_offset_x + xx * draw_size;
             var y1 = grid_offset_y + yy * draw_size;
             
+            if !(x1>-16 && x1<336) continue;
+            if !(y1>24 && y1<256) continue;
+            
             var _sprt=grid_sprite[# xx, yy];
             var v = grid[# xx, yy];
             var v1 = grid_type[# xx, yy];
@@ -62,7 +65,7 @@ for (var xx = 0; xx < grid_w; xx++)
                 }
                 else draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);
             }
-            draw_sprite_stretched(spr_grid, _grd, x1, y1, draw_size, draw_size);
+            if global.if_draw_grid draw_sprite_stretched(spr_grid, _grd, x1, y1, draw_size, draw_size);
             if (highlight_x1 >= 0 && highlight_y1 >= 0)
             {
                 if (xx == highlight_x1 && yy == highlight_y1)
@@ -89,13 +92,19 @@ var c_y = grid_offset_y + center_y * draw_size;
 if !boss9_started && global.stage==9
 {
     draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
-    draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
+    if global.if_draw_grid draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
 }
 
 if !boss10_started && global.stage==10
 {
     draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
-    draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
+    if global.if_draw_grid draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
+}
+
+if !boss11_started && global.stage==11
+{
+    draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
+    if global.if_draw_grid draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
 }
 
 if cirno9=true && boss9_started

@@ -39,6 +39,9 @@ global._en[19]= 3513913;
 global._st[20]= 1212339;
 global._en[20]= 2420316;
 
+global._st[21]= 1891054;
+global._en[21]= 3098038;
+
 global._st[99]= 460984;
 global._en[99]= 6700344;
 
@@ -67,6 +70,8 @@ if global._music_type=0
     global._music[20]=mus_menu_8;
     global._music[21]=mus_menu_9;
     global._music[22]=mus_menu_10;
+    
+    global._music[31]=mus_stage11_prepare;
     
     global.stage1_win=mus_stage1_win;
     global.stage2_win=mus_stage2_win;

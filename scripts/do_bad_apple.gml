@@ -11,6 +11,7 @@ for (var gy = 0; gy < 12; gy++)
     {
         var bit = real(string_char_at(frame, i));
         bit=!bit;
+        circle_grid[# gx, gy] = !bit;
         reveal[# gx, gy] = bit;
         i++;
     }

@@ -431,7 +431,6 @@ if active
     if time=0
     {
         audio_stop_all();
-        audio_play_sound(sfx_done,0,false);
         instance_create(0,0,obj_9_end);
     }
 }

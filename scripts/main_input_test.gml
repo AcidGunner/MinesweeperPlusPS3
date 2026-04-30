@@ -47,7 +47,7 @@ if global.CONTROL==0
     mp2 = mouse_check_button_pressed(mb_right);
     mh2 = mouse_check_button_released(mb_right);
 }
-else
+else if global.CONTROL==1
 {
     //First config
     start=gamepad_button_check_pressed(0,gp_start);
@@ -108,6 +108,54 @@ else
     mh1 = gamepad_button_check_released(0,gp_face1);
     mp2 = bl;
     mh2 = gamepad_button_check_released(0,gp_face2);
+}
+else if global.CONTROL==2
+{
+    up=keyboard_check(vk_up);
+    down=keyboard_check(vk_down);
+    right=keyboard_check(vk_right);
+    left=keyboard_check(vk_left);
+    start=keyboard_check_pressed(vk_enter);
+    hstart=keyboard_check(vk_enter);
+    select=keyboard_check_pressed(vk_backspace);
+    a=keyboard_check_pressed(ord('Z'));
+    a_held=keyboard_check(ord('Z'))
+    b=keyboard_check(ord('X'));
+    bl=keyboard_check_pressed(ord('X'));
+    c=keyboard_check_pressed(vk_rshift);
+    c_held=keyboard_check(vk_rshift);
+    d=keyboard_check_pressed(vk_lshift);
+    d_held=keyboard_check(vk_lshift);
+    lef=keyboard_check_pressed(vk_left);
+    rig=keyboard_check_pressed(vk_right);
+    dow=keyboard_check_pressed(vk_down);
+    upp=keyboard_check_pressed(vk_up);
+    l1=mouse_wheel_down();
+    r1=mouse_wheel_up();
+    l1h=keyboard_check(vk_lalt);
+    r1h=keyboard_check(vk_ralt);
+    l2=keyboard_check_pressed(vk_numpad4);
+    r2=keyboard_check_pressed(vk_numpad6);
+    l2h=keyboard_check(vk_numpad4);
+    r2h=keyboard_check(vk_numpad6);
+    any=keyboard_check_pressed(vk_anykey);
+    
+    rup=keyboard_check(vk_up);
+    rdown=keyboard_check(vk_down);
+    rright=keyboard_check(vk_right);
+    rleft=keyboard_check(vk_left);
+    
+    cursor_rx=rright-rleft;
+    cursor_ry=rdown-rup;
+    cursor_r=keyboard_check_pressed(vk_space);
+    
+    mx += rright-rleft;
+    my += rdown-rup;
+    mp1 = keyboard_check_pressed(ord('Z'));
+    mk1 = keyboard_check(ord('Z'));
+    mh1 = keyboard_check_released(ord('Z'));
+    mp2 = keyboard_check_pressed(ord('X'));
+    mh2 = keyboard_check_released(ord('X'));
 }
 
 //PLAYER 2!!

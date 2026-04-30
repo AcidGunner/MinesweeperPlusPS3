@@ -1,12 +1,10 @@
 ///detect_console();
-switch os_type
-{
-    case os_ps3:     return "PS3";         break; // Main port
-    case os_ps4:     return "PS4";         break; // Possible, but do it yourselves.
-    case os_psp:     return "PSP";         break; // This port will be on Lua sometime, so ignore.
-    case os_psvita:  return "PSVita";      break; // Possible, but do it yourselves.
-    case os_xbox360: return "Xbox 360";    break; // Please tell me if you manage to run it on Xbox consoles..
-    case os_windows: return "PS3";         break; // Main port for Debug purposes
-    case os_android: return "UNSUPPORTED"; break; // Unsupported Controls
-    case os_xboxone: return "Xbox One";    break; // Please tell me if you manage to run it on Xbox consoles..
-}
+if os_type==os_ps3          return "PS3";         // Main edition
+else if os_type==os_windows return "PS3";         // Main edition for Debug purposes
+else if os_type==os_ps4     return "PS4";         // Possible, but do it yourselves.
+else if os_type==os_psvita  return "PSVita";      // Possible, but do it yourselves.
+else if os_type==os_wiiu    return "Wii U";       // Holy? Testing currently on Cemu via Cinnamon
+else if os_type==os_psp     return "PSP";         // This edition will be on Lua sometime, so ignore.
+else if os_type==os_xbox360 return "Xbox 360";    // Please tell me if you manage to run it on Xbox consoles..
+else if os_type==os_xboxone return "Xbox One";    // Please tell me if you manage to run it on Xbox consoles..
+else return "Undetected";

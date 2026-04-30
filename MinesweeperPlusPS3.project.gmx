@@ -160,6 +160,9 @@
           <sound>sound\mus_stage910_10</sound>
           <sound>sound\mus_stage910_11</sound>
         </sounds>
+        <sounds name="boss11">
+          <sound>sound\mus_stage11_prepare</sound>
+        </sounds>
       </sounds>
       <sounds name="bonus">
         <sounds name="versus">
@@ -340,6 +343,11 @@
             <sprite>sprites\spr_10_part</sprite>
             <sprite>sprites\spr_10_num</sprite>
           </sprites>
+          <sprites name="boss_11">
+            <sprite>sprites\spr_11</sprite>
+            <sprite>sprites\spr_11_laser</sprite>
+            <sprite>sprites\spr_11_part</sprite>
+          </sprites>
         </sprites>
         <sprite>sprites\spr_num</sprite>
         <sprite>sprites\spr_hell</sprite>
@@ -358,6 +366,8 @@
           <sprite>sprites\spr_smiley5_cutscene</sprite>
           <sprite>sprites\spr_smiley6</sprite>
           <sprite>sprites\spr_smiley6_cutscene</sprite>
+          <sprite>sprites\spr_smiley7</sprite>
+          <sprite>sprites\spr_smiley7_cutscene</sprite>
         </sprites>
         <sprites name="new">
           <sprite>sprites\spr_smiley_bonus</sprite>
@@ -476,6 +486,7 @@
         <script>scripts\secret_script_2_p1.gml</script>
         <script>scripts\secret_script_2_p2.gml</script>
         <script>scripts\unlock_the_secret.gml</script>
+        <script>scripts\do_bad_apple.gml</script>
         <script>scripts\rsx_failed.gml</script>
       </scripts>
       <scripts name="debug">
@@ -483,7 +494,6 @@
         <script>scripts\gamepad_button_check_pressed_any.gml</script>
         <script>scripts\bad_apple_initialize.gml</script>
         <script>scripts\message_set.gml</script>
-        <script>scripts\do_bad_apple.gml</script>
         <script>scripts\detect_console.gml</script>
         <script>scripts\check_debug.gml</script>
         <script>scripts\ask_10.gml</script>
@@ -556,6 +566,7 @@
         <object>objects\obj_9boo</object>
         <object>objects\obj_9_end</object>
         <object>objects\obj_10</object>
+        <object>objects\obj_11_intro</object>
       </objects>
       <objects name="other">
         <object>objects\obj_explosion</object>
@@ -564,6 +575,7 @@
         <object>objects\obj_end_demo</object>
         <object>objects\obj_end_text1</object>
         <object>objects\obj_audio_pitcher</object>
+        <object>objects\obj_fade</object>
       </objects>
     </objects>
     <objects name="Menu">

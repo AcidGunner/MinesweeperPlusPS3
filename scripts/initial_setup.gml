@@ -9,7 +9,10 @@ global.temp_stage=0;
 global.temp_lives=0;
 global.smiley_face=0;
 global.bg_music=0;
+global.if_draw_grid=0;
 if os_type==os_windows && !gamepad_is_connected(0) global.CONTROL=0;
+
+if true global.CONTROL=0;
 
 //show_message(os_type);
 
@@ -38,4 +41,4 @@ global.minec[86]=0;
 
 global.secret_active=0;
 
-if irandom_range(6,10)==7 rsx_failed();
+//if irandom_range(6,10)==7 && global.CONTROL!=2 rsx_failed();

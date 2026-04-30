@@ -2,6 +2,7 @@
 if obj_smiley.mine_detected != 0 exit;
 if obj_smiley.cutscene == true && boss9_started exit;
 if obj_smiley.cutscene == true && boss10_started exit;
+if obj_smiley.cutscene == true && boss11_started exit;
 if instance_exists(obj_9) && obj_9.stop exit;
 
 // Cell must be inside the grid
