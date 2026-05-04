@@ -457,7 +457,7 @@ if active
           <argument>
             <kind>1</kind>
             <string>sprite_index=spr_main;
-image_blend=c_white;
+image_blend=merge_colour(c_white,c_red,(10-time)/10);
 image_xscale=scale;
 image_yscale=scale;
 image_alpha=alpha;

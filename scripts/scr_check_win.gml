@@ -5,7 +5,7 @@ var valid_total = 0;
 for (var wx = 0; wx < grid_w; wx++)
 for (var wy = 0; wy < grid_h; wy++)
 {
-    if grid_type[# wx, wy]<1
+    if grid_type[# wx, wy]==0
     {
         valid_total++;
         if (reveal[# wx, wy]) revealed_total++;

@@ -77,24 +77,53 @@ temp_y=-1;
 temp_g=0;
 temp_111 = 1;
 
-if global.stage==1 temp_111 = 1
-else if global.stage==2 temp_111 = 1
-else if global.stage==3 temp_111 = 2
-else if global.stage==4 temp_111 = 2
-else if global.stage==5 temp_111 = 3
-else if global.stage==6 temp_111 = 3
-else if global.stage==7 temp_111 = 4
-else if global.stage==8 temp_111 = 4
-else if global.stage==910 temp_111 = 10;
+if global.episode==1
+{
+    if global.stage==1 temp_111 = 1
+    else if global.stage==2 temp_111 = 1
+    else if global.stage==3 temp_111 = 2
+    else if global.stage==4 temp_111 = 2
+    else if global.stage==5 temp_111 = 3
+    else if global.stage==6 temp_111 = 3
+    else if global.stage==7 temp_111 = 4
+    else if global.stage==8 temp_111 = 4;
+}
+else if global.episode==2
+{
+    if global.stage==1 temp_111 = 5
+    else if global.stage==2 temp_111 = 5
+    else if global.stage==3 temp_111 = 6
+    else if global.stage==4 temp_111 = 6
+    else if global.stage==5 temp_111 = 7
+    else if global.stage==6 temp_111 = 7
+    else if global.stage==7 temp_111 = 8
+    else if global.stage==8 temp_111 = 8
+    else if global.stage==910 temp_111 = 10;
+}
 
 if global.stage!=0
 {
     if temp_111=10 global.smiley_face=5
-    else global.smiley_face=temp_111-1
+    else
+    {
+        if global.episode==1 global.smiley_face=temp_111-1
+        else if global.episode==2 global.smiley_face=temp_111-5
+    }
 }
 
-if global.stage!=9 and global.stage!=0 and global.stage!=86 and global.stage!=10 and global.stage!=910 and global.stage!=11
-    audio_loop_sound(global._music[temp_111],global._st[temp_111],global._en[temp_111],44100,0);
+if global.stage&lt;9 and global.stage&gt;0
+{
+    if global.episode==1
+    {
+        audio_loop_sound(global._music[temp_111],global._st[temp_111],global._en[temp_111],44100,0);
+        audio_sound_pitch(global._music[temp_111],1);
+    }
+    else if global.episode==2
+    {
+        audio_loop_sound(global._music[temp_111+2],global._st[temp_111+2],global._en[temp_111+2],44100,0);
+        audio_sound_pitch(global._music[temp_111+2],1);
+    }
+}
 
 if global.stage==9 or global.stage==10 or global.stage==11 audio_play_sound(mus_ocean,0,true);
 
@@ -110,6 +139,7 @@ if global.stage==910
     {
         _temp000 = 3396951/44100;
         audio_loop_sound(global._music[12],global._st[12],global._en[12],44100,0);
+        audio_sound_pitch(global._music[12],1);
         audio_sound_set_track_position(obj_audio_loop_sound._audio,_temp000);
     }
 }
@@ -168,6 +198,7 @@ if global.stage=0
         obj_10.alarm[3]=1;
     }
     audio_loop_sound(global._music[temp_123],global._st[temp_123],global._en[temp_123],44100,0)
+    audio_sound_pitch(global._music[temp_123],1);
 }
 
 spr_bg=-1;
@@ -223,17 +254,21 @@ if global.stage==9
     spiral_setup();
 }
 
-if global.stage==10
+if global.episode==2
 {
-    spr_bg=spr_bg6;
-    spr_bgb=spr_bg6b;
-    
-    // possible custom grid?
-    // yes, just thought about this bruh
-    _grid_w = grid_w - 1;
-    _grid_h = grid_h - 1;
-    
-    set_circle_grid(4);
+    if global.stage==10
+    {
+        spr_bg=spr_bg6;
+        spr_bgb=spr_bg6b;
+        
+        // possible custom grid?
+        // yes, just thought about this bruh
+        _grid_w = grid_w - 1;
+        _grid_h = grid_h - 1;
+        
+        set_circle_grid(4);
+    }
+    else shape_setup(global.stage);
 }
 
 if global.stage==11
@@ -610,6 +645,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 boss9_started = true;
                 audio_stop_sound(mus_ocean);
                 audio_loop_sound(global._music[5],global._st[5],global._en[5],44100,0);
+                audio_sound_pitch(global._music[5],1);
                 obj_smiley.alarm[0]=1;
                 
                 reveal[# xx, yy ] = true;
@@ -644,6 +680,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 boss10_started = true;
                 audio_stop_sound(mus_ocean);
                 audio_loop_sound(global._music[11],global._st[11],global._en[11],44100,0);
+                audio_sound_pitch(global._music[11],1);
                 obj_smiley.alarm[5]=1;
                 
                 reveal[# xx, yy ] = true;
@@ -669,6 +706,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 boss11_started = true;
                 audio_stop_sound(mus_ocean);
                 audio_loop_sound(global._music[31],global._st[21],global._en[21],44100,0);
+                audio_sound_pitch(global._music[31],1);
                 obj_smiley.alarm[8]=1;
                 
                 reveal[# xx, yy ] = true;

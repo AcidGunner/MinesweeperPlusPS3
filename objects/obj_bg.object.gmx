@@ -27,17 +27,35 @@
             <kind>1</kind>
             <string>image_speed=0.02;
 
-switch global.stage
+if global.episode==1
 {
-    case 1: sprite_index=spr_bg1; break;
-    case 2: sprite_index=spr_bg1; break;
-    case 3: sprite_index=spr_bg2; break;
-    case 4: sprite_index=spr_bg2; break;
-    case 5: sprite_index=spr_bg3; break;
-    case 6: sprite_index=spr_bg3; break;
-    case 7: sprite_index=spr_bg4; break;
-    case 8: sprite_index=spr_bg4; break;
-    case 86: sprite_index=spr_bg86; break;
+    switch global.stage
+    {
+        case 1: sprite_index=spr_bg1; break;
+        case 2: sprite_index=spr_bg1; break;
+        case 3: sprite_index=spr_bg2; break;
+        case 4: sprite_index=spr_bg2; break;
+        case 5: sprite_index=spr_bg3; break;
+        case 6: sprite_index=spr_bg3; break;
+        case 7: sprite_index=spr_bg4; break;
+        case 8: sprite_index=spr_bg4; break;
+        case 86: sprite_index=spr_bg86; break;
+    }
+}
+else if global.episode==2
+{
+    switch global.stage
+    {
+        case 1: sprite_index=spr_bg6; break;
+        case 2: sprite_index=spr_bg6; break;
+        case 3: sprite_index=spr_bg7; break;
+        case 4: sprite_index=spr_bg7; break;
+        case 5: sprite_index=spr_bg8; break;
+        case 6: sprite_index=spr_bg8; break;
+        case 7: sprite_index=spr_bg9; break;
+        case 8: sprite_index=spr_bg9; break;
+        case 86: sprite_index=spr_bg86; break;
+    }
 }
 </string>
           </argument>

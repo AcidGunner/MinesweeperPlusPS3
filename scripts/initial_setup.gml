@@ -12,7 +12,7 @@ global.bg_music=0;
 global.if_draw_grid=0;
 if os_type==os_windows && !gamepad_is_connected(0) global.CONTROL=0;
 
-if true global.CONTROL=0;
+//if true global.CONTROL=0;
 
 //show_message(os_type);
 

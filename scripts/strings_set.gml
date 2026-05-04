@@ -100,13 +100,22 @@ switch global.lang
         global.str[91]="Set grid width";
         global.str[92]="Set grid height";
         global.str[93]="Set mine count";
-        global.str[94]="";
-        global.str[95]="";
-        global.str[96]="";
-        global.str[97]="";
-        global.str[98]="";
+        global.str[94]="Continue?";
+        global.str[95]="YES";
+        global.str[96]="NO";
+        global.str[97]="1-UP";
+        global.str[98]="GAME OVER";
         global.str[99]="";
         global.str[100]="";
+        global.str[101]="The Shallow End";
+        global.str[102]="Fountain Flows";
+        global.str[103]="Silent Marsh";
+        global.str[104]="Murky Swamp";
+        global.str[105]="Crazy Cove";
+        global.str[106]="Raging Rapids";
+        global.str[107]="Gulf of Misery";
+        global.str[108]="Black Water";
+        global.str[109]="THE DEEP END";
         break;
     }
     case 1:
@@ -259,82 +268,6 @@ switch global.lang
         global.str[68]="Сделано AcidNT3.1 (Оригинал от Jorel)";
         global.str[69]="Спасибо за прохождение данного порта.";
         global.str[70]="сек";
-        break;
-    }
-    case 3:
-    {
-        //The MSPLUS JK!
-        global.str[0]="Bruhsweeper Delta";
-        global.str[1]="Edition";
-        global.str[2]="Just press Start dude";
-        global.str[3]="Start Goo-";
-        global.str[4]="This Edition's stuff?";
-        global.str[5]="Analyze";
-        global.str[6]="Help me";
-        global.str[7]="Changer";
-        global.str[8]="Credits";
-        global.str[9]="GREAT MEME RESET";
-        global.str[10]="WARNING!!# #This is the NIGHTLY Build. Many things are VERY OOOOOOH. IT IS RECOMMENDED TO PLAY THE CURRENT STABLE VERSION.#PROCEED WITH BOOOOO!!"
-        global.str[11]="fumo";
-        global.str[12]="Addons guide";
-        global.str[13]="Back Button";
-        global.str[14]="Hats guide!";
-        global.str[15]="Just because this is a not-completed version of the game, the game allows you to change your hat by pressing either L2 or R2.";
-        global.str[16]="Press ○ to yeet back.";
-        global.str[17]="You are not ready yet.";
-        global.str[18]="Link";
-        global.str[19]="Sorry, ";
-        global.str[20]=", I can't give credit.";
-        global.str[21]="";
-        global.str[22]="Come back when you're little...";
-        global.str[23]="mmmmmmmmmmmmmmm..";
-        global.str[24]="Richer.";
-        global.str[25]="and you!";
-        global.str[26]="Change";
-        global.str[27]="Input";
-        global.str[28]="Musica";
-        global.str[29]="Langz";
-        global.str[30]="Current";
-        global.str[31]="Cursor type";
-        global.str[32]="Tile type";
-        global.str[33]="Original";
-        global.str[34]="Remastered";
-        global.str[35]="Are you sure?";
-        global.str[36]='Press X for "Pretty sure.."';
-        global.str[37]="[PLEASE READ BEFORE DOING ANYTHING!]# #ACIDPS3 PROJECT IS NOT AFFILIATED OR APPROVED BY SONY COMPUTER ENTERTAINMENT!!#WE ARE NOT GETTING ANY PROFIT OUT OF THIS. THOSE SERVICES ARE PURELY FREE NO MATTER WHAT.#(NOT LICENSED BY SONY)";
-        global.str[38]="Finding da wae...";
-        global.str[39]="GMS4PS3 Loader v0.0";
-        global.str[40]="Boo";
-        global.str[41]="Free";
-        global.str[42]="MC Story";
-        global.str[43]="Mode";
-        global.str[44]="for VS!";
-        global.str[45]="DONE!";
-        global.str[46]="Player 1 Won!";
-        global.str[47]="Player 2 Won!";
-        global.str[48]="Draw!";
-        global.str[49]="...";
-        global.str[50]="ouch..";
-        global.str[51]="First Blood";
-        global.str[52]="Expired Milk";
-        global.str[53]="Crazy Frog";
-        global.str[54]="Goo Lagoon";
-        global.str[55]="Great Britain";
-        global.str[56]="SIX SEVEN (Sorry)";
-        global.str[57]="Open Source";
-        global.str[58]="Dead Body";
-        global.str[59]="THE DEVIL'S APPLE";
-        global.str[60]="THE DEVIL'S GOON#AREA";
-        global.str[61]="Player 2 is yeeted. Please, unyeet the second frank.";
-        global.str[62]="There is nothing we can help.";
-        global.str[63]="There is nothing we can help";
-        global.str[64]="#Additional Note:#Good luck.";
-        global.str[65]="#Additional Note:#No.";
-        global.str[66]="cirno baka";
-        global.str[67]="okuu";
-        global.str[68]="edited by AcidNT3.1 (Original by Jorel)";
-        global.str[69]="Thank you so much for-a playing my game.";
-        global.str[70]="s";
         break;
     }
 }

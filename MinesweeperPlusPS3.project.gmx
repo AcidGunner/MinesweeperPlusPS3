@@ -114,9 +114,27 @@
         </sounds>
         <sounds name="mus_stage6">
           <sound>sound\mus_stage6</sound>
+          <sound>sound\mus_stage6r</sound>
         </sounds>
         <sounds name="mus_stage6_win">
           <sound>sound\mus_stage6_win</sound>
+          <sound>sound\mus_stage6r_win</sound>
+        </sounds>
+        <sounds name="mus_stage7">
+          <sound>sound\mus_stage7</sound>
+          <sound>sound\mus_stage7r</sound>
+        </sounds>
+        <sounds name="mus_stage7_win">
+          <sound>sound\mus_stage7_win</sound>
+          <sound>sound\mus_stage7r_win</sound>
+        </sounds>
+        <sounds name="mus_stage8">
+          <sound>sound\mus_stage8</sound>
+          <sound>sound\mus_stage8r</sound>
+        </sounds>
+        <sounds name="mus_stage8_win">
+          <sound>sound\mus_stage8_win</sound>
+          <sound>sound\mus_stage8r_win</sound>
         </sounds>
       </sounds>
       <sounds name="bosses">
@@ -215,6 +233,21 @@
           <sound>sound\mus_map4</sound>
           <sound>sound\mus_map4t</sound>
         </sounds>
+        <sounds name="map5">
+          <sound>sound\mus_map5</sound>
+        </sounds>
+        <sounds name="map6">
+          <sound>sound\mus_map_6</sound>
+          <sound>sound\mus_map_6r</sound>
+        </sounds>
+        <sounds name="map7">
+          <sound>sound\mus_map7</sound>
+          <sound>sound\mus_map7r</sound>
+        </sounds>
+        <sounds name="map8">
+          <sound>sound\mus_map8</sound>
+          <sound>sound\mus_map8r</sound>
+        </sounds>
         <sounds name="map9">
           <sound>sound\mus_map9</sound>
         </sounds>
@@ -226,6 +259,9 @@
         </sounds>
         <sounds name="map100">
           <sound>sound\mus_map100</sound>
+        </sounds>
+        <sounds name="map11">
+          <sound>sound\mus_map11</sound>
         </sounds>
       </sounds>
       <sound>sound\mus_title</sound>
@@ -258,6 +294,7 @@
         <sound>sound\sfx_click</sound>
         <sound>sound\sfx_unflag</sound>
         <sound>sound\sfx_gameover</sound>
+        <sound>sound\sfx_1up</sound>
       </sounds>
       <sounds name="menu">
         <sound>sound\sfx_game_start</sound>
@@ -542,6 +579,7 @@
       <script>scripts\init_globals_mus.gml</script>
       <script>scripts\strings_set.gml</script>
       <script>scripts\setup_field.gml</script>
+      <script>scripts\shape_setup.gml</script>
       <script>scripts\ver_show.gml</script>
     </scripts>
     <script>scripts\temp_script.gml</script>
@@ -576,6 +614,7 @@
         <object>objects\obj_end_text1</object>
         <object>objects\obj_audio_pitcher</object>
         <object>objects\obj_fade</object>
+        <object>objects\obj_fade_mid</object>
       </objects>
     </objects>
     <objects name="Menu">

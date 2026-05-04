@@ -3,7 +3,7 @@
   <spriteName>spr_smiley1</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-2</depth>
+  <depth>-3</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -614,6 +614,14 @@ if obj_game.win == false
             sprite_index=spr_smiley_6;
             if cutscene_10_lose&lt;1 image_index = 8
             else image_index = 13+cutscene_10_lose;
+            exit;
+        }
+        if instance_exists(obj_audio_pitcher) &amp;&amp; obj_audio_pitcher.go_on=1
+        {
+            if sprite_index==spr_smiley_3 image_index=26+image_anim
+            else if sprite_index==spr_smiley_5 image_index=27+image_anim
+            else if sprite_index==spr_smiley_6 image_index=17+image_anim
+            else image_index=14+image_anim;
             exit;
         }
         if obj_game.lost

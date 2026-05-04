@@ -25,16 +25,33 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>list[0]=spr_bg1;
-list[1]=spr_bg1;
-list[2]=spr_bg2;
-list[3]=spr_bg2;
-list[4]=spr_bg3;
-list[5]=spr_bg3;
-list[6]=spr_bg4;
-list[7]=spr_bg4;
-list[8]=spr_bg1;
-list[9]=spr_bg1;
+            <string>if global.episode==1
+{
+    list[0]=spr_bg1;
+    list[1]=spr_bg1;
+    list[2]=spr_bg2;
+    list[3]=spr_bg2;
+    list[4]=spr_bg3;
+    list[5]=spr_bg3;
+    list[6]=spr_bg4;
+    list[7]=spr_bg4;
+    list[8]=spr_bg1;
+    list[9]=spr_bg1;
+}
+else if global.episode==2
+{
+    list[0]=spr_bg6;
+    list[1]=spr_bg6;
+    list[2]=spr_bg7;
+    list[3]=spr_bg7;
+    list[4]=spr_bg8;
+    list[5]=spr_bg8;
+    list[6]=spr_bg9;
+    list[7]=spr_bg9;
+    list[8]=spr_bg1;
+    list[9]=spr_bg5;
+    list[9]=spr_bg6;
+}
 
 sprite_index=list[global.stage-1];
 
@@ -62,32 +79,61 @@ for (var i=0; i&lt;8; i++)
         grid_w = 3;
         grid_h = 3;
         
-        switch global.stage
-        {
-            case 1: temp_111=1; break;
-            case 2: temp_111=1; break;
-            case 3: temp_111=2; break;
-            case 4: temp_111=2; break;
-            case 5: temp_111=3; break;
-            case 6: temp_111=3; break;
-            case 7: temp_111=4; break;
-            case 8: temp_111=4; break;
-            case 9: temp_111=1; break;
-            case 10: temp_111=1; break;
-        }
-        
         spr_bg=-1;
         spr_bgb=-1;
         
-        if temp_111 == 1 spr_bg=spr_bg1
-        else if temp_111 == 2 spr_bg=spr_bg2
-        else if temp_111 == 3 spr_bg=spr_bg3
-        else if temp_111 == 4 spr_bg=spr_bg4;
-        
-        if temp_111 == 1 spr_bgb=spr_bg1b
-        else if temp_111 == 2 spr_bgb=spr_bg2b
-        else if temp_111 == 3 spr_bgb=spr_bg3b
-        else if temp_111 == 4 spr_bgb=spr_bg4b;
+        if global.episode==1
+        {
+            switch global.stage
+            {
+                case 1: temp_111=1; break;
+                case 2: temp_111=1; break;
+                case 3: temp_111=2; break;
+                case 4: temp_111=2; break;
+                case 5: temp_111=3; break;
+                case 6: temp_111=3; break;
+                case 7: temp_111=4; break;
+                case 8: temp_111=4; break;
+                case 9: temp_111=1; break;
+                case 10: temp_111=1; break;
+            }
+            if temp_111 == 1 spr_bg=spr_bg1
+            else if temp_111 == 2 spr_bg=spr_bg2
+            else if temp_111 == 3 spr_bg=spr_bg3
+            else if temp_111 == 4 spr_bg=spr_bg4;
+            
+            if temp_111 == 1 spr_bgb=spr_bg1b
+            else if temp_111 == 2 spr_bgb=spr_bg2b
+            else if temp_111 == 3 spr_bgb=spr_bg3b
+            else if temp_111 == 4 spr_bgb=spr_bg4b;
+        }
+        else if global.episode==2
+        {
+            switch global.stage
+            {
+                case 1: temp_111=1; break;
+                case 2: temp_111=1; break;
+                case 3: temp_111=2; break;
+                case 4: temp_111=2; break;
+                case 5: temp_111=3; break;
+                case 6: temp_111=3; break;
+                case 7: temp_111=4; break;
+                case 8: temp_111=4; break;
+                case 9: temp_111=5; break;
+                case 10: temp_111=1; break;
+            }
+            if temp_111 == 1 spr_bg=spr_bg6
+            else if temp_111 == 2 spr_bg=spr_bg7
+            else if temp_111 == 3 spr_bg=spr_bg8
+            else if temp_111 == 4 spr_bg=spr_bg9
+            else if temp_111 == 5 spr_bg=spr_bg5;
+            
+            if temp_111 == 1 spr_bgb=spr_bg6b
+            else if temp_111 == 2 spr_bgb=spr_bg7b
+            else if temp_111 == 3 spr_bgb=spr_bg8b
+            else if temp_111 == 4 spr_bgb=spr_bg9b
+            else if temp_111 == 5 spr_bgb=spr_bg5b;
+        }
         
         // --- Create grid array ---
         grid = ds_grid_create(grid_w, grid_h);

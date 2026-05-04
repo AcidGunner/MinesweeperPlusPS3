@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,28 +26,93 @@
           <argument>
             <kind>1</kind>
             <string>temp_123=0;
+show=0;
+selected=1;
+stop=0;
+go_on=0;
 
-if global.stage==1 or global.stage==2 mus=global._music[1]
-else if global.stage==3 or global.stage==4 mus=global._music[2]
-else if global.stage==5 or global.stage==6 mus=global._music[3]
-else if global.stage==7 or global.stage==8 mus=global._music[4]
-else if global.stage==9 mus=global._music[6]
-else if global.stage==10 or global.stage==11 mus=global._music[12];
-else if global.stage==0
+if global.episode==1
 {
-    temp_123=global.bg_music;
-    if global.bg_music&gt;6 temp_123+=2;
-    mus=global._music[global.bg_music];
+    if global.stage==1 or global.stage==2 mus=global._music[1]
+    else if global.stage==3 or global.stage==4 mus=global._music[2]
+    else if global.stage==5 or global.stage==6 mus=global._music[3]
+    else if global.stage==7 or global.stage==8 mus=global._music[4]
+    else if global.stage==0
+    {
+        temp_123=global.bg_music;
+        if global.bg_music&gt;6 temp_123+=2;
+        mus=global._music[global.bg_music];
+    }
+}
+else if global.episode==2
+{
+    if global.stage==1 or global.stage==2 mus=global._music[7]
+    else if global.stage==3 or global.stage==4 mus=global._music[8]
+    else if global.stage==5 or global.stage==6 mus=global._music[9]
+    else if global.stage==7 or global.stage==8 mus=global._music[10]
+    else if global.stage==0
+    {
+        temp_123=global.bg_music;
+        if global.bg_music&gt;6 temp_123+=2;
+        mus=global._music[global.bg_music];
+    }
 }
 
 pitch=1;
-alarm[0]=4*global.FSP;
+alarm[0]=4*global.FSP-20;
+alarm[1]=4*global.FSP;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(0,0,obj_fade);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_map);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -80,6 +145,53 @@ room_goto(rm_menu);
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>show=1;
+selected=0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(0,0,obj_fade_mid);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -98,11 +210,69 @@ room_goto(rm_menu);
           <argument>
             <kind>1</kind>
             <string>audio_sound_pitch(mus,pitch);
-pitch-=0.01;
-if pitch&lt;=0
+
+if pitch&gt;0.1 pitch-=0.01;
+
+if selected=0
 {
-    audio_stop_sound(mus);
-    audio_sound_pitch(mus,1);
+    if obj_input.a
+    {
+        selected=1;
+        audio_sound_pitch(mus,1);
+        audio_stop_all();
+        go_on=1;
+        lives=3;
+        audio_play_sound(sfx_1up,0,false);
+        alarm[3]=3.4*global.FSP;
+    }
+    if obj_input.b
+    {
+        selected=1;
+        audio_sound_pitch(mus,1);
+        audio_stop_all();
+        lost=1;
+        audio_play_sound(sfx_gameover,0,false);
+        alarm[2]=3.4*global.FSP;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if !show exit;
+
+draw_set_font(fnt_main);
+draw_set_halign(fa_middle);
+draw_set_valign(fa_center);
+if selected=0
+{
+    draw_text_outline(160,70,global.str[94],c_white,c_black,1);
+    draw_set_font(fnt_smol);
+    draw_text_outline(160,120,"X - "+global.str[95],c_blue,c_black,1);
+    draw_text_outline(160,144,"O - "+global.str[96],c_red,c_black,1);
+}
+else
+{
+    if go_on=1 draw_text_outline(160,70,global.str[97],c_white,c_black,1)
+    else draw_text_outline(160,70,global.str[98],c_white,c_black,1)
 }
 </string>
           </argument>
