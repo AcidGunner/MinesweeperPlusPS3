@@ -38,7 +38,7 @@ option_1_list[0]=global.str[81];
 if global.unlocked
 {
     option_1_list[1]=global.str[82];
-    option_1_max=1;
+    option_1_max++;
 }
 
 option_2_list[0]=global.str[83];

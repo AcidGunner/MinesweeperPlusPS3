@@ -19,4 +19,4 @@
 // T - Test build
 // N - Build number
 */
-return "v0.2.6-T-0";
+return "v0.2.6";

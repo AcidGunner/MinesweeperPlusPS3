@@ -16,6 +16,8 @@ global.foughtutsuho=0;
 global.episode=1;
 global.unlocked=0;
 global.route=0;
+global.show_9_message=1;
+global.show_10_message=1;
 lives=3;
 
 //only then save!

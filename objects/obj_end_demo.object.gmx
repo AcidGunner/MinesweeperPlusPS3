@@ -3,7 +3,7 @@
   <spriteName>spr_end_1</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -35,6 +35,9 @@ y_change=0;
 y1=60;
 y2=180;
 data_count=0;
+
+if global.episode==2 sprite_index=spr_end_2;
+
 alarm[0]=1.65*global.FSP;
 alarm[1]=19.25*global.FSP;
 alarm[3]=6.4*global.FSP;
@@ -62,16 +65,55 @@ image_speed=0.08;
           <argument>
             <kind>1</kind>
             <string>///chapter text rearrangement?
-txt1[0]=global.str[51];
-txt1[1]=global.str[52];
-txt1[2]=global.str[53];
-txt1[3]=global.str[54];
-txt1[4]=global.str[55];
-txt1[5]=global.str[56];
-txt1[6]=global.str[57];
-txt1[7]=global.str[58];
-txt1[8]=global.str[59];
-txt1[9]=global.str[60];
+if global.episode==1
+{
+    txt1[0]=global.str[51];
+    txt1[1]=global.str[52];
+    txt1[2]=global.str[53];
+    txt1[3]=global.str[54];
+    txt1[4]=global.str[55];
+    txt1[5]=global.str[56];
+    txt1[6]=global.str[57];
+    txt1[7]=global.str[58];
+    txt1[8]=global.str[59];
+    txt1[9]=global.str[60];
+}
+else if global.episode==1
+{
+    txt1[0]=global.str[101];
+    txt1[1]=global.str[102];
+    txt1[2]=global.str[103];
+    txt1[3]=global.str[104];
+    txt1[4]=global.str[105];
+    txt1[5]=global.str[106];
+    txt1[6]=global.str[107];
+    txt1[7]=global.str[108];
+    txt1[8]=global.str[109];
+    txt1[9]=global.str[60];
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(0,0,obj_fade);
 </string>
           </argument>
         </arguments>
@@ -171,7 +213,8 @@ alarm[4]=0.418*global.FSP;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_title);
+            <string>if global.unlock_route1 unlock_the_secret();
+room_goto(rm_title);
 </string>
           </argument>
         </arguments>
@@ -244,8 +287,8 @@ alarm[4]=0.418*global.FSP;
 
 if y_change=1
 {
-    y1=lerp(y1,0,0.1);
-    y2=lerp(y2,240,0.1);
+    y1=lerp(y1,-2,0.1);
+    y2=lerp(y2,242,0.1);
 }
 
 draw_self();
@@ -262,12 +305,13 @@ draw_text_outline(160,y2+30,global.str[68],c_red,c_white,1);
 
 if thanks=1
 {
-    draw_text_outline(160,120,global.str[69]+"#"+global.str[2],c_red,c_white,1);
+    draw_text_outline(160,210,global.str[69]+"#"+global.str[2],c_red,c_white,1);
     if obj_input.start &amp;&amp; !pressed
     {
         audio_play_sound(sfx_game_start,1,false);
         pressed=1;
         alarm[2]=1.5*global.FSP;
+        alarm[6]=(1.5*global.FSP)-15;
     }
 }
 </string>

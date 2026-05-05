@@ -16,7 +16,10 @@ global.bg_music=ini_read_real("settings","bg_music",1);
 global.lang=ini_read_real("settings","lang",0);
 global.foughtcirno=ini_read_real("secret","boss9_secret",0);
 global.foughtutsuho=ini_read_real("secret","boss10_secret",0);
+global.show_9_message=ini_read_real("save","show_message_9",1);
+global.show_10_message=ini_read_real("save","show_message_10",1);
 global.unlocked=ini_read_real("secret","unlocked_secret",0);
+
 ini_close();
 
 //wait a second, if we completed the game...

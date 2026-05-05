@@ -3,7 +3,7 @@
   <spriteName>spr_smiley1</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-3</depth>
+  <depth>-4</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -305,7 +305,8 @@ else if cutscene_10s == 8
     cutscene_10 = false;
     obj_game.temp_x=0;
     obj_game.temp_y=0;
-    show_message_async(global.message_10);
+    if global.show_10_message show_message_async(global.message_10);
+    global.show_10_message=0;
     sprite_index = spr_smiley6;
 }
 </string>
@@ -415,7 +416,8 @@ else if cutscene_9s == 5
         cutscene = false;
         obj_game.temp_x=0;
         obj_game.temp_y=0;
-        show_message_async(global.message_9);
+        if global.show_9_message show_message_async(global.message_9);
+        global.show_9_message=0;
         sprite_index = spr_smiley5;
     }
 }

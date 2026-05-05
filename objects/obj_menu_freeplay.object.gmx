@@ -155,6 +155,7 @@ room_goto(rm_game);
         global.gridw[0]=grid_w;
         global.gridh[0]=grid_h;
         global.minec[0]=grid_m;
+        obj_main_menu.alarm[3]=45;
         alarm[0]=60;
     }
     if obj_input.bl

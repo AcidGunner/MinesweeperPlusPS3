@@ -48,6 +48,7 @@ for (var qy = 0; qy &lt; grid_h; qy++)
         if (grid[# qx, qy] != -2) grid[# qx, qy] = c;
     }
 }
+if mine_count==9 grid[# 1, 1] = 9;
 </string>
           </argument>
         </arguments>

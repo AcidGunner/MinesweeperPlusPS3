@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-5</depth>
+  <depth>-6</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -30,6 +30,7 @@ show=0;
 selected=1;
 stop=0;
 go_on=0;
+_u=0;
 
 if global.episode==1
 {
@@ -211,28 +212,28 @@ selected=0;
             <kind>1</kind>
             <string>audio_sound_pitch(mus,pitch);
 
-if pitch&gt;0.1 pitch-=0.01;
+if pitch&gt;0.2 pitch-=0.005;
 
 if selected=0
 {
     if obj_input.a
     {
         selected=1;
-        audio_sound_pitch(mus,1);
         audio_stop_all();
         go_on=1;
         lives=3;
         audio_play_sound(sfx_1up,0,false);
         alarm[3]=3.4*global.FSP;
+        alarm[4]=(3.4*global.FSP)-15;
     }
     if obj_input.b
     {
         selected=1;
-        audio_sound_pitch(mus,1);
         audio_stop_all();
         lost=1;
         audio_play_sound(sfx_gameover,0,false);
         alarm[2]=3.4*global.FSP;
+        alarm[4]=(3.4*global.FSP)-15;
     }
 }
 </string>
@@ -259,6 +260,10 @@ if selected=0
             <kind>1</kind>
             <string>if !show exit;
 
+_u+=0.01;
+var u1 = sin(_u);
+var u2 = sin(_u+2);
+
 draw_set_font(fnt_main);
 draw_set_halign(fa_middle);
 draw_set_valign(fa_center);
@@ -266,8 +271,8 @@ if selected=0
 {
     draw_text_outline(160,70,global.str[94],c_white,c_black,1);
     draw_set_font(fnt_smol);
-    draw_text_outline(160,120,"X - "+global.str[95],c_blue,c_black,1);
-    draw_text_outline(160,144,"O - "+global.str[96],c_red,c_black,1);
+    draw_text_outline(160,120+u1,"X - "+global.str[95],c_blue,c_black,1);
+    draw_text_outline(160,144+u2,"O - "+global.str[96],c_red,c_black,1);
 }
 else
 {

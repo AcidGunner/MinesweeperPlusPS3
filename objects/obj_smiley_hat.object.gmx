@@ -3,7 +3,7 @@
   <spriteName>spr_hat1</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-4</depth>
+  <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -73,6 +73,11 @@ if obj_game.win == false
         {
             if obj_smiley.cutscene_10_lose&lt;1 image_index = 21
             else image_index = 20+obj_smiley.cutscene_10_lose;
+            exit;
+        }
+        if instance_exists(obj_audio_pitcher) &amp;&amp; obj_audio_pitcher.go_on=1
+        {
+            image_index=4+obj_smiley.image_anim;
             exit;
         }
         if obj_game.lost

@@ -1,6 +1,6 @@
 ///initial_setup();
 audio_channel_num(20);
-global.debug=1;
+global.debug=0;
 bad_apple_initialize();
 randomize();
 global.CONTROL=1;
@@ -9,12 +9,9 @@ global.temp_stage=0;
 global.temp_lives=0;
 global.smiley_face=0;
 global.bg_music=0;
-global.if_draw_grid=0;
+global.if_draw_grid=1;
+global.unlock_route1=0;
 if os_type==os_windows && !gamepad_is_connected(0) global.CONTROL=0;
-
-//if true global.CONTROL=0;
-
-//show_message(os_type);
 
 load_game();
 strings_set();

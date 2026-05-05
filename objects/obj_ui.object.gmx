@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>-2</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -34,6 +34,7 @@ rand_time=0;
 time_left=0;
 test_rect=0;
 rand_life=0;
+selected=0;
 final_time="";
 
 if global.stage==910
@@ -48,6 +49,94 @@ if global.stage==910
         test_rect=1;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_stop_all();
+switch global.stage
+{
+    case 10:
+    {
+        global.stage=910;
+        room_goto(rm_boo);
+        break;
+    }
+    case 0:
+    {
+        global.stage=global.temp_stage;
+        lives=global.temp_lives;
+        global.temp_stage=0;
+        global.temp_lives=0;
+        save_game();
+        room_goto(rm_menu);
+        break;
+    }
+    default:
+    {
+        global.stage++;
+        if global.stage==10 ask_10();
+        ini_open("msplus-ps3-save.ini");
+        ini_write_string("save","current_time",ds_list_write(obj_chap1_data.time));
+        ini_close();
+        if global.gamemode==1 lives=3;
+        save_game();
+        if global.stage&lt;10 &amp;&amp; global.episode=1 room_goto(rm_map)
+        else if global.stage&lt;11 &amp;&amp; global.episode=2 room_goto(rm_map)
+        else
+        {
+            global.stage=1;
+            ini_open("msplus-ps3-save.ini");
+            ini_write_string("save","current_time","");
+            ini_close();
+            lives=3;
+            save_game();
+            room_goto(rm_end);
+        }
+        break;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(0,0,obj_fade);
 </string>
           </argument>
         </arguments>
@@ -237,7 +326,7 @@ if instance_exists(obj_explosion) view_xview[0]=irandom_range(-shift,shift);
 
 if shift&gt;0 shift--;
 
-if obj_game.win &amp;&amp; global.stage==8
+if obj_game.win &amp;&amp; global.stage==8 &amp;&amp; global.episode==1 &amp;&amp; !global.unlocked
 {
     if obj_input.c &amp;&amp; !global.unlock_route1
     {
@@ -343,51 +432,11 @@ if obj_game.win
     
     draw_text_outline(160,120,global.str[45]+"#"+final_time,c_white,c_black,1);
     draw_text_outline(160,170,global.str[2],c_red,c_white,1);
-    if obj_input.start
+    if obj_input.start &amp;&amp; selected=0
     {
-        audio_stop_all();
-        switch global.stage
-        {
-            case 10:
-            {
-                global.stage=910;
-                room_goto(rm_boo);
-                break;
-            }
-            case 0:
-            {
-                global.stage=global.temp_stage;
-                lives=global.temp_lives;
-                global.temp_stage=0;
-                global.temp_lives=0;
-                save_game();
-                room_goto(rm_menu);
-                break;
-            }
-            default:
-            {
-                global.stage++;
-                if global.stage==10 ask_10();
-                ini_open("msplus-ps3-save.ini");
-                ini_write_string("save","current_time",ds_list_write(obj_chap1_data.time));
-                ini_close();
-                if global.gamemode==1 lives=3;
-                save_game();
-                if global.stage&lt;10 &amp;&amp; global.episode=1 room_goto(rm_map)
-                else if global.stage&lt;11 &amp;&amp; global.episode=2 room_goto(rm_map)
-                else
-                {
-                    global.stage=1;
-                    ini_open("msplus-ps3-save.ini");
-                    ini_write_string("save","current_time","");
-                    ini_close();
-                    lives=3;
-                    save_game();
-                    room_goto(rm_end);
-                }
-                break;
-            }
-        }
+        selected=1;
+        alarm[5]=1;
+        alarm[6]=16;
     }
 }
 

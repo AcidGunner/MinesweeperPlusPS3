@@ -149,7 +149,7 @@ if global.stage=0
     temp_123=global.bg_music;
     temp_111=global.menu_t;
     if global.bg_music&gt;4 temp_123+=2;
-    if global.bg_music=9
+    if global.bg_music=9 &amp;&amp; grid_w!=72
     {
         temp_123=5;
         instance_create(160,145,obj_9);
@@ -162,7 +162,7 @@ if global.stage=0
         obj_ui.rand_time=1;
         obj_ui.alarm[3]=1;
     }
-    if global.bg_music=10
+    if global.bg_music=10 &amp;&amp; grid_w!=72
     {
         temp_123=11;
         instance_create(irandom_range(30,290),irandom_range(30,210),obj_10);

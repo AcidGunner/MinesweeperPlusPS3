@@ -116,8 +116,7 @@ if obj_input.d &amp;&amp; select=0 global.type_input=!global.type_input;
 if obj_input.select &amp;&amp; select=0
 {
     global.lang++;
-    if global.lang&gt;3 global.lang=0;
-    if global.lang==3 show_message("WARNING!#UNFUNNY JOKES AHEAD");
+    if global.lang&gt;2 global.lang=0;
     strings_set();
 }
 
@@ -162,13 +161,12 @@ if global._music_type=1 music_type=global.str[34];
 
 var language="English";
 if global.lang=1 language="Français"
-else if global.lang=2 language="Русский"
-else if global.lang=3 language="MSPLUS JK";
+else if global.lang=2 language="Русский";
 
 draw_text_ext(160,y,global.str[7]+"#
-△ - "+global.str[26]+global.str[27]+"#"+global.str[30]+": "+inp_type+"#
-□ - "+global.str[26]+global.str[28]+"#"+global.str[30]+": "+music_type+"#
-SELECT - "+global.str[26]+global.str[29]+"#"+global.str[30]+": "+language+"# #"+global.str[16],-1,240);
+Δ - "+global.str[26]+" "+global.str[27]+"#"+global.str[30]+": "+inp_type+"#
+□ - "+global.str[26]+" "+global.str[28]+"#"+global.str[30]+": "+music_type+"#
+SELECT - "+global.str[26]+" "+global.str[29]+"#"+global.str[30]+": "+language+"# #"+global.str[16],-1,240);
 </string>
           </argument>
         </arguments>

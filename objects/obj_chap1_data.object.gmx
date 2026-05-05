@@ -60,7 +60,9 @@ ini_close();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for (var i = 0; i &lt; ds_list_size(time); i++)
+            <string>exit;
+
+for (var i = 0; i &lt; ds_list_size(time); i++)
 {
     draw_set_valign(fa_top);
     draw_set_halign(fa_left);

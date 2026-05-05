@@ -86,7 +86,15 @@ type=0;
             <string>global.temp_stage=global.stage;
 global.temp_lives=lives;
 lives=3;
+global.stage=0;
+global.smiley_face=4;
+global.menu_t=8;
+global.gridw[0]=72;
+global.gridh[0]=48;
+global.minec[0]=222;
+room_goto(rm_game);
 
+/*
 if !temp_choice
 {
     global.stage=0;
@@ -195,7 +203,7 @@ prev_music = menu_music;
         select=1;
         if global.stage&gt;1
         {
-            var _question = show_question("Would you like to start a new game?")
+            var _question = show_question(global.str[100])
             if !_question
             {
                 start_game();
@@ -215,7 +223,7 @@ prev_music = menu_music;
     {
         select=1;
         audio_stop_all();
-        temp_choice = show_question("[WARNING]!# #You cannot turn back now.#Would you like to see the 11 boss fight working? If not, you are gonna go to the Big one with 222 mines.");
+        //temp_choice = show_question(global.str[110]);
         audio_play_sound(sfx_test,0,false);
         save_game();
         alarm[2]=60;

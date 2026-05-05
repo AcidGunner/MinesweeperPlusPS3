@@ -5,7 +5,7 @@ var valid_total = 0;
 for (var wx = 0; wx < grid_w; wx++)
 for (var wy = 0; wy < grid_h; wy++)
 {
-    if grid_type[# wx, wy]==0
+    if grid_type[# wx, wy]==0 && !circle_grid[#wx,wy]
     {
         valid_total++;
         if (reveal[# wx, wy]) revealed_total++;
@@ -29,7 +29,11 @@ if (revealed_total >= _left)
     }
     if instance_exists(obj_10)
     {
-        if global.stage==10 obj_10.alarm[4]=1
+        if global.stage==10
+        {
+            obj_10.alarm[4]=1;
+            time_set();
+        }
         else
         {
             obj_10.active=false;

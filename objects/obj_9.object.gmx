@@ -3,7 +3,7 @@
   <spriteName>spr_9</spriteName>
   <solid>-1</solid>
   <visible>-1</visible>
-  <depth>-10</depth>
+  <depth>-2</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -65,7 +65,12 @@ cutscene_explosions = 4;
 the_spr_9spike=spr_9spike;
 the_spr_9=spr_9;
 
+is_moving=0;
 _x=x;_y=y;
+dx = 0;
+dy = 0;
+to_move=0;
+before_to_move=0;
 
 if global.stage==9 &amp;&amp; obj_game.cirno9=true secret_script_p2();
 
@@ -127,7 +132,7 @@ for (var fy = 0; fy &lt; obj_game.grid_h; fy++)
 obj_game.win=true;
 mines_left = 0;
 if global.stage==9 audio_play_sound(global.stage9_win,0,false)
-else if global.stage==10 audio_play_sound(global.stage10_win,0,false)
+else if global.stage==10 or global.stage==910 audio_play_sound(global.stage10_win,0,false);
 else with obj_game you_won_sfx();
 </string>
           </argument>
@@ -395,6 +400,8 @@ if stop = 0
         if test_a&lt;=1 go_angle=0;
     }
     else angle-=test_a
+    x = g_o_x + x_s + h_s;
+    y = g_o_y + y_s + h_s;
 }
 else
 {
@@ -425,6 +432,7 @@ switch travel
         {
             _x=-40;
             _y=24;
+            depth=-9;
             obj_smiley.alarm[2]=8;
             alarm[3]=8;
         }
@@ -432,6 +440,7 @@ switch travel
         {
             _x=-40;
             _y=145;
+            depth=-2;
             travel = 2;
         }
         break;
@@ -483,9 +492,12 @@ if scale&lt;1 scale=lerp(scale,0,0.05);
 if (!active) exit;
 
 // Note to self: fix 9's movement to behave like the original
+// Another note to self: is 9 working as it's original?
+
 var grid = obj_game.grid_type;
 var reveal = obj_game.reveal;
 var flagged = obj_game.flagged;
+var circle_grid = obj_game.circle_grid;
 
 // Wait until next move
 if (move_timer &gt; 0) {
@@ -501,24 +513,45 @@ var tempgrid_4=0;
 var tempgrid_5=0;
 
 // --- PICK RANDOM DIRECTION ---
-var dir = irandom(3); // 0=right,1=left,2=down,3=up
-dx = 0;
-dy = 0;
-switch (dir) {
-    case 0: dx = 1; dy = 0; break;  // right
-    case 1: dx = -1; dy = 0; break; // left
-    case 2: dx = 0; dy = 1; break;  // down
-    case 3: dx = 0; dy = -1; break; // up
+if is_moving=0
+{
+    to_move=irandom_range(1,max(grid_w,grid_h));
+    before_to_move=to_move;
+    dir = irandom(3); // 0=right,1=left,2=down,3=up
+    switch (dir) {
+        case 0: dx = 1; dy = 0; break;  // right
+        case 1: dx = -1; dy = 0; break; // left
+        case 2: dx = 0; dy = 1; break;  // down
+        case 3: dx = 0; dy = -1; break; // up
+    }
+}
+else
+{
+    to_move--;
 }
 
+is_moving=1;
 
 // --- CALCULATE TARGET BOSS POSITION ---
 var nx = boss_x + dx;
 var ny = boss_y + dy;
 
 // Prevent boss from going out of grid (leave 1-tile margin for surrounding mines)
-if (nx &lt; 2 || nx &gt;= grid_w-2 || ny &lt; 2 || ny &gt;= grid_h-2) {
-    move_timer = 5; // wait a bit before trying again
+if ((nx &lt; 1 || nx &gt;= grid_w-1 || ny &lt; 1 || ny &gt;= grid_h-1) or
+   (circle_grid[# nx-1,ny-1] or circle_grid[# nx,ny-1] or
+    circle_grid[# nx+1,ny-1] or circle_grid[# nx-1,ny] or
+    circle_grid[# nx+1,ny] or circle_grid[# nx-1,ny+1] or
+    circle_grid[# nx,ny+1] or circle_grid[# nx+1,ny+1]))
+    or to_move=0
+{
+    if obj_game.cirno9==true move_timer = irandom_range(15, 50)
+    else move_timer = irandom_range(20, 60);
+    
+    if before_to_move!=to_move audio_play_sound(sfx_9stop,6,false);
+    
+    before_to_move=0;   
+    is_moving=0;
+    to_move=0;
     exit;
 }
 
@@ -641,14 +674,11 @@ else
 }
 
 audio_play_sound(sfx_9move,6,false);
-audio_play_sound(sfx_9stop,6,false);
 test_a = -test_a;
 angle = -angle;
 obj_game.alarm[4]=1;
 
-// --- RANDOM DELAY UNTIL NEXT MOVE ---
-if obj_game.cirno9==true move_timer = irandom_range(15, 50)
-else move_timer = irandom_range(20, 60);
+move_timer=6;
 </string>
           </argument>
         </arguments>
@@ -700,8 +730,8 @@ else
     var x_s = boss_x * d_s;
     var y_s = boss_y * d_s;
     
-    x = g_o_x + x_s + h_s-off_x;
-    y = g_o_y + y_s + h_s-off_y;
+    x = g_o_x + x_s + h_s;
+    y = g_o_y + y_s + h_s;
     
     image_xscale=obj_game.zoom;
     image_yscale=obj_game.zoom;

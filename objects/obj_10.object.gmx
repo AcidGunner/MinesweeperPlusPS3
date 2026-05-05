@@ -3,7 +3,7 @@
   <spriteName>spr_10</spriteName>
   <solid>-1</solid>
   <visible>-1</visible>
-  <depth>-11</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>spr_10_mask</maskName>

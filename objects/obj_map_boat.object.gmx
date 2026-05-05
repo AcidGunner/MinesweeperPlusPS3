@@ -79,10 +79,13 @@ else if global.episode==2
     name_9=global.str[109];
 }
 
-if global.stage&lt;9 audio_play_sound(mus[global.stage-1],0,true);
+if global.stage&lt;9 &amp;&amp; global.episode==1 audio_play_sound(mus[global.stage-1],0,true);
+
+if global.stage&lt;10 &amp;&amp; global.episode==2 audio_play_sound(mus[global.stage-1],0,true);
+
 image_speed=0.02;
 
-if global.route==1
+if global.route==1 &amp;&amp; global.stage==9
 {
     audio_play_sound(sound110,0,true);
     audio_play_sound(sound111,0,true);
@@ -97,6 +100,29 @@ if global.stage==10
     move=0;
     alarm[1]=2.5*global.FSP;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(0,0,obj_fade);
 </string>
           </argument>
         </arguments>
@@ -177,10 +203,18 @@ if hspeed&lt;0
 }
 
 var _stuff_ = 40+(global.stage-1)*64;
-if x&gt;_stuff_ &amp;&amp; global.stage!=9 move=0;
-if x&gt;704 &amp;&amp; global.stage=9 move=0;
 
-if x&gt;536
+if global.episode==1
+{
+    if x&gt;_stuff_ &amp;&amp; global.stage!=9 move=0;
+    if x&gt;704 &amp;&amp; global.stage=9 move=0;
+}
+else if global.episode==2
+{
+    if x&gt;_stuff_ move=0;
+}
+
+if x&gt;536 &amp;&amp; global.episode==1
 {
     if global.stage==9
     {
@@ -199,8 +233,16 @@ if x&gt;536
 }
 else if x&gt;160 &amp;&amp; goto&lt;1
 {
-    if x&gt;536-152 view_xview[0]=224
-    else view_xview[0]=x-160;
+    if global.episode==1
+    {
+        if x&gt;536-152 view_xview[0]=224
+        else view_xview[0]=x-160;
+    }
+    else
+    {
+        if x&gt;536-152+64 view_xview[0]=224+64
+        else view_xview[0]=x-160;
+    }
 }
 else if x&lt;-536
 {
@@ -217,12 +259,14 @@ if move=0 &amp;&amp; goto=0 &amp;&amp; global.stage&lt;10
         if global.stage&gt;=9 audio_play_sound(sfx_level_start2,1,false)
         else audio_play_sound(sfx_level_start,1,false);
         alarm[0]=1.5*global.FSP;
+        alarm[2]=(1.5*global.FSP)-15;
     }
 }
 
 if goto
 {
-    if global.stage&lt;9 view_xview[0]=lerp(view_xview[0],(global.stage-1)*64,0.12)
+    if global.stage&lt;9 &amp;&amp; global.episode==1 view_xview[0]=lerp(view_xview[0],(global.stage-1)*64,0.12)
+    else if global.stage&lt;10 &amp;&amp; global.episode==2 view_xview[0]=lerp(view_xview[0],(global.stage-1)*64,0.12)
     else view_xview[0]=lerp(view_xview[0],672,0.12);
     
     view_yview[0]=lerp(view_yview[0],y+10,0.12);
@@ -256,7 +300,8 @@ draw_self();
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 draw_set_font(fnt_main);
-if move=0 &amp;&amp; global.stage&lt;9 draw_text_outline(view+160,48,name[global.stage-1],c_white,c_black,1);
+if move=0 &amp;&amp; global.stage&lt;9 &amp;&amp; global.episode==1 draw_text_outline(view+160,48,name[global.stage-1],c_white,c_black,1);
+if move=0 &amp;&amp; global.stage&lt;10 &amp;&amp; global.episode==2 draw_text_outline(view+160,48,name[global.stage-1],c_white,c_black,1);
 
 draw_set_font(fnt_smol);
 draw_text_outline(704,48,name_9,c_black,c_white,1);

@@ -109,8 +109,8 @@ if global.debug=1
 }
 else
 {
-    alarm[8]=global.FSP;
-    alarm[7]=global.FSP*2;
+    if show_warning show_message(text_warning);
+    alarm[1]=global.FSP*1.5;
 }
 </string>
           </argument>
@@ -600,7 +600,7 @@ if (phase == 0) {
         draw_set_color(c_green);
         draw_set_halign(fa_left);
         draw_set_valign(fa_top);
-        draw_set_font(fnt_smoler);
+        draw_set_font(fnt_smoler_en);
         for (var _cmd=0; _cmd&lt;ds_list_size(cmd_prompt)-1; _cmd++)
         {
             draw_text(2,_cmd*12,ds_list_find_value(cmd_prompt,_cmd));
@@ -676,7 +676,7 @@ else if (phase == 1) {
         }
         if show_part4==true
         {
-            draw_set_font(fnt_smoler);
+            draw_set_font(fnt_smoler_en);
             draw_set_alpha(alpha_val);
             draw_text(cx, cy + size + 30, "The PS3 GameDEV revival project.#(Since 2025)");
         }
@@ -739,7 +739,7 @@ draw_set_alpha(1);
 //TEST
 if show_time=1
 {
-    draw_set_font(fnt_smoler);
+    draw_set_font(fnt_smoler_en);
     draw_text(0,0,time)
 }
 </string>

@@ -11,6 +11,7 @@ reveal[# _x, _y] = true;
 //if (grid[# _x, _y] > 0) exit;
 if (grid[# _x, _y] < 0) exit;
 if (grid[# _x, _y] > 0) exit;
+if (circle_grid[# _x, _y]) exit;
 
 // Flood-fill empty cells
 for (var nx = _x-1; nx <= _x+1; nx++)

@@ -36,7 +36,7 @@
     list[6]=spr_bg4;
     list[7]=spr_bg4;
     list[8]=spr_bg1;
-    list[9]=spr_bg1;
+    _ttt=8;
 }
 else if global.episode==2
 {
@@ -48,9 +48,9 @@ else if global.episode==2
     list[5]=spr_bg8;
     list[6]=spr_bg9;
     list[7]=spr_bg9;
-    list[8]=spr_bg1;
-    list[9]=spr_bg5;
+    list[8]=spr_bg5;
     list[9]=spr_bg6;
+    _ttt=9;
 }
 
 sprite_index=list[global.stage-1];
@@ -70,7 +70,7 @@ else _x=40+(global.stage-2)*64;
 
 instance_create(_x,80,obj_map_boat);
 
-for (var i=0; i&lt;8; i++)
+for (var i=0; i&lt;_ttt; i++)
 {
     g = instance_create(16+i*64,96,obj_map);
     g.mine_count = i+1;
@@ -157,6 +157,7 @@ for (var i=0; i&lt;8; i++)
         
         // --- Place mines ---
         var placed = 0;
+        if mine_count==9 placed=1;
         while (placed &lt; mine_count)
         {
             var xx = irandom(grid_w - 1);
@@ -176,6 +177,7 @@ for (var i=0; i&lt;8; i++)
         
         grid_offset_x = x;
         grid_offset_y = y;
+        
         
         ds_grid_set(reveal,1,1,true);
         
@@ -206,12 +208,15 @@ for (var i=0; i&lt;8; i++)
             <kind>1</kind>
             <string>image_speed=0.02;
 draw_sprite_tiled_ext(sprite_index,image_index,0,0,1,1,c_white,1);
-draw_set_color(c_black);
-draw_rectangle(544,0,864,240,false);
 
+draw_set_color(c_black);
 draw_set_alpha(0.25);
-if global.if_draw_grid=0 draw_rectangle(0,0,544,240,false);
+if global.if_draw_grid=0 draw_rectangle(0,0,999,240,false);
 draw_set_alpha(1);
+
+if global.episode==2 exit;
+
+draw_rectangle(544,0,864,240,false);
 
 _p1+=2.1;_p2+=2.1;_p3+=2.1;
 _p4--;_p5--;_p6--;

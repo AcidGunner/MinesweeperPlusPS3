@@ -10,6 +10,8 @@ ini_write_real("save","episode",global.episode);
 ini_write_real("save","gamemode",global.gamemode);
 ini_write_real("save","mastermode",global.mastermode);
 ini_write_real("save","route",global.route);
+ini_write_real("save","show_message_9",global.show_9_message);
+ini_write_real("save","show_message_10",global.show_10_message);
 ini_write_real("settings","input",global.type_input);
 ini_write_real("settings","music",global._music_type);
 ini_write_real("settings","menu",global.menu_t);
