@@ -75,8 +75,7 @@ else if global.episode==2
     name[5]=global.str[106];
     name[6]=global.str[107];
     name[7]=global.str[108];
-    
-    name_9=global.str[109];
+    name[8]=global.str[109];
 }
 
 if global.stage&lt;9 &amp;&amp; global.episode==1 audio_play_sound(mus[global.stage-1],0,true);
@@ -85,7 +84,7 @@ if global.stage&lt;10 &amp;&amp; global.episode==2 audio_play_sound(mus[global.s
 
 image_speed=0.02;
 
-if global.route==1 &amp;&amp; global.stage==9
+if global.route==1 &amp;&amp; global.stage==9 &amp;&amp; global.episode==1
 {
     audio_play_sound(sound110,0,true);
     audio_play_sound(sound111,0,true);
@@ -303,6 +302,7 @@ draw_set_font(fnt_main);
 if move=0 &amp;&amp; global.stage&lt;9 &amp;&amp; global.episode==1 draw_text_outline(view+160,48,name[global.stage-1],c_white,c_black,1);
 if move=0 &amp;&amp; global.stage&lt;10 &amp;&amp; global.episode==2 draw_text_outline(view+160,48,name[global.stage-1],c_white,c_black,1);
 
+if global.episode!=1 exit;
 draw_set_font(fnt_smol);
 draw_text_outline(704,48,name_9,c_black,c_white,1);
 

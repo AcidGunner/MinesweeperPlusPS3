@@ -60,8 +60,16 @@ else if global.episode==2
 }
 
 pitch=1;
-alarm[0]=4*global.FSP-20;
-alarm[1]=4*global.FSP;
+if global.stage!=0
+{
+    alarm[0]=4*global.FSP-20;
+    alarm[1]=4*global.FSP;
+}
+else
+{   
+    obj_ui.alarm[5]=4*global.FSP-20;
+    obj_ui.alarm[6]=4*global.FSP;
+}
 </string>
           </argument>
         </arguments>
@@ -212,7 +220,8 @@ selected=0;
             <kind>1</kind>
             <string>audio_sound_pitch(mus,pitch);
 
-if pitch&gt;0.2 pitch-=0.005;
+if global.stage!=0 &amp;&amp; pitch&gt;0.2 pitch-=0.005;
+if global.stage==0 &amp;&amp; pitch&gt;0 pitch-=0.005;
 
 if selected=0
 {

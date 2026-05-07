@@ -75,7 +75,12 @@ color=c_white;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(0,0,obj_chap1_data);
+            <string>ini_open("msplus-ps3-save.ini");
+ini_write_string("save","current_time","");
+ini_close();
+if instance_exists(obj_chap1_data) instance_destroy(obj_chap1_data);
+
+instance_create(0,0,obj_chap1_data);
 room_goto(rm_map);
 </string>
           </argument>

@@ -663,6 +663,7 @@ if obj_game.win == false
                 case 5: sprite_index = spr_smiley_6; break;
                 case 6: sprite_index = spr_smiley_86; break;
                 case 7: sprite_index = spr_smiley_7; break;
+                case 8: sprite_index = spr_smiley_8; break;
             };
         }
         
@@ -914,6 +915,7 @@ else
                     case 5: sprite_index = spr_smiley_6; break;
                     case 6: sprite_index = spr_smiley_86; break;
                     case 7: sprite_index = spr_smiley_7; break;
+                    case 8: sprite_index = spr_smiley_8; break;
                 }
                 
                 if sprite_index==spr_smiley_3 image_index=26+image_anim

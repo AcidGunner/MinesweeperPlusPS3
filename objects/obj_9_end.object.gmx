@@ -69,6 +69,10 @@ if instance_exists(obj_10)
             <string>audio_stop_all();
 if global.stage!=0
 {
+    ini_open("msplus-ps3-save.ini");
+    ini_write_string("save","current_time","");
+    ini_close();
+    if instance_exists(obj_chap1_data) instance_destroy(obj_chap1_data);
     global.stage=1;
     global.foughtcirno=0;
     global.foughtutsuho=0;

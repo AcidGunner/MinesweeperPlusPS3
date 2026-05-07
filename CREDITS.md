@@ -12,4 +12,4 @@
 * Alien Captain's Creator - Alien Captain's hat
 * GameMaker Studio 1.4.9999 - Used Game engine
 * [GayMaker PS3](https://github.com/LiEnby/GayMaker-PS3) - Used PS3 exporter
-* And you! - Supporting this Port <3
+* And you! - Supporting this game <3
