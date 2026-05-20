@@ -30,6 +30,9 @@ audio_play_sound(sfx_explosion,2,false);
 title=0;
 kaboom=0;
 unlocked=0;
+_x=0;
+_y=0;
+game_obj=noone;
 if instance_exists(obj_ui)
 {
     obj_ui.shift=30;
@@ -125,14 +128,26 @@ instance_create(0,0,obj_menutransit);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if image_index=14 &amp;&amp; title=1 &amp;&amp; kaboom=1 instance_destroy(obj_first);
+            <string>if game_obj != noone &amp;&amp; instance_exists(game_obj)
+{
+    var zoom = game_obj.zoom;
+    var grid_offset_x = game_obj.grid_offset_x;
+    var grid_offset_y = game_obj.grid_offset_y;
+    var cell_size = game_obj.cell_size;
+    var draw_size = cell_size * zoom;
+    var size = draw_size / 2;
+    x = grid_offset_x + _x * draw_size + size;
+    y = grid_offset_y + _y * draw_size + size;
+}
+
+if image_index=14 &amp;&amp; title=1 &amp;&amp; kaboom=1 instance_destroy(obj_first);
 if image_index&gt;=24
 {
     if instance_exists(obj_smiley) &amp;&amp; obj_smiley.mine_detected!=0
     {
         obj_smiley.mine_detected=0;
     };
-    if instance_exists(obj_9) &amp;&amp; !obj_game.first_click &amp;&amp; !obj_game.lost
+    if instance_exists(obj_9) &amp;&amp; instance_exists(obj_game) &amp;&amp; !obj_game.first_click &amp;&amp; !obj_game.lost
     {
         obj_9.active=true;
     };

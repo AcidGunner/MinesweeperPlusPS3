@@ -56,19 +56,20 @@ test=audio_sound_length(sfx_mine)*60;
             <string>var zoom=obj_game_1p.zoom;
 var grid_offset_x=obj_game_1p.grid_offset_x;
 var grid_offset_y=obj_game_1p.grid_offset_y;
-var off_x=obj_game_1p.off_x;
-var off_y=obj_game_1p.off_y;
 var cell_size=obj_game_1p.cell_size;
 var draw_size = cell_size * zoom;
 var size = draw_size / 2;
-x=grid_offset_x + _x * draw_size + size-off_x;
-y=grid_offset_y + _y * draw_size + size-off_y;
+x=grid_offset_x + _x * draw_size + size;
+y=grid_offset_y + _y * draw_size + size;
 image_xscale=zoom;
 image_yscale=zoom;
 testz++;
 if testz&gt;=test
 {
-    instance_create(x,y,obj_explosion);
+    var expl = instance_create(x,y,obj_explosion);
+    expl._x = _x;
+    expl._y = _y;
+    expl.game_obj = obj_game_1p;
     obj_smiley_1p.mine_detected=2;
     obj_game_1p.alarm[4]=1;
     obj_game_2p.win=1;

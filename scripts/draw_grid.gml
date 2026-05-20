@@ -1,125 +1,127 @@
 ///draw_grid();
 var draw_size = cell_size * zoom;
+var _grd = 0;
 
-var _grd=0;
+var view_left = -draw_size;
+var view_right = room_width + draw_size;
+var view_top = -draw_size;
+var view_bottom = room_height + draw_size;
+
+var grid_off_x = ((room_width - grid_draw_w) / 2) + off_x;
+var grid_off_y = (((room_height - grid_draw_h) / 2) + 25) + off_y;
 
 for (var xx = 0; xx < grid_w; xx++)
 {
+    var x1 = grid_off_x + xx * draw_size;
+    
+    if (x1 < view_left || x1 > view_right) continue;
+    
     for (var yy = 0; yy < grid_h; yy++)
     {
-        if circle_grid[# xx, yy]!=1
+        if (circle_grid[# xx, yy] == 1) continue;
+        
+        var y1 = grid_off_y + yy * draw_size;
+        
+        if (y1 < view_top || y1 > view_bottom) continue;
+        
+        var _sprt = grid_sprite[# xx, yy];
+        var v = grid[# xx, yy];
+        var v1 = grid_type[# xx, yy];
+        
+        switch (_sprt)
         {
-            var x1 = grid_offset_x + xx * draw_size;
-            var y1 = grid_offset_y + yy * draw_size;
-            
-            if !(x1>-16 && x1<336) continue;
-            if !(y1>24 && y1<256) continue;
-            
-            var _sprt=grid_sprite[# xx, yy];
-            var v = grid[# xx, yy];
-            var v1 = grid_type[# xx, yy];
-            
-            switch _sprt
+            case spr_bg1:  _grd = 0; break;
+            case spr_bg2:  _grd = 1; break;
+            case spr_bg3:  _grd = 2; break;
+            case spr_bg4:  _grd = 3; break;
+            case spr_bg5:  _grd = 8; break;
+            case spr_bg6:  _grd = 4; break;
+            case spr_bg7:  _grd = 5; break;
+            case spr_bg8:  _grd = 6; break;
+            case spr_bg9:  _grd = 7; break;
+            case spr_bg10: _grd = 9; break;
+            case spr_bg86: _grd = 10; break;
+        }
+        
+        if (type == "single" && lost == 1)
+        {
+            draw_sprite_stretched(spr_bgb, image_index, x1, y1, draw_size, draw_size);
+            switch (v1)
             {
-                case spr_bg1:  _grd=0; break;
-                case spr_bg2:  _grd=1; break;
-                case spr_bg3:  _grd=2; break;
-                case spr_bg4:  _grd=3; break;
-                case spr_bg5:  _grd=8; break;
-                case spr_bg6:  _grd=4; break;
-                case spr_bg7:  _grd=5; break;
-                case spr_bg8:  _grd=6; break;
-                case spr_bg9:  _grd=7; break;
-                case spr_bg10: _grd=9; break;
-                case spr_bg86: _grd=10; break;
+                case -1: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
+                case 0: draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size); break;
+                default: draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size); break;
             }
-            
-            if type=="single" && lost=1
+        }
+        else
+        {
+            // === Flagged ===
+            if (flagged[# xx, yy])
+            {
+                draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);                
+                draw_sprite_stretched(spr_flag, image_index, x1, y1, draw_size, draw_size);
+            }
+            else if (reveal[# xx, yy])
             {
                 draw_sprite_stretched(spr_bgb, image_index, x1, y1, draw_size, draw_size);
-                switch v1
+                switch (v1)
                 {
                     case -1: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
+                    case 9: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
                     case 0: draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size); break;
                     default: draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size); break;
                 }
             }
             else
             {
-                // === Flagged ===
-                if (flagged[# xx, yy])
-                {
-                    draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);                
-                    draw_sprite_stretched(spr_flag, image_index, x1, y1, draw_size, draw_size);
-                }
-                else if (reveal[# xx, yy])
-                {
-                    draw_sprite_stretched(spr_bgb, image_index, x1, y1, draw_size, draw_size);
-                    switch v1
-                    {
-                        case -1: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
-                        case 9: draw_sprite_stretched(spr_red_grid, 0, x1, y1, draw_size, draw_size); break;
-                        case 0: draw_sprite_stretched(spr_num, v, x1, y1, draw_size, draw_size); break;
-                        default: draw_sprite_stretched(spr_mine, 0, x1, y1, draw_size, draw_size); break;
-                    }
-                }
-                else draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);
-            }
-            if global.if_draw_grid draw_sprite_stretched(spr_grid, _grd, x1, y1, draw_size, draw_size);
-            if (highlight_x1 >= 0 && highlight_y1 >= 0)
-            {
-                if (xx == highlight_x1 && yy == highlight_y1)
-                {
-                    draw_sprite_stretched(spr_light_grid, 0, x1, y1, draw_size, draw_size);
-                }
-            }
-            else if (highlight_x2 >= 0 && highlight_y2 >= 0)
-            {
-                if (xx >= highlight_x2-1 && xx <= highlight_x2+1 &&
-                    yy >= highlight_y2-1 && yy <= highlight_y2+1 &&
-                    reveal[# xx, yy]) // only highlight revealed cells
-                {
-                    draw_sprite_stretched(spr_light_grid, 0, x1, y1, draw_size, draw_size);
-                }
+                draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);
             }
         }
-    }
-}
-
-var c_x = grid_offset_x + center_x * draw_size;
-var c_y = grid_offset_y + center_y * draw_size;
-
-if !boss9_started && global.stage==9
-{
-    draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
-    if global.if_draw_grid draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
-}
-
-if !boss10_started && global.stage==10
-{
-    draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
-    if global.if_draw_grid draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
-}
-
-if !boss11_started && global.stage==11
-{
-    draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
-    if global.if_draw_grid draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
-}
-
-if cirno9=true && boss9_started
-for (var xx = 0; xx < grid_w; xx++)
-{
-    for (var yy = 0; yy < grid_h; yy++)
-    {
-        if iceland[# xx, yy]=2
+        
+        if (global.if_draw_grid) draw_sprite_stretched(spr_grid, _grd, x1, y1, draw_size, draw_size);
+        
+        if (highlight_x1 >= 0 && highlight_y1 >= 0)
         {
-            if circle_grid[# xx, yy]!=1
+            if (xx == highlight_x1 && yy == highlight_y1)
             {
-                var x1 = grid_offset_x + xx * draw_size;
-                var y1 = grid_offset_y + yy * draw_size;
-                draw_sprite_stretched(spr_ice, image_index, x1-draw_size, y1-draw_size, draw_size*3, draw_size*3);
+                draw_sprite_stretched(spr_light_grid, 0, x1, y1, draw_size, draw_size);
             }
+        }
+        else if (highlight_x2 >= 0 && highlight_y2 >= 0)
+        {
+            if (xx >= highlight_x2 - 1 && xx <= highlight_x2 + 1 &&
+                yy >= highlight_y2 - 1 && yy <= highlight_y2 + 1 &&
+                reveal[# xx, yy]) // only highlight revealed cells
+            {
+                draw_sprite_stretched(spr_light_grid, 0, x1, y1, draw_size, draw_size);
+            }
+        }
+        
+        if (cirno9 == true && boss9_started && iceland[# xx, yy] == 2)
+        {
+            draw_sprite_stretched(spr_ice, image_index, x1 - draw_size, y1 - draw_size, draw_size * 3, draw_size * 3);
         }
     }
 }
+
+var c_x = grid_off_x + center_x * draw_size;
+var c_y = grid_off_y + center_y * draw_size;
+
+if (!boss9_started && global.stage == 9)
+{
+    draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
+    if (global.if_draw_grid) draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
+}
+
+if (!boss10_started && global.stage == 10)
+{
+    draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
+    if (global.if_draw_grid) draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
+}
+
+if (!boss11_started && global.stage == 11)
+{
+    draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
+    if (global.if_draw_grid) draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
+}
+

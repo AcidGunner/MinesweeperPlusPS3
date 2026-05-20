@@ -527,6 +527,9 @@ off_x-=obj_input.cursor_rx;
 off_y-=obj_input.cursor_ry;
 if obj_input.cursor_r{off_x=0;off_y=0;};
 
+grid_offset_x = ((room_width/2 - grid_draw_w) / 2) + off_x;
+grid_offset_y = (((room_height - grid_draw_h) / 2) + 25) + off_y;
+
 // Reset highlight
 highlight_x1 = -1;
 highlight_y1 = -1;

@@ -7,6 +7,7 @@
 * EnergyPumpkin - Original 9 Boss music
 * Fakharmel - French translation
 * ERRORwhately - aPS3e Tester/debugger
+* TOCHARA - Coded v0.2.6 PATCH
 * Team Shanghai Alice - Touhou stuff
 * Maratyla - Darken Challange idea (soon to be implemented)
 * Alien Captain's Creator - Alien Captain's hat
