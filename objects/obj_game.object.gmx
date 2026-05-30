@@ -43,9 +43,6 @@ _sh=0;
 lost=0;
 the_temp=0;
 
-timer=0;
-final_timer=0;
-
 if global.type_input=1 instance_create(0,0,obj_cursor);
 text = "You have to let me out eventually, Captain...";
 
@@ -111,38 +108,12 @@ if global.stage!=0
     }
 }
 
-if global.stage&lt;9 and global.stage&gt;0
-{
-    if global.episode==1
-    {
-        audio_loop_sound(global._music[temp_111],global._st[temp_111],global._en[temp_111],44100,0);
-        audio_sound_pitch(global._music[temp_111],1);
-    }
-    else if global.episode==2
-    {
-        audio_loop_sound(global._music[temp_111+2],global._st[temp_111+2],global._en[temp_111+2],44100,0);
-        audio_sound_pitch(global._music[temp_111+2],1);
-    }
-}
-
 if global.stage==9 or global.stage==10 or global.stage==11 audio_play_sound(mus_ocean,0,true);
 
-if global.foughtcirno=1 and global.foughtutsuho=1 stage910=mus_stage910_11
-else if global.foughtcirno=1 and global.foughtutsuho=0 stage910=mus_stage910_10
-else if global.foughtcirno=0 and global.foughtutsuho=1 stage910=mus_stage910_01
-else if global.foughtcirno=0 and global.foughtutsuho=0 stage910=mus_stage910_00;
+if global.route=0 stage910=mus_stage910_00
+else if global.route=1 stage910=mus_stage910_11
 
-if global.stage==910
-{
-    if global._music_type==1 audio_loop_sound(stage910,806,1888760,44100,0)
-    else
-    {
-        _temp000 = 3396951/44100;
-        audio_loop_sound(global._music[12],global._st[12],global._en[12],44100,0);
-        audio_sound_pitch(global._music[12],1);
-        audio_sound_set_track_position(obj_audio_loop_sound._audio,_temp000);
-    }
-}
+if global.stage==910 audio_loop_sound(stage910,806,1888760,44100,0);
 
 if global.stage=0
 {
@@ -165,10 +136,14 @@ if global.stage=0
     if global.bg_music=10 &amp;&amp; grid_w!=72
     {
         temp_123=11;
-        instance_create(irandom_range(30,290),irandom_range(30,210),obj_10);
-        obj_10.the_x=obj_10.x;
-        obj_10.the_y=obj_10.y;
-        obj_10.rand=2;
+        
+        //for (var i=0; i&lt;10; i++) // DO NOT TRY THIS SHIT OUT ON PS3
+        {
+            var _10 = instance_create(irandom_range(30,290),irandom_range(30,210),obj_10);
+            _10.the_x=_10.x;
+            _10.the_y=_10.y;
+            _10.rand=2;
+        }
     }
     if grid_w==72
     {
@@ -191,14 +166,12 @@ if global.stage=0
         obj_10.active=true;
         obj_10.moove=1;
         obj_10.time=11;
-        obj_10.spd=1;
+        obj_10.spd=0.2;
         obj_10.vspeed=1;
         obj_10.hspeed=1;
         obj_10.rand=2;
         obj_10.alarm[3]=1;
     }
-    audio_loop_sound(global._music[temp_123],global._st[temp_123],global._en[temp_123],44100,0)
-    audio_sound_pitch(global._music[temp_123],1);
 }
 
 spr_bg=-1;
@@ -343,21 +316,31 @@ utsuho10=false;
 t10_grid=spr_bg10;
 t10_gridb=spr_bg10b;
 
-obj_bg.sprite_index=spr_bg;
-
-if global.foughtcirno=1 &amp;&amp; global.stage==9
+if global.route==1 &amp;&amp; (global.stage==9 or global.bg_music==9)
 {
     secret_script_p1();
     cirno9=true;
     iceland = ds_grid_create(grid_w, grid_h);
     ds_grid_clear(iceland, 0);
+    if global.stage==0
+    {
+        spr_bg=spr_bg99;
+        spr_bgb=spr_bg99b;
+    }
+    for (var xx = 0; xx &lt; grid_w; xx++)
+    for (var yy = 0; yy &lt; grid_h; yy++)
+    {
+        grid_sprite[# xx, yy] = spr_bg;
+    }
 }
 
-if global.foughtutsuho=1 &amp;&amp; global.stage==10
+if global.route==1 &amp;&amp; (global.stage==10 or global.bg_music==10)
 {
     secret_script_2_p1();
     utsuho10=true;
 }
+
+obj_bg.sprite_index=spr_bg;
 
 if global.stage==910
 {
@@ -382,6 +365,25 @@ if global.stage==910
     obj_10.alarm[3]=1;
     obj_ui.alarm[0]=1;
     obj_ui.rand_time=1;
+}
+
+if global.stage&lt;9 and global.stage&gt;0
+{
+    if global.episode==1
+    {
+        audio_loop_sound(global._music[temp_111],global._st[temp_111],global._en[temp_111],44100,0);
+        audio_sound_pitch(global._music[temp_111],1);
+    }
+    else if global.episode==2
+    {
+        audio_loop_sound(global._music[temp_111+2],global._st[temp_111+2],global._en[temp_111+2],44100,0);
+        audio_sound_pitch(global._music[temp_111+2],1);
+    }
+}
+else if global.stage==0
+{
+    audio_loop_sound(global._music[temp_123],global._st[temp_123],global._en[temp_123],44100,0)
+    audio_sound_pitch(global._music[temp_123],1);
 }
 
 if cirno9 text = "You have to let me out eventually, Baka...";
@@ -727,7 +729,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
         if (first_click)
         {
             regenerate_grid(xx, yy, temp_mines);
-            timer=get_timer();
+            start_timer();
             first_click = false;
             
             // If the first clicked cell is a mine, rebuild the board

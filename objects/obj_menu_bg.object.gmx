@@ -34,6 +34,7 @@ list[5]=spr_bg7;
 list[6]=spr_bg8;
 list[7]=spr_bg9;
 list[8]=spr_bg5;
+if global.route==1 list[8]=spr_bg99;
 list[9]=spr_bg10;
 </string>
           </argument>
@@ -58,6 +59,7 @@ list[9]=spr_bg10;
           <argument>
             <kind>1</kind>
             <string>image_speed=0.02;
+
 draw_sprite_tiled_ext(sprite_index,image_index,0,0,1,1,c_white,1);
 draw_set_alpha(0.25);
 draw_set_color(c_black);

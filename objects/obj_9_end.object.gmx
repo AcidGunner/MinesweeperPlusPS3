@@ -30,7 +30,15 @@ audio_play_sound(sfx_9lost,1,false);
 audio_play_sound(sfx_done,0,false);
 alpha=0;
 go=0;
+show=0;
+selected=1;
+stop=0;
+go_on=0;
+_u=0;
 alarm[0]=audio_sound_length(sfx_9lost)*global.FSP;
+
+test=33;
+
 if instance_exists(obj_9)
 {
     obj_smiley.cutscene=true;
@@ -44,6 +52,132 @@ if instance_exists(obj_10)
     obj_smiley.cutscene=true;
     obj_10.active=0;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(0,0,obj_fade);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_stop_all();
+global.stage=1;
+global.foughtcirno=0;
+global.foughtutsuho=0;
+ini_open("msplus-ps3-save.ini");
+ini_write_string("save","current_time","");
+ini_close();
+if instance_exists(obj_chap1_data) instance_destroy(obj_chap1_data);
+lives=3;
+save_game();
+room_goto(rm_menu);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_map);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(0,0,obj_fade);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>show=1;
+selected=0;
 </string>
           </argument>
         </arguments>
@@ -66,20 +200,8 @@ if instance_exists(obj_10)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
-if global.stage!=0
-{
-    ini_open("msplus-ps3-save.ini");
-    ini_write_string("save","current_time","");
-    ini_close();
-    if instance_exists(obj_chap1_data) instance_destroy(obj_chap1_data);
-    global.stage=1;
-    global.foughtcirno=0;
-    global.foughtutsuho=0;
-    lives=3;
-    save_game();
-}
-room_goto(rm_menu);
+            <string>depth=-6;
+instance_create(0,0,obj_fade_mid);
 </string>
           </argument>
         </arguments>
@@ -102,7 +224,10 @@ room_goto(rm_menu);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(irandom_range(0,320),irandom_range(0,240),obj_explosion);
+            <string>if test=0 exit;
+
+test--;
+instance_create(irandom_range(0,320),irandom_range(0,240),obj_explosion);
 alarm[2]=5;
 </string>
           </argument>
@@ -138,7 +263,16 @@ else if global.stage==10
 }
 go=-1;
 alarm[2]=5;
-alarm[3]=5*global.FSP;
+if global.stage!=0
+{
+    alarm[3]=5*global.FSP-20;
+    alarm[4]=5*global.FSP;
+}
+else
+{
+    obj_ui.alarm[5]=4*global.FSP-20;
+    obj_ui.alarm[6]=4*global.FSP;
+}
 </string>
           </argument>
         </arguments>
@@ -169,6 +303,50 @@ alarm[1]=1*global.FSP;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if selected=0
+{
+    if obj_input.a
+    {
+        selected=1;
+        audio_stop_all();
+        go_on=1;
+        lives=3;
+        audio_play_sound(sfx_1up,0,false);
+        alarm[6]=3.4*global.FSP;
+        alarm[8]=(3.4*global.FSP)-15;
+    }
+    if obj_input.b
+    {
+        selected=1;
+        audio_stop_all();
+        lost=1;
+        audio_play_sound(sfx_gameover,0,false);
+        alarm[7]=3.4*global.FSP;
+        alarm[8]=(3.4*global.FSP)-15;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -192,6 +370,28 @@ draw_rectangle(-50,-50,370,370,false);
 
 if go=1 alpha=lerp(alpha,1,0.2)
 else if go=-1 &amp;&amp; alpha&gt;0 alpha-=0.005;
+
+if !show exit;
+
+_u+=0.01;
+var u1 = sin(_u);
+var u2 = sin(_u+2);
+
+draw_set_font(fnt_main);
+draw_set_halign(fa_middle);
+draw_set_valign(fa_center);
+if selected=0
+{
+    draw_text_outline(160,70,global.str[94],c_white,c_black,1);
+    draw_set_font(fnt_smol);
+    draw_text_outline(160,120+u1,"X - "+global.str[95],c_blue,c_black,1);
+    draw_text_outline(160,144+u2,"O - "+global.str[96],c_red,c_black,1);
+}
+else
+{
+    if go_on=1 draw_text_outline(160,70,global.str[97],c_white,c_black,1)
+    else draw_text_outline(160,70,global.str[98],c_white,c_black,1)
+}
 </string>
           </argument>
         </arguments>

@@ -11,17 +11,6 @@ if obj_input.mp2 alarm[1]=1;
 if obj_input.mh1 alarm[2]=1;
 if obj_input.mh2 alarm[3]=1;
 
-if obj_input.l1
-{
-    zoom -= zoom_speed;
-    zoom_update_1p();
-}
-if obj_input.r1
-{
-    zoom += zoom_speed;
-    zoom_update_1p();
-}
-
 // Only highlight if holding left button
 if obj_input.mk1 && win == false && obj_vs_ui.lost=0 
 {

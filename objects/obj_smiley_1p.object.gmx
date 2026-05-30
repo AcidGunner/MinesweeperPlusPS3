@@ -67,7 +67,7 @@ cutscene_9_0[0]=spr_smiley5_cutscene;
 cutscene_9_0[1]=spr_smiley5_cutscene;
 cutscene_9_0[2]=spr_smiley5_cutscene;
 cutscene_9_0[3]=spr_smiley5;
-cutscene_9_0[4]=spr_smiley5_cutscene;
+cutscene_9_0[4]=spr_smiley_vs;
 cutscene_9_0[5]=spr_smiley5_cutscene;
 
 cutscene_10_0[0]=spr_smiley6_cutscene;
@@ -85,7 +85,7 @@ cutscene_9_1[0]=0;
 cutscene_9_1[1]=0;
 cutscene_9_1[2]=5;
 cutscene_9_1[3]=24;
-cutscene_9_1[4]=6;
+cutscene_9_1[4]=8;
 cutscene_9_1[5]=8;
 
 cutscene_10_1[0]=0;

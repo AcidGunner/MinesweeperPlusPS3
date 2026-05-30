@@ -196,15 +196,13 @@ else
         time_left=666;
         var _temp_ = 0.25;
         obj_game.zoom_min=_temp_;
-        //obj_game.zoom=_temp_;
-        //with obj_game zoom_update();
     }
     rand_life=1;
     rand_time=1;
 }
 
 red_ui=merge_colour(c_red,c_white,0.5);
-if global.foughtcirno==1
+if global.route==1
 {
     time_left=floor(time_left/1.2);
     red_ui=merge_colour(c_blue,c_white,0.5);
@@ -386,7 +384,7 @@ while (string_length(s2) &lt; 3)
     s2 = "0" + s2;
 }
 
-if instance_exists(obj_9)
+if instance_exists(obj_9) or global.stage==9
 {
     draw_sprite_stretched(spr_mine_ui,temp1,7,7,35,35);
     if rand_time=1 draw_text_outline(45,5.2,string(irandom_range(-99,999)),c_red,c_white,1)

@@ -37,6 +37,8 @@ travel = 0;
 scale=1;
 z_win=0;
 gold_flag=0;
+test_09=0;
+is_moving=0;
 
 grid_w = obj_game_1p.grid_w;
 grid_h = obj_game_1p.grid_h;
@@ -45,9 +47,9 @@ boss_y = obj_game_1p.grid_h div 2;
 
 dx=0;dy=0;
 
-mine_1_g=-1;mine_2_g=-1;mine_3_g=-1;
-mine_4_g=-1;mine_6_g=-1;
-mine_7_g=-1;mine_8_g=-1;mine_9_g=-1;
+mine_1_g=1;mine_2_g=1;mine_3_g=1;
+mine_4_g=1;mine_6_g=1;
+mine_7_g=1;mine_8_g=1;mine_9_g=1;
 
 mine_1_r=false;mine_2_r=false;mine_3_r=false;
 mine_4_r=false;mine_6_r=false;
@@ -70,6 +72,210 @@ _x=x;_y=y;
 //if obj_game.cirno9=true &amp;&amp; global.stage==9 secret_script_p2();
 
 //if global.foughtcirno==true &amp;&amp; global.stage==910 secret_script_p2();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Mechanics?
+if !active exit;
+
+var grid = obj_game_1p.grid_type;
+var reveal = obj_game_1p.reveal;
+var flagged = obj_game_1p.flagged;
+var circle_grid = obj_game_1p.circle_grid;
+
+var tempgrid_0=0;
+var tempgrid_1=0;
+var tempgrid_2=0;
+var tempgrid_3=0;
+var tempgrid_4=0;
+var tempgrid_5=0;
+
+// --- PICK RANDOM DIRECTION ---
+if is_moving=0
+{
+    to_move=irandom_range(1,max(grid_w,grid_h));
+    before_to_move=to_move;
+    dir = irandom(3); // 0=right,1=left,2=down,3=up
+    switch (dir) {
+        case 0: dx = 1; dy = 0; break;  // right
+        case 1: dx = -1; dy = 0; break; // left
+        case 2: dx = 0; dy = 1; break;  // down
+        case 3: dx = 0; dy = -1; break; // up
+    }
+}
+else
+{
+    to_move--;
+}
+
+is_moving=1;
+
+// --- CALCULATE TARGET BOSS POSITION ---
+var nx = boss_x + dx;
+var ny = boss_y + dy;
+
+// Prevent boss from going out of grid (leave 1-tile margin for surrounding mines)
+if ((nx &lt; 1 || nx &gt;= grid_w-1 || ny &lt; 1 || ny &gt;= grid_h-1) or
+   (circle_grid[# nx-1,ny-1] or circle_grid[# nx,ny-1] or
+    circle_grid[# nx+1,ny-1] or circle_grid[# nx-1,ny] or
+    circle_grid[# nx+1,ny] or circle_grid[# nx-1,ny+1] or
+    circle_grid[# nx,ny+1] or circle_grid[# nx+1,ny+1]))
+    or to_move=0
+{
+    if obj_game_1p.cirno9==true alarm[10] = irandom_range(15, 50)
+    else alarm[10] = irandom_range(20, 60);
+    
+    if before_to_move!=to_move audio_play_sound(sfx_9stop,6,false);
+    
+    before_to_move=0;   
+    is_moving=0;
+    to_move=0;
+    exit;
+}
+
+if dx=1
+{
+    tempgrid_0=grid[# boss_x+2, boss_y+1];
+    tempgrid_1=grid[# boss_x+2, boss_y];
+    tempgrid_2=grid[# boss_x+2, boss_y-1];
+    tempgrid_3=reveal[# boss_x+2, boss_y+1];
+    tempgrid_4=reveal[# boss_x+2, boss_y];
+    tempgrid_5=reveal[# boss_x+2, boss_y-1];
+    flagged[# boss_x+2, boss_y+1]=0;
+    flagged[# boss_x+2, boss_y]=0;
+    flagged[# boss_x+2, boss_y-1]=0;
+}
+else if dx=-1
+{
+    tempgrid_0=grid[# boss_x-2, boss_y+1];
+    tempgrid_1=grid[# boss_x-2, boss_y];
+    tempgrid_2=grid[# boss_x-2, boss_y-1];
+    tempgrid_3=reveal[# boss_x-2, boss_y+1];
+    tempgrid_4=reveal[# boss_x-2, boss_y];
+    tempgrid_5=reveal[# boss_x-2, boss_y-1];
+    flagged[# boss_x-2, boss_y+1]=0;
+    flagged[# boss_x-2, boss_y]=0;
+    flagged[# boss_x-2, boss_y-1]=0;
+}
+else
+{
+    if dy=1
+    {
+        tempgrid_0=grid[# boss_x-1, boss_y+2];
+        tempgrid_1=grid[# boss_x, boss_y+2];
+        tempgrid_2=grid[# boss_x+1, boss_y+2];
+        tempgrid_3=reveal[# boss_x-1, boss_y+2];
+        tempgrid_4=reveal[# boss_x, boss_y+2];
+        tempgrid_5=reveal[# boss_x+1, boss_y+2];
+        flagged[# boss_x-1, boss_y+2]=0;
+        flagged[# boss_x, boss_y+2]=0;
+        flagged[# boss_x+1, boss_y+2]=0;
+    }
+    else if dy=-1
+    {
+        tempgrid_0=grid[# boss_x-1, boss_y-2];
+        tempgrid_1=grid[# boss_x, boss_y-2];
+        tempgrid_2=grid[# boss_x+1, boss_y-2];
+        tempgrid_3=reveal[# boss_x-1, boss_y-2];
+        tempgrid_4=reveal[# boss_x, boss_y-2];
+        tempgrid_5=reveal[# boss_x+1, boss_y-2];
+        flagged[# boss_x-1, boss_y-2]=0;
+        flagged[# boss_x, boss_y-2]=0;
+        flagged[# boss_x+1, boss_y-2]=0;
+    }
+}
+// --- MOVE BOSS ---
+boss_x = nx;
+boss_y = ny;
+alarm[4]=1;
+
+// --- PLACE BOSS TILE ---
+grid[# boss_x+1, boss_y+1] =mine_1_g;
+grid[# boss_x, boss_y+1]   =mine_2_g;
+grid[# boss_x-1, boss_y+1] =mine_3_g;
+grid[# boss_x+1, boss_y]   =mine_4_g;
+grid[# boss_x, boss_y]     =9;
+grid[# boss_x-1, boss_y]   =mine_6_g;
+grid[# boss_x+1, boss_y-1] =mine_7_g;
+grid[# boss_x, boss_y-1]   =mine_8_g;
+grid[# boss_x-1, boss_y-1] =mine_9_g;
+
+reveal[# boss_x+1, boss_y+1] =mine_1_r;
+reveal[# boss_x, boss_y+1]   =mine_2_r;
+reveal[# boss_x-1, boss_y+1] =mine_3_r;
+reveal[# boss_x+1, boss_y]   =mine_4_r;
+reveal[# boss_x, boss_y]     =true;
+reveal[# boss_x-1, boss_y]   =mine_6_r;
+reveal[# boss_x+1, boss_y-1] =mine_7_r;
+reveal[# boss_x, boss_y-1]   =mine_8_r;
+reveal[# boss_x-1, boss_y-1] =mine_9_r;
+
+// --- PLACE TEMP TILES! ---
+if dx=1
+{
+    grid[# boss_x-2, boss_y+1]=tempgrid_0;
+    grid[# boss_x-2, boss_y]=tempgrid_1;
+    grid[# boss_x-2, boss_y-1]=tempgrid_2;
+    reveal[# boss_x-2, boss_y+1]=tempgrid_3;
+    reveal[# boss_x-2, boss_y]=tempgrid_4;
+    reveal[# boss_x-2, boss_y-1]=tempgrid_5;
+}
+else if dx=-1
+{
+    grid[# boss_x+2, boss_y+1]=tempgrid_0;
+    grid[# boss_x+2, boss_y]=tempgrid_1;
+    grid[# boss_x+2, boss_y-1]=tempgrid_2;
+    reveal[# boss_x+2, boss_y+1]=tempgrid_3;
+    reveal[# boss_x+2, boss_y]=tempgrid_4;
+    reveal[# boss_x+2, boss_y-1]=tempgrid_5;
+}
+else
+{
+    if dy=1
+    {
+        grid[# boss_x-1, boss_y-2]=tempgrid_0;
+        grid[# boss_x, boss_y-2]=tempgrid_1;
+        grid[# boss_x+1, boss_y-2]=tempgrid_2;
+        reveal[# boss_x-1, boss_y-2]=tempgrid_3;
+        reveal[# boss_x, boss_y-2]=tempgrid_4;
+        reveal[# boss_x+1, boss_y-2]=tempgrid_5;
+    }
+    else if dy=-1
+    {
+        grid[# boss_x-1, boss_y+2]=tempgrid_0;
+        grid[# boss_x, boss_y+2]=tempgrid_1;
+        grid[# boss_x+1, boss_y+2]=tempgrid_2;
+        reveal[# boss_x-1, boss_y+2]=tempgrid_3;
+        reveal[# boss_x, boss_y+2]=tempgrid_4;
+        reveal[# boss_x+1, boss_y+2]=tempgrid_5;
+    }
+}
+
+audio_play_sound(sfx_9move,6,false);
+test_a = -test_a;
+angle = -angle;
+obj_game_1p.alarm[4]=1;
+
+alarm[10]=6;
 </string>
           </argument>
         </arguments>
@@ -249,9 +455,9 @@ if dy != 0 view_yview[0]=2*-dy;
             <kind>1</kind>
             <string>cutscene_explosions--;
 //show_debug_message(string(cutscene_explosions));
-instance_create(x,y,obj_explosion)
-//if cutscene_explosions==3 obj_ui.alarm[2]=1;
-//if cutscene_explosions==0 obj_ui.alarm[3]=1;
+instance_create(x,y,obj_explosion_nosound);
+if cutscene_explosions==3 obj_vs_ui.t=1;
+if cutscene_explosions==1 obj_vs_ui.alarm[1]=1;
 if cutscene_explosions!=0 alarm[3]=9;
 </string>
           </argument>
@@ -446,6 +652,12 @@ switch travel
     }
 }
 
+if active &amp;&amp; !test_09
+{
+    alarm[10]=1;
+    test_09=1;
+}
+
 if active
 {
     view_xview[0]=lerp(view_xview[0],0,0.1);
@@ -453,183 +665,6 @@ if active
 }
 
 if scale&lt;1 scale=lerp(scale,0,0.05);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Mechanics?
-if (!active) exit;
-
-var grid = obj_game_1p.grid;
-var reveal = obj_game_1p.reveal;
-var flagged = obj_game_1p.flagged;
-
-// Wait until next move
-if (move_timer &gt; 0) {
-    move_timer -= 1;
-    exit;
-}
-
-var tempgrid_0=0;
-var tempgrid_1=0;
-var tempgrid_2=0;
-var tempgrid_3=0;
-var tempgrid_4=0;
-var tempgrid_5=0;
-
-// --- PICK RANDOM DIRECTION ---
-var dir = irandom(3); // 0=right,1=left,2=down,3=up
-dx = 0;
-dy = 0;
-switch (dir) {
-    case 0: dx = 1; dy = 0; break;  // right
-    case 1: dx = -1; dy = 0; break; // left
-    case 2: dx = 0; dy = 1; break;  // down
-    case 3: dx = 0; dy = -1; break; // up
-}
-
-
-// --- CALCULATE TARGET BOSS POSITION ---
-var nx = boss_x + dx;
-var ny = boss_y + dy;
-
-// Prevent boss from going out of grid (leave 1-tile margin for surrounding mines)
-if (nx &lt; 2 || nx &gt;= grid_w-2 || ny &lt; 2 || ny &gt;= grid_h-2) {
-    move_timer = 5; // wait a bit before trying again
-    exit;
-}
-
-if dx=1
-{
-    tempgrid_0=grid[# boss_x+2, boss_y+1];
-    tempgrid_1=grid[# boss_x+2, boss_y];
-    tempgrid_2=grid[# boss_x+2, boss_y-1];
-    tempgrid_3=reveal[# boss_x+2, boss_y+1];
-    tempgrid_4=reveal[# boss_x+2, boss_y];
-    tempgrid_5=reveal[# boss_x+2, boss_y-1];
-}
-else if dx=-1
-{
-    tempgrid_0=grid[# boss_x-2, boss_y+1];
-    tempgrid_1=grid[# boss_x-2, boss_y];
-    tempgrid_2=grid[# boss_x-2, boss_y-1];
-    tempgrid_3=reveal[# boss_x-2, boss_y+1];
-    tempgrid_4=reveal[# boss_x-2, boss_y];
-    tempgrid_5=reveal[# boss_x-2, boss_y-1];
-}
-else
-{
-    if dy=1
-    {
-        tempgrid_0=grid[# boss_x-1, boss_y+2];
-        tempgrid_1=grid[# boss_x, boss_y+2];
-        tempgrid_2=grid[# boss_x+1, boss_y+2];
-        tempgrid_3=reveal[# boss_x-1, boss_y+2];
-        tempgrid_4=reveal[# boss_x, boss_y+2];
-        tempgrid_5=reveal[# boss_x+1, boss_y+2];
-    }
-    else if dy=-1
-    {
-        tempgrid_0=grid[# boss_x-1, boss_y-2];
-        tempgrid_1=grid[# boss_x, boss_y-2];
-        tempgrid_2=grid[# boss_x+1, boss_y-2];
-        tempgrid_3=reveal[# boss_x-1, boss_y-2];
-        tempgrid_4=reveal[# boss_x, boss_y-2];
-        tempgrid_5=reveal[# boss_x+1, boss_y-2];
-    }
-}
-// --- MOVE BOSS ---
-boss_x = nx;
-boss_y = ny;
-alarm[4]=1;
-
-// --- PLACE BOSS TILE ---
-grid[# boss_x+1, boss_y+1] =mine_1_g;
-grid[# boss_x, boss_y+1]   =mine_2_g;
-grid[# boss_x-1, boss_y+1] =mine_3_g;
-grid[# boss_x+1, boss_y]   =mine_4_g;
-grid[# boss_x, boss_y]     =-2;
-grid[# boss_x-1, boss_y]   =mine_6_g;
-grid[# boss_x+1, boss_y-1] =mine_7_g;
-grid[# boss_x, boss_y-1]   =mine_8_g;
-grid[# boss_x-1, boss_y-1] =mine_9_g;
-
-reveal[# boss_x+1, boss_y+1] =mine_1_r;
-reveal[# boss_x, boss_y+1]   =mine_2_r;
-reveal[# boss_x-1, boss_y+1] =mine_3_r;
-reveal[# boss_x+1, boss_y]   =mine_4_r;
-reveal[# boss_x, boss_y]     =true;
-reveal[# boss_x-1, boss_y]   =mine_6_r;
-reveal[# boss_x+1, boss_y-1] =mine_7_r;
-reveal[# boss_x, boss_y-1]   =mine_8_r;
-reveal[# boss_x-1, boss_y-1] =mine_9_r;
-
-// --- PLACE TEMP TILES! ---
-if dx=1
-{
-    grid[# boss_x-2, boss_y+1]=tempgrid_0;
-    grid[# boss_x-2, boss_y]=tempgrid_1;
-    grid[# boss_x-2, boss_y-1]=tempgrid_2;
-    reveal[# boss_x-2, boss_y+1]=tempgrid_3;
-    reveal[# boss_x-2, boss_y]=tempgrid_4;
-    reveal[# boss_x-2, boss_y-1]=tempgrid_5;
-}
-else if dx=-1
-{
-    grid[# boss_x+2, boss_y+1]=tempgrid_0;
-    grid[# boss_x+2, boss_y]=tempgrid_1;
-    grid[# boss_x+2, boss_y-1]=tempgrid_2;
-    reveal[# boss_x+2, boss_y+1]=tempgrid_3;
-    reveal[# boss_x+2, boss_y]=tempgrid_4;
-    reveal[# boss_x+2, boss_y-1]=tempgrid_5;
-}
-else
-{
-    if dy=1
-    {
-        grid[# boss_x-1, boss_y-2]=tempgrid_0;
-        grid[# boss_x, boss_y-2]=tempgrid_1;
-        grid[# boss_x+1, boss_y-2]=tempgrid_2;
-        reveal[# boss_x-1, boss_y-2]=tempgrid_3;
-        reveal[# boss_x, boss_y-2]=tempgrid_4;
-        reveal[# boss_x+1, boss_y-2]=tempgrid_5;
-    }
-    else if dy=-1
-    {
-        grid[# boss_x-1, boss_y+2]=tempgrid_0;
-        grid[# boss_x, boss_y+2]=tempgrid_1;
-        grid[# boss_x+1, boss_y+2]=tempgrid_2;
-        reveal[# boss_x-1, boss_y+2]=tempgrid_3;
-        reveal[# boss_x, boss_y+2]=tempgrid_4;
-        reveal[# boss_x+1, boss_y+2]=tempgrid_5;
-    }
-}
-
-audio_play_sound(sfx_9move,6,false);
-audio_play_sound(sfx_9stop,6,false);
-test_a = -test_a;
-angle = -angle;
-obj_game_1p.alarm[4]=1;
-
-// --- RANDOM DELAY UNTIL NEXT MOVE ---
-//if obj_game.cirno9==true move_timer = irandom_range(15, 50)else
-move_timer = irandom_range(20, 60);
 </string>
           </argument>
         </arguments>
@@ -652,7 +687,7 @@ move_timer = irandom_range(20, 60);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var spike = obj_game_1p.zoom/8*1.35;
+            <string>var spike = obj_game_1p.zoom/8;
 var test_1 = (test_0*spike)/48;
 
 sprite_index=the_spr_9;

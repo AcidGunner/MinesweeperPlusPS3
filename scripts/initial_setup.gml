@@ -1,6 +1,6 @@
 ///initial_setup();
 audio_channel_num(20);
-global.debug=0;
+global.debug=1;
 bad_apple_initialize();
 randomize();
 global.CONTROL=1;
@@ -11,12 +11,12 @@ global.smiley_face=0;
 global.bg_music=0;
 global.if_draw_grid=0;
 global.unlock_route1=0;
-if os_type==os_windows && !gamepad_is_connected(0) global.CONTROL=0;
+if os_type==os_windows global.CONTROL=0;
 
 load_game();
 strings_set();
 message_set();
-window_set_caption(global.str[0]+" "+detect_console()+" "+global.str[1]+" ("+ver_show()+")"+check_debug());
+window_set_caption(global.str[0]+": "+detect_console()+" "+global.str[1]+" ("+ver_show()+")"+check_debug());
 
 global.the_config=1; //< CONFIG VERSION!
 if global.the_config!=global.config reset_game();

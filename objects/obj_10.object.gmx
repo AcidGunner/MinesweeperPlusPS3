@@ -42,6 +42,7 @@ expl=0;
 time=10;
 shifting=0;
 active=false;
+uhhh=0.12;
 moove=0;
 spd=0.004;
 stopped=0;
@@ -55,8 +56,7 @@ spr_main=spr_10;
 
 spawned=0;
 
-if global.stage==10 &amp;&amp; obj_game.utsuho10=true secret_script_2_p2();
-if global.stage==910 &amp;&amp; global.foughtutsuho==true secret_script_p2();
+if global.route==1 secret_script_2_p2();
 </string>
           </argument>
         </arguments>
@@ -409,11 +409,16 @@ if active
         if moove=0
         {
             moove=1;
-            vspeed=1;
-            hspeed=1;
+            vspeed=irandom_range(0,1);
+            hspeed=irandom_range(0,1);
+            
+            if vspeed=0 vspeed=-1;
+            if hspeed=0 hspeed=-1;
         }
         time=10;
-        spd+=0.12;
+        spd+=uhhh;
+        uhhh-=0.002;
+        if uhhh&lt;0.02 uhhh=0.02;
         test=0;
         vspeed = (vspeed/abs(vspeed))*spd;
         hspeed = (hspeed/abs(hspeed))*spd;

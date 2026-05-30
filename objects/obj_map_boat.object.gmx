@@ -306,7 +306,7 @@ if global.episode!=1 exit;
 draw_set_font(fnt_smol);
 draw_text_outline(704,48,name_9,c_black,c_white,1);
 
-if global.foughtcirno &amp;&amp; global.stage==9
+if global.route==1 &amp;&amp; global.stage==9
     draw_background_tiled(bg_wind,t,0);
 </string>
           </argument>

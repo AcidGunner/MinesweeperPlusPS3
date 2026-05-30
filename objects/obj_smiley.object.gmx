@@ -618,6 +618,19 @@ if obj_game.win == false
             else image_index = 13+cutscene_10_lose;
             exit;
         }
+        if instance_exists(obj_9_end) &amp;&amp; obj_9_end.go_on=1
+        {
+            if sprite_index==spr_smiley_3 image_index=26+image_anim2
+            else if sprite_index==spr_smiley_5 image_index=27+image_anim2
+            else if sprite_index==spr_smiley_6 image_index=17+image_anim2
+            else if sprite_index==spr_smiley_bonus
+            {
+                sprite_index=spr_smiley_5;
+                image_index=27+image_anim2;
+            }
+            else image_index=14+image_anim2;
+            exit;
+        }
         if instance_exists(obj_audio_pitcher) &amp;&amp; obj_audio_pitcher.go_on=1
         {
             if sprite_index==spr_smiley_3 image_index=26+image_anim
@@ -631,6 +644,12 @@ if obj_game.win == false
             if sprite_index==spr_smiley_3 image_index = 16+image_anim2
             else if sprite_index==spr_smiley_5 image_index = 26
             else image_index = 8;
+            
+            if global.route==1 &amp;&amp; instance_exists(obj_9)
+            {
+                sprite_index=spr_smiley_bonus;
+                image_index = 5;
+            }
             exit;
         }
         if mine_detected = 1

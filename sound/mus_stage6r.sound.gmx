@@ -23,7 +23,7 @@
   <preload>-1</preload>
   <data>mus_stage6r.mp3</data>
   <compressed>1</compressed>
-  <streamed>0</streamed>
+  <streamed>1</streamed>
   <uncompressOnLoad>0</uncompressOnLoad>
   <audioGroup>0</audioGroup>
 </sound>

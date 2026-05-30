@@ -26,12 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>image_speed=0.35;
-audio_play_sound(sfx_explosion,2,false);
 title=0;
 kaboom=0;
 unlocked=0;
 _x=0;
 _y=0;
+audio_play_sound(sfx_explosion,2,false);
 game_obj=noone;
 if instance_exists(obj_ui)
 {
@@ -150,6 +150,7 @@ if image_index&gt;=24
     if instance_exists(obj_9) &amp;&amp; instance_exists(obj_game) &amp;&amp; !obj_game.first_click &amp;&amp; !obj_game.lost
     {
         obj_9.active=true;
+        obj_9.test_09=0;
     };
     instance_destroy();
 }

@@ -28,6 +28,7 @@
         </sounds>
         <sounds name="menu_5">
           <sound>sound\mus_menu_5</sound>
+          <sound>sound\mus_menu_5r</sound>
         </sounds>
         <sounds name="menu_6">
           <sound>sound\mus_menu_6</sound>
@@ -43,6 +44,7 @@
         </sounds>
         <sounds name="menu_9">
           <sound>sound\mus_menu_9</sound>
+          <sound>sound\mus_menu_99</sound>
           <sound>sound\mus_menu_9r</sound>
         </sounds>
         <sounds name="menu_10">
@@ -88,9 +90,11 @@
       <sounds name="chapter2">
         <sounds name="mus_stage5">
           <sound>sound\mus_stage5</sound>
+          <sound>sound\mus_stage5r</sound>
         </sounds>
         <sounds name="mus_stage5_win">
           <sound>sound\mus_stage5_win</sound>
+          <sound>sound\mus_stage5r_win</sound>
         </sounds>
         <sounds name="mus_stage6">
           <sound>sound\mus_stage6</sound>
@@ -159,7 +163,12 @@
           <sound>sound\mus_stage910_11</sound>
         </sounds>
         <sounds name="boss11">
-          <sound>sound\mus_stage11_prepare</sound>
+          <sounds name="mus_stage11">
+            <sound>sound\mus_stage11_prepare</sound>
+          </sounds>
+          <sounds name="mus_stage11r">
+            <sound>sound\mus_stage11r_prepare</sound>
+          </sounds>
         </sounds>
       </sounds>
       <sounds name="bonus">
@@ -215,6 +224,7 @@
         </sounds>
         <sounds name="map5">
           <sound>sound\mus_map5</sound>
+          <sound>sound\mus_map5r</sound>
         </sounds>
         <sounds name="map6">
           <sound>sound\mus_map_6</sound>
@@ -242,10 +252,13 @@
         </sounds>
         <sounds name="map11">
           <sound>sound\mus_map11</sound>
+          <sound>sound\mus_map11r</sound>
         </sounds>
       </sounds>
       <sound>sound\mus_title</sound>
+      <sound>sound\mus_title_r</sound>
       <sound>sound\mus_end</sound>
+      <sound>sound\mus_end_r</sound>
       <sound>sound\mus_bad</sound>
     </sounds>
     <sounds name="sfx">
@@ -431,6 +444,7 @@
       <sprites name="end">
         <sprite>sprites\spr_end_1</sprite>
         <sprite>sprites\spr_end_2</sprite>
+        <sprite>sprites\spr_end_3</sprite>
       </sprites>
       <sprites name="bonus">
         <sprite>sprites\spr_message</sprite>
@@ -528,21 +542,22 @@
         <script>scripts\time_set.gml</script>
         <script>scripts\start_game.gml</script>
         <script>scripts\showLogo.gml</script>
+        <script>scripts\start_timer.gml</script>
       </scripts>
     </scripts>
     <scripts name="saving">
       <script>scripts\save_game.gml</script>
       <script>scripts\load_game.gml</script>
       <script>scripts\reset_game.gml</script>
+      <script>scripts\save_settings.gml</script>
     </scripts>
-    <scripts name="versus_shit">
+    <scripts name="versus">
       <scripts name="player1">
         <script>scripts\create_first_player.gml</script>
         <script>scripts\hold_highlight_1p.gml</script>
         <script>scripts\check_input_1p.gml</script>
         <script>scripts\checks_input_1p.gml</script>
         <script>scripts\scr_mine_detected_1p.gml</script>
-        <script>scripts\zoom_update_1p.gml</script>
       </scripts>
       <scripts name="player2">
         <script>scripts\create_second_player.gml</script>
@@ -550,7 +565,6 @@
         <script>scripts\check_input_2p.gml</script>
         <script>scripts\checks_input_2p.gml</script>
         <script>scripts\scr_mine_detected_2p.gml</script>
-        <script>scripts\zoom_update_2p.gml</script>
       </scripts>
     </scripts>
     <scripts name="important">
@@ -579,6 +593,7 @@
         <object>objects\obj_smiley_hat</object>
         <object>objects\obj_bg</object>
         <object>objects\obj_chap1_data</object>
+        <object>objects\obj_timer</object>
       </objects>
       <objects name="bosses">
         <object>objects\obj_9</object>
@@ -589,6 +604,7 @@
       </objects>
       <objects name="other">
         <object>objects\obj_explosion</object>
+        <object>objects\obj_explosion_nosound</object>
         <object>objects\obj_bomb</object>
         <object>objects\obj_cursor</object>
         <object>objects\obj_end_demo</object>

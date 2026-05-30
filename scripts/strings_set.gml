@@ -16,7 +16,10 @@ global.str[6]="How to Play";
 global.str[7]="Options";
 global.str[8]="Credits";
 global.str[9]="Reset Data";
-global.str[10]="WARNING!!# #This is the NIGHTLY Build. Many things are VERY UNSTABLE. IT IS RECOMMENDED TO PLAY THE CURRENT STABLE VERSION.#PROCEED WITH CAUTION!!"
+global.str[10]="WARNING!!
+
+This is the DEBUG Build. Many things are VERY UNSTABLE. IT IS RECOMMENDED TO PLAY THE LATEST VERSION.
+PROCEED WITH CAUTION!!"
 global.str[11]="Language Test";
 global.str[12]="Additional Hats Guide";
 global.str[13]="Go Back";
@@ -43,7 +46,11 @@ global.str[33]="Original";
 global.str[34]="Remastered";
 global.str[35]="Are you sure?";
 global.str[36]="Press X to Reset.";
-global.str[37]="[PLEASE READ BEFORE DOING ANYTHING!]# #ACIDPS3 PROJECT IS NOT AFFILIATED OR APPROVED BY SONY COMPUTER ENTERTAINMENT!!#WE ARE NOT GETTING ANY PROFIT OUT OF THIS. THOSE SERVICES ARE PURELY FREE NO MATTER WHAT.#(NOT LICENSED BY SONY)";
+global.str[37]="[PLEASE READ BEFORE DOING ANYTHING!]
+
+ACIDPS3 PROJECT IS NOT AFFILIATED OR APPROVED BY SONY COMPUTER ENTERTAINMENT!!
+WE ARE NOT GETTING ANY PROFIT OUT OF THIS. THOSE SERVICES ARE PURELY FREE NO MATTER WHAT.
+(NOT LICENSED BY SONY)";
 global.str[38]="Loading boot sequence...";
 global.str[39]="GMS4PS3 Loader v1.0";
 global.str[40]="PLACEHOLDER";
@@ -68,10 +75,16 @@ global.str[58]="Dead Sea";
 global.str[59]="THE DEVIL'S TRIANGLE";
 global.str[60]="THE DEVIL'S PASSAGE";
 global.str[61]="Player 2 is not connected. Please, connect the second gamepad.";
-global.str[62]="There is a boss battle in this game.#The battle works the same as normal Minesweeper, but with some key distinctions: you won't know the number of mines hidden on the grid, you have limited time to complete the level, and you won't be able to use the sonar or pause the game. Clicking on a mine will make the time run out faster. To win, you must click on the boss ONLY AFTER revealing all the tiles that don't contain mines. If the timer hits 0, or you click on the boss before revealing the entire grid, it's game over.";
-global.str[63]="There is another boss battle in this game.#As soon as the game starts, this boss will start counting down from 10. If it counts all the way down to 0, it's game over. Click on the boss to reset the countdown back to 10, but be careful. The boss will move faster and faster every time you click on it. Clicking on a mine will cause the boss to count down more quickly. To win, reveal the entire grid before the boss is able to finish its countdown.";
-global.str[64]="#Additional Note:#This is the Frozen Nine, heavily differs from Devil's Nine. It summons the iceberg every 10 seconds. After 10 seconds, the iceberg melts and summons another. The iceberg blocks the 3x3 area on it's location. Good luck.";
-global.str[65]="#Additional Note:#This is the Nuclear Ten. As for now, this is just a re-skin. If you want to add some cool mechanics, please contact me at http://acidnt31.22web.org/contact/ for more.";
+global.str[62]="There is a boss battle in this game.
+The battle works the same as normal Minesweeper, but with some key distinctions: you won't know the number of mines hidden on the grid, you have limited time to complete the level, and you won't be able to use the sonar or pause the game. Clicking on a mine will make the time run out faster. To win, you must click on the boss ONLY AFTER revealing all the tiles that don't contain mines. If the timer hits 0, or you click on the boss before revealing the entire grid, it's game over.";
+global.str[63]="There is another boss battle in this game.
+As soon as the game starts, this boss will start counting down from 10. If it counts all the way down to 0, it's game over. Click on the boss to reset the countdown back to 10, but be careful. The boss will move faster and faster every time you click on it. Clicking on a mine will cause the boss to count down more quickly. To win, reveal the entire grid before the boss is able to finish its countdown.";
+global.str[64]="
+Additional Note:
+This is the Frozen Nine, heavily differs from Devil's Nine. It summons the iceberg every 10 seconds. After 10 seconds, the iceberg melts and summons another. The iceberg blocks the 3x3 area on it's location. Good luck.";
+global.str[65]="
+Additional Note:
+This is the Nuclear Ten. As for now, this is just a re-skin. If you want to add some cool mechanics, please contact me at http://acidnt31.22web.org/contact/ for more.";
 global.str[66]="THE FREEZING CIRCLE";
 global.str[67]="THE NUCLEAR WASTE";
 global.str[68]="Made by AcidNT3.1 (Original by Jorel)";
@@ -105,7 +118,8 @@ global.str[95]="YES";
 global.str[96]="NO";
 global.str[97]="1-UP";
 global.str[98]="GAME OVER";
-global.str[99]="[NOTE!]#All boards are NOVICE. Proceed with caution.";
+global.str[99]="[NOTE!]
+All boards are NOVICE. Proceed with caution.";
 global.str[100]="Would you like to start a new game?";
 global.str[101]="The Shallow End";
 global.str[102]="Fountain Flows";
@@ -133,7 +147,10 @@ switch global.lang
         global.str[7]="Options";
         global.str[8]="Crédits";
         global.str[9]="Réinitialiser la sauvegarde";
-        global.str[10]="ATTENTION!!# #Vous utilisez actuellement la version DEBUG. BEAUCOUP de choses sont instables. IL EST RECOMMENDÉ DE JOUER AVEC LA DERNIÈRE VERSION SORTIE.#SOYEZ-DONC PRUDENT!!"
+        global.str[10]="ATTENTION!!
+
+Vous utilisez actuellement la version DEBUG. BEAUCOUP de choses sont instables. IL EST RECOMMENDÉ DE JOUER AVEC LA DERNIÈRE VERSION SORTIE.
+SOYEZ-DONC PRUDENT!!"
         global.str[11]="Test langage";
         global.str[12]="Chapeaux supplémentaires";
         global.str[13]="Retour";
@@ -160,7 +177,9 @@ switch global.lang
         global.str[34]="Remasterisé";
         global.str[35]="Êtes-vous sur?";
         global.str[36]="Réinitialisez avec X.";
-        global.str[37]="#ACIDPS3 PROJECT N'EST PAS UNE FILIALE OU PARTENAIRE DE SONY COMPUTER ENTERTAINMENT!!#CE PROJET EST ENTIÈREMENT NON-LUCRATIF. NOS SERVICES SERONT TOUJOURS GRATUIT.#(PAS LICENCIÉ PAR SONY)";
+        global.str[37]="ACIDPS3 PROJECT N'EST PAS UNE FILIALE OU PARTENAIRE DE SONY COMPUTER ENTERTAINMENT!!
+CE PROJET EST ENTIÈREMENT NON-LUCRATIF. NOS SERVICES SERONT TOUJOURS GRATUIT.
+(PAS LICENCIÉ PAR SONY)";
         global.str[38]="Lancement...";
         global.str[39]="GMS4PS3 Loader v1.0";
         global.str[40]="PLACEHOLDER";
@@ -185,10 +204,16 @@ switch global.lang
         global.str[59]="LE TRIANGLE DU DIABLE";
         global.str[60]="LE PASSAGE DU DIABLE";
         global.str[61]="Joueur 2 non-connecté. Veuillez connecter le second gamepad.";
-        global.str[62]="Il y a un boss dans ce jeu.#Le combat marche de la même façon que le démineur classique hormis certaines distinctions: vous ne saurez pas la quantité de mines présente sur la grille, vous avez un temps limité, et vous ne pourrez pas utiliser le sonar ni mettre le jeu en pause. Cliquer sur une mine accéléra le temps limité. Pour gagner, vous devez cliquer sur le boss SEULEMENT LORSQUE TOUTES LES TUILES QUI NE SONT PAS DES MINES ONT ÉTÉ DÉCOUVERTES. Si le temps atteint 0 ou vous cliquer sur le boss avant d'avoir révélé toutes les tuiles, c'est PERDU.";
-        global.str[63]="Il y a un autre Boss dans ce jeu.#dès que la partie commence, le boss va commencer à compter de 10 à 0. S'il compte jusqu'a 0 c'est PERDU. Cliquez sur le boss pour remettre le compte à rebours à 10 mais attention. Le boss accélère pour chaque clic. Cliquer sur une mine accéléra le compte à rebours. Pour gagner, révélez toute la grille avant que le boss ait atteint la fin de son compte à rebours.";
-        global.str[64]="#Note supplémentaire:#Voici le Neuf gelé, Très différent du Neuf diabolique. Il invoque un iceberg toutes les 10 secondes. Après 10 secondes, l'iceberg fonds et le boss en invoquera un autre. L'iceberg bloque une zone de 3x3. Bonne chance." ;
-        global.str[65]="#Note supplémentaire:#Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez ajouter des mécaniques cool, contactez moi ici: http://acidnt31.22web.org/contact/.";
+        global.str[62]="Il y a un boss dans ce jeu.
+Le combat marche de la même façon que le démineur classique hormis certaines distinctions: vous ne saurez pas la quantité de mines présente sur la grille, vous avez un temps limité, et vous ne pourrez pas utiliser le sonar ni mettre le jeu en pause. Cliquer sur une mine accéléra le temps limité. Pour gagner, vous devez cliquer sur le boss SEULEMENT LORSQUE TOUTES LES TUILES QUI NE SONT PAS DES MINES ONT ÉTÉ DÉCOUVERTES. Si le temps atteint 0 ou vous cliquer sur le boss avant d'avoir révélé toutes les tuiles, c'est PERDU.";
+        global.str[63]="Il y a un autre Boss dans ce jeu.
+dès que la partie commence, le boss va commencer à compter de 10 à 0. S'il compte jusqu'a 0 c'est PERDU. Cliquez sur le boss pour remettre le compte à rebours à 10 mais attention. Le boss accélère pour chaque clic. Cliquer sur une mine accéléra le compte à rebours. Pour gagner, révélez toute la grille avant que le boss ait atteint la fin de son compte à rebours.";
+        global.str[64]="
+Note supplémentaire:
+Voici le Neuf gelé, Très différent du Neuf diabolique. Il invoque un iceberg toutes les 10 secondes. Après 10 secondes, l'iceberg fonds et le boss en invoquera un autre. L'iceberg bloque une zone de 3x3. Bonne chance." ;
+        global.str[65]="
+Note supplémentaire:
+Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez ajouter des mécaniques cool, contactez moi ici: http://acidnt31.22web.org/contact/.";
         global.str[66]="LE CERCLE FRIGORIFIQUE";
         global.str[67]="LA DÉCHETTERIE NUCLÉAIRE";
         global.str[68]="Porté par AcidNT3.1 (Jeu original par Jorel)";
@@ -210,7 +235,10 @@ switch global.lang
         global.str[7]="Настройки";
         global.str[8]="Благодарность";
         global.str[9]="Сброс Игры";
-        global.str[10]="ВНИМАНИЕ!!# #Это НОЧНАЯ Сборка. Некоторые вещи НЕ СТАБИЛЬНЫ. РЕКОМЕНДУЕТСЯ ИГРАТЬ НА ТЕКУЩЕЙ СТАБИЛЬНОЙ ВЕРСИИ.#ВЫ БЫЛИ ПРЕДУПРЕЖДЕНЫ!!"
+        global.str[10]="ВНИМАНИЕ!!
+
+Это ТЕСТОВАЯ Сборка. Некоторые вещи НЕ СТАБИЛЬНЫ. РЕКОМЕНДУЕТСЯ ИГРАТЬ НА ТЕКУЩЕЙ СТАБИЛЬНОЙ ВЕРСИИ.
+ВЫ БЫЛИ ПРЕДУПРЕЖДЕНЫ!!"
         global.str[11]="Языковой Тест";
         global.str[12]="Помощь по дополнительным шляпам";
         global.str[13]="Назад";
@@ -237,14 +265,19 @@ switch global.lang
         global.str[34]="Переделанный";
         global.str[35]="Вы уверены?";
         global.str[36]="Нажмите X чтобы стереть.";
-        global.str[37]="[ПОЖАЛУЙСТА ПРОЧТИТЕ ПРЕЖДЕ ЧЕМ ЧТО ЛИБО ДЕЛАТЬ!]# #ПРОЕКТ ACIDPS3 НИКАК НЕ СВЯЗАН ИЛИ ОДОБРЕН SONY COMPUTER ENTERTAINMENT!!#МЫ НЕ ПОЛУЧАЕМ НИКАКОГО ДОХОДА. ЭТИ СЕРВИСЫ БЕСПЛАТНЫ НЕСМОТРЯ НИ НА ЧТО.#(НЕ ЛИЦЕНЗИРОВАНО SONY)";
+        global.str[37]="[ПОЖАЛУЙСТА ПРОЧТИТЕ ПРЕЖДЕ ЧЕМ ЧТО ЛИБО ДЕЛАТЬ!]
+
+ПРОЕКТ ACIDPS3 НИКАК НЕ СВЯЗАН ИЛИ ОДОБРЕН SONY COMPUTER ENTERTAINMENT!!
+МЫ НЕ ПОЛУЧАЕМ НИКАКОГО ДОХОДА. ЭТИ СЕРВИСЫ БЕСПЛАТНЫ НЕСМОТРЯ НИ НА ЧТО.
+(НЕ ЛИЦЕНЗИРОВАНО SONY)";
         global.str[38]="Загружаем загрузочность...";
         global.str[39]="Загрузщик GMS4PS3 v1.0";
         global.str[40]="ЗАГЛУШКА";
         global.str[41]="Своя игра";
         global.str[42]="Режим";
         global.str[43]="Истории";
-        global.str[44]="чтобы протестировать#Соревнование!";
+        global.str[44]="чтобы протестировать
+Соревнование!";
         global.str[45]="ПРОЙДЕНО!";
         global.str[46]="Выиграл игрок 1!";
         global.str[47]="Выиграл игрок 1!";
@@ -262,10 +295,16 @@ switch global.lang
         global.str[59]="ДЬЯВОЛЬСКИЙ ТРЕУГОЛЬНИК";
         global.str[60]="ДЬЯВОЛЬСКАЯ ПРОПАСТЬ";
         global.str[61]="Игрок 2 не подключен. Пожалуйста, подсоедините второй контроллер.";
-        global.str[62]="Здесь имеется битва с боссом.#Битва работает также, как в обычном сапере, только с усложнениями: ты не знаешь сколько здесь мин, время ограничено, и ты не можешь использовать радар или паузу (хотя здесь радара и паузы пока нет ЛОЛ). Нажатие на мину ускоряет таймер. Чтобы выиграть, нажмите на босса ТОЛЬКО после того, как все пустые клетки открыты. Истечение времени, или же нажатие на босса до того, как все пустые клетки открыты, приводят к окончанию игры.";
-        global.str[63]="Здесь имеется еще одна битва с боссом (боже опять?).#Как только вы начнете, пойдет обратный отсчет от 10. Если оно опустится до нуля, игра окончена. Нажмите на босса, чтобы сбросить отсчет, НО будьте аккуратны. Босс от этого будет двигаться быстрее. Нажатие на мину ускорит обратный отсчет. Чтобы выиграть, откройте все пустые клетки до того, как истечет обратный отсчет.";
-        global.str[64]="#ЗАМЕТКА:#Это Ледяная Девятка (да, это Чирно. идите нахуй), сильно отличается от Дьявольской Девятки. Она призывает айсберги каждые 10 секунд. По истечении 10 секунд айсберг тает, и появляется новая, но в другом месте. Айсберг блокирует определенную территорию 3 на 3. Удачи.";
-        global.str[65]="#ЗАМЕТКА:#Это Ядерная Десятка (Утсухо, да да да, завалите ебальники). На данный момент это является обычным скином. Если вы хотите добавить ей пару хороших способностей, пожалуйста, обратитесь в http://acidnt31.22web.org/contact/ для большей информации.";
+        global.str[62]="Здесь имеется битва с боссом.
+Битва работает также, как в обычном сапере, только с усложнениями: ты не знаешь сколько здесь мин, время ограничено, и ты не можешь использовать радар или паузу (хотя здесь радара и паузы пока нет ЛОЛ). Нажатие на мину ускоряет таймер. Чтобы выиграть, нажмите на босса ТОЛЬКО после того, как все пустые клетки открыты. Истечение времени, или же нажатие на босса до того, как все пустые клетки открыты, приводят к окончанию игры.";
+        global.str[63]="Здесь имеется еще одна битва с боссом (боже опять?).
+Как только вы начнете, пойдет обратный отсчет от 10. Если оно опустится до нуля, игра окончена. Нажмите на босса, чтобы сбросить отсчет, НО будьте аккуратны. Босс от этого будет двигаться быстрее. Нажатие на мину ускорит обратный отсчет. Чтобы выиграть, откройте все пустые клетки до того, как истечет обратный отсчет.";
+        global.str[64]="
+ЗАМЕТКА:
+Это Ледяная Девятка (да, это Чирно. идите нахуй), сильно отличается от Дьявольской Девятки. Она призывает айсберги каждые 10 секунд. По истечении 10 секунд айсберг тает, и появляется новая, но в другом месте. Айсберг блокирует определенную территорию 3 на 3. Удачи.";
+        global.str[65]="
+ЗАМЕТКА:
+Это Ядерная Десятка (Утсухо, да да да, завалите ебальники). На данный момент это является обычным скином. Если вы хотите добавить ей пару хороших способностей, пожалуйста, обратитесь в http://acidnt31.22web.org/contact/ для большей информации.";
         global.str[66]="ЛЕДЯНОЙ КРУГ";
         global.str[67]="ЯДЕРНЫЕ ОТХОДЫ";
         global.str[68]="Сделано AcidNT3.1 (Оригинал от Jorel)";
@@ -299,7 +338,8 @@ switch global.lang
         global.str[96]="НЕТ";
         global.str[97]="+1 Жизнь";
         global.str[98]="ИГРА ОКОНЧЕНА";
-        global.str[99]="[НА ЗАМЕТКУ!]#Все поле взято из обычной сложности. Вы были предупреждены.";
+        global.str[99]="[НА ЗАМЕТКУ!]
+Все поля взято из обычной сложности. Вы были предупреждены.";
         global.str[100]="Желаете ли вы начать новую игру?";
         global.str[101]="Мелководья";
         global.str[102]="Парящий Фонтан";

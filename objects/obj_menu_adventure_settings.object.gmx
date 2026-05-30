@@ -51,6 +51,40 @@ option_3_list[1]=global.str[86];
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_main_menu.alarm[0]=1;
+
+if global.route==1
+{
+    obj_menu_bg.list[8]=spr_bg99;
+    obj_menu_bg.sprite_index=obj_menu_bg.list[global.menu_t-1];
+}
+else
+{
+    obj_menu_bg.list[8]=spr_bg5;
+    obj_menu_bg.sprite_index=obj_menu_bg.list[global.menu_t-1];
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -80,13 +114,21 @@ option_3_list[1]=global.str[86];
     if obj_input.dow &amp;&amp; option&lt;2 option++;
     if obj_input.lef
     {
-        if option=0 &amp;&amp; global.route&gt;0 global.route--;
+        if option=0 &amp;&amp; global.route&gt;0
+        {
+            global.route--;
+            alarm[0]=1;
+        }
         if option=1 &amp;&amp; global.episode&gt;1 global.episode--;
         if option=2 &amp;&amp; global.gamemode&gt;0 global.gamemode--;
     }
     if obj_input.rig
     {
-        if option=0 &amp;&amp; global.route&lt;option_1_max global.route++;
+        if option=0 &amp;&amp; global.route&lt;option_1_max
+        {
+            global.route++;
+            alarm[0]=1;
+        }
         if option=1 &amp;&amp; global.episode&lt;2 global.episode++;
         if option=2 &amp;&amp; global.gamemode&lt;1 global.gamemode++;
     }

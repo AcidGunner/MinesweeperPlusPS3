@@ -1,4 +1,6 @@
 ///draw_grid();
+if instance_exists(obj_fade_mid) exit;
+
 var draw_size = cell_size * zoom;
 var _grd = 0;
 
@@ -10,18 +12,18 @@ var view_bottom = room_height + draw_size;
 var grid_off_x = ((room_width - grid_draw_w) / 2) + off_x;
 var grid_off_y = (((room_height - grid_draw_h) / 2) + 25) + off_y;
 
+if type=="player1" grid_off_x = ((room_width/2  - grid_draw_w) / 2)+off_x
+else if type=="player2" grid_off_x = (((room_width+(room_width/2))  - grid_draw_w) / 2)+off_x;
+
 for (var xx = 0; xx < grid_w; xx++)
 {
     var x1 = grid_off_x + xx * draw_size;
-    
     if (x1 < view_left || x1 > view_right) continue;
     
     for (var yy = 0; yy < grid_h; yy++)
     {
         if (circle_grid[# xx, yy] == 1) continue;
-        
         var y1 = grid_off_y + yy * draw_size;
-        
         if (y1 < view_top || y1 > view_bottom) continue;
         
         var _sprt = grid_sprite[# xx, yy];
@@ -96,32 +98,25 @@ for (var xx = 0; xx < grid_w; xx++)
                 draw_sprite_stretched(spr_light_grid, 0, x1, y1, draw_size, draw_size);
             }
         }
-        
-        if (cirno9 == true && boss9_started && iceland[# xx, yy] == 2)
-        {
-            draw_sprite_stretched(spr_ice, image_index, x1 - draw_size, y1 - draw_size, draw_size * 3, draw_size * 3);
-        }
+    }
+}
+
+if (global.route==1 && !first_click)
+{
+    for (var xx = 0; xx < grid_w; xx++)
+    for (var yy = 0; yy < grid_h; yy++)
+    {
+        var x1 = grid_off_x + xx * draw_size;
+        var y1 = grid_off_y + yy * draw_size;
+        if iceland[# xx, yy] == 2 draw_sprite_stretched(spr_ice, image_index, x1 - draw_size, y1 - draw_size, draw_size * 3, draw_size * 3);
     }
 }
 
 var c_x = grid_off_x + center_x * draw_size;
 var c_y = grid_off_y + center_y * draw_size;
 
-if (!boss9_started && global.stage == 9)
+if (!boss9_started && (global.stage >= 9 or (temp_111=9 && instance_exists(obj_vs_ui))))
 {
     draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
     if (global.if_draw_grid) draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
 }
-
-if (!boss10_started && global.stage == 10)
-{
-    draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
-    if (global.if_draw_grid) draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
-}
-
-if (!boss11_started && global.stage == 11)
-{
-    draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
-    if (global.if_draw_grid) draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);
-}
-

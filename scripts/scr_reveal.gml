@@ -18,5 +18,8 @@ for (var nx = _x-1; nx <= _x+1; nx++)
 for (var ny = _y-1; ny <= _y+1; ny++)
 {
     if (nx >= 0 && ny >= 0 && nx < grid_w && ny < grid_h)
+    {
+        if global.route==1 && iceland[# nx, ny] continue;
         scr_reveal(nx, ny);
+    }
 }

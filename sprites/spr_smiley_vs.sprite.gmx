@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>4</bbox_left>
+  <bbox_left>1</bbox_left>
   <bbox_right>36</bbox_right>
-  <bbox_top>4</bbox_top>
-  <bbox_bottom>35</bbox_bottom>
+  <bbox_top>3</bbox_top>
+  <bbox_bottom>37</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -28,5 +28,7 @@
     <frame index="5">images\spr_smiley_vs_5.png</frame>
     <frame index="6">images\spr_smiley_vs_6.png</frame>
     <frame index="7">images\spr_smiley_vs_7.png</frame>
+    <frame index="8">images\spr_smiley_vs_8.png</frame>
+    <frame index="9">images\spr_smiley_vs_9.png</frame>
   </frames>
 </sprite>

@@ -107,13 +107,12 @@ alarm[4]=1;
           <argument>
             <kind>1</kind>
             <string>/// === Number Fill ===
-if temp_111 == 9 mine_count=0
 for (var qx = 0; qx &lt; grid_w; qx++)
 for (var qy = 0; qy &lt; grid_h; qy++)
 {
     if circle_grid[# qx, qy]=1 reveal[# qx, qy] = true;
     
-    if (grid[# qx, qy] != -1)
+    if (grid_type[# qx, qy] == 0)
     {
         var c = 0;
 
@@ -122,18 +121,22 @@ for (var qy = 0; qy &lt; grid_h; qy++)
         {
             if (nx &gt;= 0 &amp;&amp; ny &gt;= 0 &amp;&amp; nx &lt; grid_w &amp;&amp; ny &lt; grid_h)
             {
-                if (grid[# nx, ny] == -1)
+                switch (grid_type[# nx, ny])
                 {
-                    c++;
-                    if temp_111 == 9 mine_count++;
+                    case 1: c += 1; break; // normal mine
+                    case 2: c += 2; break; // double mine
+                    case 3: c -= 1; break; // negative mine
                 }
             }
         }
+        //if (grid[# qx, qy] != -2) grid[# qx, qy] = c;
         
-        if (grid[# qx, qy] != -2) grid[# qx, qy] = c;
+        if (c &gt; 8) c = 8;
+        if (c &lt; -8) c = -8;
+        
+        grid[# qx, qy] = c;
     }
 }
-if instance_exists(obj_9_1p) mine_count-=8;
 
 if first_click &amp;&amp; boss9_started &amp;&amp; temp_111 == 9 grid[# center_x, center_y ] = 9;
 </string>
@@ -266,29 +269,30 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 obj_smiley_1p.alarm[0]=1;
                 
                 reveal[# xx, yy ] = true;
+                grid_type[# xx, yy] = 0;
                 
                 //Just in case
-                grid[# xx-1, yy-1] = -1;
-                grid[# xx-1, yy] = -1;
-                grid[# xx-1, yy+1] = -1;
-                grid[# xx, yy-1] = -1;
-                grid[# xx, yy+1] = -1;
-                grid[# xx+1, yy-1] = -1;
-                grid[# xx+1, yy] = -1;
-                grid[# xx+1, yy+1] = -1;
+                grid_type[# xx-1, yy-1] = 1;
+                grid_type[# xx-1, yy] = 1;
+                grid_type[# xx-1, yy+1] = 1;
+                grid_type[# xx, yy-1] = 1;
+                grid_type[# xx, yy+1] = 1;
+                grid_type[# xx+1, yy-1] = 1;
+                grid_type[# xx+1, yy] = 1;
+                grid_type[# xx+1, yy+1] = 1;
                 alarm[4]=1;
                 
                 obj_smiley_2p.alarm[0]=1;
                 obj_game_2p.reveal[# xx, yy ] = true;
                 obj_game_2p.boss9_started = true;
-                obj_game_2p.grid[# xx-1, yy-1] = -1;
-                obj_game_2p.grid[# xx-1, yy] = -1;
-                obj_game_2p.grid[# xx-1, yy+1] = -1;
-                obj_game_2p.grid[# xx, yy-1] = -1;
-                obj_game_2p.grid[# xx, yy+1] = -1;
-                obj_game_2p.grid[# xx+1, yy-1] = -1;
-                obj_game_2p.grid[# xx+1, yy] = -1;
-                obj_game_2p.grid[# xx+1, yy+1] = -1;
+                obj_game_2p.grid_type[# xx-1, yy-1] = 1;
+                obj_game_2p.grid_type[# xx-1, yy] = 1;
+                obj_game_2p.grid_type[# xx-1, yy+1] = 1;
+                obj_game_2p.grid_type[# xx, yy-1] = 1;
+                obj_game_2p.grid_type[# xx, yy+1] = 1;
+                obj_game_2p.grid_type[# xx+1, yy-1] = 1;
+                obj_game_2p.grid_type[# xx+1, yy] = 1;
+                obj_game_2p.grid_type[# xx+1, yy+1] = 1;
                 obj_game_2p.alarm[4]=1;
             }
             else
@@ -313,6 +317,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 obj_smiley_1p.alarm[5]=1;
                 
                 reveal[# xx, yy ] = true;
+                grid_type[# xx, yy] = 0;
                 grid[# xx, yy] = 10;
             }
             else
@@ -329,20 +334,27 @@ if temp_x==xx &amp;&amp; temp_y==yy
         if (first_click)
         {
             first_click = false;
+            obj_vs_ui.started=1;
             
             // If the first clicked cell is a mine, rebuild the board
-            if (grid[# xx, yy] == -1)
+            if (grid_type[# xx, yy] &gt; 0 &amp;&amp; grid_type[# xx, yy] &lt; 9)
             {
-                if !((xx == center_x or xx == center_x+1 or xx == center_x-1)
-                and (yy == center_y or yy == center_y+1 or yy == center_y-1))
-                and global.stage==9
-                regenerate_grid(xx, yy, temp_mines);
+                if global.stage==9
+                {
+                    if !((xx == center_x or xx == center_x+1 or xx == center_x-1)
+                    and (yy == center_y or yy == center_y+1 or yy == center_y-1))
+                    regenerate_grid(xx, yy, temp_mines);
+                }
+                else regenerate_grid(xx, yy, temp_mines);
             }
             
             if temp_111==9
             {
-                audio_stop_all();
-                audio_loop_sound(global._music[29],global._st[19],global._en[19],44100,0);
+                if !audio_is_playing(global._music[29])
+                {
+                    audio_stop_all();
+                    audio_loop_sound(global._music[29],global._st[19],global._en[19],44100,0);
+                }
                 obj_9_1p.active=true;
                 obj_9_2p.active=true;
                 reveal[# obj_9_1p.boss_x, obj_9_1p.boss_y ] = false;
@@ -363,20 +375,20 @@ if temp_x==xx &amp;&amp; temp_y==yy
             //if global.stage!=910 obj_ui.alarm[0]=1;
         }
         
-        var cell = grid[# xx, yy];
+        var cell = grid_type[# xx, yy];
         
         // If the clicked cell is already revealed AND is a number → try neighbor open
-        if (reveal[# xx, yy] &amp;&amp; cell &gt; 0)
+        if (reveal[# xx, yy] &amp;&amp; cell = 0)
         {
             scr_open_neighbors(xx, yy);
-            if temp_111!=9 scr_check_win();
+            if !instance_exists(obj_9_1p) scr_check_win();
         }
         else
         {
             // original reveal behavior
             if (!flagged[# xx, yy])
             {
-                if (cell == -1)
+                if (cell &gt; 0 &amp;&amp; cell &lt; 9)
                 {
                     scr_mine_detected_1p();
                     src_reveal_mine(xx, yy);
@@ -384,7 +396,7 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 else
                 {
                     scr_reveal(xx, yy);
-                    if temp_111!=9 scr_check_win();
+                    if !instance_exists(obj_9_1p) scr_check_win();
                 }
             }
         }
@@ -522,10 +534,6 @@ if circle_grid[# temp_x, temp_y] exit;
             <string>///Main stuff
 image_speed=0.02;
 test_speed+=0.08;
-
-off_x-=obj_input.cursor_rx;
-off_y-=obj_input.cursor_ry;
-if obj_input.cursor_r{off_x=0;off_y=0;};
 
 grid_offset_x = ((room_width/2 - grid_draw_w) / 2) + off_x;
 grid_offset_y = (((room_height - grid_draw_h) / 2) + 25) + off_y;

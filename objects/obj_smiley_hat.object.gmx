@@ -62,8 +62,10 @@ hat_list[8] = spr_hat8;
             <kind>1</kind>
             <string>sprite_index=hat_list[global.hat_type];
 
+image_blend = c_white;
+
 if sprite_index==-1 or (global.hat_type&gt;5 &amp;&amp; global.hat_type&lt;8)
-obj_smiley.y=obj_smiley._y-2 else obj_smiley.y=obj_smiley._y;
+obj_smiley.y=obj_smiley._y-1 else obj_smiley.y=obj_smiley._y;
 
 if obj_game.win == false
 {
@@ -75,14 +77,25 @@ if obj_game.win == false
             else image_index = 20+obj_smiley.cutscene_10_lose;
             exit;
         }
+        if instance_exists(obj_9_end) &amp;&amp; obj_9_end.go_on=1
+        {
+            image_blend = c_white;
+            image_index=4+obj_smiley.image_anim2;
+            exit;
+        }
         if instance_exists(obj_audio_pitcher) &amp;&amp; obj_audio_pitcher.go_on=1
         {
-            image_index=4+obj_smiley.image_anim;
+            image_index=4+obj_smiley.image_anim2;
             exit;
         }
         if obj_game.lost
         {
             image_index = 6;
+            if global.route==1 &amp;&amp; instance_exists(obj_9)
+            {
+                image_index = 1;
+                image_blend = c_aqua;
+            }
             exit;
         }
         

@@ -11,6 +11,7 @@ with _2p
     mine_count = global.m_g_m;
     boss9_started = false;
     boss10_started = false;
+    boss11_started = false;
     mines_left = mine_count;
     temp_mines=mine_count;
     global.pitch=1;
@@ -69,24 +70,12 @@ with _2p
         spiral_setup();
     }
     
-    if global.stage==10
-    {
-        spr_bg=spr_bg6;
-        spr_bgb=spr_bg6b;
-        
-        // possible custom grid?
-        // yes, just thought about this bruh
-        _grid_w = grid_w - 1;
-        _grid_h = grid_h - 1;
-        
-        set_circle_grid(4);
-    }
-    
     // --- Create grid array ---
     grid = ds_grid_create(grid_w, grid_h);
     reveal = ds_grid_create(grid_w, grid_h);
     flagged = ds_grid_create(grid_w, grid_h);
     grid_sprite = ds_grid_create(grid_w, grid_h);
+    grid_type = ds_grid_create(grid_w, grid_h);
     
     // 0 = empty
     // -1 = mine
@@ -112,7 +101,7 @@ with _2p
     
         if (grid[# xx, yy] != -1) && circle_grid[# xx, yy] == 0
         {
-            grid[# xx, yy] = -1;
+            grid_type[# xx, yy] = 1;
             placed += 1;
         }
     }
