@@ -7,6 +7,9 @@ As for PS3 Edition you can download those versions:
 * [Demo version](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/ps3/minesweeperplusdemo.pkg?download=)
 * [-April Fools version-](https://github.com/AcidGunner/AcidPS3Data/raw/refs/heads/main/games/ps3/minesweeperplusfull.pkg?download=)
 
+# Core Languages & Libraries
+![GameMaker Language](https://img.shields.io/badge/Language-GameMaker%20Language-E57334?style=flat-square&logo=gamemaker&logoColor=white)
+
 # Frequently Asked Questions
 [PLEASE REFER HERE!!!!](https://github.com/AcidGunner/MinesweeperPlusPS3/wiki/Frequently-Asked-Questions-(FaQ))
 
