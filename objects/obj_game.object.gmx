@@ -597,6 +597,7 @@ if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
 if obj_smiley.cutscene == true &amp;&amp; boss10_started exit;
 if obj_smiley.cutscene == true &amp;&amp; boss11_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
+if global.paused==1 exit;
 
 if instance_exists(obj_9) &amp;&amp; !first_click
 {
@@ -837,6 +838,7 @@ if obj_smiley.cutscene == true &amp;&amp; boss9_started exit;
 if obj_smiley.cutscene == true &amp;&amp; boss10_started exit;
 if obj_smiley.cutscene == true &amp;&amp; boss11_started exit;
 if instance_exists(obj_9) &amp;&amp; obj_9.stop exit;
+if global.paused==1 exit;
 
 if win == false
 {
@@ -898,6 +900,7 @@ temp_g = 1;
 if (temp_x &lt; 0 || temp_y &lt; 0 || temp_x &gt;= grid_w || temp_y &gt;= grid_h) exit;
 if lost exit;
 if circle_grid[# temp_x, temp_y] exit;
+if global.paused==1 exit;
 </string>
           </argument>
         </arguments>

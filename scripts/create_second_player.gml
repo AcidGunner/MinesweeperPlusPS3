@@ -132,7 +132,6 @@ with _2p
     if obj_input.c_held && global.stage==9
     {
         secret_script_p1();
-        global.foughtcirno=1;
         cirno9=true;
         iceland = ds_grid_create(grid_w, grid_h);
         ds_grid_clear(iceland, 0);
@@ -141,7 +140,6 @@ with _2p
     if obj_input.c_held && global.stage==10
     {
         secret_script_2_p1();
-        global.foughtutsuho=1;
         utsuho10=true;
     }
     

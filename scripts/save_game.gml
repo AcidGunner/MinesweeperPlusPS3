@@ -12,6 +12,4 @@ ini_write_real("save","mastermode",global.mastermode);
 ini_write_real("save","route",global.route);
 ini_write_real("save","show_message_9",global.show_9_message);
 ini_write_real("save","show_message_10",global.show_10_message);
-ini_write_real("secret","boss9_secret",global.foughtcirno);
-ini_write_real("secret","boss10_secret",global.foughtutsuho);
 ini_close();

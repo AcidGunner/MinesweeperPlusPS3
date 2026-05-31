@@ -448,7 +448,7 @@ if fearful_harmony alarm[6]=global.FSP*17;
           <argument>
             <kind>1</kind>
             <string>///Do something
-room_goto(rm_title)
+room_goto(rm_disclaimer)
 </string>
           </argument>
         </arguments>

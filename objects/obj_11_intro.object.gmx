@@ -28,7 +28,16 @@
             <string>image_blend=c_white;
 image_alpha=1;
 _spd=0;
-_rot=0;
+base_y=y;
+
+sprite_index = spr_11;
+_11part = spr_11_part;
+
+if global.route==1
+{
+    sprite_index = spr_111;
+    _11part = spr_111_part;
+}
 </string>
           </argument>
         </arguments>
@@ -52,21 +61,23 @@ _rot=0;
           <argument>
             <kind>1</kind>
             <string>var _part = obj_game.zoom;
-_spd+=0.1;
-_rot-=_spd;
 
-draw_sprite_ext(spr_11_part,0,x,y-(_part*52),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x+(_part*30),y-(_part*44),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x-(_part*30),y-(_part*44),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x+(_part*50),y-(_part*22),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x-(_part*50),y-(_part*22),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x+(_part*52),y+(_part*10),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x-(_part*52),y+(_part*10),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x+(_part*36),y+(_part*34),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x-(_part*36),y+(_part*34),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x+(_part*14),y+(_part*50),_part,_part,_rot,c_white,1);
-draw_sprite_ext(spr_11_part,0,x-(_part*14),y+(_part*50),_part,_part,_rot,c_white,1);
-image_angle=_rot;
+_spd+=0.02;
+image_speed=0.5;
+
+y=base_y+(sin(_spd)*5)
+
+draw_sprite_ext(_11part,0,x,y-(_part*52),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x+(_part*30),y-(_part*44),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x-(_part*30),y-(_part*44),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x+(_part*50),y-(_part*22),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x-(_part*50),y-(_part*22),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x+(_part*52),y+(_part*10),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x-(_part*52),y+(_part*10),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x+(_part*36),y+(_part*34),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x-(_part*36),y+(_part*34),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x+(_part*14),y+(_part*50),_part,_part,1,c_white,1);
+draw_sprite_ext(_11part,0,x-(_part*14),y+(_part*50),_part,_part,1,c_white,1);
 image_xscale=_part;
 image_yscale=_part;
 draw_self();

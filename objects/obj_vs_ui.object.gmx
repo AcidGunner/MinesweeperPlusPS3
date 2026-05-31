@@ -28,6 +28,7 @@
             <string>temp1=0;
 time=100;
 shift=0;
+global.route=0;
 shifting=0;
 red_ui=c_white;
 lost=0;
@@ -203,6 +204,8 @@ if lost=1 or (obj_game_1p.win=1 or obj_game_2p.win=1)
     if obj_input.start
     {
         audio_stop_all();
+        load_settings();
+        load_game();
         room_goto(rm_menu);
     }
 }

@@ -36,6 +36,14 @@ test_rect=0;
 rand_life=0;
 selected=0;
 final_time="";
+time_shift=0;
+rand_radar=0;
+radar=0;
+
+red_mine=c_white;
+show_mine=1;
+
+if global.stage&gt;=9 show_mine=0;
 
 if global.stage==910
 {
@@ -49,6 +57,29 @@ if global.stage==910
         test_rect=1;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_menu);
 </string>
           </argument>
         </arguments>
@@ -86,7 +117,6 @@ switch global.stage
         lives=global.temp_lives;
         global.temp_stage=0;
         global.temp_lives=0;
-        save_game();
         room_goto(rm_menu);
         break;
     }
@@ -255,6 +285,7 @@ if global.route==1
             <kind>1</kind>
             <string>if instance_exists(obj_9) &amp;&amp; obj_9.stop==1 exit;
 if instance_exists(obj_10) &amp;&amp; obj_10.active==false exit;
+if global.paused==1 exit;
 
 if obj_game.win==0 and obj_game.lost==0
 {
@@ -320,7 +351,7 @@ if obj_game.win==0 and obj_game.lost==0
             <kind>1</kind>
             <string>temp1+=0.1;
 
-if instance_exists(obj_explosion) view_xview[0]=irandom_range(-shift,shift);
+if instance_exists(obj_explosion) view_xview[0]=irandom_range(-shift/2,shift/2);
 
 if shift&gt;0 shift--;
 
@@ -335,6 +366,36 @@ if obj_game.win &amp;&amp; global.stage==8 &amp;&amp; global.episode==1 &amp;&am
         obj_smiley_hat.unlocked=1;
         obj_smiley.unlocked=1;
         global.unlock_route1=1;
+    }
+}
+
+if !obj_game.win &amp;&amp; global.stage&lt;=8 &amp;&amp; !obj_game.lost &amp;&amp; !(instance_exists(obj_explosion) or instance_exists(obj_bomb))
+{
+    if obj_input.start
+    {
+        global.paused=!global.paused;
+        if global.paused
+        {
+            if instance_exists(obj_timer) time_shift=60-(obj_timer.time mod 60);
+            audio_pause_all();
+        }
+        else
+        {
+            if instance_exists(obj_timer) alarm[1]=time_shift;
+            audio_resume_all();
+        }
+    }
+    if obj_input.select
+    {
+        if global.paused &amp;&amp; selected=0
+        {
+            audio_stop_all();
+            if global.stage!=0 save_game();
+            audio_play_sound(sfx_game_start,5,false);
+            selected=1;
+            alarm[5]=45;
+            alarm[7]=60;
+        }
     }
 }
 </string>
@@ -363,7 +424,7 @@ if obj_game.win &amp;&amp; global.stage==8 &amp;&amp; global.episode==1 &amp;&am
 draw_set_halign(fa_left);
 draw_set_font(fnt_main);
 draw_set_colour(c_white);
-draw_sprite_stretched(spr_ui1,0,0,0,112,48);
+draw_sprite_stretched_ext(spr_ui1,0,0,0,112,48,red_mine,1);
 draw_sprite_stretched(spr_ui2,0,112,0,96,48);
 draw_sprite_stretched_ext(spr_ui1,0,208,0,112,48,red_ui,1);
 draw_set_colour(c_white);
@@ -375,6 +436,8 @@ while (string_length(s) &lt; 3)
 {
     s = "0" + s;
 }
+
+if !show_mine s="???";
 
 var s2 = string(time);
 if instance_exists(obj_9) s2 = string(time_left);
@@ -407,6 +470,21 @@ switch rand_life
     case 1: draw_sprite(spr_lives,irandom_range(0,3),194,24); break;
 }
 
+switch rand_radar
+{
+    case 0:
+    {
+        radar=0;
+        draw_sprite(spr_radar,0,126,24); break;
+    }
+    case 1:
+    {
+        radar+=0.25;
+        draw_sprite(spr_radar,radar mod 8,126,24); break;
+    }
+    case 2: draw_sprite(spr_radar,irandom_range(0,7),126,24); break;
+}
+
 draw_set_halign(fa_middle);
 draw_set_valign(fa_center);
 
@@ -417,6 +495,19 @@ if obj_smiley.get_ready
     draw_rectangle(160-80,70-20,160+80,70+20,false);
     draw_set_alpha(1);
     draw_text_outline(160,70,global.str[49],c_white,c_black,1);
+}
+
+if global.paused
+{
+    draw_set_font(fnt_smol);
+    
+    draw_set_alpha(0.5);
+    draw_set_color(c_black);
+    draw_rectangle(160-80,140-40,160+80,140+40,false);
+    draw_set_alpha(1);
+    
+    draw_text_outline(160,110,"PAUSED",c_white,c_black,1);
+    draw_text_outline(160,150,"START - Continue#SELECT - Exit",c_red,c_white,1);
 }
 
 if obj_game.win

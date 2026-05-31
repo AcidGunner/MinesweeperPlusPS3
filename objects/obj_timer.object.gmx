@@ -50,6 +50,8 @@ time=0;
           <argument>
             <kind>1</kind>
             <string>if !active exit;
+if global.paused exit;
+
 time+=1;
 </string>
           </argument>

@@ -163,7 +163,7 @@ alarm[5]=0.836*global.FSP;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//if data_count&gt;ds_list_size(time)-1 exit;
+            <string>if data_count&gt;ds_list_size(time)-1 exit;
 var tmp=instance_create(0,0,obj_end_text1);
 var tmp_data=ds_list_find_value(time,data_count);
 tmp.count=data_count;

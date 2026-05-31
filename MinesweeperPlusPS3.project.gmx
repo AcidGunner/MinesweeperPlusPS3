@@ -50,6 +50,7 @@
         <sounds name="menu_10">
           <sound>sound\mus_menu_10</sound>
           <sound>sound\mus_menu_10r</sound>
+          <sound>sound\mus_menu_100</sound>
         </sounds>
       </sounds>
       <sounds name="chapter1">
@@ -169,6 +170,9 @@
           <sounds name="mus_stage11r">
             <sound>sound\mus_stage11r_prepare</sound>
           </sounds>
+          <sounds name="mus_stage111">
+            <sound>sound\mus_stage111_prepare</sound>
+          </sounds>
         </sounds>
       </sounds>
       <sounds name="bonus">
@@ -278,6 +282,14 @@
           <sound>sound\sfx_beep</sound>
           <sound>sound\sfx_10reset</sound>
         </sounds>
+        <sounds name="boss11">
+          <sound>sound\sfx_11pressure</sound>
+          <sound>sound\sfx_11open</sound>
+          <sound>sound\sfx_11teleport</sound>
+          <sound>sound\sfx_11zap</sound>
+          <sound>sound\sfx_11close</sound>
+          <sound>sound\sfx_11bonk</sound>
+        </sounds>
         <sound>sound\sfx_done</sound>
       </sounds>
       <sounds name="game">
@@ -338,6 +350,10 @@
         <sprite>sprites\spr_bg10</sprite>
         <sprite>sprites\spr_bg10b</sprite>
       </sprites>
+      <sprites name="chapter3">
+        <sprite>sprites\spr_bg11</sprite>
+        <sprite>sprites\spr_bg11b</sprite>
+      </sprites>
       <sprites name="bonus">
         <sprite>sprites\spr_bg86</sprite>
         <sprite>sprites\spr_bg86b</sprite>
@@ -355,7 +371,7 @@
       <sprites name="game">
         <sprites name="bosses">
           <sprites name="boss_9">
-            <sprites name="secret">
+            <sprites name="route1">
               <sprite>sprites\spr_99</sprite>
               <sprite>sprites\spr_99spike</sprite>
               <sprite>sprites\spr_ice</sprite>
@@ -364,7 +380,7 @@
             <sprite>sprites\spr_9spike</sprite>
           </sprites>
           <sprites name="boss_10">
-            <sprites name="secret">
+            <sprites name="route1">
               <sprite>sprites\spr_100</sprite>
               <sprite>sprites\spr_100_part</sprite>
             </sprites>
@@ -374,13 +390,20 @@
             <sprite>sprites\spr_10_num</sprite>
           </sprites>
           <sprites name="boss_11">
+            <sprites name="route1">
+              <sprite>sprites\spr_111</sprite>
+              <sprite>sprites\spr_111_part</sprite>
+            </sprites>
             <sprite>sprites\spr_11</sprite>
             <sprite>sprites\spr_11_laser</sprite>
             <sprite>sprites\spr_11_part</sprite>
+            <sprite>sprites\spr_11_threads</sprite>
+          </sprites>
+          <sprites name="boss_nan">
+            <sprite>sprites\spr_nan</sprite>
           </sprites>
         </sprites>
         <sprite>sprites\spr_num</sprite>
-        <sprite>sprites\spr_hell</sprite>
         <sprite>sprites\spr_flag</sprite>
         <sprite>sprites\spr_gold_flag</sprite>
         <sprite>sprites\spr_mine</sprite>
@@ -427,6 +450,7 @@
         <sprite>sprites\spr_mine_ui</sprite>
         <sprite>sprites\spr_time_ui</sprite>
         <sprite>sprites\spr_lives</sprite>
+        <sprite>sprites\spr_radar</sprite>
       </sprites>
       <sprites name="menu">
         <sprite>sprites\spr_main_menu</sprite>
@@ -550,6 +574,7 @@
       <script>scripts\load_game.gml</script>
       <script>scripts\reset_game.gml</script>
       <script>scripts\save_settings.gml</script>
+      <script>scripts\load_settings.gml</script>
     </scripts>
     <scripts name="versus">
       <scripts name="player1">
@@ -576,6 +601,9 @@
       <script>scripts\shape_setup.gml</script>
       <script>scripts\ver_show.gml</script>
     </scripts>
+    <scripts name="workshop">
+      <script>scripts\string_split.gml</script>
+    </scripts>
     <script>scripts\temp_script.gml</script>
   </scripts>
   <fonts name="fonts">
@@ -601,6 +629,7 @@
         <object>objects\obj_9_end</object>
         <object>objects\obj_10</object>
         <object>objects\obj_11_intro</object>
+        <object>objects\obj_11</object>
       </objects>
       <objects name="other">
         <object>objects\obj_explosion</object>
@@ -636,6 +665,7 @@
         <object>objects\obj_menu_adventure</object>
         <object>objects\obj_menu_adventure_settings</object>
         <object>objects\obj_menu_freeplay</object>
+        <object>objects\obj_menu_loadout</object>
       </objects>
       <objects name="GameMap">
         <object>objects\obj_map_bg</object>
@@ -653,6 +683,7 @@
       <object>objects\obj_audio_loop_sound</object>
       <object>objects\obj_logomain</object>
       <object>objects\obj_message</object>
+      <object>objects\obj_disclaimer</object>
     </objects>
     <objects name="Versus">
       <objects name="player1">
@@ -671,9 +702,13 @@
       <object>objects\obj_vs_bg</object>
       <object>objects\obj_vs_ui</object>
     </objects>
+    <objects name="Workshop">
+      <object>objects\obj_workshop</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_logo</room>
+    <room>rooms\rm_disclaimer</room>
     <room>rooms\rm_title</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_map</room>
@@ -683,6 +718,7 @@
     <room>rooms\rm_vs_game</room>
     <room>rooms\rm_boo</room>
     <room>rooms\rm_end</room>
+    <room>rooms\rm_workshop</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

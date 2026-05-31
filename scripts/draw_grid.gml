@@ -45,6 +45,13 @@ for (var xx = 0; xx < grid_w; xx++)
             case spr_bg86: _grd = 10; break;
         }
         
+        if global.paused==1
+        {
+            draw_sprite_stretched(_sprt, image_index, x1, y1, draw_size, draw_size);
+            if (global.if_draw_grid) draw_sprite_stretched(spr_grid, _grd, x1, y1, draw_size, draw_size);
+            continue;
+        }
+        
         if (type == "single" && lost == 1)
         {
             draw_sprite_stretched(spr_bgb, image_index, x1, y1, draw_size, draw_size);
@@ -115,7 +122,8 @@ if (global.route==1 && !first_click)
 var c_x = grid_off_x + center_x * draw_size;
 var c_y = grid_off_y + center_y * draw_size;
 
-if (!boss9_started && (global.stage >= 9 or (temp_111=9 && instance_exists(obj_vs_ui))))
+if (!(boss9_started or boss10_started or boss11_started) &&
+    (global.stage >= 9 or (temp_111=9 && instance_exists(obj_vs_ui))))
 {
     draw_sprite_stretched(spr_highlight, test_speed, c_x, c_y, draw_size, draw_size);
     if (global.if_draw_grid) draw_sprite_stretched(spr_grid, _grd, c_x, c_y, draw_size, draw_size);

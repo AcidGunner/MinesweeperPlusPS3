@@ -69,9 +69,6 @@ the_spr_9=spr_9;
 
 _x=x;_y=y;
 
-//if obj_game.cirno9=true &amp;&amp; global.stage==9 secret_script_p2();
-
-//if global.foughtcirno==true &amp;&amp; global.stage==910 secret_script_p2();
 </string>
           </argument>
         </arguments>

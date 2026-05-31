@@ -36,6 +36,9 @@ x=0;
 instance_create(320,0,obj_menu_adventure);
 instance_create(0,-240,obj_menu_adventure_settings);
 instance_create(-320,0,obj_menu_freeplay);
+instance_create(-320,0,obj_menu_loadout);
+
+global.paused=0;
 
 select=0;
 temp_x=0;
@@ -224,6 +227,11 @@ if obj_input.a &amp;&amp; select=0
             }
         }
         type=1;
+        global.stage=1;
+        ini_open("msplus-ps3-save.ini");
+        ini_write_string("save","current_time","");
+        ini_close();
+        if instance_exists(obj_chap1_data) instance_destroy(obj_chap1_data);
         obj_menu_adventure.alarm[1]=5;
     }
     else if item=1
@@ -239,6 +247,11 @@ if obj_input.a &amp;&amp; select=0
         audio_play_sound(sfx_game_start,0,false);
         alarm[3]=45;
         alarm[1]=60;
+    }
+    else if item=3
+    {
+        type=3;
+        obj_menu_loadout.alarm[1]=5;
     }
 }
 

@@ -187,6 +187,14 @@ if global.route==1
     global._music[5]=mus_stage99_prepare;
     global._music[6]=mus_stage99;
     global.stage9_win=mus_stage99_win;
+    
+    global._music[22]=mus_menu_100;
+    global._music[11]=mus_stage100_prepare;
+    global._music[12]=mus_stage100;
+    global.stage10_win=mus_stage100_win;
+    
+    global._music[31]=mus_stage111_prepare;
+    
     global._st[6] = 484908;
     global._en[6] = 5567097;
 }

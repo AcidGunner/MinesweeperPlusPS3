@@ -11,8 +11,10 @@ global.smiley_face=0;
 global.bg_music=0;
 global.if_draw_grid=0;
 global.unlock_route1=0;
+global.paused=0;
 if os_type==os_windows global.CONTROL=0;
 
+load_settings();
 load_game();
 strings_set();
 message_set();

@@ -30,6 +30,7 @@ temp2 = 0;
 image_anim = 0;
 image_anim2 = 0;
 image_anim3 = 0;
+image_anim4 = 0;
 image_anim_speed = 0.1;
 get_ready = 0;
 cutscene_10_lost = false;
@@ -129,6 +130,11 @@ cutscene_11_0[2]=spr_smiley_7c;
 cutscene_11_0[3]=spr_smiley_7c;
 cutscene_11_0[4]=spr_smiley_7c;
 cutscene_11_0[5]=spr_smiley_7c;
+cutscene_11_0[6]=spr_smiley_7c;
+cutscene_11_0[7]=spr_smiley_7c;
+cutscene_11_0[8]=spr_smiley_7c;
+cutscene_11_0[9]=spr_smiley_7;
+cutscene_11_0[10]=spr_smiley_7;
 
 // Sprite index
 cutscene_9_1[0]=0;
@@ -154,6 +160,11 @@ cutscene_11_1[2]=2;
 cutscene_11_1[3]=4;
 cutscene_11_1[4]=7;
 cutscene_11_1[5]=10;
+cutscene_11_1[6]=11;
+cutscene_11_1[7]=12;
+cutscene_11_1[8]=13;
+cutscene_11_1[9]=12;
+cutscene_11_1[10]=18;
 </string>
           </argument>
         </arguments>
@@ -176,8 +187,32 @@ cutscene_11_1[5]=10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy(obj_fade);
-cutscene_11s = 5;
+            <string>if cutscene_11s == 4
+{
+    instance_destroy(obj_fade);
+    instance_destroy(obj_11_intro);
+    instance_create(160,145,obj_11);
+    cutscene_11s = 5;
+    obj_11.alarm[0]=1.4*60;
+}
+else if cutscene_11s == 6
+{
+    cutscene_11s = 7;
+    obj_11.alpha=0;
+    obj_11.alarm[1]=0.7*60;
+}
+else if cutscene_11s == 8
+{
+    cutscene_11s = 9;
+    audio_play_sound(sfx_11zap,2,false);
+    alarm[10]=1*global.FSP;
+}
+else if cutscene_11s == 9
+{
+    cutscene_11s = 10;
+    obj_11.zop=0;
+    audio_stop_sound(sfx_11zap);
+}
 </string>
           </argument>
         </arguments>
@@ -208,6 +243,43 @@ cutscene_11s = 5;
     instance_create(160,145,obj_11_intro);
     _fade.aspeed=0.00175;
     cutscene_11s = 3;
+    
+    var _g = obj_game;
+    _g.reveal[# _g.center_x, _g.center_y] = false;
+    {
+        ds_grid_clear(_g.grid, 0);
+        ds_grid_clear(_g.reveal, 0);
+        ds_grid_clear(_g.flagged, 0);
+        
+        _g.spr_bg=spr_bg11;
+        _g.spr_bgb=spr_bg11b;
+        
+        obj_bg.sprite_index=spr_bg11;
+        
+        for (var xx = 0; xx &lt; _g.grid_w; xx++)
+        for (var yy = 0; yy &lt; _g.grid_h; yy++)
+        {
+            _g.grid_sprite[# xx, yy] = _g.spr_bg; // default sprite
+            if _g.circle_grid[# xx, yy]=1 _g.reveal[# xx, yy] = true;
+        }
+        
+        // --- Place mines ---
+        var placed = 1;
+        _g.grid_type[# _g.center_x, _g.center_y] = 1;
+        
+        while (placed &lt; _g.mine_count)
+        {
+            var xx = irandom(_g.grid_w - 1);
+            var yy = irandom(_g.grid_h - 1);
+        
+            if (_g.grid[# xx, yy] != -1) &amp;&amp; _g.circle_grid[# xx, yy] == 0
+            {
+                _g.grid_type[# xx, yy] = 1;
+                placed += 1;
+            }
+        }
+    }
+    
     alarm[9]=45;
     alarm[10]=(455555/44100)*global.FSP;
 }
@@ -592,6 +664,7 @@ else if cutscene_9s == 1
             <kind>1</kind>
             <string>image_anim+=image_anim_speed;
 image_anim3+=image_anim_speed;
+
 image_anim2+=image_anim_speed/2;
 image_anim2 = image_anim2 mod 2;
 image_anim3 = image_anim3 mod 3;
@@ -885,6 +958,22 @@ if obj_game.win == false
                     {
                         obj_smiley_hat.image_index = 1;
                         image_index = cutscene_11_1[cutscene_11s]+cutscene_11temp;
+                        break;
+                    }
+                    case 8:
+                    {
+                        image_anim4+=image_anim_speed;
+                        image_anim4 = image_anim4 mod 4;
+                        obj_smiley_hat.image_index = 1;
+                        image_index = cutscene_11_1[cutscene_11s]+image_anim4;
+                        break;
+                    }
+                    case 9:
+                    {
+                        image_anim4+=image_anim_speed*2;
+                        image_anim4 = image_anim4 mod 4;
+                        obj_smiley_hat.image_index = 6+image_anim2;
+                        image_index = cutscene_11_1[cutscene_11s]+image_anim4;
                         break;
                     }
                     default:
