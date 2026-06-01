@@ -193,13 +193,13 @@ CE PROJET EST ENTIÈREMENT NON-LUCRATIF. NOS SERVICES SERONT TOUJOURS GRATUIT.
         global.str[48]="Égalité!";
         global.str[49]="Prêt...";
         global.str[50]="Raté";
-        global.str[51]="Piscine pour enfants";
-        global.str[52]="Flaque pluvieuse";
+        global.str[51]="Piscine Pour Enfants";
+        global.str[52]="Flaque Pluvieuse";
         global.str[53]="Petit étang";
-        global.str[54]="Lagon bleu";
-        global.str[55]="Rivière rocambolesque";
-        global.str[56]="Grand lac";
-        global.str[57]="Océan ouvert";
+        global.str[54]="Lagon Bleu";
+        global.str[55]="Rivière Rocambolesque";
+        global.str[56]="Grand Lac";
+        global.str[57]="Océan Ouvert";
         global.str[58]="Mer morte";
         global.str[59]="LE TRIANGLE DU DIABLE";
         global.str[60]="LE PASSAGE DU DIABLE";
@@ -280,7 +280,7 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
 Соревнование!";
         global.str[45]="ПРОЙДЕНО!";
         global.str[46]="Выиграл игрок 1!";
-        global.str[47]="Выиграл игрок 1!";
+        global.str[47]="Выиграл игрок 2!";
         global.str[48]="Ничья!";
         global.str[49]="Готовься...";
         global.str[50]="Промах";
@@ -347,9 +347,9 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
         global.str[104]="Скользкое Болото";
         global.str[105]="Безумные Подмостья";
         global.str[106]="Быстрая Агрессия";
-        global.str[107]="Дно страданий";
-        global.str[108]="Черное море";
-        global.str[109]="Глубочайший конец";
+        global.str[107]="Дно Страданий";
+        global.str[108]="Черное Море";
+        global.str[109]="Глубочайший Конец";
         break;
     }
     case 3:
@@ -365,9 +365,9 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
         global.str[3]="Бастау";
         global.str[4]="Дополнительно";
         global.str[5]="Статистика";
-        global.str[6]="Қай ойна";
+        global.str[6]="Қалай ойна";
         global.str[7]="Настройки";
-        global.str[8]="Благодарность";
+        global.str[8]="Алғыс";
         global.str[9]="Сброс Игры";
         global.str[10]="ВНИМАНИЕ!!
 
@@ -375,13 +375,13 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
 ВЫ БЫЛИ ПРЕДУПРЕЖДЕНЫ!!"
         global.str[11]="Тілі Тест";
         global.str[12]="Помощь по дополнительным шляпам";
-        global.str[13]="Назад";
+        global.str[13]="Артқа";
         global.str[14]="Гайд по шляпам!";
         global.str[15]="Так как это не завершенная версия издания, игра позволяет вам менять шляпы нажатием L2 или R2.";
         global.str[16]="Нажмите ○ чтобы вернуться.";
         global.str[17]="Вы еще не готовы.";
         global.str[18]="Игрок";
-        global.str[19]="Извини, ";
+        global.str[19]="Кешірініз, ";
         global.str[20]=", я тебя не могу научить.";
         global.str[21]="Сыграй сначала в оригинальную игру.";
         global.str[22]="Возвращайся, как только будешь..";
@@ -395,7 +395,7 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
         global.str[30]="Текущий";
         global.str[31]="Курсор";
         global.str[32]="Клетка";
-        global.str[33]="Оригинал";
+        global.str[33]="Басты";
         global.str[34]="Переделанный";
         global.str[35]="Вы уверены?";
         global.str[36]="Нажмите X чтобы стереть.";
@@ -410,20 +410,19 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
         global.str[41]="Сенің ойнасы";
         global.str[42]="Режим";
         global.str[43]="Истории";
-        global.str[44]="чтобы протестировать
-Соревнование!";
+        global.str[44]="Қарсы";
         global.str[45]="КЕРЕМЕТ!";
         global.str[46]="Выиграл игрок 1!";
-        global.str[47]="Выиграл игрок 1!";
+        global.str[47]="Выиграл игрок 2!";
         global.str[48]="Ничья!";
         global.str[49]="Готовься...";
         global.str[50]="Промах";
         global.str[51]="Детский Бассейн";
         global.str[52]="Дождевая Лужа";
-        global.str[53]="Малый Пруд";
-        global.str[54]="Синее Море";
-        global.str[55]="Ленивая Река";
-        global.str[56]="Большое Озеро";
+        global.str[53]="Кішкентай Пруд";
+        global.str[54]="Көк Море";
+        global.str[55]="Ерінші Өзен";
+        global.str[56]="Үлкен Қөл";
         global.str[57]="Открытый Океан";
         global.str[58]="Море Мертвеца";
         global.str[59]="ДЬЯВОЛЬСКИЙ ТРЕУГОЛЬНИК";
@@ -446,15 +445,15 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
         global.str[70]="сек";
         global.str[71]="НАЧИНАЮЩИЙ САПЕР";
         global.str[72]="ОБЫЧНЫЙ САПЕР";
-        global.str[73]="ПРОДВИНУТЫЙ САПЕР";
-        global.str[74]="ЭКСПЕРТ ПО САПЕРУ";
-        global.str[75]="чтобы начать";
+        global.str[73]="КҮРДЕЛІ ОЙНА";
+        global.str[74]="ҚИЫН ОЙНА";
+        global.str[75]="Кірісу";
         global.str[76]="для настроек игры";
         global.str[77]="Настройки игры";
         global.str[78]="Текущий путь";
         global.str[79]="Текущий эпизод";
         global.str[80]="Текущий режим";
-        global.str[81]="Основной";
+        global.str[81]="Басты";
         global.str[82]="Тоухоу";
         global.str[83]="Эпизод Бір";
         global.str[84]="Эпизод Екі";
@@ -481,9 +480,9 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
         global.str[104]="Скользкое Болото";
         global.str[105]="Безумные Подмостья";
         global.str[106]="Быстрая Агрессия";
-        global.str[107]="Дно страданий";
-        global.str[108]="Черное море";
-        global.str[109]="Глубочайший конец";
+        global.str[107]="Дно Страданий";
+        global.str[108]="Қара Море";
+        global.str[109]="Глубочайший Конец";
         break;
     }
 }

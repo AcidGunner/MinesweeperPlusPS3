@@ -60,7 +60,7 @@ if global.route==1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var _part = obj_game.zoom;
+            <string>var _part = 1;
 
 _spd+=0.02;
 image_speed=0.5;

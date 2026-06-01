@@ -592,6 +592,9 @@
         <script>scripts\scr_mine_detected_2p.gml</script>
       </scripts>
     </scripts>
+    <scripts name="workshop">
+      <script>scripts\string_split.gml</script>
+    </scripts>
     <scripts name="important">
       <script>scripts\main_input_test.gml</script>
       <script>scripts\initial_setup.gml</script>
@@ -600,9 +603,6 @@
       <script>scripts\setup_field.gml</script>
       <script>scripts\shape_setup.gml</script>
       <script>scripts\ver_show.gml</script>
-    </scripts>
-    <scripts name="workshop">
-      <script>scripts\string_split.gml</script>
     </scripts>
     <script>scripts\temp_script.gml</script>
   </scripts>

@@ -135,6 +135,8 @@ cutscene_11_0[7]=spr_smiley_7c;
 cutscene_11_0[8]=spr_smiley_7c;
 cutscene_11_0[9]=spr_smiley_7;
 cutscene_11_0[10]=spr_smiley_7;
+cutscene_11_0[11]=spr_smiley_7c;
+cutscene_11_0[12]=spr_smiley_7c;
 
 // Sprite index
 cutscene_9_1[0]=0;
@@ -165,6 +167,8 @@ cutscene_11_1[7]=12;
 cutscene_11_1[8]=13;
 cutscene_11_1[9]=12;
 cutscene_11_1[10]=18;
+cutscene_11_1[11]=17;
+cutscene_11_1[12]=21;
 </string>
           </argument>
         </arguments>
@@ -212,6 +216,31 @@ else if cutscene_11s == 9
     cutscene_11s = 10;
     obj_11.zop=0;
     audio_stop_sound(sfx_11zap);
+    alarm[10]=2.6*global.FSP;
+}
+else if cutscene_11s == 10
+{
+    cutscene_11s = 11;
+    alarm[10]=0.9*global.FSP;
+}
+else if cutscene_11s == 11
+{
+    cutscene_11s = 12;
+    get_ready = 1;
+    alarm[10]=180;
+}
+else if cutscene_11s == 12
+{
+    cutscene = false;
+    cutscene_11 = false;
+    get_ready = 0;
+    obj_game.temp_x=0;
+    obj_game.temp_y=0;
+    sprite_index = spr_smiley7;
+    //sprite_index = spr_smiley_7;
+    //if global.show_9_message show_message_async(global.message_9);
+    //global.show_9_message=0;
+    alarm[10]=180;
 }
 </string>
           </argument>
@@ -490,7 +519,7 @@ else if cutscene_9s == 5
         obj_game.temp_y=0;
         if global.show_9_message show_message_async(global.message_9);
         global.show_9_message=0;
-        sprite_index = spr_smiley5;
+        sprite_index = spr_smiley_5;
     }
 }
 </string>
@@ -745,6 +774,8 @@ if obj_game.win == false
             case 86: sprite_index = spr_smiley_86; break;
             case 9: sprite_index = spr_smiley_5; break;
             case 10: sprite_index = spr_smiley_6; break;
+            case 910: sprite_index = spr_smiley_5; break;
+            case 11: sprite_index = spr_smiley_7; break;
             default: switch global.smiley_face
             {
                 case 0: sprite_index = spr_smiley_1; break;
@@ -962,6 +993,7 @@ if obj_game.win == false
                     }
                     case 8:
                     {
+                        obj_smiley_hat.image_xscale=-1;
                         image_anim4+=image_anim_speed;
                         image_anim4 = image_anim4 mod 4;
                         obj_smiley_hat.image_index = 1;
@@ -970,14 +1002,30 @@ if obj_game.win == false
                     }
                     case 9:
                     {
+                        obj_smiley_hat.image_xscale=1;
                         image_anim4+=image_anim_speed*2;
                         image_anim4 = image_anim4 mod 4;
                         obj_smiley_hat.image_index = 6+image_anim2;
                         image_index = cutscene_11_1[cutscene_11s]+image_anim4;
                         break;
                     }
+                    case 11:
+                    {
+                        image_anim4+=image_anim_speed*2;
+                        image_anim4 = image_anim4 mod 4;
+                        obj_smiley_hat.image_index = 17+image_anim4;
+                        image_index = cutscene_11_1[cutscene_11s]+image_anim4;
+                        break;
+                    }
+                    case 12:
+                    {
+                        obj_smiley_hat.image_index = 4+image_anim;
+                        image_index = cutscene_11_1[cutscene_11s]+image_anim;
+                        break;
+                    }
                     default:
                     {
+                        obj_smiley_hat.image_xscale=1;
                         obj_smiley_hat.image_index = 0;
                         image_index = cutscene_11_1[cutscene_11s];
                         break;
