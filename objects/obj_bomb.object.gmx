@@ -71,7 +71,7 @@ if testz&gt;=test
     expl.game_obj = obj_game;
     obj_smiley.mine_detected=2;
     obj_game.alarm[4]=1;
-    if !(instance_exists(obj_9) or instance_exists(obj_10))
+    if !(instance_exists(obj_9) or instance_exists(obj_10) or instance_exists(obj_11))
     {
         lives--;
         if lives&lt;=0

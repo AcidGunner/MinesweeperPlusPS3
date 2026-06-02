@@ -130,6 +130,22 @@ global.str[106]="Raging Rapids";
 global.str[107]="Gulf of Misery";
 global.str[108]="Black Water";
 global.str[109]="The Deep End";
+global.str[110]="Gameboy";
+global.str[111]="Would you like to change your input type?
+The 10 boss-fight currently supports cursor type only.
+So the Cursor type is HIGHLY recommended on this stage.";
+global.str[112]="A new route has been unlocked.
+Visit the Game settings for more information.";
+global.str[113]="Warning!";
+global.str[114]="RSX Chip has failed to load properly!";
+global.str[115]="This game contains flashing lights. If you have epilepsy, I strongly recommend you NOT to play this game. Proceed with caution!
+
+Press any key to start.";
+global.str[116]="";
+global.str[117]="";
+global.str[118]="";
+global.str[119]="";
+global.str[120]="";
 
 // Then uh....
 switch global.lang

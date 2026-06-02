@@ -50,8 +50,7 @@ if audio_is_playing(global._music[6])
     if global.mastermode==1 obj_ui.shifting=59;
     if obj_ui.shifting&gt;=60 obj_ui.shifting=59;
 }
-
-if audio_is_playing(global._music[12])
+else if audio_is_playing(global._music[12])
 {
     global.pitch+=0.05;
     audio_sound_pitch(global._music[12], global.pitch);
@@ -59,8 +58,14 @@ if audio_is_playing(global._music[12])
     if global.mastermode==1 obj_10.shifting=59;
     if obj_10.shifting&gt;=60 obj_10.shifting=59;
 }
-
-if audio_is_playing(global._music[99])
+else if audio_is_playing(global._music[32])
+{
+    global.pitch+=0.05;
+    audio_sound_pitch(global._music[32], global.pitch);
+    obj_11.times+=10;
+    if global.mastermode==1 obj_10.shifting=59;
+}
+else if audio_is_playing(global._music[99])
 {
     global.pitch+=0.05;
     audio_sound_pitch(global._music[99], global.pitch);
@@ -69,8 +74,7 @@ if audio_is_playing(global._music[99])
     obj_10.shifting+=8;
     if obj_10.shifting&gt;=60 obj_10.shifting=59;
 }
-
-if instance_exists(obj_game) &amp;&amp; audio_is_playing(obj_game.stage910)
+else if instance_exists(obj_game) &amp;&amp; audio_is_playing(obj_game.stage910)
 {
     global.pitch+=0.05;
     audio_sound_pitch(obj_game.stage910, global.pitch);

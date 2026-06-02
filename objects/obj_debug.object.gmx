@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>fps_show=1;
+texture_set_interpolation(false);
 </string>
           </argument>
         </arguments>
@@ -95,9 +96,21 @@ if global.debug==1 &amp;&amp; fps_show
 if global.invert
 {
     draw_set_alpha(1);
+    draw_set_colour(c_white);
     draw_set_blend_mode_ext(bm_inv_dest_color,bm_zero);
-    draw_rectangle(-100,-100,160-1,340,false);
+    draw_rectangle(-100,-100,160,340,false);
     draw_set_blend_mode(bm_normal);
+    draw_set_alpha(1);
+}
+
+if global.route==2
+{
+    draw_set_alpha(1);
+    draw_set_colour(c_green);
+    draw_set_blend_mode_ext(bm_dest_color,bm_src_colour);
+    draw_rectangle(-100,-100,340,340,false);
+    draw_set_blend_mode(bm_normal);
+    draw_set_colour(c_white);
     draw_set_alpha(1);
 }
 </string>

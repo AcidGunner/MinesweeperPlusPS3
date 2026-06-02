@@ -7,7 +7,7 @@ var cm = argument2;
 // Reset everything
 ds_grid_clear(grid, 0);
 ds_grid_clear(reveal, 0);
-ds_grid_clear(flagged, 0);
+if !instance_exists(obj_11) ds_grid_clear(flagged, 0);
 ds_grid_clear(grid_type, 0);
 
 // Re-place mines, but NEVER at (cx, cy)

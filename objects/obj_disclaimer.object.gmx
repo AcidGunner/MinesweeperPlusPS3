@@ -63,6 +63,10 @@ ds_list_add(splashes,"Also play LandMinesweeper");
 ds_list_add(splashes,"Also play MS+ Hard Mode");
 ds_list_add(splashes,"There's disclaimer now?");
 ds_list_add(splashes,"E");
+ds_list_add(splashes,"Visit FumosCraft");
+ds_list_add(splashes,"Visit DoodleBob-PS3");
+ds_list_add(splashes,"Visit PB95-PS3");
+ds_list_add(splashes,"Visit.. actually, nope.");
 
 splash=ds_list_find_value(splashes,irandom_range(0,ds_list_size(splashes)-1));
 </string>
@@ -88,18 +92,16 @@ splash=ds_list_find_value(splashes,irandom_range(0,ds_list_size(splashes)-1));
           <argument>
             <kind>1</kind>
             <string>draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
 draw_set_font(fnt_main);
+draw_set_valign(fa_top);
+draw_set_color(c_red);
+draw_text(320,10,string_upper(global.str[113]));
+draw_set_valign(fa_middle);
 draw_set_color(c_white);
-draw_text_ext(320,240,"WARNING!!
-
-This game contains flashing lights. If you have epilepsy, I strongly recommend you NOT to play this game. Proceed with caution!
-
-
-
-
-"+splash,-1,640);
-
+draw_text_ext(320,240,global.str[115],-1,640);
+draw_set_valign(fa_bottom);
+draw_set_font(fnt_smol);
+draw_text(320,470,splash);
 if obj_input.any room_goto(rm_title);
 </string>
           </argument>

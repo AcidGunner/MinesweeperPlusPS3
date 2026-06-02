@@ -29,6 +29,7 @@
 _spd=0;
 base_y=y;
 alpha=1;
+float=1;
 
 zap=0;
 zop=0;
@@ -58,6 +59,134 @@ if global.route==1
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>_part2=0;
+audio_stop_sound(sfx_11open);
+audio_play_sound(sfx_11close,2,false);
+alarm[5]=0.3*global.FSP;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_game.flagged[# boss_x, boss_y] = true;
+obj_game.mines_left--;
+_part2=32;
+
+audio_play_sound(sfx_11open,2,false);
+alarm[8]=0.6*global.FSP;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>_part1 = 0;
+_part2 = 0;
+
+boss_x=irandom_range(0,grid_w-1);
+boss_y=irandom_range(0,grid_h-1);
+
+if obj_game.mines_left=1
+{
+    while !(obj_game.flagged[# boss_x, boss_y] == false &amp;&amp; obj_game.reveal[# boss_x, boss_y] == false)
+    {
+        boss_x=irandom_range(0,grid_w-1);
+        boss_y=irandom_range(0,grid_h-1);
+    }
+    audio_stop_all();
+    image_alpha=1;
+    alpha=1;
+    float=0;
+    exit;
+}
+
+while !(obj_game.flagged[# boss_x, boss_y] == false &amp;&amp; obj_game.reveal[# boss_x, boss_y] == false)
+{
+    boss_x=irandom_range(0,grid_w-1);
+    boss_y=irandom_range(0,grid_h-1);
+}
+
+alpha=1;
+alarm[7]=global.FSP;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>alpha=0;
+if times==0 alarm[6]=1.9*global.FSP else alarm[3]=70;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="4">
       <action>
         <libid>1</libid>
@@ -76,6 +205,49 @@ if global.route==1
           <argument>
             <kind>1</kind>
             <string>zop=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>_part1=0;
+_part2=0;
+image_alpha=1;
+alpha=0;
+while !(obj_game.flagged[# boss_x, boss_y] == false &amp;&amp; obj_game.reveal[# boss_x, boss_y] == false)
+{
+    boss_x=irandom_range(0,grid_w-1);
+    boss_y=irandom_range(0,grid_h-1);
+}
+
+audio_play_sound(sfx_11teleport,2,false);
+obj_game.flagged[# boss_x, boss_y] = true;
+obj_game.mines_left--;
+_part2=32;
+
+if times!=0 alarm[3]=0.57*global.FSP else
+{
+    alarm[6]=1.2*global.FSP;
+    exit;
+}
+times--;
 </string>
           </argument>
         </arguments>
@@ -145,11 +317,7 @@ obj_game.flagged[# boss_x, boss_y] = true;
 obj_game.mines_left--;
 _part2=32;
 
-if times!=0 alarm[1]=0.57*global.FSP else
-{
-    if obj_smiley.cutscene alarm[2]=1.2*global.FSP
-    else alarm[3]=1.2*global.FSP
-}
+if times!=0 alarm[1]=0.57*global.FSP else alarm[2]=1.2*global.FSP
 times--;
 </string>
           </argument>
@@ -257,7 +425,7 @@ image_speed=0.5;
 
 image_alpha=lerp(image_alpha,alpha,0.07);
 
-y=base_y+(sin(_spd)*2)
+if float=1 y=base_y+(sin(_spd)*2) else y=base_y;
 
 draw_sprite_ext(_11lazer,0,x,y-(_part*52),_part,_part,0,c_white,zap);
 draw_sprite_ext(_11lazer,0,x+(_part*30)+(_part1*_part),y-(_part*44),_part,_part,-40,c_white,zap);

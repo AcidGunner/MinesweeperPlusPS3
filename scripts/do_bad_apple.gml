@@ -1,5 +1,5 @@
 ///do_bad_apple();
-window_set_caption("Bad AppleSweeper!!");
+window_set_caption("Bad AppleSweeper!!"); //not gonna be used here lmao
 bad_apple_frame+=0.5;
 if bad_apple_frame>6561 game_restart();
 var frame = global.bad_apple[bad_apple_frame];
