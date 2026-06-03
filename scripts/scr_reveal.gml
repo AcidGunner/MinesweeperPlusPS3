@@ -19,7 +19,7 @@ for (var ny = _y-1; ny <= _y+1; ny++)
 {
     if (nx >= 0 && ny >= 0 && nx < grid_w && ny < grid_h)
     {
-        if global.route==1 && iceland[# nx, ny] continue;
+        if instance_exists(obj_9) && global.route==1 && iceland[# nx, ny] continue;
         scr_reveal(nx, ny);
     }
 }

@@ -75,35 +75,22 @@ if global.stage==11
 }
 
 // Sprites Rearrange??
-if global.route=0
-{
-    spr_smiley_1=spr_smiley1;
-    spr_smiley_2=spr_smiley2;
-    spr_smiley_3=spr_smiley3;
-    spr_smiley_4=spr_smiley4;
-    spr_smiley_5=spr_smiley5;
-    spr_smiley_5c=spr_smiley5_cutscene;
-    spr_smiley_6=spr_smiley6;
-    spr_smiley_6c=spr_smiley6_cutscene;
-    spr_smiley_7=spr_smiley7;
-    spr_smiley_7c=spr_smiley7_cutscene;
-    spr_smiley_86=spr_smiley86;
-    spr_smiley_8=spr_smiley_alien;
-}
-else if global.route=1
+spr_smiley_1=spr_smiley1;
+spr_smiley_2=spr_smiley2;
+spr_smiley_3=spr_smiley3;
+spr_smiley_4=spr_smiley4;
+spr_smiley_5=spr_smiley5;
+spr_smiley_5c=spr_smiley5_cutscene;
+spr_smiley_6=spr_smiley6;
+spr_smiley_6c=spr_smiley6_cutscene;
+spr_smiley_7=spr_smiley7;
+spr_smiley_7c=spr_smiley7_cutscene;
+spr_smiley_86=spr_smiley86;
+spr_smiley_8=spr_smiley_alien;
+
+if global.route=1
 {
     spr_smiley_1=spr_murasa1;
-    spr_smiley_2=spr_smiley2;
-    spr_smiley_3=spr_smiley3;
-    spr_smiley_4=spr_smiley4;
-    spr_smiley_5=spr_smiley5;
-    spr_smiley_5c=spr_smiley5_cutscene;
-    spr_smiley_6=spr_smiley6;
-    spr_smiley_6c=spr_smiley6_cutscene;
-    spr_smiley_7=spr_smiley7;
-    spr_smiley_7c=spr_smiley7_cutscene;
-    spr_smiley_86=spr_smiley86;
-    spr_smiley_8=spr_smiley_alien;
 }
 
 // Spritesheet
@@ -863,11 +850,11 @@ if obj_game.win == false
                 if instance_exists(obj_9) &amp;&amp; obj_9.z_win=0
                 {
                     if temp23&lt;temp1 - 24
-                        image_index=3+image_anim
+                        image_index=3+image_anim3
                     else if temp23&gt;temp1 + 24
-                        image_index=9+image_anim
+                        image_index=9+image_anim3
                     else
-                        image_index=6+image_anim
+                        image_index=6+image_anim3
                 }
                 else if instance_exists(obj_9) &amp;&amp; obj_9.z_win=1
                 {

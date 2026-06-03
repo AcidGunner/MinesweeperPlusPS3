@@ -172,7 +172,7 @@ if instance_exists(obj_audio_loop_sound)
     _snd = audio_sound_get_track_position(obj_audio_loop_sound._audio);
     instance_destroy(obj_audio_loop_sound);
 };
-for (var i=13; i&lt;23; i++)
+for (var i=13; i&lt;24; i++)
 {
     audio_stop_sound(global._music[i]);
 }

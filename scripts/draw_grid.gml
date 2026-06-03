@@ -43,6 +43,7 @@ for (var xx = 0; xx < grid_w; xx++)
             case spr_bg9:  _grd = 7; break;
             case spr_bg10: _grd = 9; break;
             case spr_bg86: _grd = 10; break;
+            case spr_bg11: _grd = 11; break;
         }
         
         if global.paused==1
@@ -108,7 +109,7 @@ for (var xx = 0; xx < grid_w; xx++)
     }
 }
 
-if (global.route==1 && !first_click)
+if (instance_exists(obj_9) && global.route==1 && !first_click)
 {
     for (var xx = 0; xx < grid_w; xx++)
     for (var yy = 0; yy < grid_h; yy++)

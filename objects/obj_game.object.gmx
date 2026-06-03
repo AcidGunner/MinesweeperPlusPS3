@@ -196,7 +196,8 @@ else if temp_111 == 6 spr_bg=spr_bg7
 else if temp_111 == 7 spr_bg=spr_bg8
 else if temp_111 == 8 spr_bg=spr_bg9
 else if temp_111 == 9 spr_bg=spr_bg5
-else if temp_111 == 10 spr_bg=spr_bg10;
+else if temp_111 == 10 spr_bg=spr_bg10
+else if temp_111 == 11 spr_bg=spr_bg11;
 
 if temp_111 == 1 spr_bgb=spr_bg1b
 else if temp_111 == 2 spr_bgb=spr_bg2b
@@ -207,7 +208,8 @@ else if temp_111 == 6 spr_bgb=spr_bg7b
 else if temp_111 == 7 spr_bgb=spr_bg8b
 else if temp_111 == 8 spr_bgb=spr_bg9b
 else if temp_111 == 9 spr_bgb=spr_bg5b
-else if temp_111 == 10 spr_bgb=spr_bg10b;
+else if temp_111 == 10 spr_bgb=spr_bg10b
+else if temp_111 == 11 spr_bgb=spr_bg11b;
 
 if global.stage==86
 {
@@ -873,7 +875,7 @@ if win == false
                 mines_left++;
                 
                 var cell = grid_type[# xx, yy];
-                if (cell &gt; 0 &amp;&amp; cell &lt; 9)
+                if instance_exists(obj_11) &amp;&amp; (cell &gt; 0 &amp;&amp; cell &lt; 9)
                 {
                     scr_mine_detected();
                     src_reveal_mine(xx, yy);
@@ -883,7 +885,7 @@ if win == false
             if flagged[# xx, yy] == 1
             {
                 audio_play_sound(sfx_flag,4,false);
-                if instance_exists(obj_11) &amp;&amp; !boss11_started exit;
+                if instance_exists(obj_11) &amp;&amp; first_click exit;
                 mines_left--;
             }
         }

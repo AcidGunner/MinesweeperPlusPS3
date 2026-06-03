@@ -55,6 +55,7 @@
         <sounds name="menu_11">
           <sound>sound\mus_menu_11</sound>
           <sound>sound\mus_menu_11r</sound>
+          <sound>sound\mus_menu_111</sound>
         </sounds>
       </sounds>
       <sounds name="chapter1">
@@ -171,12 +172,20 @@
           <sounds name="mus_stage11">
             <sound>sound\mus_stage11_prepare</sound>
             <sound>sound\mus_stage11</sound>
+            <sound>sound\mus_stage11_2</sound>
+            <sound>sound\mus_stage11_win</sound>
           </sounds>
           <sounds name="mus_stage11r">
             <sound>sound\mus_stage11r_prepare</sound>
+            <sound>sound\mus_stage11r</sound>
+            <sound>sound\mus_stage11r_2</sound>
+            <sound>sound\mus_stage11r_win</sound>
           </sounds>
           <sounds name="mus_stage111">
             <sound>sound\mus_stage111_prepare</sound>
+            <sound>sound\mus_stage111</sound>
+            <sound>sound\mus_stage111_2</sound>
+            <sound>sound\mus_stage111_win</sound>
           </sounds>
         </sounds>
       </sounds>
@@ -671,6 +680,7 @@
         <object>objects\obj_menu_adventure_settings</object>
         <object>objects\obj_menu_freeplay</object>
         <object>objects\obj_menu_loadout</object>
+        <object>objects\obj_route_selector</object>
       </objects>
       <objects name="GameMap">
         <object>objects\obj_map_bg</object>

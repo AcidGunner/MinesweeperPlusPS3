@@ -116,7 +116,7 @@ room_goto(rm_game);
     if obj_input.r2
     {
         global.menu_t++
-        if global.menu_t&gt;10 global.menu_t=10;
+        if global.menu_t&gt;11 global.menu_t=11;
         obj_menu_bg.sprite_index=obj_menu_bg.list[global.menu_t-1];
     }
     if obj_input.l1

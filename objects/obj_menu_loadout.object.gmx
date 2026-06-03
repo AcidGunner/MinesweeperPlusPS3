@@ -36,6 +36,21 @@ temp1=0;
 grid_w=9;
 grid_h=9;
 grid_m=10;
+
+spr_smiley_1=spr_smiley1;
+spr_smiley_2=spr_smiley2;
+spr_smiley_3=spr_smiley3;
+spr_smiley_4=spr_smiley4;
+spr_smiley_5=spr_smiley5;
+spr_smiley_6=spr_smiley6;
+spr_smiley_7=spr_smiley7;
+spr_smiley_8=spr_smiley_alien;
+spr_smiley_86=spr_smiley86;
+
+if global.route=1
+{
+    spr_smiley_1=spr_murasa1;
+}
 </string>
           </argument>
         </arguments>
@@ -151,31 +166,6 @@ draw_set_halign(fa_middle);
 draw_text_outline(x+160,y+70,"[L1/R1] "+global.str[89],c_white,c_black,1);
 draw_text_outline(x+160,y+90,"[L2/R2] "+global.str[88],c_white,c_black,1);
 draw_sprite_stretched(spr_ui3,0,x+136,20,48,48);
-
-if global.route=0
-{
-    spr_smiley_1=spr_smiley1;
-    spr_smiley_2=spr_smiley2;
-    spr_smiley_3=spr_smiley3;
-    spr_smiley_4=spr_smiley4;
-    spr_smiley_5=spr_smiley5;
-    spr_smiley_6=spr_smiley6;
-    spr_smiley_7=spr_smiley7;
-    spr_smiley_8=spr_smiley_alien;
-    spr_smiley_86=spr_smiley86;
-}
-else if global.route=1
-{
-    spr_smiley_1=spr_murasa1;
-    spr_smiley_2=spr_smiley2;
-    spr_smiley_3=spr_smiley3;
-    spr_smiley_4=spr_smiley4;
-    spr_smiley_5=spr_smiley5;
-    spr_smiley_6=spr_smiley6;
-    spr_smiley_7=spr_smiley7;
-    spr_smiley_8=spr_smiley_alien;
-    spr_smiley_86=spr_smiley86;
-}
 
 switch global.smiley_face
 {

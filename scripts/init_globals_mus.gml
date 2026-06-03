@@ -83,6 +83,7 @@ global._music[23]=mus_menu_11;
 
 global._music[31]=mus_stage11_prepare;
 global._music[32]=mus_stage11;
+global._music[33]=mus_stage11_2;
 
 global.stage1_win=mus_stage1_win;
 global.stage2_win=mus_stage2_win;
@@ -94,6 +95,7 @@ global.stage7_win=mus_stage7_win;
 global.stage8_win=mus_stage8_win
 global.stage9_win=mus_stage9_win;
 global.stage10_win=mus_stage10_win;
+global.stage11_win=mus_stage11_win;
 
 global.stage1_map=mus_map1;
 global.stage2_map=mus_map2;
@@ -134,6 +136,8 @@ if global._music_type=1
     global._music[23]=mus_menu_11r;
     
     global._music[31]=mus_stage11r_prepare;
+    global._music[32]=mus_stage11r;
+    global._music[33]=mus_stage11r_2;
     
     global.stage1_win=mus_stage1r_win;
     global.stage2_win=mus_stage2r_win;
@@ -145,6 +149,7 @@ if global._music_type=1
     global.stage8_win=mus_stage8r_win;
     global.stage9_win=mus_stage9r_win;
     global.stage10_win=mus_stage10r_win;
+    global.stage11_win=mus_stage11r_win;
     
     global.stage1_map=mus_map1r;
     global.stage2_map=mus_map2r;
@@ -193,8 +198,13 @@ if global.route==1
     global._music[12]=mus_stage100;
     global.stage10_win=mus_stage100_win;
     
+    global._music[23]=mus_menu_111;
     global._music[31]=mus_stage111_prepare;
+    global._music[32]=mus_stage111;
+    global._music[33]=mus_stage111_2;
+    global.stage11_win=mus_stage111_win;
     
     global._st[6] = 484908;
     global._en[6] = 5567097;
+    global._en[22]= 6421195;
 }
