@@ -22,6 +22,7 @@ for (var xx = 0; xx < 3; xx++)
             case spr_bg8:  _grd=6; break;
             case spr_bg9:  _grd=7; break;
             case spr_bg10: _grd=9; break;
+            case spr_bg11: _grd=11; break;
             case spr_bg86: _grd=10; break;
         }
         
@@ -35,7 +36,22 @@ for (var xx = 0; xx < 3; xx++)
                 draw_sprite_stretched(_sprt, image_index, x1, y1, 16, 16);
                 draw_sprite_stretched(spr_flag, image_index, x1, y1, 16, 16);
             }
-            else draw_sprite_stretched(spr_num, v, x1, y1, 16, 16);
+            else if !(xx=1 && yy=1) draw_sprite_stretched(spr_num, v, x1, y1, 16, 16);
+            
+            if xx=1 && yy=1
+            {
+                if global.stage>9 && grid[# 1, 1]==9
+                {
+                    draw_sprite_stretched(_sprt, image_index, x1, y1, 16, 16);
+                    draw_sprite_stretched(spr_gold_flag, image_index, x1, y1, 16, 16);
+                }
+                else if global.stage>10 && grid[# 1, 1]==10
+                {
+                    draw_sprite_stretched(_sprt, image_index, x1, y1, 16, 16);
+                    draw_sprite_stretched(spr_double_flag, image_index, x1, y1, 16, 16);
+                }
+                else draw_sprite_stretched(spr_num, v, x1, y1, 16, 16);
+            }
         }
         else draw_sprite_stretched(_sprt, image_index, x1, y1, 16, 16);
         

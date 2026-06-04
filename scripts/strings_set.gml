@@ -141,11 +141,24 @@ global.str[114]="RSX Chip has failed to load properly!";
 global.str[115]="This game contains flashing lights. If you have epilepsy, I strongly recommend you NOT to play this game. Proceed with caution!
 
 Press any key to start.";
-global.str[116]="";
+global.str[116]="[NOTE!]
+Episode 11 only contains 11 Test stage.";
 global.str[117]="";
 global.str[118]="";
 global.str[119]="";
 global.str[120]="";
+global.str[121]="Bubbly Tub";
+global.str[122]="Steamy Jaccuzi";
+global.str[123]="Danger Creek";
+global.str[124]="Hazard Canal";
+global.str[125]="Flooded Fjord";
+global.str[126]="Wacky Whirlpool";
+global.str[127]="Bomb Bay";
+global.str[128]="Ship's Graveyard";
+global.str[129]="Delta P";
+global.str[130]="Hydraulic Shock";
+global.str[131]="THE DEVIL'S LOCKER";
+global.str[132]="THE GENOCIDE GARDEN";
 
 // Then uh....
 switch global.lang

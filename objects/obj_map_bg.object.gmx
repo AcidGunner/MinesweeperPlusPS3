@@ -52,6 +52,21 @@ else if global.episode==2
     list[9]=spr_bg6;
     _ttt=9;
 }
+else if global.episode==3
+{
+    list[0]=spr_bg1;
+    list[1]=spr_bg2;
+    list[2]=spr_bg3;
+    list[3]=spr_bg4;
+    list[4]=spr_bg6;
+    list[5]=spr_bg7;
+    list[6]=spr_bg8;
+    list[7]=spr_bg9;
+    list[8]=spr_bg5;
+    list[9]=spr_bg10;
+    list[10]=spr_bg1;
+    _ttt=10;
+}
 
 sprite_index=list[global.stage-1];
 
@@ -134,6 +149,44 @@ for (var i=0; i&lt;_ttt; i++)
             else if temp_111 == 4 spr_bgb=spr_bg9b
             else if temp_111 == 5 spr_bgb=spr_bg5b;
         }
+        else if global.episode==3
+        {
+            switch global.stage
+            {
+                case 1: temp_111=1; break;
+                case 2: temp_111=2; break;
+                case 3: temp_111=3; break;
+                case 4: temp_111=4; break;
+                case 5: temp_111=5; break;
+                case 6: temp_111=6; break;
+                case 7: temp_111=7; break;
+                case 8: temp_111=8; break;
+                case 9: temp_111=9; break;
+                case 10: temp_111=10; break;
+                case 11: temp_111=1; break;
+            }
+            if temp_111 == 1 spr_bg=spr_bg1
+            else if temp_111 == 2 spr_bg=spr_bg2
+            else if temp_111 == 3 spr_bg=spr_bg3
+            else if temp_111 == 4 spr_bg=spr_bg4
+            else if temp_111 == 5 spr_bg=spr_bg6
+            else if temp_111 == 6 spr_bg=spr_bg7
+            else if temp_111 == 7 spr_bg=spr_bg8
+            else if temp_111 == 8 spr_bg=spr_bg9
+            else if temp_111 == 9 spr_bg=spr_bg5
+            else if temp_111 == 10 spr_bg=spr_bg10;
+            
+            if temp_111 == 1 spr_bgb=spr_bg1b
+            else if temp_111 == 2 spr_bgb=spr_bg2b
+            else if temp_111 == 3 spr_bgb=spr_bg3b
+            else if temp_111 == 4 spr_bgb=spr_bg4b
+            else if temp_111 == 5 spr_bgb=spr_bg6b
+            else if temp_111 == 6 spr_bgb=spr_bg7b
+            else if temp_111 == 7 spr_bgb=spr_bg8b
+            else if temp_111 == 8 spr_bgb=spr_bg9b
+            else if temp_111 == 9 spr_bgb=spr_bg5b
+            else if temp_111 == 10 spr_bgb=spr_bg10b;
+        }
         
         // --- Create grid array ---
         grid = ds_grid_create(grid_w, grid_h);
@@ -158,6 +211,7 @@ for (var i=0; i&lt;_ttt; i++)
         // --- Place mines ---
         var placed = 0;
         if mine_count==9 placed=1;
+        if mine_count==10 placed=2;
         while (placed &lt; mine_count)
         {
             var xx = irandom(grid_w - 1);
@@ -211,10 +265,10 @@ draw_sprite_tiled_ext(sprite_index,image_index,0,0,1,1,c_white,1);
 
 draw_set_color(c_black);
 draw_set_alpha(0.25);
-if global.if_draw_grid=0 draw_rectangle(0,0,999,240,false);
+if global.if_draw_grid=0 draw_rectangle(0,0,1999,240,false);
 draw_set_alpha(1);
 
-if global.episode==2 exit;
+if global.episode&gt;=2 exit;
 
 draw_rectangle(544,0,864,240,false);
 

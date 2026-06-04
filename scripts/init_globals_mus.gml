@@ -107,6 +107,7 @@ global.stage7_map=mus_map7;
 global.stage8_map=mus_map8;
 global.stage9_map=mus_map9;
 global.stage10_map=mus_map10;
+global.stage11_map=mus_map11;
 
 if global._music_type=1
 {
@@ -159,6 +160,7 @@ if global._music_type=1
     global.stage6_map=mus_map_6r;
     global.stage7_map=mus_map7r;
     global.stage8_map=mus_map8r;
+    global.stage11_map=mus_map11r;
 }
 
 // Versus Mode!

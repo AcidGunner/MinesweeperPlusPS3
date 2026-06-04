@@ -97,15 +97,7 @@ menu_height = 100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.stage=11;
-global.smiley_face=7;
-global.menu_t=8;
-global.gridw[11]=21;
-global.gridh[11]=21;
-global.minec[11]=55;
-room_goto(rm_game);
-
-/* THIS IS GOING TO MOVE TO CHALLENGES SOON!!!!!
+            <string>/* THIS IS GOING TO MOVE TO CHALLENGES SOON!!!!!
 
 global.temp_stage=global.stage;
 global.temp_lives=lives;
@@ -255,6 +247,7 @@ if obj_input.a &amp;&amp; select=0
     }
 }
 
+/*
 if obj_input.select &amp;&amp; select=0
 {
     select=1;
@@ -263,7 +256,7 @@ if obj_input.select &amp;&amp; select=0
     save_game();
     alarm[2]=60;
     alarm[3]=45;
-}
+}*/
 
 if select=1 menu_y=lerp(menu_y,360,0.1)
 else menu_y=lerp(menu_y,120,0.1);

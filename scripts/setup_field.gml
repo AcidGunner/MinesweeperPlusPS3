@@ -161,3 +161,7 @@ else if global.episode=2
     global.gridh[910]=9;
     global.minec[910]=18;
 }
+
+global.gridw[11]=21;
+global.gridh[11]=21;
+global.minec[11]=55;

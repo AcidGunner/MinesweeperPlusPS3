@@ -146,9 +146,6 @@ else
         else image_index=4+obj_smiley.image_anim;
     }
 }
-
-if obj_input.l2 &amp;&amp; global.hat_type&gt;0 global.hat_type--;
-if obj_input.r2 &amp;&amp; global.hat_type&lt;array_length_1d(hat_list)-1 global.hat_type++;
 </string>
           </argument>
         </arguments>

@@ -30,6 +30,7 @@ _spd=0;
 base_y=y;
 alpha=1;
 float=1;
+active=0;
 
 zap=0;
 zop=0;
@@ -54,6 +55,50 @@ if global.route==1
     sprite_index = spr_111;
     _11part = spr_111_part;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>active=0;
+float=0;
+alarm[0]=-1;
+alarm[1]=-1;
+alarm[2]=-1;
+alarm[3]=-1;
+alarm[4]=-1;
+alarm[5]=-1;
+alarm[6]=-1;
+alarm[7]=-1;
+alarm[8]=-1;
+
+image_alpha = 1;
+audio_stop_all();
+audio_play_sound(sfx_done,1,false);
+audio_play_sound(sfx_11malfunction,2,false);
+
+_part1 = 0;
+_part2 = 0;
+alpha = 1;
+zap = 1;
+zop = 1;
 </string>
           </argument>
         </arguments>
@@ -142,6 +187,8 @@ if obj_game.mines_left=1
     {
         boss_x=irandom_range(0,grid_w-1);
         boss_y=irandom_range(0,grid_h-1);
+        
+        if active=0 exit;
     }
     audio_stop_all();
     image_alpha=1;
@@ -154,8 +201,10 @@ while !(obj_game.flagged[# boss_x, boss_y] == false &amp;&amp; obj_game.reveal[#
 {
     boss_x=irandom_range(0,grid_w-1);
     boss_y=irandom_range(0,grid_h-1);
+    
+    if active=0 exit;
 }
-
+if active=0 exit;
 alpha=1;
 alarm[7]=global.FSP;
 </string>
@@ -235,18 +284,24 @@ while !(obj_game.flagged[# boss_x, boss_y] == false &amp;&amp; obj_game.reveal[#
 {
     boss_x=irandom_range(0,grid_w-1);
     boss_y=irandom_range(0,grid_h-1);
+    
+    if active=0 exit;
 }
 
 audio_play_sound(sfx_11teleport,2,false);
 obj_game.flagged[# boss_x, boss_y] = true;
 obj_game.mines_left--;
 _part2=32;
-
+if active=0 exit;
 if times!=0 alarm[3]=0.57*global.FSP else
 {
     alarm[6]=1.2*global.FSP;
+    
+    if active=0 exit;
+    
     exit;
 }
+if active=0 exit;
 times--;
 </string>
           </argument>

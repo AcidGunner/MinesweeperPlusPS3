@@ -303,6 +303,8 @@
           <sound>sound\sfx_11zap</sound>
           <sound>sound\sfx_11close</sound>
           <sound>sound\sfx_11bonk</sound>
+          <sound>sound\sfx_11malfunction</sound>
+          <sound>sound\sfx_11break</sound>
         </sounds>
         <sound>sound\sfx_done</sound>
       </sounds>
@@ -420,6 +422,7 @@
         <sprite>sprites\spr_num</sprite>
         <sprite>sprites\spr_flag</sprite>
         <sprite>sprites\spr_gold_flag</sprite>
+        <sprite>sprites\spr_double_flag</sprite>
         <sprite>sprites\spr_mine</sprite>
         <sprite>sprites\spr_explosion</sprite>
       </sprites>
@@ -687,6 +690,7 @@
         <object>objects\obj_map</object>
         <object>objects\obj_map_boat</object>
         <object>objects\obj_map_10</object>
+        <object>objects\obj_map_11</object>
         <object>objects\obj_map_99</object>
         <object>objects\obj_map_10_sqr</object>
         <object>objects\obj_map_100</object>
@@ -728,6 +732,7 @@
     <room>rooms\rm_menu</room>
     <room>rooms\rm_map</room>
     <room>rooms\rm_map10</room>
+    <room>rooms\rm_map11</room>
     <room>rooms\rm_map99</room>
     <room>rooms\rm_game</room>
     <room>rooms\rm_vs_game</room>

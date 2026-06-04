@@ -780,6 +780,8 @@ if temp_x==xx &amp;&amp; temp_y==yy
                 audio_stop_all();
                 audio_loop_sound(global._music[32],global._st[22],global._en[22],44100,0);
                 obj_11.alarm[5]=1;
+                obj_11.active=1;
+                obj_11.times=0;
             };
             if global.stage!=910 obj_ui.alarm[0]=1;
         }
