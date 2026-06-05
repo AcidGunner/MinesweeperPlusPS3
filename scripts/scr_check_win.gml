@@ -21,10 +21,12 @@ var _left = valid_total;
 
 if (revealed_total >= _left)
 {
+    obj_timer.active = false;
     if instance_exists(obj_9)
     {
         obj_9.alarm[6]=1;
         if instance_exists(obj_10) obj_10.alarm[6]=1;
+        if instance_exists(obj_11) obj_11.alarm[9]=1;
         exit;
     }
     if instance_exists(obj_10)
@@ -48,6 +50,13 @@ if (revealed_total >= _left)
             obj_10.alarm[6]=1;
             obj_10.alarm[7]=90;
         }
+        if instance_exists(obj_11) obj_11.alarm[9]=1;
+        exit;
+    }
+    if instance_exists(obj_11)
+    {
+        obj_11.alarm[9]=1;
+        time_set();
         exit;
     }
     if temp_111==9 && type!="single"

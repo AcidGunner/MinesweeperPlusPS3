@@ -143,7 +143,8 @@ global.str[115]="This game contains flashing lights. If you have epilepsy, I str
 Press any key to start.";
 global.str[116]="[NOTE!]
 Episode 11 only contains 11 Test stage.";
-global.str[117]="";
+global.str[117]="There is yet another boss battle in this game.
+The top left number now shows how many more tiles are allowed to be flagged before it's game over. The boss will teleport around the grid placing flags. If you can click the boss before it materializes, you can prevent it from placing a flag, but don't click the boss when its electrical coils are active or you will receive a penalty. Unflagging tiles before the game starts will also result in a penalty. Furthermore, the mines in this boss's grid are pressure mines. Do not remove flags from tiles that contain pressure mines. The boss will place many flags in quick succession if a mine is revealed. To win, reveal the entire grid before the flag counter reaches 0, or before no more flags can be placed on the grid.";
 global.str[118]="";
 global.str[119]="";
 global.str[120]="";

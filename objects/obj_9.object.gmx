@@ -437,7 +437,9 @@ with obj_game scr_check_win();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if dx != 0 view_xview[0]=2*-dx;
+            <string>if global.gridw[0]=52 exit;
+
+if dx != 0 view_xview[0]=2*-dx;
 if dy != 0 view_yview[0]=2*-dy;
 </string>
           </argument>

@@ -222,6 +222,8 @@
         <sound>sound\mus_thorn</sound>
         <sound>sound\mus_sweeping</sound>
         <sound>sound\mus_sweeping2</sound>
+        <sound>sound\mus_night</sound>
+        <sound>sound\mus_night_clear</sound>
       </sounds>
       <sounds name="map">
         <sounds name="map1">
@@ -414,6 +416,7 @@
             <sprite>sprites\spr_11_laser</sprite>
             <sprite>sprites\spr_11_part</sprite>
             <sprite>sprites\spr_11_threads</sprite>
+            <sprite>sprites\spr_lightning</sprite>
           </sprites>
           <sprites name="boss_nan">
             <sprite>sprites\spr_nan</sprite>
@@ -491,6 +494,9 @@
         <sprite>sprites\spr_message</sprite>
       </sprites>
       <sprite>sprites\spr_logo</sprite>
+    </sprites>
+    <sprites name="bonus">
+      <sprite>sprites\spr_light_out</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -584,6 +590,7 @@
         <script>scripts\start_game.gml</script>
         <script>scripts\showLogo.gml</script>
         <script>scripts\start_timer.gml</script>
+        <script>scripts\boss_message.gml</script>
       </scripts>
     </scripts>
     <scripts name="saving">
@@ -658,6 +665,8 @@
         <object>objects\obj_audio_pitcher</object>
         <object>objects\obj_fade</object>
         <object>objects\obj_fade_mid</object>
+        <object>objects\obj_boss_message</object>
+        <object>objects\obj_lightning</object>
       </objects>
     </objects>
     <objects name="Menu">
@@ -681,6 +690,7 @@
         <object>objects\obj_main_menu</object>
         <object>objects\obj_menu_adventure</object>
         <object>objects\obj_menu_adventure_settings</object>
+        <object>objects\obj_menu_challenges</object>
         <object>objects\obj_menu_freeplay</object>
         <object>objects\obj_menu_loadout</object>
         <object>objects\obj_route_selector</object>
@@ -690,9 +700,10 @@
         <object>objects\obj_map</object>
         <object>objects\obj_map_boat</object>
         <object>objects\obj_map_10</object>
-        <object>objects\obj_map_11</object>
-        <object>objects\obj_map_99</object>
         <object>objects\obj_map_10_sqr</object>
+        <object>objects\obj_map_11</object>
+        <object>objects\obj_map_11_circle</object>
+        <object>objects\obj_map_99</object>
         <object>objects\obj_map_100</object>
       </objects>
     </objects>

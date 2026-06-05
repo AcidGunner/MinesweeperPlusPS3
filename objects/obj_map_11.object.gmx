@@ -32,6 +32,8 @@ view_xview[0]=-1600;
 view_yview[0]=-1200;
 view_wview[0]=3200;
 view_hview[0]=2400;
+
+instance_create(160,140,obj_map_11_circle);
 </string>
           </argument>
         </arguments>

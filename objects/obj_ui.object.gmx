@@ -113,10 +113,15 @@ switch global.stage
     }
     case 0:
     {
+        global.bg_music=global.temp_bg_mus;
+        global.menu_t=global.temp_menu_t;
         global.stage=global.temp_stage;
         lives=global.temp_lives;
+        global.temp_bg_mus=0;
+        global.temp_menu_t=0;
         global.temp_stage=0;
         global.temp_lives=0;
+        global.lights_out=0;
         room_goto(rm_menu);
         break;
     }
@@ -221,7 +226,7 @@ switch global.stage
 }
 else
 {
-    if obj_game.grid_w!=72 time_left=99 else
+    if obj_game.grid_w!=52 time_left=99 else
     {
         time_left=666;
         var _temp_ = 0.25;
@@ -285,6 +290,7 @@ if global.route==1
             <kind>1</kind>
             <string>if instance_exists(obj_9) &amp;&amp; obj_9.stop==1 exit;
 if instance_exists(obj_10) &amp;&amp; obj_10.active==false exit;
+if instance_exists(obj_11) &amp;&amp; obj_11.active==false exit;
 if global.paused==1 exit;
 
 if obj_game.win==0 and obj_game.lost==0

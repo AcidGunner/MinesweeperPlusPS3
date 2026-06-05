@@ -33,9 +33,16 @@ temp_choice=0;
 image_speed=0;
 x=0;
 
+route_list[0]=global.str[81];
+route_list[1]="???";
+route_list[2]=global.str[110];
+
+if global.unlocked route_list[1]=global.str[82];
+
 instance_create(320,0,obj_menu_adventure);
 instance_create(0,-240,obj_menu_adventure_settings);
 instance_create(-320,0,obj_menu_freeplay);
+instance_create(320,0,obj_menu_challenges);
 instance_create(-320,0,obj_menu_loadout);
 
 global.paused=0;
@@ -97,17 +104,7 @@ menu_height = 100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* THIS IS GOING TO MOVE TO CHALLENGES SOON!!!!!
-
-global.temp_stage=global.stage;
-global.temp_lives=lives;
-lives=3;
-global.stage=0;
-global.smiley_face=4;
-global.menu_t=8;
-global.gridw[0]=72;
-global.gridh[0]=48;
-global.minec[0]=222;
+            <string>room_goto(rm_game);
 </string>
           </argument>
         </arguments>
@@ -233,12 +230,8 @@ if obj_input.a &amp;&amp; select=0
     }
     else if item=2
     {
-        global.menu_t=menu_music;
-        global.m_g_t=menu_music;
-        audio_stop_all();
-        audio_play_sound(sfx_game_start,0,false);
-        alarm[3]=45;
-        alarm[1]=60;
+        type=4;
+        obj_menu_challenges.alarm[1]=5;
     }
     else if item=3
     {

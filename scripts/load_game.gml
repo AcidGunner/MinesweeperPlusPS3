@@ -9,8 +9,9 @@ global.episode=ini_read_real("save","episode",1);
 global.route=ini_read_real("save","route",0);
 global.gamemode=ini_read_real("save","gamemode",0);
 global.mastermode=ini_read_real("save","mastermode",0);
-global.show_9_message=ini_read_real("save","show_message_9",0);
-global.show_10_message=ini_read_real("save","show_message_10",0);
+global.show_9_message=ini_read_real("save","show_message_9",1);
+global.show_10_message=ini_read_real("save","show_message_10",1);
+global.show_11_message=ini_read_real("save","show_message_11",1);
 ini_close();
 
 //wait a second, if we completed the game...

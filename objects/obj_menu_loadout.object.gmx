@@ -205,6 +205,9 @@ if hat!=-1
 }
 else the_y=1;
 
+draw_set_valign(fa_bottom);
+draw_text_outline(x+160,230,"[○] - "+global.str[13],c_white,c_black,1);
+
 </string>
           </argument>
         </arguments>

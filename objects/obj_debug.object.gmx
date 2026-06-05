@@ -118,6 +118,39 @@ if global.route==2
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if global.lights_out &amp;&amp; (instance_exists(obj_game) &amp;&amp; !obj_game.win)
+{
+    draw_set_alpha(1);
+    draw_set_colour(c_black);
+    draw_rectangle(-100,-100,mouse_x-24,400,false);
+    draw_rectangle(mouse_x+24,-100,460,400,false);
+    draw_rectangle(-100,mouse_y+24,460,400,false);
+    draw_rectangle(-100,mouse_y-24,460,-100,false);
+    draw_sprite(spr_light_out,0,mouse_x,mouse_y);
+    draw_set_colour(c_white);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="115">
       <action>
         <libid>1</libid>

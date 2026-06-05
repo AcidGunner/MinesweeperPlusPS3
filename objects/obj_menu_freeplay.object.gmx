@@ -112,24 +112,32 @@ room_goto(rm_game);
         global.menu_t--
         if global.menu_t&lt;1 global.menu_t=1;
         obj_menu_bg.sprite_index=obj_menu_bg.list[global.menu_t-1];
+        save_settings();
     }
     if obj_input.r2
     {
         global.menu_t++
         if global.menu_t&gt;11 global.menu_t=11;
         obj_menu_bg.sprite_index=obj_menu_bg.list[global.menu_t-1];
+        save_settings();
     }
     if obj_input.l1
     {
         obj_main_menu.menu_music--
         if obj_main_menu.menu_music&lt;1 obj_main_menu.menu_music=1;
         if obj_main_menu.menu_music!=obj_main_menu.prev_music obj_main_menu.alarm[0]=1;
+        
+        global.bg_music=obj_main_menu.menu_music;
+        save_settings();
     }
     if obj_input.r1
     {
         obj_main_menu.menu_music++
         if obj_main_menu.menu_music&gt;11 obj_main_menu.menu_music=11;
         if obj_main_menu.menu_music!=obj_main_menu.prev_music obj_main_menu.alarm[0]=1;
+        
+        global.bg_music=obj_main_menu.menu_music;
+        save_settings();
     }
     if obj_input.a
     {
@@ -162,7 +170,7 @@ room_goto(rm_game);
         obj_main_menu.type=0;
         obj_main_menu.select=0;
     }
-    if obj_input.c
+    if obj_input.upp
     {
         grid_w=get_integer(global.str[91],9);
         grid_h=get_integer(global.str[92],9);
@@ -204,6 +212,8 @@ draw_text_outline(x+160,y+70,"[L1/R1] "+global.str[87],c_white,c_black,1);
 draw_text_outline(x+160,y+90,"[L2/R2] "+global.str[88],c_white,c_black,1);
 draw_text_outline(x+160,y+150,"[□] "+global.str[90],c_white,c_black,1);
 draw_text_outline(x+160,y+170,"W: "+string(grid_w)+"; H: "+string(grid_h)+"; M: "+string(grid_m)+";",c_white,c_black,1);
+draw_set_valign(fa_bottom);
+draw_text_outline(x+160,230,"[○] - "+global.str[13],c_white,c_black,1);
 </string>
           </argument>
         </arguments>

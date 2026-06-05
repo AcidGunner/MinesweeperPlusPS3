@@ -38,6 +38,8 @@ cutscene_10_lose = 0;
 temp23=0;
 unlocked=0;
 
+temp1k=1500;
+
 // Cutscene 9
 cutscene_9 = false;
 cutscene_9s = 0;
@@ -196,12 +198,14 @@ else if cutscene_11s == 8
 {
     cutscene_11s = 9;
     audio_play_sound(sfx_11zap,2,false);
+    for (var i = 0; i &lt; 100; i++) instance_create(obj_11.x,obj_11.y,obj_lightning);
     alarm[10]=1*global.FSP;
 }
 else if cutscene_11s == 9
 {
     cutscene_11s = 10;
     obj_11.zop=0;
+    instance_destroy(obj_lightning);
     audio_stop_sound(sfx_11zap);
     alarm[10]=2.6*global.FSP;
 }
@@ -224,9 +228,7 @@ else if cutscene_11s == 12
     obj_game.temp_x=0;
     obj_game.temp_y=0;
     sprite_index = spr_smiley7;
-    //sprite_index = spr_smiley_7;
-    //if global.show_9_message show_message_async(global.message_9);
-    //global.show_9_message=0;
+    if global.show_11_message boss_message(global.message_11);
     alarm[10]=180;
 }
 </string>
@@ -297,7 +299,7 @@ else if cutscene_11s == 12
     }
     
     alarm[9]=45;
-    alarm[10]=(455555/44100)*global.FSP;
+    alarm[10]=((455555+temp1k)/44100)*global.FSP;
 }
 else if cutscene_11s == 3
 {
@@ -340,7 +342,7 @@ else if cutscene_11s == 4
 {
     cutscene_11s = 1;
     alarm[8]=180;
-    alarm[9]=(529072/44100)*global.FSP;
+    alarm[9]=((529072+temp1k)/44100)*global.FSP;
 }
 else if cutscene_11s == 1
 {
@@ -393,8 +395,7 @@ else if cutscene_10s == 8
     cutscene_10 = false;
     obj_game.temp_x=0;
     obj_game.temp_y=0;
-    if global.show_10_message show_message_async(global.message_10);
-    global.show_10_message=0;
+    if global.show_10_message boss_message(global.message_10);
     sprite_index = spr_smiley6;
 }
 </string>
@@ -504,8 +505,7 @@ else if cutscene_9s == 5
         cutscene = false;
         obj_game.temp_x=0;
         obj_game.temp_y=0;
-        if global.show_9_message show_message_async(global.message_9);
-        global.show_9_message=0;
+        if global.show_9_message boss_message(global.message_9);
         sprite_index = spr_smiley_5;
     }
 }
@@ -940,22 +940,13 @@ if obj_game.win == false
         }
         else if global.stage==11
         {
-            /*if instance_exists(obj_11) &amp;&amp; obj_10.stopped=1
+            if instance_exists(obj_11) &amp;&amp; obj_11.won
             {
-                if obj_10.temp2=1
-                {
-                    sprite_index = spr_smiley_6c;
-                    image_index = 16+(image_anim2*2);
-                    obj_smiley_hat.image_index = 17+(image_anim2*2);
-                }
-                else
-                {
-                    sprite_index = spr_smiley_6c;
-                    image_index = 14+image_anim2;
-                    obj_smiley_hat.image_index = 4+image_anim2;
-                }
+                sprite_index = spr_smiley_7c;
+                image_index = 23+image_anim2;
+                obj_smiley_hat.image_index = 4+image_anim2;
             }
-            else*/
+            else
             {
                 sprite_index = cutscene_11_0[cutscene_11s]
                 switch cutscene_11s
@@ -1040,6 +1031,12 @@ else
                 image_index=17+image_anim;
                 break;
             }
+            case 11:
+            {
+                sprite_index = spr_smiley_7
+                image_index=16+image_anim;
+                break;
+            }
             case 910:
             {
                 sprite_index = spr_smiley_5
@@ -1064,6 +1061,7 @@ else
                 if sprite_index==spr_smiley_3 image_index=26+image_anim
                 else if sprite_index==spr_smiley_5 image_index=27+image_anim
                 else if sprite_index==spr_smiley_6 image_index=17+image_anim
+                else if sprite_index==spr_smiley_7 image_index=16+image_anim
                 else image_index=14+image_anim;
             }
         }

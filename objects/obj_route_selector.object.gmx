@@ -53,8 +53,8 @@
 draw_set_color(c_gray);
 draw_rectangle(50,50,590,430,false);
 
-if obj_input.lef &amp;&amp; select&gt;0 select--;
-if obj_input.rig &amp;&amp; select&lt;2 select++;
+if obj_input.upp &amp;&amp; select&gt;0 select--;
+if obj_input.dow &amp;&amp; select&lt;2 select++;
 
 draw_set_halign(fa_center);
 draw_set_font(fnt_main);
@@ -66,23 +66,24 @@ draw_set_valign(fa_bottom);
 draw_text(320,420,"START - CONFIRM");
 draw_set_valign(fa_middle);
 
-var _1 = obj_menu_adventure_settings;
-var _2 = obj_menu_adventure;
 var _i = 2;
 var i_ = _i/2;
 
 for (var i = 0; i &lt;= _i; i++)
 {
-    draw_text(320,240+(i-i_)*40,_1.option_1_list[i]);
+    draw_text(320,240+(i-i_)*40,obj_main_menu.route_list[i]);
 }
 
 draw_text(320,240+(select-i_)*40,"&gt;                          &lt;");
 
 if obj_input.start
 {
-    global.route=select;
-    _2.s3lect=0;
-    _1.alarm[0]=1;
+    if !(!global.unlocked &amp;&amp; select=1)
+    {
+        global.route=select;
+        obj_menu_adventure_settings.alarm[0]=1;
+    }
+    obj_menu_adventure.s3lect=0;
     instance_destroy();
 }
 

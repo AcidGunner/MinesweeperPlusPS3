@@ -38,7 +38,9 @@ else if type=="single" && global.stage==0 switch temp_123
     case 10: audio_play_sound(global.stage8_win,0,false); break;
     case 5: audio_play_sound(global.stage9_win,0,false); break;
     case 11: audio_play_sound(global.stage10_win,0,false); break;
+    case 31: audio_play_sound(global.stage11_win,0,false); break;
     case 99: audio_play_sound(mus_sweeping2,0,false); break;
+    case 100: audio_play_sound(mus_night_clear,0,false); break;
 }
 else switch obj_game_1p.temp_111
 {

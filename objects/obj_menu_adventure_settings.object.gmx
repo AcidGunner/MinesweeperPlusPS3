@@ -32,10 +32,6 @@ option=1;
 option_2=c_white;
 option_3=c_white;
 
-option_1_list[0]=global.str[81];
-option_1_list[1]=global.str[82];
-option_1_list[2]=global.str[110];
-
 option_2_list[0]=global.str[83];
 option_2_list[1]=global.str[84];
 
@@ -105,24 +101,8 @@ else
         obj_menu_adventure.type=0;
         obj_menu_adventure.select=0;
     }
-    if obj_input.upp &amp;&amp; option&gt;1 option--;
-    if obj_input.dow &amp;&amp; option&lt;2 option++;
-    if obj_input.lef
-    {
-        if option=1 &amp;&amp; global.episode&gt;1 global.episode--;
-        if option=2 &amp;&amp; global.gamemode&gt;0 global.gamemode--;
-    }
-    if obj_input.rig
-    {
-        if option=1 &amp;&amp; global.episode&lt;2 global.episode++;
-        if option=2 &amp;&amp; global.gamemode&lt;1 global.gamemode++;
-    }
-}
-
-switch option
-{
-    case 1: option_2=c_red; option_3=c_white; break;
-    case 2: option_2=c_white; option_3=c_red; break;
+    if obj_input.lef &amp;&amp; global.gamemode&gt;0 global.gamemode--;
+    if obj_input.rig &amp;&amp; global.gamemode&lt;1 global.gamemode++;
 }
 
 if select=1 temp_y=-240; else temp_y=0;
@@ -157,8 +137,7 @@ draw_text_outline(x+160,y+2,global.str[77],c_white,c_black,1);
 
 //draw_text_outline(x+160,y+40,global.str[78]+":#[X] "+option_1_list[global.route],c_white,c_black,1);
 //draw_text_outline(x+160,y+60,global.str[79]+":#"+option_2_list[global.episode-1],option_2,c_black,1);
-draw_text_outline(x+160,y+120,global.str[80]+":#"+option_3_list[global.gamemode],option_3,c_black,1);
-draw_text_outline(x+160,y+220,"[○] "+global.str[13],c_white,c_black,1);
+draw_text_outline(x+160,y+120,global.str[80]+":#"+option_3_list[global.gamemode],c_white,c_black,1);
 </string>
           </argument>
         </arguments>
