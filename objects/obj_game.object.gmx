@@ -131,11 +131,14 @@ if global.stage=0
         obj_9.test_0=48;
         obj_9.test_a=1;
         obj_ui.rand_time=1;
+        obj_ui.alarm[4]=1;
         obj_ui.alarm[3]=1;
     }
     if global.bg_music=10 &amp;&amp; grid_w!=52
     {
         temp_123=11;
+        obj_ui.alarm[4]=1;
+        obj_ui.alarm[3]=1;
         
         //for (var i=0; i&lt;10; i++) // DO NOT TRY THIS SHIT OUT ON PS3
         {
@@ -153,6 +156,8 @@ if global.stage=0
         obj_11.boss_y=irandom_range(0,grid_h-1);
         obj_11.alpha=1;
         obj_11.times=0;
+        obj_ui.alarm[4]=1;
+        obj_ui.alarm[3]=1;
         obj_ui.red_mine=merge_color(c_white,c_red,0.5);
     }
     if grid_w==52
@@ -169,6 +174,7 @@ if global.stage=0
         boss9_started=true;
         obj_9.active=true;
         obj_ui.alarm[3]=1;
+        obj_ui.alarm[4]=1;
         obj_ui.alarm[0]=1;
         
         instance_create(160,145,obj_10);

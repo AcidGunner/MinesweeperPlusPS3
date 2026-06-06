@@ -21,7 +21,7 @@ var _left = valid_total;
 
 if (revealed_total >= _left)
 {
-    obj_timer.active = false;
+    if type=="single" obj_timer.active = false;
     if instance_exists(obj_9)
     {
         obj_9.alarm[6]=1;
@@ -83,5 +83,5 @@ if (revealed_total >= _left)
 else
 {
     if instance_exists(obj_9) or instance_exists(obj_9_1p) instance_create(0,0,obj_9_end);
-    show_debug_message(string(_left-revealed_total));
+    if global.debug show_debug_message(string(_left-revealed_total));
 }

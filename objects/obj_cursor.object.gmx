@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>if global.CONTROL=0 instance_destroy();
 image_blend=c_white;
+image_alpha=1;
 </string>
           </argument>
         </arguments>
@@ -77,11 +78,11 @@ y=obj_input.my;
 {
     draw_set_alpha(1);
     draw_set_colour(c_black);
-    draw_rectangle(-100,-100,x-24,400,false);
-    draw_rectangle(x+24,-100,460,400,false);
-    draw_rectangle(-100,y+24,460,400,false);
-    draw_rectangle(-100,y-24,460,-100,false);
-    draw_sprite(spr_light_out,0,x,y);
+    draw_rectangle(-100,-100,x-48,400,false);
+    draw_rectangle(x+48,-100,460,400,false);
+    draw_rectangle(-100,y+48,460,400,false);
+    draw_rectangle(-100,y-48,460,-100,false);
+    draw_sprite_ext(spr_light_out,0,x,y,2,2,0,c_white,1);
     draw_set_colour(c_white);
 }
 

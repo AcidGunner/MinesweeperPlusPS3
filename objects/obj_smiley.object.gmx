@@ -229,7 +229,6 @@ else if cutscene_11s == 12
     obj_game.temp_y=0;
     sprite_index = spr_smiley7;
     if global.show_11_message boss_message(global.message_11);
-    alarm[10]=180;
 }
 </string>
           </argument>

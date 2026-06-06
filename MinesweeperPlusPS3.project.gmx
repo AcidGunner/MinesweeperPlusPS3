@@ -591,6 +591,7 @@
         <script>scripts\showLogo.gml</script>
         <script>scripts\start_timer.gml</script>
         <script>scripts\boss_message.gml</script>
+        <script>scripts\time_split.gml</script>
       </scripts>
     </scripts>
     <scripts name="saving">

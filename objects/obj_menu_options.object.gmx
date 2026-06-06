@@ -66,6 +66,7 @@ y=360;
           <argument>
             <kind>1</kind>
             <string>//audio_sound_gain(mus_menu1,0,0.5);
+save_settings();
 select = 1;
 alarm[1]=70;
 </string>

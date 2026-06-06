@@ -79,7 +79,19 @@ if global.stage==910
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_menu);
+            <string>if global.stage==0
+{
+    global.bg_music=global.temp_bg_mus;
+    global.menu_t=global.temp_menu_t;
+    global.stage=global.temp_stage;
+    lives=global.temp_lives;
+    global.temp_bg_mus=0;
+    global.temp_menu_t=0;
+    global.temp_stage=0;
+    global.temp_lives=0;
+    global.lights_out=0;
+}
+room_goto(rm_menu);
 </string>
           </argument>
         </arguments>
@@ -130,7 +142,7 @@ switch global.stage
         global.stage++;
         if global.stage==10 ask_10();
         ini_open("msplus-ps3-save.ini");
-        ini_write_string("save","current_time",ds_list_write(obj_chap1_data.time));
+        ini_write_string("save","current_time",obj_chap1_data.time_str);
         ini_close();
         if global.gamemode==1 lives=3;
         save_game();
@@ -512,8 +524,8 @@ if global.paused
     draw_rectangle(160-80,140-40,160+80,140+40,false);
     draw_set_alpha(1);
     
-    draw_text_outline(160,110,"PAUSED",c_white,c_black,1);
-    draw_text_outline(160,150,"START - Continue#SELECT - Exit",c_red,c_white,1);
+    draw_text_outline(160,110,global.str[118],c_white,c_black,1);
+    draw_text_outline(160,150,"START - "+global.str[119]+"#SELECT - "+global.str[120],c_red,c_white,1);
 }
 
 if obj_game.win

@@ -135,15 +135,17 @@ if global.route==2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.lights_out &amp;&amp; (instance_exists(obj_game) &amp;&amp; !obj_game.win)
+            <string>if os_type==os_ps3 exit;
+
+if global.lights_out &amp;&amp; (instance_exists(obj_game) &amp;&amp; !obj_game.win)
 {
     draw_set_alpha(1);
     draw_set_colour(c_black);
-    draw_rectangle(-100,-100,mouse_x-24,400,false);
-    draw_rectangle(mouse_x+24,-100,460,400,false);
-    draw_rectangle(-100,mouse_y+24,460,400,false);
-    draw_rectangle(-100,mouse_y-24,460,-100,false);
-    draw_sprite(spr_light_out,0,mouse_x,mouse_y);
+    draw_rectangle(-100,-100,mouse_x-48,400,false);
+    draw_rectangle(mouse_x+48,-100,460,400,false);
+    draw_rectangle(-100,mouse_y+48,460,400,false);
+    draw_rectangle(-100,mouse_y-48,460,-100,false);
+    draw_sprite_ext(spr_light_out,0,mouse_x,mouse_y,2,2,0,c_white,1);
     draw_set_colour(c_white);
 }
 </string>

@@ -1,6 +1,6 @@
 ///initial_setup();
 audio_channel_num(20);
-global.debug=1;
+global.debug=0;
 bad_apple_initialize();
 randomize();
 global.CONTROL=1;
@@ -23,7 +23,8 @@ strings_set();
 message_set();
 window_set_caption(global.str[0]+": "+detect_console()+" "+global.str[1]+" ("+ver_show()+")"+check_debug());
 
-global.the_config=1; //< CONFIG VERSION!
+// ooh, config version changed 0_0
+global.the_config=2; //< CONFIG VERSION!
 if global.the_config!=global.config reset_game();
 
 init_globals_mus();
@@ -43,4 +44,4 @@ global.minec[86]=0;
 
 global.secret_active=0;
 
-//if irandom_range(6,10)==7 && global.CONTROL!=2 rsx_failed();
+if irandom_range(0,99)<=4 && global.CONTROL!=2 rsx_failed();

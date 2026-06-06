@@ -26,8 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>audio_play_sound(mus_end,0,false);
-time=ds_list_create();
-ds_list_read(time,ds_list_write(obj_chap1_data.time));
+
 shown=0;
 thanks=0;
 pressed=0;
@@ -93,6 +92,20 @@ else if global.episode==2
     txt1[8]=global.str[109];
     txt1[9]=global.str[60];
 }
+else if global.episode==3
+{
+    txt1[0]=global.str[121];
+    txt1[1]=global.str[122];
+    txt1[2]=global.str[123];
+    txt1[3]=global.str[124];
+    txt1[4]=global.str[125];
+    txt1[5]=global.str[126];
+    txt1[6]=global.str[127];
+    txt1[7]=global.str[128];
+    txt1[8]=global.str[129];
+    txt1[9]=global.str[130];
+    txt1[10]=global.str[131];
+}
 </string>
           </argument>
         </arguments>
@@ -138,7 +151,7 @@ else if global.episode==2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if data_count&gt;ds_list_size(time)+3 exit;
+            <string>if data_count&gt;=(global.episode+8)+4 exit;
 data_count++;
 alarm[5]=0.836*global.FSP;
 </string>
@@ -163,15 +176,15 @@ alarm[5]=0.836*global.FSP;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if data_count&gt;ds_list_size(time)-1 exit;
+            <string>if data_count&gt;=global.episode+8 exit;
 var tmp=instance_create(0,0,obj_end_text1);
-var tmp_data=ds_list_find_value(time,data_count);
+var tmp_data=obj_chap1_data.time[data_count+1];
 tmp.count=data_count;
 if !is_undefined(tmp_data)
 {
-    tmp.strings=txt1[data_count]+": "+string(tmp_data/100)+global.str[70];
+    tmp.strings=txt1[data_count]+": "+string(tmp_data)+global.str[70];
 }
-else tmp.strings="UNDEFINED";
+else tmp.strings="UNDEFINED DATA :(";
 data_count++;
 alarm[4]=0.418*global.FSP;
 </string>

@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.FSP=60;
-frame=0;
+            <string>frame=0;
 if global.secret_active title = audio_play_sound(mus_thorn,0,true)
 else title = audio_play_sound(global._music[0],0,true);
 instance_create(0,0,obj_start_first);

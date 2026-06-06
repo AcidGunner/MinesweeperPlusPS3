@@ -20,11 +20,11 @@ global.str[10]="WARNING!!
 
 This is the DEBUG Build. Many things are VERY UNSTABLE. IT IS RECOMMENDED TO PLAY THE LATEST VERSION.
 PROCEED WITH CAUTION!!"
-global.str[11]="Language Test";
+global.str[11]="Challenge";
 global.str[12]="Additional Hats Guide";
 global.str[13]="Go Back";
 global.str[14]="Hats guide!";
-global.str[15]="Just because this is a not-completed version, the game allows you to change your hat by pressing either L2 or R2.";
+global.str[15]="Coming soon...";
 global.str[16]="Press ○ to go back.";
 global.str[17]="You are not ready yet.";
 global.str[18]="Player";
@@ -51,13 +51,13 @@ global.str[37]="[PLEASE READ BEFORE DOING ANYTHING!]
 ACIDPS3 PROJECT IS NOT AFFILIATED OR APPROVED BY SONY COMPUTER ENTERTAINMENT!!
 WE ARE NOT GETTING ANY PROFIT OUT OF THIS. THOSE SERVICES ARE PURELY FREE NO MATTER WHAT.
 (NOT LICENSED BY SONY)";
-global.str[38]="Loading boot sequence...";
-global.str[39]="GMS4PS3 Loader v1.0";
+global.str[38]="Lights Out";
+global.str[39]="The BIG LAG";
 global.str[40]="PLACEHOLDER";
 global.str[41]="Free Play";
 global.str[42]="Minesweeper";
 global.str[43]="Adventure";
-global.str[44]="for Versus Test!";
+global.str[44]="Versus Mode";
 global.str[45]="CLEAR!";
 global.str[46]="Player 1 Won!";
 global.str[47]="Player 2 Won!";
@@ -97,22 +97,22 @@ global.str[74]="EXPERT SWEEPER";
 global.str[75]="to Start";
 global.str[76]="for Game Settings";
 global.str[77]="Game Settings";
-global.str[78]="Current Route";
-global.str[79]="Current Episode";
+global.str[78]="ROUTE";
+global.str[79]="EPISODE";
 global.str[80]="Current GameMode";
 global.str[81]="Main";
 global.str[82]="Touhou";
-global.str[83]="Episode One";
-global.str[84]="Episode Two";
+global.str[83]="Challenges";
+global.str[84]="Loadout";
 global.str[85]="Normal";
 global.str[86]="Casual";
 global.str[87]="to Change Music";
 global.str[88]="to Change Background";
 global.str[89]="to Change Smiley";
-global.str[90]="to Setup";
-global.str[91]="Set grid width";
-global.str[92]="Set grid height";
-global.str[93]="Set mine count";
+global.str[90]="to Change Hat";
+global.str[91]="Width";
+global.str[92]="Height";
+global.str[93]="Mine Count";
 global.str[94]="Continue?";
 global.str[95]="YES";
 global.str[96]="NO";
@@ -134,20 +134,19 @@ global.str[110]="Gameboy";
 global.str[111]="Would you like to change your input type?
 The 10 boss-fight currently supports cursor type only.
 So the Cursor type is HIGHLY recommended on this stage.";
-global.str[112]="A new route has been unlocked.
-Visit the Game settings for more information.";
+global.str[112]="A new route has been unlocked.";
 global.str[113]="Warning!";
 global.str[114]="RSX Chip has failed to load properly!";
 global.str[115]="This game contains flashing lights. If you have epilepsy, I strongly recommend you NOT to play this game. Proceed with caution!
 
 Press any key to start.";
 global.str[116]="[NOTE!]
-Episode 11 only contains 11 Test stage.";
+Episode 3 only contains 11 Test stage.";
 global.str[117]="There is yet another boss battle in this game.
 The top left number now shows how many more tiles are allowed to be flagged before it's game over. The boss will teleport around the grid placing flags. If you can click the boss before it materializes, you can prevent it from placing a flag, but don't click the boss when its electrical coils are active or you will receive a penalty. Unflagging tiles before the game starts will also result in a penalty. Furthermore, the mines in this boss's grid are pressure mines. Do not remove flags from tiles that contain pressure mines. The boss will place many flags in quick succession if a mine is revealed. To win, reveal the entire grid before the flag counter reaches 0, or before no more flags can be placed on the grid.";
-global.str[118]="";
-global.str[119]="";
-global.str[120]="";
+global.str[118]="PAUSED";
+global.str[119]="Continue";
+global.str[120]="Exit";
 global.str[121]="Bubbly Tub";
 global.str[122]="Steamy Jaccuzi";
 global.str[123]="Danger Creek";
@@ -181,11 +180,9 @@ switch global.lang
 
 Vous utilisez actuellement la version DEBUG. BEAUCOUP de choses sont instables. IL EST RECOMMENDÉ DE JOUER AVEC LA DERNIÈRE VERSION SORTIE.
 SOYEZ-DONC PRUDENT!!"
-        global.str[11]="Test langage";
         global.str[12]="Chapeaux supplémentaires";
         global.str[13]="Retour";
         global.str[14]="Chapeaux Supplémentaires!";
-        global.str[15]="Puisqu'il s'agit d'une version non-complète du portage, vous pouvez changez de chapeau avec L2 ou R2.";
         global.str[16]="Revenez en arrière avec ○.";
         global.str[17]="Vous n'êtes pas encore prêt.";
         global.str[18]="Joueur";
@@ -210,13 +207,10 @@ SOYEZ-DONC PRUDENT!!"
         global.str[37]="ACIDPS3 PROJECT N'EST PAS UNE FILIALE OU PARTENAIRE DE SONY COMPUTER ENTERTAINMENT!!
 CE PROJET EST ENTIÈREMENT NON-LUCRATIF. NOS SERVICES SERONT TOUJOURS GRATUIT.
 (PAS LICENCIÉ PAR SONY)";
-        global.str[38]="Lancement...";
-        global.str[39]="GMS4PS3 Loader v1.0";
         global.str[40]="PLACEHOLDER";
         global.str[41]="Jeu Libre";
         global.str[42]="Démineur";
         global.str[43]="Aventure";
-        global.str[44]="Mode VS Test!";
         global.str[45]="TERMINÉ!";
         global.str[46]="Joueur 1 a gagné!";
         global.str[47]="Joueur 2 a gagné!";
@@ -269,11 +263,11 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
 
 Это ТЕСТОВАЯ Сборка. Некоторые вещи НЕ СТАБИЛЬНЫ. РЕКОМЕНДУЕТСЯ ИГРАТЬ НА ТЕКУЩЕЙ СТАБИЛЬНОЙ ВЕРСИИ.
 ВЫ БЫЛИ ПРЕДУПРЕЖДЕНЫ!!"
-        global.str[11]="Языковой Тест";
+        global.str[11]="Испытание";
         global.str[12]="Помощь по дополнительным шляпам";
         global.str[13]="Назад";
         global.str[14]="Гайд по шляпам!";
-        global.str[15]="Так как это не завершенная версия издания, игра позволяет вам менять шляпы нажатием L2 или R2.";
+        global.str[15]="Скоро...";
         global.str[16]="Нажмите ○ чтобы вернуться.";
         global.str[17]="Вы еще не готовы.";
         global.str[18]="Игрок";
@@ -300,14 +294,13 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
 ПРОЕКТ ACIDPS3 НИКАК НЕ СВЯЗАН ИЛИ ОДОБРЕН SONY COMPUTER ENTERTAINMENT!!
 МЫ НЕ ПОЛУЧАЕМ НИКАКОГО ДОХОДА. ЭТИ СЕРВИСЫ БЕСПЛАТНЫ НЕСМОТРЯ НИ НА ЧТО.
 (НЕ ЛИЦЕНЗИРОВАНО SONY)";
-        global.str[38]="Загружаем загрузочность...";
-        global.str[39]="Загрузщик GMS4PS3 v1.0";
+        global.str[38]="Ночная смена";
+        global.str[39]="БОЛЬШОЕ ЗАВИСАНИЕ";
         global.str[40]="ЗАГЛУШКА";
         global.str[41]="Своя игра";
         global.str[42]="Режим";
         global.str[43]="Истории";
-        global.str[44]="чтобы протестировать
-Соревнование!";
+        global.str[44]="Версус режим";
         global.str[45]="ПРОЙДЕНО!";
         global.str[46]="Выиграл игрок 1!";
         global.str[47]="Выиграл игрок 2!";
@@ -326,7 +319,7 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
         global.str[60]="ДЬЯВОЛЬСКАЯ ПРОПАСТЬ";
         global.str[61]="Игрок 2 не подключен. Пожалуйста, подсоедините второй контроллер.";
         global.str[62]="Здесь имеется битва с боссом.
-Битва работает также, как в обычном сапере, только с усложнениями: ты не знаешь сколько здесь мин, время ограничено, и ты не можешь использовать радар или паузу (хотя здесь радара и паузы пока нет ЛОЛ). Нажатие на мину ускоряет таймер. Чтобы выиграть, нажмите на босса ТОЛЬКО после того, как все пустые клетки открыты. Истечение времени, или же нажатие на босса до того, как все пустые клетки открыты, приводят к окончанию игры.";
+Битва работает также, как в обычном сапере, только с усложнениями: ты не знаешь сколько здесь мин, время ограничено, и ты не можешь использовать радар или паузу (хотя здесь радара пока нет ЛОЛ). Нажатие на мину ускоряет таймер. Чтобы выиграть, нажмите на босса ТОЛЬКО после того, как все пустые клетки открыты. Истечение времени, или же нажатие на босса до того, как все пустые клетки открыты, приводят к окончанию игры.";
         global.str[63]="Здесь имеется еще одна битва с боссом (боже опять?).
 Как только вы начнете, пойдет обратный отсчет от 10. Если оно опустится до нуля, игра окончена. Нажмите на босса, чтобы сбросить отсчет, НО будьте аккуратны. Босс от этого будет двигаться быстрее. Нажатие на мину ускорит обратный отсчет. Чтобы выиграть, откройте все пустые клетки до того, как истечет обратный отсчет.";
         global.str[64]="
@@ -347,22 +340,22 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
         global.str[75]="чтобы начать";
         global.str[76]="для настроек игры";
         global.str[77]="Настройки игры";
-        global.str[78]="Текущий путь";
-        global.str[79]="Текущий эпизод";
+        global.str[78]="ПУТЬ";
+        global.str[79]="ЭПИЗОД";
         global.str[80]="Текущий режим";
         global.str[81]="Основной";
         global.str[82]="Тоухоу";
-        global.str[83]="Эпизод Один";
-        global.str[84]="Эпизод Два";
+        global.str[83]="Испытания";
+        global.str[84]="Кастомизация";
         global.str[85]="Обычный";
         global.str[86]="Упрощеннный";
         global.str[87]="для смены музыки";
         global.str[88]="для смены фона";
         global.str[89]="для смены смайлика";
-        global.str[90]="для настройки";
-        global.str[91]="Установите ширину поля";
-        global.str[92]="Установите длину поля";
-        global.str[93]="Установите количество мин";
+        global.str[90]="для смены шляпы";
+        global.str[91]="Ширина";
+        global.str[92]="Длина";
+        global.str[93]="Кол-во мин";
         global.str[94]="Продолжить?";
         global.str[95]="ДА";
         global.str[96]="НЕТ";
@@ -380,6 +373,31 @@ Voici le Dix Nucléaire. Pour l'instant, ce n'est qu'un re-skin. Si vous voulez 
         global.str[107]="Дно Страданий";
         global.str[108]="Черное Море";
         global.str[109]="Глубочайший Конец";
+        global.str[110]="Геймбой";
+        global.str[111]="Не хотите ли вы изменить тип ввода
+Битва с 10 пока поддерживает только тип курсора.
+Поэтому оно НАСТОЯТЕЛЬНО рекоммендуется";
+        global.str[112]="Новый путь был разблокирован";
+        global.str[113]="Внимание!";
+        global.str[114]="Графический чип успешно провалился!";
+        global.str[115]="Эта игра содержит мигающий экран. Если у вас имеется эпилепсия, Я вам НЕ рекоммендую играть в эту игру. Вы были предупреждены!
+
+Нажмите на любую клавишу, чтобы начать.";
+        global.str[116]="[НА ЗАМЕТКУ!]
+Эпизод 3 состоит только из тестовой арены с 11.";
+        global.str[117]="Здесь имеется еще одна очередная битва с боссом (ептваюмать).
+Левая верхняя панель теперь показывает сколько флажков можно поставить перед окончанием игры. Босс будет телепортироваться на поле для установки флагов. Если ты нажмешь (нет не нажмешь, ибо эта механика не реализована) на босса до установки флажка, ты можешь предотвратить установку флажка, но не нажимай на босса когда электрические антенны активированы или ты получишь по ебальнику. Удаление флагов до начала игры также приведет к тому, что ты получишь по ебальнику. Так же, все мины в этом поле теперь нажимные. НЕ УБИРАЙТЕ ФЛАГИ С НАЖИМНЫХ МИН. Босс будет ставить много флажков если мина будет обнаружена. Чтобы выиграть, откройте все пустые клетки до того, как количество флагов станет 0, или до того, как некуда будет поставить флажки.";
+        global.str[118]="ПАУЗА";
+        global.str[119]="Продолжить";
+        global.str[120]="Выход";
+        global.str[121]="Пузырный Таб (???)";
+        global.str[122]="Парный Джакузи";
+        global.str[124]="Опасный Канал";
+        global.str[128]="Кладбище Кораблей";
+        global.str[129]="Дельта П";
+        global.str[130]="Гидро-шок";
+        global.str[131]="ШКАФ ДЪЯВОЛА";
+        global.str[132]="САД ГЕНОЦИДА";
         break;
     }
     case 3:

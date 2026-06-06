@@ -119,8 +119,9 @@ else instance_create(0,0,obj_9_end);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_part2=1666;
+            <string>_part2=2763;
 alpha=0;
+zop=0;
 audio_stop_sound(sfx_11malfunction);
 audio_play_sound(sfx_11break,2,false);
 

@@ -25,19 +25,65 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>time=ds_list_create();
-show_debug_message("time is created.");
+            <string>///Time system re-work!
+time[1]=0;
+time[2]=0;
+time[3]=0;
+time[4]=0;
+time[5]=0;
+time[6]=0;
+time[7]=0;
+time[8]=0;
+time[9]=0;
+time[10]=0;
+time[11]=0;
+time[12]=0; //12 soon
+time[13]=0; //nan
+time_str="";
+
+time_limit=8+global.episode;
+
 ini_open("msplus-ps3-save.ini");
 if ini_key_exists("save","current_time")
 {
     temp0 = ini_read_string("save","current_time","")
     if temp0!=""
     {   
-        ds_list_read(obj_chap1_data.time,temp0);
-        show_debug_message("data is loaded.");
+        time_split(temp0,"_");
+        show_debug_message("data is probably loaded.");
     }
 }
 ini_close();
+
+alarm[0]=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>time_str="";
+
+for (var i = 1; i &lt;= time_limit; i++)
+{
+    time_str+=string(time[i])+"_";
+}
 </string>
           </argument>
         </arguments>
@@ -60,16 +106,13 @@ ini_close();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !obj_input.l2h exit;
+            <string>if !(obj_input.l2h &amp;&amp; global.debug) exit;
 
-for (var i = 0; i &lt; ds_list_size(time); i++)
-{
-    draw_set_valign(fa_top);
-    draw_set_halign(fa_left);
-    draw_set_font(fnt_smol);
-    draw_set_colour(c_white);
-    draw_text_outline(0,i*14,string(ds_list_find_value(time,i)/100),c_white,c_black,1);
-}
+draw_set_valign(fa_top);
+draw_set_halign(fa_left);
+draw_set_font(fnt_smol);
+draw_set_colour(c_white);
+draw_text_outline(0,0,time_str,c_white,c_black,1);
 </string>
           </argument>
         </arguments>

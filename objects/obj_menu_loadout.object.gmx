@@ -164,7 +164,7 @@ temp+=0.05;
 draw_set_valign(fa_top);
 draw_set_halign(fa_middle);
 draw_text_outline(x+160,y+70,"[L1/R1] "+global.str[89],c_white,c_black,1);
-draw_text_outline(x+160,y+90,"[L2/R2] "+global.str[88],c_white,c_black,1);
+draw_text_outline(x+160,y+90,"[L2/R2] "+global.str[90],c_white,c_black,1);
 draw_sprite_stretched(spr_ui3,0,x+136,20,48,48);
 
 switch global.smiley_face

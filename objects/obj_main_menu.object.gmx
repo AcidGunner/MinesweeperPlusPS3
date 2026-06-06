@@ -64,6 +64,29 @@ menu_height = 100;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_title);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
@@ -201,6 +224,17 @@ rot -= angle_difference(rot, selected*(360/image_number))/(0.2*room_speed);
 item = -selected mod image_number;
 if item&lt;0 item+=image_number;
 
+if obj_input.bl &amp;&amp; select=0
+{
+    global.menu_t=obj_main_menu.menu_music;
+    audio_stop_all();
+    audio_play_sound(sfx_game_start,0,false);
+    save_game();
+    save_settings();
+    alarm[4]=60;
+    alarm[3]=45;
+}
+
 if obj_input.a &amp;&amp; select=0
 {
     select=1;
@@ -239,17 +273,6 @@ if obj_input.a &amp;&amp; select=0
         obj_menu_loadout.alarm[1]=5;
     }
 }
-
-/*
-if obj_input.select &amp;&amp; select=0
-{
-    select=1;
-    audio_stop_all();
-    audio_play_sound(sfx_test,0,false);
-    save_game();
-    alarm[2]=60;
-    alarm[3]=45;
-}*/
 
 if select=1 menu_y=lerp(menu_y,360,0.1)
 else menu_y=lerp(menu_y,120,0.1);
@@ -330,7 +353,7 @@ switch item
         draw_rectangle(_x-56,menu_y-10,_x+55,menu_y+10,false);
         draw_set_colour(c_white);
         draw_set_alpha(1);
-        draw_text_outline(_x,menu_y,"Challenges",c_white,c_black,1);
+        draw_text_outline(_x,menu_y,global.str[83],c_white,c_black,1);
         break;
     }
     case 3:
@@ -338,7 +361,7 @@ switch item
         draw_rectangle(_x-56,menu_y-10,_x+55,menu_y+10,false);
         draw_set_colour(c_white);
         draw_set_alpha(1);
-        draw_text_outline(_x,menu_y,"Loadout",c_white,c_black,1);
+        draw_text_outline(_x,menu_y,global.str[84],c_white,c_black,1);
         break;
     }
 }

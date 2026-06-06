@@ -9,7 +9,7 @@
 * ERRORwhately - aPS3e Tester/debugger
 * TOCHARA - Coded v0.2.6 PATCH
 * Team Shanghai Alice - Touhou stuff
-* Maratyla - Darken Challange idea
+* Maratyla - Lights Out Challenge idea
 * Alien Captain's Creator - Alien Captain's hat
 * SPAMTENN - Frozen Captain sprite
 * GameMaker Studio 1.4.9999 - Used Game engine

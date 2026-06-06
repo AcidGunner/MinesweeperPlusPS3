@@ -76,11 +76,7 @@ color=c_white;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ini_open("msplus-ps3-save.ini");
-ini_write_string("save","current_time","");
-ini_close();
-if instance_exists(obj_chap1_data) instance_destroy(obj_chap1_data);
-
+            <string>if instance_exists(obj_chap1_data) instance_destroy(obj_chap1_data);
 instance_create(0,0,obj_chap1_data);
 room_goto(rm_map);
 </string>
@@ -185,8 +181,8 @@ draw_set_halign(fa_middle);
 draw_text_outline(x+80,y+112,global.str[74],c_white,c_black,1);
 draw_set_valign(fa_center);
 draw_text_outline(x+248,y+200,"[X] "+global.str[75],c_white,c_black,1);
-draw_text_outline(x+80,y+200,"[□] ROUTE: "+string_upper(obj_main_menu.route_list[global.route])+"
-[&lt;-&gt;] EPISODE: "+string(global.episode),c_white,c_black,1);
+draw_text_outline(x+80,y+200,"[□] "+global.str[78]+": "+string_upper(obj_main_menu.route_list[global.route])+"
+[&lt;-&gt;] "+global.str[79]+": "+string(global.episode),c_white,c_black,1);
 draw_text_outline(x+160,y+8,"[SELECT] "+global.str[76],c_white,c_black,1);
 draw_set_valign(fa_bottom);
 draw_text_outline(x+160,230,"[○] - "+global.str[13],c_white,c_black,1);

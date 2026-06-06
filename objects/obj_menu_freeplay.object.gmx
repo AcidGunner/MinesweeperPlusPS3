@@ -32,6 +32,7 @@ hat=0;
 the_y=0;
 temp=0;
 temp1=0;
+selector=0;
 
 grid_w=9;
 grid_h=9;
@@ -139,6 +140,8 @@ room_goto(rm_game);
         global.bg_music=obj_main_menu.menu_music;
         save_settings();
     }
+    if obj_input.upp &amp;&amp; selector&gt;0 selector--;
+    if obj_input.dow &amp;&amp; selector&lt;2 selector++;
     if obj_input.a
     {
         select=1;
@@ -146,17 +149,11 @@ room_goto(rm_game);
         audio_play_sound(sfx_game_start,0,false);
         global.bg_music=obj_main_menu.menu_music;
         save_game();
+        global.temp_menu_t=global.menu_t;
+        global.temp_bg_mus=global.bg_music;
         global.temp_stage=global.stage;
         global.temp_lives=lives;
         lives=3;
-        
-        if grid_w&lt;3 grid_w=3;
-        if grid_h&lt;3 grid_h=3;
-        if grid_m&lt;1 grid_m=1;
-        
-        if grid_w&gt;48 grid_w=48;
-        if grid_h&gt;32 grid_h=32;
-        if grid_m&gt;(grid_w*grid_h)-1 grid_m=(grid_w*grid_h)-1;
         
         global.gridw[0]=grid_w;
         global.gridh[0]=grid_h;
@@ -170,11 +167,17 @@ room_goto(rm_game);
         obj_main_menu.type=0;
         obj_main_menu.select=0;
     }
-    if obj_input.upp
+    if obj_input.rig
     {
-        grid_w=get_integer(global.str[91],9);
-        grid_h=get_integer(global.str[92],9);
-        grid_m=get_integer(global.str[93],10);
+        if selector=0 &amp;&amp; grid_w&lt;48 grid_w++;
+        if selector=1 &amp;&amp; grid_h&lt;32 grid_h++;
+        if selector=2 &amp;&amp; grid_m&lt;(grid_w*grid_h)-1 grid_m++;
+    }
+    if obj_input.lef
+    {
+        if selector=0 &amp;&amp; grid_w&gt;3 grid_w--;
+        if selector=1 &amp;&amp; grid_h&gt;3 grid_h--;
+        if selector=2 &amp;&amp; grid_m&gt;1 grid_m--;
     }
 }
 
@@ -208,10 +211,20 @@ temp+=0.05;
 draw_set_valign(fa_top);
 draw_set_halign(fa_middle);
 draw_text_outline(x+160,y+200,"[X] "+global.str[75],c_white,c_black,1);
-draw_text_outline(x+160,y+70,"[L1/R1] "+global.str[87],c_white,c_black,1);
-draw_text_outline(x+160,y+90,"[L2/R2] "+global.str[88],c_white,c_black,1);
-draw_text_outline(x+160,y+150,"[□] "+global.str[90],c_white,c_black,1);
-draw_text_outline(x+160,y+170,"W: "+string(grid_w)+"; H: "+string(grid_h)+"; M: "+string(grid_m)+";",c_white,c_black,1);
+draw_text_outline(x+160,y+20,"[L1/R1] "+global.str[87],c_white,c_black,1);
+draw_text_outline(x+160,y+40,"[L2/R2] "+global.str[88],c_white,c_black,1);
+
+var op1=c_white;var op2=c_white;var op3=c_white;
+var oo1=c_black;var oo2=c_black;var oo3=c_black;
+
+if selector=0{op1=c_red;oo1=c_white}
+if selector=1{op2=c_red;oo2=c_white}
+if selector=2{op3=c_red;oo3=c_white}
+
+draw_text_outline(x+160,y+100,global.str[91]+": "+string(grid_w),op1,oo1,1);
+draw_text_outline(x+160,y+120,global.str[92]+": "+string(grid_h),op2,oo2,1);
+draw_text_outline(x+160,y+140,global.str[93]+": "+string(grid_m),op3,oo3,1);
+
 draw_set_valign(fa_bottom);
 draw_text_outline(x+160,230,"[○] - "+global.str[13],c_white,c_black,1);
 </string>
