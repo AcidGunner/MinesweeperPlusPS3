@@ -4,7 +4,7 @@ As for PS3 Edition you can download those versions:
 
 * [v0.3 version (LATEST)](https://github.com/AcidPS3-Project/AcidPS3Data/raw/refs/heads/main/games/ps3/org/latest/minesweeperplus.pkg?download=)
 * [v0.2.6P version](https://github.com/AcidPS3-Project/AcidPS3Data/raw/refs/heads/main/games/ps3/org/outdated/minesweeperplusv0-2-6p.pkg?download=)
-* [v0.2.6 version NON-PATCH](https://github.com/AcidPS3-Project/MinesweeperPlusPS3/releases/download/v0.2.6/Minesweeper-Plus-PS3-v0.2.6.pkg)
+* [v0.2.6NP version](https://github.com/AcidPS3-Project/MinesweeperPlusPS3/releases/download/v0.2.6/Minesweeper-Plus-PS3-v0.2.6.pkg)
 * [v0.1.1F version](https://github.com/AcidPS3-Project/AcidPS3Data/raw/refs/heads/main/games/ps3/org/outdated/minesweeperplusv0-1-1f.pkg?download=)
 * [Demo version](https://github.com/AcidPS3-Project/AcidPS3Data/raw/refs/heads/main/games/ps3/org/legacy/minesweeperplusdemo.pkg?download=)
 * [-April Fools version-](https://github.com/AcidPS3-Project/AcidPS3Data/raw/refs/heads/main/games/ps3/org/outdated/minesweeperplus-april.pkg?download=)
